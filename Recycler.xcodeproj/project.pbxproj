@@ -12,9 +12,12 @@
 		6F120609204574E20042056E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F120607204574E20042056E /* Main.storyboard */; };
 		6F12060B204574E20042056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060A204574E20042056E /* Assets.xcassets */; };
 		6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060C204574E20042056E /* LaunchScreen.storyboard */; };
+		9A276421DDADC37ACF93013F /* Pods_Recycler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
+		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
 		6F120600204574E20042056E /* Recycler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recycler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F120603204574E20042056E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F120605204574E20042056E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		6F12060A204574E20042056E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F12060D204574E20042056E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F12060F204574E20042056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A276421DDADC37ACF93013F /* Pods_Recycler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6DF5F9F5FEFA79CE5C501A21 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */,
+				34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6F1205F7204574E20042056E = {
 			isa = PBXGroup;
 			children = (
 				6F120602204574E20042056E /* Recycler */,
 				6F120601204574E20042056E /* Products */,
+				6DF5F9F5FEFA79CE5C501A21 /* Pods */,
+				C99E8D43E96CDC74362F3157 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = Recycler;
 			sourceTree = "<group>";
 		};
+		C99E8D43E96CDC74362F3157 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6F120612204574E20042056E /* Build configuration list for PBXNativeTarget "Recycler" */;
 			buildPhases = (
+				820DE1F9B232604ABB463BA4 /* [CP] Check Pods Manifest.lock */,
 				6F1205FC204574E20042056E /* Sources */,
 				6F1205FD204574E20042056E /* Frameworks */,
 				6F1205FE204574E20042056E /* Resources */,
+				826A590C4362114B2BCDE903 /* [CP] Embed Pods Frameworks */,
+				F170355E30080FCD8DEAA075 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		820DE1F9B232604ABB463BA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Recycler-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		826A590C4362114B2BCDE903 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Recycler/Pods-Recycler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F170355E30080FCD8DEAA075 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Recycler/Pods-Recycler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6F1205FC204574E20042056E /* Sources */ = {
@@ -272,6 +350,7 @@
 		};
 		6F120613204574E20042056E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +366,7 @@
 		};
 		6F120614204574E20042056E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
