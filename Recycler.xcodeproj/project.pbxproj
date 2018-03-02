@@ -143,7 +143,7 @@
 				CLASSPREFIX = RCL;
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = softserve.univercity;
+				ORGANIZATIONNAME = softserve.university;
 				TargetAttributes = {
 					6F1205FF204574E20042056E = {
 						CreatedOnToolsVersion = 9.2;
