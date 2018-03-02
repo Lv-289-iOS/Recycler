@@ -14,7 +14,7 @@
         <scene sceneID="ysm-Iy-LFQ">
             <objects>
                 <navigationController id="5Sv-Ou-XbA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dashboard" id="hRK-JC-aHt"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboard" id="hRK-JC-aHt"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GVt-qM-ZcM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -54,4 +54,7 @@
             <point key="canvasLocation" x="196" y="-426.83658170914543"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dashboard" width="25" height="20"/>
+    </resources>
 </document>
