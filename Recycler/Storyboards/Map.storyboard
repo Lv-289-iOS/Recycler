@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-817" y="-125"/>
         </scene>
-        <!--View Controller-->
+        <!--MapVC-->
         <scene sceneID="WMz-69-tTg">
             <objects>
-                <viewController id="7k4-Va-Vvh" sceneMemberID="viewController">
+                <viewController id="7k4-Va-Vvh" customClass="RCLMapVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zup-Uv-mUS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

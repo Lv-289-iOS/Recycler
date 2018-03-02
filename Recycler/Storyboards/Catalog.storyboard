@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-586" y="10"/>
         </scene>
-        <!--View Controller-->
+        <!--CatalogVC-->
         <scene sceneID="SXT-fX-ZPY">
             <objects>
-                <viewController id="L5i-po-Cxe" sceneMemberID="viewController">
+                <viewController id="L5i-po-Cxe" customClass="RCLCatalogVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TeC-QS-bDE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

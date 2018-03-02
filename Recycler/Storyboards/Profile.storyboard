@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-332" y="-326"/>
         </scene>
-        <!--View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="W7Q-th-yh4">
             <objects>
-                <viewController id="OdL-1Q-NxI" sceneMemberID="viewController">
+                <viewController id="OdL-1Q-NxI" customClass="RCLProfileVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svo-bm-zth">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
