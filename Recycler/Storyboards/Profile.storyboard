@@ -14,7 +14,7 @@
         <scene sceneID="EN2-iw-OFb">
             <objects>
                 <navigationController id="CGe-9w-ZQD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="dXI-RR-Gop"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="avatar" id="dXI-RR-Gop"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4l4-Dl-H1s">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -54,4 +54,7 @@
             <point key="canvasLocation" x="429.60000000000002" y="-326.08695652173918"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="avatar" width="21" height="25"/>
+    </resources>
 </document>

@@ -14,7 +14,7 @@
         <scene sceneID="37X-IC-hdO">
             <objects>
                 <navigationController id="9EG-g4-TWk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Catalog" id="C7j-Xx-ImE"/>
+                    <tabBarItem key="tabBarItem" title="Catalog" image="catalog" id="C7j-Xx-ImE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vcw-3T-dXt">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -54,4 +54,7 @@
             <point key="canvasLocation" x="180" y="10.344827586206897"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="catalog" width="25" height="19"/>
+    </resources>
 </document>
