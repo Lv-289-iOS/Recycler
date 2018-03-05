@@ -20,6 +20,17 @@
 		6F12060B204574E20042056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060A204574E20042056E /* Assets.xcassets */; };
 		6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060C204574E20042056E /* LaunchScreen.storyboard */; };
 		9A276421DDADC37ACF93013F /* Pods_Recycler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */; };
+		A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */; };
+		A300B31E2049FD3E00261AEB /* RCLMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B31D2049FD3E00261AEB /* RCLMapVC.swift */; };
+		A300B3202049FD5300261AEB /* RCLScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B31F2049FD5300261AEB /* RCLScanVC.swift */; };
+		A300B3222049FD7400261AEB /* RCLCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B3212049FD7400261AEB /* RCLCatalogVC.swift */; };
+		A300B3242049FDA500261AEB /* RCLProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B3232049FDA500261AEB /* RCLProfileVC.swift */; };
+		A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAA9204971B8005A3A87 /* TabBar.storyboard */; };
+		A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */; };
+		A39BEAAF20497812005A3A87 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAAE20497812005A3A87 /* Map.storyboard */; };
+		A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB02049785A005A3A87 /* Scan.storyboard */; };
+		A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB22049787F005A3A87 /* Catalog.storyboard */; };
+		A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB420497892005A3A87 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +43,7 @@
 		19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
 		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
+		4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
 		6F120600204574E20042056E /* Recycler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recycler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F120603204574E20042056E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F120605204574E20042056E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +51,17 @@
 		6F12060A204574E20042056E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F12060D204574E20042056E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F12060F204574E20042056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLDashboardVC.swift; sourceTree = "<group>"; };
+		A300B31D2049FD3E00261AEB /* RCLMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLMapVC.swift; sourceTree = "<group>"; };
+		A300B31F2049FD5300261AEB /* RCLScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLScanVC.swift; sourceTree = "<group>"; };
+		A300B3212049FD7400261AEB /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
+		A300B3232049FDA500261AEB /* RCLProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLProfileVC.swift; sourceTree = "<group>"; };
+		A39BEAA9204971B8005A3A87 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		A39BEAAE20497812005A3A87 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		A39BEAB02049785A005A3A87 /* Scan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
+		A39BEAB22049787F005A3A87 /* Catalog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
+		A39BEAB420497892005A3A87 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,6 +90,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4BAB4D4C204D47AE0005C16B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		6DF5F9F5FEFA79CE5C501A21 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +110,7 @@
 		6F1205F7204574E20042056E = {
 			isa = PBXGroup;
 			children = (
+				4BAB4D4C204D47AE0005C16B /* Cells */,
 				6F120602204574E20042056E /* Recycler */,
 				6F120601204574E20042056E /* Products */,
 				6DF5F9F5FEFA79CE5C501A21 /* Pods */,
@@ -100,13 +132,40 @@
 				19338E032046D34E007BD6E3 /* GoogleService-Info.plist */,
 				6F120603204574E20042056E /* AppDelegate.swift */,
 				6F120605204574E20042056E /* ViewController.swift */,
-				6F120607204574E20042056E /* Main.storyboard */,
+				A300B31C2049FCF500261AEB /* Controllers */,
+				A39BEAAB20497789005A3A87 /* Storyboards */,
 				6F12060A204574E20042056E /* Assets.xcassets */,
 				19F5AF032049386100ADF338 /* Model */,
-				6F12060C204574E20042056E /* LaunchScreen.storyboard */,
 				6F12060F204574E20042056E /* Info.plist */,
 			);
 			path = Recycler;
+			sourceTree = "<group>";
+		};
+		A300B31C2049FCF500261AEB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
+				A300B31D2049FD3E00261AEB /* RCLMapVC.swift */,
+				A300B31F2049FD5300261AEB /* RCLScanVC.swift */,
+				A300B3212049FD7400261AEB /* RCLCatalogVC.swift */,
+				A300B3232049FDA500261AEB /* RCLProfileVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A39BEAAB20497789005A3A87 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6F12060C204574E20042056E /* LaunchScreen.storyboard */,
+				6F120607204574E20042056E /* Main.storyboard */,
+				A39BEAA9204971B8005A3A87 /* TabBar.storyboard */,
+				A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */,
+				A39BEAAE20497812005A3A87 /* Map.storyboard */,
+				A39BEAB02049785A005A3A87 /* Scan.storyboard */,
+				A39BEAB22049787F005A3A87 /* Catalog.storyboard */,
+				A39BEAB420497892005A3A87 /* Profile.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		C99E8D43E96CDC74362F3157 /* Frameworks */ = {
@@ -149,7 +208,7 @@
 				CLASSPREFIX = RCL;
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = softserve.univercity;
+				ORGANIZATIONNAME = softserve.university;
 				TargetAttributes = {
 					6F1205FF204574E20042056E = {
 						CreatedOnToolsVersion = 9.2;
@@ -180,6 +239,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */,
+				A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */,
+				A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */,
+				A39BEAAF20497812005A3A87 /* Map.storyboard in Resources */,
+				A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */,
+				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
@@ -268,12 +333,25 @@
 			files = (
 				197BF747204972D600B8D06B /* RCLCollectionReference.swift in Sources */,
 				6F120606204574E20042056E /* ViewController.swift in Sources */,
+<<<<<<< HEAD
 				197BF74220496C7700B8D06B /* RCLTrash.swift in Sources */,
 				19AF48C1204D463A00958858 /* RCLFirestoreExtensions.swift in Sources */,
 				19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */,
 				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
+=======
+				A300B3242049FDA500261AEB /* RCLProfileVC.swift in Sources */,
+				A300B31E2049FD3E00261AEB /* RCLMapVC.swift in Sources */,
+				4BAB4D4E204D47F60005C16B /* RCLCatalogTableViewCell.swift in Sources */,
+				197BF74220496C7700B8D06B /* Trash.swift in Sources */,
+				19F5AF0720493ADA00ADF338 /* FirestoreService.swift in Sources */,
+				A300B3202049FD5300261AEB /* RCLScanVC.swift in Sources */,
+				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
+				A300B3222049FD7400261AEB /* RCLCatalogVC.swift in Sources */,
+				19F5AF05204938CE00ADF338 /* User.swift in Sources */,
+>>>>>>> 6ed1a5a2e5d0a782dbe945e55b774ff97c1cd5da
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
+				A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
