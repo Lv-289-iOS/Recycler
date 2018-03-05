@@ -12,6 +12,7 @@
 		197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197BF74320496D0900B8D06B /* RCLTrashCan.swift */; };
 		19F5AF05204938CE00ADF338 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* User.swift */; };
 		19F5AF0720493ADA00ADF338 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* FirestoreService.swift */; };
+		4BAB4D4E204D47F60005C16B /* RCLCatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */; };
 		6F120604204574E20042056E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120603204574E20042056E /* AppDelegate.swift */; };
 		6F120606204574E20042056E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120605204574E20042056E /* ViewController.swift */; };
 		6F120609204574E20042056E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F120607204574E20042056E /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		19F5AF0620493ADA00ADF338 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
 		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
+		4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
 		6F120600204574E20042056E /* Recycler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recycler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F120603204574E20042056E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F120605204574E20042056E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4BAB4D4C204D47AE0005C16B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		6DF5F9F5FEFA79CE5C501A21 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		6F1205F7204574E20042056E = {
 			isa = PBXGroup;
 			children = (
+				4BAB4D4C204D47AE0005C16B /* Cells */,
 				6F120602204574E20042056E /* Recycler */,
 				6F120601204574E20042056E /* Products */,
 				6DF5F9F5FEFA79CE5C501A21 /* Pods */,
@@ -318,6 +329,7 @@
 				6F120606204574E20042056E /* ViewController.swift in Sources */,
 				A300B3242049FDA500261AEB /* RCLProfileVC.swift in Sources */,
 				A300B31E2049FD3E00261AEB /* RCLMapVC.swift in Sources */,
+				4BAB4D4E204D47F60005C16B /* RCLCatalogTableViewCell.swift in Sources */,
 				197BF74220496C7700B8D06B /* Trash.swift in Sources */,
 				19F5AF0720493ADA00ADF338 /* FirestoreService.swift in Sources */,
 				A300B3202049FD5300261AEB /* RCLScanVC.swift in Sources */,
