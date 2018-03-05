@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct TrashCan: Identifiable {
+    var id: String?
+    var trashId: String
+    var userId: String
+    var address: String
+    var isFull: Bool
+    var type: Int
+    var size: Int
+}
