@@ -10,6 +10,10 @@ import UIKit
 
 class RCLCatalogTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var catalogImageView: UIImageView!
+    
+    @IBOutlet weak var catalogLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
