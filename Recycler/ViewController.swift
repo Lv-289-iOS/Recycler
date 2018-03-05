@@ -3,7 +3,7 @@
 //  Recycler
 //
 //  Created by Ostin Ostwald on 2/27/18.
-//  Copyright © 2018 softserve.univercity. All rights reserved.
+//  Copyright © 2018 softserve.university. All rights reserved.
 //
 
 import UIKit
