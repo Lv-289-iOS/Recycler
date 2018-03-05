@@ -9,13 +9,7 @@
 import UIKit
 import AVFoundation
 
-protocol BarcodeDelegate: class {
-    func barcodeRead(barcode: String)
-}
-
 class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
-    weak var delegate: BarcodeDelegate?
     
     var output = AVCaptureMetadataOutput()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
@@ -78,23 +72,34 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
                 dismiss(animated: true)
-                delegate?.barcodeRead(barcode: code)
-                print(code)
-                
-                captureSession.stopRunning()
-                let alert = UIAlertController(title: nil, message: code, preferredStyle: .alert)
-                self.present(alert, animated: true)
-                
-                // duration in seconds
-                let duration: Double = 5
-                
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
-                    alert.dismiss(animated: true)
-                    self.captureSession.startRunning()
-                }
-                
+                onQrCodeRead(code)
             }
         }
+    }
+    
+    func onQrCodeRead(_ qrCode: String) {
+        print(qrCode)
+        validateQrCode(qrCode)
+        captureSession.stopRunning()
+        let alert = UIAlertController(title: nil, message: qrCode, preferredStyle: .alert)
+        self.present(alert, animated: true)
+        
+        // duration in seconds
+        let duration: Double = 2
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
+            alert.dismiss(animated: true)
+            self.captureSession.startRunning()
+        }
+    }
+    
+    func validateQrCode(_ qrCode: String) {
+        // TODO:
+        // QR code format is "trashCanID: UUID"
+        // Initially the button is inactive and title is "Please scan QR"
+        // If scanned qr code i invalid we the title is "It's not yours"
+        // If scanned qr code is correct and trash can is empty then button becomes active and the title is "Report trash is full"
+        // If scanned qr code is correct and trash can is already full then button becomes inactive and title is "Already reported"
     }
     
 }
