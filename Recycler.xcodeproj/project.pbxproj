@@ -18,6 +18,9 @@
 		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
 		630020DD204EAD4F002E7D89 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020DC204EAD4F002E7D89 /* Colors.swift */; };
 		630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020DE204EB542002E7D89 /* RCLProfileVC.swift */; };
+		630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */; };
+		630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */; };
+		630020E5204EB852002E7D89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E4204EB852002E7D89 /* Constants.swift */; };
 		6F120604204574E20042056E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120603204574E20042056E /* AppDelegate.swift */; };
 		6F120606204574E20042056E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120605204574E20042056E /* ViewController.swift */; };
 		6F120609204574E20042056E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F120607204574E20042056E /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 		4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
 		630020DC204EAD4F002E7D89 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Recycler/Colors.swift; sourceTree = SOURCE_ROOT; };
 		630020DE204EB542002E7D89 /* RCLProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLProfileVC.swift; sourceTree = "<group>"; };
+		630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLProfileCell.swift; sourceTree = "<group>"; };
+		630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCLProfileCell.xib; sourceTree = "<group>"; };
+		630020E4204EB852002E7D89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6F120600204574E20042056E /* Recycler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recycler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F120603204574E20042056E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F120605204574E20042056E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,8 @@
 		4BAB4D4C204D47AE0005C16B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */,
+				630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */,
 				4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */,
 			);
 			path = Cells;
@@ -115,7 +123,6 @@
 		6F1205F7204574E20042056E = {
 			isa = PBXGroup;
 			children = (
-				4BAB4D4C204D47AE0005C16B /* Cells */,
 				6F120602204574E20042056E /* Recycler */,
 				6F120601204574E20042056E /* Products */,
 				6DF5F9F5FEFA79CE5C501A21 /* Pods */,
@@ -136,6 +143,7 @@
 			children = (
 				19338E032046D34E007BD6E3 /* GoogleService-Info.plist */,
 				630020DC204EAD4F002E7D89 /* Colors.swift */,
+				630020E4204EB852002E7D89 /* Constants.swift */,
 				6F120603204574E20042056E /* AppDelegate.swift */,
 				6F120605204574E20042056E /* ViewController.swift */,
 				A300B31C2049FCF500261AEB /* Controllers */,
@@ -150,6 +158,7 @@
 		A300B31C2049FCF500261AEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4BAB4D4C204D47AE0005C16B /* Cells */,
 				630020DE204EB542002E7D89 /* RCLProfileVC.swift */,
 				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
 				A300B31D2049FD3E00261AEB /* RCLMapVC.swift */,
@@ -252,6 +261,7 @@
 				A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
+				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
 				6F120609204574E20042056E /* Main.storyboard in Resources */,
@@ -342,7 +352,9 @@
 				6F120606204574E20042056E /* ViewController.swift in Sources */,
 				197BF74220496C7700B8D06B /* RCLTrash.swift in Sources */,
 				19AF48C1204D463A00958858 /* RCLFirestoreExtensions.swift in Sources */,
+				630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */,
 				19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */,
+				630020E5204EB852002E7D89 /* Constants.swift in Sources */,
 				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
 				630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
