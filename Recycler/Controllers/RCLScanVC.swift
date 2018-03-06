@@ -17,6 +17,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession = AVCaptureSession()
     
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var trashIsFullBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         videoPreviewLayer.frame = view.bounds
         view.layer.addSublayer(videoPreviewLayer)
         view.addSubview(visualEffectView)
+        view.addSubview(trashIsFullBtn)
         
         let metadataOutput = AVCaptureMetadataOutput()
         
@@ -97,12 +99,19 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func validateQrCode(_ qrCode: String) {
-        // TODO:
-        // QR code format is "trashCanID: UUID"
-        // Initially the button is inactive and title is "Please scan QR"
-        // If scanned qr code i invalid we the title is "It's not yours"
-        // If scanned qr code is correct and trash can is empty then button becomes active and the title is "Report trash is full"
-        // If scanned qr code is correct and trash can is already full then button becomes inactive and title is "Already reported"
+        // TODO: Initially the button is inactive and title is "Please scan QR"
+        
+        if !qrCode.hasPrefix("trashCanID:") { // QR code format is "trashCanID: UUID"
+            trashIsFullBtn.isEnabled = false
+            trashIsFullBtn.setTitle("Wrong QR", for: .normal)
+        } else {
+            trashIsFullBtn.isEnabled = true
+            trashIsFullBtn.setTitle("Correct QR", for: .normal)
+            // TODO:
+            // If scanned qr code is invalid we the title is "It's not yours"
+            // If scanned qr code is correct and trash can is empty then button becomes active and the title is "Report trash is full"
+            // If scanned qr code is correct and trash can is already full then button becomes inactive and title is "Already reported"
+        }
     }
     
 }

@@ -81,7 +81,6 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.9" id="3P3-cJ-XGi"/>
                             <constraint firstItem="ean-42-xHM" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.7" id="8Hw-Bi-42P"/>
@@ -94,6 +93,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tHp-hS-4bk"/>
                     <connections>
+                        <outlet property="trashIsFullBtn" destination="ean-42-xHM" id="gKg-Sj-SKm"/>
                         <outlet property="visualEffectView" destination="xad-EL-OzA" id="4x9-6A-01I"/>
                     </connections>
                 </viewController>
