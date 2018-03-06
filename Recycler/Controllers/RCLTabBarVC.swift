@@ -12,13 +12,12 @@ class RCLTabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setupUI() {
+        self.tabBar.tintColor = UIColor.TabBar.tint
+        self.tabBar.barTintColor = UIColor.TabBar.barTint
     }
 
 }
