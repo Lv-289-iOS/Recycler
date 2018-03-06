@@ -16,6 +16,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession = AVCaptureSession()
     
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +54,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.frame = view.bounds
         view.layer.addSublayer(videoPreviewLayer)
+        view.addSubview(visualEffectView)
         
         let metadataOutput = AVCaptureMetadataOutput()
         

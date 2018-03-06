@@ -72,13 +72,16 @@
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ean-42-xHM">
                                 <rect key="frame" x="56.5" y="543.5" width="262.5" height="49.5"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ean-42-xHM" secondAttribute="height" multiplier="53:10" id="KiD-Fn-fpc"/>
                                 </constraints>
-                                <state key="normal" title="Trash is full"/>
+                                <state key="normal" title="Trash is full">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.9" id="3P3-cJ-XGi"/>
                             <constraint firstItem="ean-42-xHM" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.7" id="8Hw-Bi-42P"/>
@@ -90,6 +93,9 @@
                         <viewLayoutGuide key="safeArea" id="2fv-gF-hKi"/>
                     </view>
                     <navigationItem key="navigationItem" id="tHp-hS-4bk"/>
+                    <connections>
+                        <outlet property="visualEffectView" destination="xad-EL-OzA" id="4x9-6A-01I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fga-CM-e2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
