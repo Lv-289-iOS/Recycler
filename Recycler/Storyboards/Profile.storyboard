@@ -4,8 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,18 +36,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-v4-PzD">
-                                <rect key="frame" x="158" y="323" width="58" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEQ-Nc-Hwz" userLabel="ProfileView">
+                                <rect key="frame" x="20" y="104" width="335" height="133.5"/>
+                                <color key="backgroundColor" white="0.87760416669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBw-tB-UPW">
+                                <rect key="frame" x="-0.5" y="245" width="375" height="373"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nEQ-Nc-Hwz" firstAttribute="top" secondItem="x4o-Ig-jfr" secondAttribute="top" constant="40" id="3v2-Uh-rFj"/>
+                            <constraint firstItem="HBw-tB-UPW" firstAttribute="top" secondItem="nEQ-Nc-Hwz" secondAttribute="bottom" constant="7.5" id="QQu-rp-TjX"/>
+                            <constraint firstItem="x4o-Ig-jfr" firstAttribute="trailing" secondItem="nEQ-Nc-Hwz" secondAttribute="trailing" constant="20" id="Roo-LU-WbN"/>
+                            <constraint firstItem="HBw-tB-UPW" firstAttribute="width" secondItem="svo-bm-zth" secondAttribute="width" id="Tdx-GA-aE2"/>
+                            <constraint firstItem="nEQ-Nc-Hwz" firstAttribute="height" secondItem="svo-bm-zth" secondAttribute="height" multiplier="0.2" id="eSs-O7-jdB"/>
+                            <constraint firstItem="HBw-tB-UPW" firstAttribute="centerX" secondItem="x4o-Ig-jfr" secondAttribute="centerX" id="g9f-fb-tJC"/>
+                            <constraint firstItem="nEQ-Nc-Hwz" firstAttribute="leading" secondItem="x4o-Ig-jfr" secondAttribute="leading" constant="20" id="hbJ-BG-HTB"/>
+                            <constraint firstItem="x4o-Ig-jfr" firstAttribute="bottom" secondItem="HBw-tB-UPW" secondAttribute="bottom" id="uO0-CD-Wvf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="x4o-Ig-jfr"/>
                     </view>
                     <navigationItem key="navigationItem" id="OZx-VR-Yck"/>
+                    <connections>
+                        <outlet property="profileView" destination="nEQ-Nc-Hwz" id="2vg-D3-isK"/>
+                        <outlet property="tableView" destination="HBw-tB-UPW" id="Mf2-7H-gjw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJ3-1Q-QWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

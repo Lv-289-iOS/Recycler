@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,11 +45,57 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xad-EL-OzA">
+                                <rect key="frame" x="18.5" y="74" width="337.5" height="60"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ton-Lk-ZAM">
+                                    <rect key="frame" x="0.0" y="0.0" width="337.5" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some explaination here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJi-tJ-x6X">
+                                            <rect key="frame" x="17" y="3" width="303.5" height="54"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="width" secondItem="Ton-Lk-ZAM" secondAttribute="width" multiplier="0.9" id="RcB-NE-HaR"/>
+                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="centerX" secondItem="Ton-Lk-ZAM" secondAttribute="centerX" id="h4v-lF-mx4"/>
+                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="height" secondItem="Ton-Lk-ZAM" secondAttribute="height" multiplier="0.9" id="i0g-xv-UEX"/>
+                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="centerY" secondItem="Ton-Lk-ZAM" secondAttribute="centerY" id="oZO-XD-2Vy"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3Ft-M2-Yi0"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ean-42-xHM">
+                                <rect key="frame" x="56.5" y="543.5" width="262.5" height="49.5"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ean-42-xHM" secondAttribute="height" multiplier="53:10" id="KiD-Fn-fpc"/>
+                                </constraints>
+                                <state key="normal" title="Trash is full">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xad-EL-OzA" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.9" id="3P3-cJ-XGi"/>
+                            <constraint firstItem="ean-42-xHM" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.7" id="8Hw-Bi-42P"/>
+                            <constraint firstItem="xad-EL-OzA" firstAttribute="top" secondItem="2fv-gF-hKi" secondAttribute="top" constant="10" id="Kp0-l5-bVJ"/>
+                            <constraint firstItem="xad-EL-OzA" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="MU3-1s-7q4"/>
+                            <constraint firstItem="ean-42-xHM" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="Rxc-At-QBd"/>
+                            <constraint firstItem="2fv-gF-hKi" firstAttribute="bottom" secondItem="ean-42-xHM" secondAttribute="bottom" constant="25" id="rJj-jG-IE4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2fv-gF-hKi"/>
                     </view>
                     <navigationItem key="navigationItem" id="tHp-hS-4bk"/>
+                    <connections>
+                        <outlet property="trashIsFullBtn" destination="ean-42-xHM" id="gKg-Sj-SKm"/>
+                        <outlet property="visualEffectView" destination="xad-EL-OzA" id="4x9-6A-01I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fga-CM-e2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

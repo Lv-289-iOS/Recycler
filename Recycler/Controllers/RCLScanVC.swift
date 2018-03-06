@@ -9,18 +9,15 @@
 import UIKit
 import AVFoundation
 
-protocol BarcodeDelegate: class {
-    func barcodeRead(barcode: String)
-}
-
 class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
-    weak var delegate: BarcodeDelegate?
     
     var output = AVCaptureMetadataOutput()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
     var captureSession = AVCaptureSession()
+    
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var trashIsFullBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +55,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.frame = view.bounds
         view.layer.addSublayer(videoPreviewLayer)
+        view.addSubview(visualEffectView)
+        view.addSubview(trashIsFullBtn)
         
         let metadataOutput = AVCaptureMetadataOutput()
         
@@ -78,22 +77,40 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
                 dismiss(animated: true)
-                delegate?.barcodeRead(barcode: code)
-                print(code)
-                
-                captureSession.stopRunning()
-                let alert = UIAlertController(title: nil, message: code, preferredStyle: .alert)
-                self.present(alert, animated: true)
-                
-                // duration in seconds
-                let duration: Double = 5
-                
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
-                    alert.dismiss(animated: true)
-                    self.captureSession.startRunning()
-                }
-                
+                onQrCodeRead(code)
             }
+        }
+    }
+    
+    func onQrCodeRead(_ qrCode: String) {
+        print(qrCode)
+        validateQrCode(qrCode)
+        captureSession.stopRunning()
+        let alert = UIAlertController(title: nil, message: qrCode, preferredStyle: .alert)
+        self.present(alert, animated: true)
+        
+        // duration in seconds
+        let duration: Double = 2
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
+            alert.dismiss(animated: true)
+            self.captureSession.startRunning()
+        }
+    }
+    
+    func validateQrCode(_ qrCode: String) {
+        // TODO: Initially the button is inactive and title is "Please scan QR"
+        
+        if !qrCode.hasPrefix("trashCanID:") { // QR code format is "trashCanID: UUID"
+            trashIsFullBtn.isEnabled = false
+            trashIsFullBtn.setTitle("Wrong QR", for: .normal)
+        } else {
+            trashIsFullBtn.isEnabled = true
+            trashIsFullBtn.setTitle("Correct QR", for: .normal)
+            // TODO:
+            // If scanned qr code is invalid we the title is "It's not yours"
+            // If scanned qr code is correct and trash can is empty then button becomes active and the title is "Report trash is full"
+            // If scanned qr code is correct and trash can is already full then button becomes inactive and title is "Already reported"
         }
     }
     
