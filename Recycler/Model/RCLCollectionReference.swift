@@ -1,5 +1,5 @@
 //
-//  Trash.swift
+//  RCLCollectionReference.swift
 //  Recycler
 //
 //  Created by Roman Shveda on 3/2/18.
@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+enum RCLCollectionReference: String {
+    case users
+    case trash
+    case trashCan
+}
+
+
+
