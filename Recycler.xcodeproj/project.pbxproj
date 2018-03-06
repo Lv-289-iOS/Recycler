@@ -29,6 +29,7 @@
 		A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB02049785A005A3A87 /* Scan.storyboard */; };
 		A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB22049787F005A3A87 /* Catalog.storyboard */; };
 		A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB420497892005A3A87 /* Profile.storyboard */; };
+		A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		A39BEAB02049785A005A3A87 /* Scan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
 		A39BEAB22049787F005A3A87 /* Catalog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
 		A39BEAB420497892005A3A87 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTabBarVC.swift; sourceTree = "<group>"; };
 		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				630020DE204EB542002E7D89 /* RCLProfileVC.swift */,
+				A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */,
 				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
 				A300B31D2049FD3E00261AEB /* RCLMapVC.swift */,
 				A300B31F2049FD5300261AEB /* RCLScanVC.swift */,
@@ -341,6 +344,7 @@
 				630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
+				A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */,
 				A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
