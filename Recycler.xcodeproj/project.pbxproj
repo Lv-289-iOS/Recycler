@@ -12,6 +12,8 @@
 		197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197BF74320496D0900B8D06B /* RCLTrashCan.swift */; };
 		197BF747204972D600B8D06B /* RCLCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197BF746204972D600B8D06B /* RCLCollectionReference.swift */; };
 		19AF48C1204D463A00958858 /* RCLFirestoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C0204D463A00958858 /* RCLFirestoreExtensions.swift */; };
+		19AF48C3204D876A00958858 /* RCLTrashSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C2204D876A00958858 /* RCLTrashSize.swift */; };
+		19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C4204D87BB00958858 /* RCLTrashType.swift */; };
 		19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* RCLUser.swift */; };
 		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
 		6F120604204574E20042056E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120603204574E20042056E /* AppDelegate.swift */; };
@@ -21,10 +23,6 @@
 		6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060C204574E20042056E /* LaunchScreen.storyboard */; };
 		9A276421DDADC37ACF93013F /* Pods_Recycler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */; };
 		A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */; };
-		A300B31E2049FD3E00261AEB /* RCLMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B31D2049FD3E00261AEB /* RCLMapVC.swift */; };
-		A300B3202049FD5300261AEB /* RCLScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B31F2049FD5300261AEB /* RCLScanVC.swift */; };
-		A300B3222049FD7400261AEB /* RCLCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B3212049FD7400261AEB /* RCLCatalogVC.swift */; };
-		A300B3242049FDA500261AEB /* RCLProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B3232049FDA500261AEB /* RCLProfileVC.swift */; };
 		A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAA9204971B8005A3A87 /* TabBar.storyboard */; };
 		A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */; };
 		A39BEAAF20497812005A3A87 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAAE20497812005A3A87 /* Map.storyboard */; };
@@ -39,6 +37,8 @@
 		197BF74320496D0900B8D06B /* RCLTrashCan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTrashCan.swift; sourceTree = "<group>"; };
 		197BF746204972D600B8D06B /* RCLCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCollectionReference.swift; sourceTree = "<group>"; };
 		19AF48C0204D463A00958858 /* RCLFirestoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreExtensions.swift; sourceTree = "<group>"; };
+		19AF48C2204D876A00958858 /* RCLTrashSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTrashSize.swift; sourceTree = "<group>"; };
+		19AF48C4204D87BB00958858 /* RCLTrashType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTrashType.swift; sourceTree = "<group>"; };
 		19F5AF04204938CE00ADF338 /* RCLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLUser.swift; sourceTree = "<group>"; };
 		19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 				197BF74120496C7700B8D06B /* RCLTrash.swift */,
 				197BF74320496D0900B8D06B /* RCLTrashCan.swift */,
 				19AF48C0204D463A00958858 /* RCLFirestoreExtensions.swift */,
+				19AF48C2204D876A00958858 /* RCLTrashSize.swift */,
+				19AF48C4204D87BB00958858 /* RCLTrashType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,8 +340,10 @@
 				19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */,
 				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
+				19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */,
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
 				A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */,
+				19AF48C3204D876A00958858 /* RCLTrashSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

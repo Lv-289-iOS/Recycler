@@ -10,12 +10,17 @@ import Foundation
 
 struct Trash: Identifiable {
     var id: String? = nil
-//    var trashId: String
     var trashCanId: String
-    var userIdReportedFull: String
-    var dateReportedFull: Date
+    var userIdReportedFull: String? = nil
+    var dateReportedFull: Date? = nil
     var userIdReportedEmpty: String? = nil
     var dateReportedEmpty: Date? = nil
-    var type: Int
-    var size: Int
+    var type: String
+    var size: String
+    
+    init(trashCanId: String, type: String, size: String) {
+        self.trashCanId = trashCanId
+        self.type = type
+        self.size = size
+    }
 }

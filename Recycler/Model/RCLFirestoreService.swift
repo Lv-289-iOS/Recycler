@@ -41,9 +41,9 @@ class FirestoreService {
     
     func create<T: Codable>(for encodableObject: T, in collectionReference: RCLCollectionReference) {
         do{
-            let json = try encodableObject.toJson()
+            let json = try encodableObject.toJson(excluding: ["id"])
+            print(json)
             reference(to: collectionReference).addDocument(data: json)
-            
         } catch{
             print(error)
         }
@@ -58,11 +58,14 @@ class FirestoreService {
             }
             do {
                 var objects = [T]()
-                for document in snapshot.documents{
-                    
-                    print(try document.decode(as: objectType))
-                    let object = try document.decode(as: objectType)
-                    objects.append(object)
+                for document in snapshot.documents {
+                    try document.decode(as: objectType.self)
+//                    let
+//                    let dict = document.data()
+//                    dict["lastName"]
+//                    print(try document.decode(as: objectType.self))
+//                    let object = try document.decode(as: objectType.self)
+//                    objects.append(object)
                 }
                 completion(objects)
             } catch {
@@ -75,7 +78,7 @@ class FirestoreService {
     func update<T: Encodable & Identifiable>(for encodableObject: T, in collectionReference: RCLCollectionReference) {
         do {
             let json = try encodableObject.toJson()
-            guard let id = encodableObject.id else { throw MyEncodingError.encodingError}
+            guard let id = encodableObject.id else { throw myEncodingError.encodingError}
             reference(to: collectionReference).document(id).setData(json)
         } catch {
             print(error)
@@ -85,7 +88,7 @@ class FirestoreService {
     
     func delete<T: Identifiable>(_ identifiableObject: T, in collectionReference: RCLCollectionReference) {
         do {
-            guard let id = identifiableObject.id else {throw MyEncodingError.encodingError}
+            guard let id = identifiableObject.id else {throw myEncodingError.encodingError}
             reference(to: collectionReference).document(id).delete()
         } catch {
             print(error)
