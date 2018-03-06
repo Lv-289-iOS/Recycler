@@ -18,12 +18,20 @@ class RCLProfileCell: UITableViewCell {
     
     func configureCell(forCan: TrashCan) {
         self.trashCan = forCan
-        switch forCan. {
-        case . :
-            <#code#>
+        switch forCan.type {
+        case "plastic" :
+            self.icon.image = #imageLiteral(resourceName: "trash_plastic")
+        case "metal" :
+            self.icon.image = #imageLiteral(resourceName: "trash_metal")
+        case "organic" :
+            self.icon.image = #imageLiteral(resourceName: "trash_organic")
+        case "battaries" :
+            self.icon.image = #imageLiteral(resourceName: "trash_battaries")
         default:
-            <#code#>
+            self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
+        self.name.text = forCan.type
+        self.location.text = forCan.address
+        self.size.text = forCan.size
     }
-    
 }
