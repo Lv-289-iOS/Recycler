@@ -14,6 +14,6 @@ struct TrashCan: Identifiable {
     var userId: String
     var address: String
     var isFull: Bool
-    var type: Int
-    var size: Int
+    var type: String
+    var size: String
 }

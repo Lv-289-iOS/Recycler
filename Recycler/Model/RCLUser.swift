@@ -17,23 +17,19 @@ struct User: Codable,Identifiable{
     var id: String? = nil
     var firstName: String
     var lastName: String
-//    var email: String
-//    var password: String
-//    var phoneNumber: String
-//    var role: Int
+    var email: String
+    var password: String
+    var phoneNumber: String
+    var role: String
     
-//    init(firstName: String, lastName: String, email: String, password: String, phoneNumber: String, role: Int) {
-//        self.firstName = firstName
-//        self.lastName = lastName
-//        self.email = email
-//        self.password = password
-//        self.phoneNumber = phoneNumber
-//        self.role = role
-//    }
-    
-    init(firstName: String, lastName: String) {
+    init(firstName: String, lastName: String, email: String, password: String, phoneNumber: String, role: String) {
         self.firstName = firstName
         self.lastName = lastName
+        self.email = email
+        self.password = password
+        self.phoneNumber = phoneNumber
+        self.role = role
     }
+
     
 }

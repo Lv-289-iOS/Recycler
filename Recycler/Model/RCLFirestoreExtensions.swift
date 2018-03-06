@@ -10,21 +10,26 @@ import Foundation
 import FirebaseFirestore
 
 extension Encodable {
-    func toJson() throws -> [String: Any]{
+    func toJson(excluding keys: [String] = [String]()) throws -> [String: Any]{
         let objectData = try JSONEncoder().encode(self)
         let jsonObject = try JSONSerialization.jsonObject(with: objectData, options: [])
         guard var json = jsonObject as? [String: Any] else {throw myEncodingError.encodingError}
+        for key in keys {
+            json[key] = nil
+        }
         return json
     }
 }
 
-extension DocumentSnapshot {
+extension QueryDocumentSnapshot {
     func decode<T: Decodable>(as objectType: T.Type, includingId: Bool = true) throws -> T {
         var documentJson = data()
         if includingId {
-            documentJson!["userId"] = documentID
-        }
-        let documentData = try JSONSerialization.data(withJSONObject: documentJson!, options: [])
+            documentJson["id"] = documentID
+            print(documentID)
+        }        
+        let documentData = try JSONSerialization.data(withJSONObject: documentJson, options: [])
+//        print(documentData)
         let decodedObject = try JSONDecoder().decode(objectType, from: documentData)
         
         return decodedObject
