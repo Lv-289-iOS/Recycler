@@ -90,6 +90,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tHp-hS-4bk"/>
                     <connections>
+                        <outlet property="explainationLabel" destination="SJi-tJ-x6X" id="E48-m1-Lfa"/>
                         <outlet property="trashIsFullBtn" destination="ean-42-xHM" id="gKg-Sj-SKm"/>
                         <outlet property="visualEffectView" destination="xad-EL-OzA" id="4x9-6A-01I"/>
                     </connections>
