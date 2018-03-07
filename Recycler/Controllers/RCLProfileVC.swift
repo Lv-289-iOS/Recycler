@@ -23,12 +23,12 @@ class RCLProfileVC: UIViewController {
     let nib = "RCLProfileCell"
     let cellId = "RCLProfileCell"
     var isInEditMode = false
-    var user: User?
+    var user = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: "boss")
+    let currentCan = TrashCan(trashId: "1", userId: "1", address: "Adress: Lviv",type: "metal", size: "Size: M")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: "boss")
         viewSetup()
         
         tableView.delegate = self
@@ -46,9 +46,9 @@ class RCLProfileVC: UIViewController {
         phone.textColor = UIColor.Font.Gray
         trashesTitle.textColor = UIColor.Font.White
         
-        firstName.text = user?.firstName
-        lastName.text = user?.lastName
-        phone.text = user?.phoneNumber
+        firstName.text = user.firstName
+        lastName.text = user.lastName
+        phone.text = user.phoneNumber
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
@@ -73,7 +73,7 @@ class RCLProfileVC: UIViewController {
     }
     
     private func saveNewData() {
-        user?.update(firstName: firstName.text!, lastName: lastName.text!, phoneNumber: phone.text!)
+        user.update(firstName: firstName.text!, lastName: lastName.text!, phoneNumber: phone.text!)
     }
 }
 
@@ -89,8 +89,8 @@ extension RCLProfileVC: UITableViewDelegate, UITableViewDataSource {
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
         cell.backgroundColor = UIColor.Backgrounds.GrayLight
+        cell.selectionStyle = .none
         
-        let currentCan = TrashCan(trashId: "1", userId: "1", address: "adressadressadressadressadressadress",type: "metal", size: "S")
         cell.configureCell(forCan: currentCan)
         return cell
     }

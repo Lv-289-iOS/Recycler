@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEQ-Nc-Hwz" userLabel="ProfileView">
-                                <rect key="frame" x="16" y="66" width="288" height="99"/>
+                                <rect key="frame" x="16" y="66" width="288" height="93"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBH-2t-Vuz">
                                         <rect key="frame" x="250" y="8" width="30" height="30"/>
@@ -83,7 +83,7 @@
                                     <constraint firstAttribute="trailing" secondItem="WBH-2t-Vuz" secondAttribute="trailing" constant="8" id="5jW-ux-C3V"/>
                                     <constraint firstItem="WBH-2t-Vuz" firstAttribute="leading" secondItem="bRt-QK-Qey" secondAttribute="trailing" constant="20" id="7AR-uS-xsv"/>
                                     <constraint firstItem="WBH-2t-Vuz" firstAttribute="top" secondItem="nEQ-Nc-Hwz" secondAttribute="top" constant="8" id="AiP-EE-1To"/>
-                                    <constraint firstAttribute="bottom" secondItem="Qum-y8-YGm" secondAttribute="bottom" constant="16" id="BHW-jv-Vhh"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qum-y8-YGm" secondAttribute="bottom" constant="10" id="BHW-jv-Vhh"/>
                                     <constraint firstItem="bRt-QK-Qey" firstAttribute="leading" secondItem="nEQ-Nc-Hwz" secondAttribute="leading" constant="8" id="Ehq-zN-6AI"/>
                                     <constraint firstItem="WBH-2t-Vuz" firstAttribute="leading" secondItem="o3q-1r-LN5" secondAttribute="trailing" constant="20" id="Gli-LW-XjS"/>
                                     <constraint firstItem="WBH-2t-Vuz" firstAttribute="leading" secondItem="StU-H0-mNQ" secondAttribute="trailing" constant="10" id="MTZ-2o-YkN"/>
@@ -97,7 +97,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBw-tB-UPW">
-                                <rect key="frame" x="0.0" y="208" width="320" height="311"/>
+                                <rect key="frame" x="0.0" y="202" width="320" height="317"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv0-Sq-Rz9">
@@ -107,7 +107,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trashes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLC-WG-KNq">
-                                <rect key="frame" x="16" y="181" width="288" height="21"/>
+                                <rect key="frame" x="16" y="175" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.39215686274509803" green="0.40392156862745099" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
