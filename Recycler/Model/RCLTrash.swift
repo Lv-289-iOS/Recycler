@@ -23,4 +23,9 @@ struct Trash: Identifiable {
         self.type = type
         self.size = size
     }
+    init() {
+        self.trashCanId = ""
+        self.type = ""
+        self.size = ""
+    }
 }

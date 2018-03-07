@@ -73,6 +73,7 @@ class RCLProfileVC: UIViewController {
     }
     
     private func saveNewData() {
+        user?.update(firstName: firstName.text!, lastName: lastName.text!, phoneNumber: phone.text!)
     }
 }
 

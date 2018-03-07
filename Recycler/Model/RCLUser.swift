@@ -12,7 +12,7 @@ protocol Identifiable {
     var id: String? {get set}
 }
 
-struct User: Codable,Identifiable{
+struct User: Codable, Identifiable {
     
     var id: String? = nil
     var firstName: String
@@ -30,6 +30,17 @@ struct User: Codable,Identifiable{
         self.phoneNumber = phoneNumber
         self.role = role
     }
-
-    
+    init() {
+        self.firstName = ""
+        self.lastName = ""
+        self.email = ""
+        self.password = ""
+        self.phoneNumber = ""
+        self.role = ""
+    }
+    mutating func update(firstName: String, lastName: String, phoneNumber: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+    }
 }
