@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -46,28 +45,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xad-EL-OzA">
-                                <rect key="frame" x="18.5" y="74" width="337.5" height="60"/>
+                                <rect key="frame" x="88.5" y="74" width="198.5" height="40.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ton-Lk-ZAM">
-                                    <rect key="frame" x="0.0" y="0.0" width="337.5" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="198.5" height="40.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some explaination here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJi-tJ-x6X">
-                                            <rect key="frame" x="17" y="3" width="303.5" height="54"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Some explaination here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJi-tJ-x6X">
+                                            <rect key="frame" x="10" y="10" width="178.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="width" secondItem="Ton-Lk-ZAM" secondAttribute="width" multiplier="0.9" id="RcB-NE-HaR"/>
-                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="centerX" secondItem="Ton-Lk-ZAM" secondAttribute="centerX" id="h4v-lF-mx4"/>
-                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="height" secondItem="Ton-Lk-ZAM" secondAttribute="height" multiplier="0.9" id="i0g-xv-UEX"/>
-                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="centerY" secondItem="Ton-Lk-ZAM" secondAttribute="centerY" id="oZO-XD-2Vy"/>
+                                        <constraint firstAttribute="trailing" secondItem="SJi-tJ-x6X" secondAttribute="trailing" constant="10" id="4kc-iR-xhO"/>
+                                        <constraint firstAttribute="bottom" secondItem="SJi-tJ-x6X" secondAttribute="bottom" constant="10" id="I6c-h2-HQl"/>
+                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="leading" secondItem="Ton-Lk-ZAM" secondAttribute="leading" constant="10" id="JtG-AP-kZi"/>
+                                        <constraint firstItem="SJi-tJ-x6X" firstAttribute="top" secondItem="Ton-Lk-ZAM" secondAttribute="top" constant="10" id="LgZ-gI-hQS"/>
                                     </constraints>
                                 </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="3Ft-M2-Yi0"/>
-                                </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ean-42-xHM">
@@ -82,10 +78,11 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="xad-EL-OzA" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.9" id="3P3-cJ-XGi"/>
                             <constraint firstItem="ean-42-xHM" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.7" id="8Hw-Bi-42P"/>
+                            <constraint firstItem="2fv-gF-hKi" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xad-EL-OzA" secondAttribute="trailing" constant="10" id="CPk-gM-1yh"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="top" secondItem="2fv-gF-hKi" secondAttribute="top" constant="10" id="Kp0-l5-bVJ"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="MU3-1s-7q4"/>
+                            <constraint firstItem="xad-EL-OzA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2fv-gF-hKi" secondAttribute="leading" constant="10" id="QWR-ow-G7a"/>
                             <constraint firstItem="ean-42-xHM" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="Rxc-At-QBd"/>
                             <constraint firstItem="2fv-gF-hKi" firstAttribute="bottom" secondItem="ean-42-xHM" secondAttribute="bottom" constant="25" id="rJj-jG-IE4"/>
                         </constraints>
