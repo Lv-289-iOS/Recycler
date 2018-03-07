@@ -48,7 +48,7 @@ extension RCLProfileVC: UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = UITableViewAutomaticDimension
         cell.backgroundColor = UIColor.Backgrounds.ProfileView
         
-        let currentCan = TrashCan(id: "1", trashId: "1", userId: "1", address: "adressadressadressadressadressadress", isFull: true, type: "metal", size: "S")
+        let currentCan = TrashCan(trashId: "1", userId: "1", address: "adressadressadressadressadressadress",type: "metal", size: "S")
         cell.configureCell(forCan: currentCan)
         return cell
     }

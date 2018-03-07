@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TrashType: String {
+enum RCLTrashType: String {
     case plastic
     case metal
     case organic

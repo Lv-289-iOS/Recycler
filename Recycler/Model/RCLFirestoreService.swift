@@ -20,26 +20,13 @@ class FirestoreService {
     
     func configure() {
         FirebaseApp.configure()
-        
-        // todo remove bellow
-        
-//        let email = "testmail@mail.com"
-//        let password = "111111"
-//        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-//            // ...
-//            print(error)
-//            print(user)
-//        }
-//
-//
-//        Auth.auth().
     }
     
     private func reference(to collectionReference: RCLCollectionReference) -> CollectionReference{
         return Firestore.firestore().collection(collectionReference.rawValue)
     }
     
-    func create<T: Codable>(for encodableObject: T, in collectionReference: RCLCollectionReference) {
+    func add<T: Codable>(for encodableObject: T, in collectionReference: RCLCollectionReference) {
         do{
             let json = try encodableObject.toJson(excluding: ["id"])
             print(json)
@@ -50,7 +37,7 @@ class FirestoreService {
 
     }
     
-    func read<T: Decodable>(from collectionReference: RCLCollectionReference, returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
+    func get<T: Decodable>(from collectionReference: RCLCollectionReference, returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
       reference(to: collectionReference).addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {
                 print("\(error.debugDescription)")
@@ -59,13 +46,13 @@ class FirestoreService {
             do {
                 var objects = [T]()
                 for document in snapshot.documents {
-                    try document.decode(as: objectType.self)
-//                    let
+//                    try document.decode(as: objectType.self)
+
 //                    let dict = document.data()
 //                    dict["lastName"]
-//                    print(try document.decode(as: objectType.self))
-//                    let object = try document.decode(as: objectType.self)
-//                    objects.append(object)
+                    print(try document.decode(as: objectType.self))
+                    let object = try document.decode(as: objectType.self)
+                    objects.append(object)
                 }
                 completion(objects)
             } catch {
@@ -95,5 +82,14 @@ class FirestoreService {
         }
         
     }
+    
+    /*--------------------------------Queries----------------------------------------------*/
+    
+//    func getUserBy(email: String, password: String) -> User {
+//
+//        let query = reference(to: .users).whereField("email", isEqualTo: email).whereField("password", isEqualTo: password)
+//
+//        reference(to: .users).document()
+//    }
     
 }

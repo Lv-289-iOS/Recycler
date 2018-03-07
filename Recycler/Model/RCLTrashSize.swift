@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TrashSize: String{
+enum RCLTrashSize: String{
     case small
     case medium
     case large

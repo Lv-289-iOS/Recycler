@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         let user = User(firstName: "roman", lastName: "shveda", email: "test@mail.ru", password: "1111", phoneNumber: "+3809655555", role: "1")
 
 //        FirestoreService.shared.create(for: user, in: .users)
-        FirestoreService.shared.read(from: .users, returning: User.self) { (users) in
+        FirestoreService.shared.get(from: .users, returning: User.self) { (users) in
             self.users = users
         }
 //        for user in users{

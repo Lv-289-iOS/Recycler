@@ -13,7 +13,15 @@ struct TrashCan: Identifiable {
     var trashId: String
     var userId: String
     var address: String
-    var isFull: Bool
+    var isFull: Bool = false
     var type: String
     var size: String
+    
+    init(trashId: String, userId: String, address: String, type: RCLTrashType.RawValue, size: RCLTrashSize.RawValue) {
+        self.trashId = trashId
+        self.userId = userId
+        self.address = address
+        self.type = type
+        self.size = size
+    }
 }
