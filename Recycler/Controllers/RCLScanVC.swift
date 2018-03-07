@@ -13,10 +13,10 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var output = AVCaptureMetadataOutput()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
-    
     var captureSession = AVCaptureSession()
     
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var explainationLabel: UILabel!
     @IBOutlet weak var trashIsFullBtn: UIButton!
     
     override func viewDidLoad() {
@@ -104,9 +104,12 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         if !qrCode.hasPrefix("trashCanID:") { // QR code format is "trashCanID: UUID"
             trashIsFullBtn.isEnabled = false
             trashIsFullBtn.setTitle("Wrong QR", for: .normal)
+            //explainationLabel.text = "Wrong QR"
         } else {
             trashIsFullBtn.isEnabled = true
             trashIsFullBtn.setTitle("Correct QR", for: .normal)
+            //explainationLabel.text = "Correct QR"
+            
             // TODO:
             // If scanned qr code is invalid we the title is "It's not yours"
             // If scanned qr code is correct and trash can is empty then button becomes active and the title is "Report trash is full"

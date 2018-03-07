@@ -34,6 +34,7 @@
 		A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB22049787F005A3A87 /* Catalog.storyboard */; };
 		A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB420497892005A3A87 /* Profile.storyboard */; };
 		A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */; };
+		A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4EA0820503D7500815A69 /* RCLScanVC.swift */; };
 		D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D331CE4B204EC0AF001D0A90 /* Main.storyboard */; };
 		D331CEB1204ECEBD001D0A90 /* Authentificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEA9204ECEBB001D0A90 /* Authentificator.swift */; };
 		D331CEB2204ECEBD001D0A90 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAA204ECEBB001D0A90 /* Formatter.swift */; };
@@ -71,7 +72,6 @@
 		6F12060F204574E20042056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLDashboardVC.swift; sourceTree = "<group>"; };
 		A300B31D2049FD3E00261AEB /* RCLMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLMapVC.swift; sourceTree = "<group>"; };
-		A300B31F2049FD5300261AEB /* RCLScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLScanVC.swift; sourceTree = "<group>"; };
 		A300B3212049FD7400261AEB /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
 		A39BEAA9204971B8005A3A87 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
@@ -80,6 +80,7 @@
 		A39BEAB22049787F005A3A87 /* Catalog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
 		A39BEAB420497892005A3A87 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTabBarVC.swift; sourceTree = "<group>"; };
+		A3C4EA0820503D7500815A69 /* RCLScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLScanVC.swift; sourceTree = "<group>"; };
 		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D331CE4B204EC0AF001D0A90 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D331CEA9204ECEBB001D0A90 /* Authentificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentificator.swift; sourceTree = "<group>"; };
@@ -189,7 +190,7 @@
 				A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */,
 				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
 				A300B31D2049FD3E00261AEB /* RCLMapVC.swift */,
-				A300B31F2049FD5300261AEB /* RCLScanVC.swift */,
+				A3C4EA0820503D7500815A69 /* RCLScanVC.swift */,
 				A300B3212049FD7400261AEB /* RCLCatalogVC.swift */,
 			);
 			path = Controllers;
@@ -375,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D331CEB6204ECEBD001D0A90 /* Styler.swift in Sources */,
+				A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */,
 				197BF747204972D600B8D06B /* RCLCollectionReference.swift in Sources */,
 				630020DD204EAD4F002E7D89 /* Colors.swift in Sources */,
 				D331CEBB204ED077001D0A90 /* LoginVC.swift in Sources */,
