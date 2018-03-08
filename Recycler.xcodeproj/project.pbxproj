@@ -16,6 +16,8 @@
 		19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C4204D87BB00958858 /* RCLTrashType.swift */; };
 		19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* RCLUser.swift */; };
 		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
+		4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */; };
+		4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */; };
 		630020DD204EAD4F002E7D89 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020DC204EAD4F002E7D89 /* Colors.swift */; };
 		630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020DE204EB542002E7D89 /* RCLProfileVC.swift */; };
 		630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */; };
@@ -58,7 +60,8 @@
 		19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
 		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
-		4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
+		4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
+		4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
 		630020DC204EAD4F002E7D89 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Recycler/Colors.swift; sourceTree = SOURCE_ROOT; };
 		630020DE204EB542002E7D89 /* RCLProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLProfileVC.swift; sourceTree = "<group>"; };
 		630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLProfileCell.swift; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		6F12060F204574E20042056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLDashboardVC.swift; sourceTree = "<group>"; };
 		A300B31D2049FD3E00261AEB /* RCLMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLMapVC.swift; sourceTree = "<group>"; };
-		A300B3212049FD7400261AEB /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
 		A39BEAA9204971B8005A3A87 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		A39BEAAE20497812005A3A87 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 			children = (
 				630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */,
 				630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */,
-				4BAB4D4D204D47F60005C16B /* RCLCatalogTableViewCell.swift */,
+				4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -173,6 +175,7 @@
 				630020E4204EB852002E7D89 /* Constants.swift */,
 				6F120603204574E20042056E /* AppDelegate.swift */,
 				6F120605204574E20042056E /* ViewController.swift */,
+				4BAB4D4C204D47AE0005C16B /* Cells */,
 				A300B31C2049FCF500261AEB /* Controllers */,
 				A39BEAAB20497789005A3A87 /* Storyboards */,
 				6F12060A204574E20042056E /* Assets.xcassets */,
@@ -185,13 +188,12 @@
 		A300B31C2049FCF500261AEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4BAB4D4C204D47AE0005C16B /* Cells */,
 				630020DE204EB542002E7D89 /* RCLProfileVC.swift */,
 				A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */,
 				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
 				A300B31D2049FD3E00261AEB /* RCLMapVC.swift */,
 				A3C4EA0820503D7500815A69 /* RCLScanVC.swift */,
-				A300B3212049FD7400261AEB /* RCLCatalogVC.swift */,
+				4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -381,6 +383,7 @@
 				630020DD204EAD4F002E7D89 /* Colors.swift in Sources */,
 				D331CEBB204ED077001D0A90 /* LoginVC.swift in Sources */,
 				D331CEB1204ECEBD001D0A90 /* Authentificator.swift in Sources */,
+				4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */,
 				6F120606204574E20042056E /* ViewController.swift in Sources */,
 				D331CEBA204ED077001D0A90 /* InfoWindow.swift in Sources */,
 				197BF74220496C7700B8D06B /* RCLTrash.swift in Sources */,
@@ -391,6 +394,7 @@
 				D331CEB4204ECEBD001D0A90 /* SignUpVC.swift in Sources */,
 				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
 				630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */,
+				4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */,
 				D331CEB7204ECEBD001D0A90 /* Validator.swift in Sources */,
 				D331CEB2204ECEBD001D0A90 /* Formatter.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
@@ -531,11 +535,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LDWUKS5K42;
+				DEVELOPMENT_TEAM = 9YL9NSJ599;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.shved.Recycler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.shved.Recycler5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -550,11 +554,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LDWUKS5K42;
+				DEVELOPMENT_TEAM = 9YL9NSJ599;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.shved.Recycler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.shved.Recycler5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
