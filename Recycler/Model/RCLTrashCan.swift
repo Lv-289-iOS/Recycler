@@ -24,4 +24,11 @@ struct TrashCan: Codable, Identifiable {
         self.type = type
         self.size = size
     }
+    init() {
+        self.trashId = ""
+        self.userId = ""
+        self.address = ""
+        self.type = ""
+        self.size = ""
+    }
 }

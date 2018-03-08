@@ -12,7 +12,7 @@ protocol Identifiable {
     var id: String? {get set}
 }
 
-struct User: Codable,Identifiable{
+struct User: Codable, Identifiable {
     
     var id: String? = nil
     var firstName: String
@@ -30,7 +30,7 @@ struct User: Codable,Identifiable{
         self.phoneNumber = phoneNumber
         self.role = role
     }
-    
+
     init() {
         self.firstName = ""
         self.lastName = ""
@@ -54,5 +54,4 @@ struct User: Codable,Identifiable{
         self.role = role
     }
 
-    
 }
