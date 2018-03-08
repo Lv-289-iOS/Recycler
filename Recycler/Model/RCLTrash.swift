@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Trash: Identifiable {
+struct Trash: Codable, Identifiable {
     var id: String? = nil
     var trashCanId: String
     var userIdReportedFull: String? = nil

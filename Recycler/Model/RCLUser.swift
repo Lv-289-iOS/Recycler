@@ -30,6 +30,29 @@ struct User: Codable,Identifiable{
         self.phoneNumber = phoneNumber
         self.role = role
     }
+    
+    init() {
+        self.firstName = ""
+        self.lastName = ""
+        self.email = ""
+        self.password = ""
+        self.phoneNumber = ""
+        self.role = ""
+    }
+    
+    init?(dictionary: [String: Any]) {
+        guard let firstName = dictionary["firstName"] as? String, let lastName = dictionary["lastName"] as? String,
+        let email = dictionary["email"] as? String, let password = dictionary["password"] as? String,
+        let phoneNumber = dictionary["phoneNumber"] as? String,
+        let role = dictionary["role"] as? String else { return nil }
+        
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.password = password
+        self.phoneNumber = phoneNumber
+        self.role = role
+    }
 
     
 }

@@ -21,15 +21,13 @@ extension Encodable {
     }
 }
 
-extension QueryDocumentSnapshot {
+extension DocumentSnapshot {
     func decode<T: Decodable>(as objectType: T.Type, includingId: Bool = true) throws -> T {
-        var documentJson = data()
+        var documentJson = data() ?? [String: Any]() 
         if includingId {
             documentJson["id"] = documentID
-            print(documentID)
-        }        
+        }
         let documentData = try JSONSerialization.data(withJSONObject: documentJson, options: [])
-//        print(documentData)
         let decodedObject = try JSONDecoder().decode(objectType, from: documentData)
         
         return decodedObject

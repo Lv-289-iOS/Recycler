@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TrashCan: Identifiable {
+struct TrashCan: Codable, Identifiable {
     var id: String?
     var trashId: String
     var userId: String

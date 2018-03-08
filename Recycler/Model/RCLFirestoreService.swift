@@ -34,7 +34,6 @@ class FirestoreService {
         } catch{
             print(error)
         }
-
     }
     
     func get<T: Decodable>(from collectionReference: RCLCollectionReference, returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
@@ -46,10 +45,6 @@ class FirestoreService {
             do {
                 var objects = [T]()
                 for document in snapshot.documents {
-//                    try document.decode(as: objectType.self)
-
-//                    let dict = document.data()
-//                    dict["lastName"]
                     print(try document.decode(as: objectType.self))
                     let object = try document.decode(as: objectType.self)
                     objects.append(object)
@@ -85,11 +80,66 @@ class FirestoreService {
     
     /*--------------------------------Queries----------------------------------------------*/
     
-//    func getUserBy(email: String, password: String) -> User {
-//
-//        let query = reference(to: .users).whereField("email", isEqualTo: email).whereField("password", isEqualTo: password)
-//
-//        reference(to: .users).document()
+    func getUserBy(id: String, completion: @escaping (User) -> Void){
+        reference(to: .users).document(id).getDocument { (document, error) in
+            guard let document = document else {print(error.debugDescription)
+                return}
+            do {
+                let user = try document.decode(as: User.self)
+                completion(user)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func getUserBy(email: String, completion: @escaping (User) -> Void){
+        reference(to: .users).whereField("email", isEqualTo: email).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {return print(error.debugDescription)}
+            for document in snapshot.documents{
+                do {
+                    let user = try document.decode(as: User.self)
+                    completion(user)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+            
+        }
+
+    }
+    
+    func getTrashCanBy(id: String, completion: @escaping (TrashCan) -> Void) {
+        reference(to: .trashCan).document(id).getDocument { (document, error) in
+            guard let document = document else {print(error.debugDescription)
+                return
+            }
+            do {
+                let trashCan = try document.decode(as: TrashCan.self)
+                completion(trashCan)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+//    func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash) -> Void) {
+//        reference(to: .trash).whereField("trashCanId", isEqualTo: trashCanId).whereField("dateReportedFull", isLessThanOrEqualTo: ).addSnapshotListener { (snapshot, error) in
+//            guard let snapshot = snapshot else {print(error.debugDescription)
+//                return
+//            }
+//            for document in snapshot.documents {
+//                do {
+//                    let trash = try document.decode(as: Trash.self)
+//                    completion(trash)
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
 //    }
+    
+    
+    
     
 }
