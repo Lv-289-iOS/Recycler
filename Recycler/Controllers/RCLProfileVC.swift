@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class RCLProfileVC: UIViewController {
     
@@ -23,13 +25,16 @@ class RCLProfileVC: UIViewController {
     let nib = "RCLProfileCell"
     let cellId = "RCLProfileCell"
     var isInEditMode = false
-    var user = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: "boss")
+    var userTest = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: "boss")
     let currentCan = TrashCan(trashId: "1", userId: "1", address: "Adress: Lviv",type: "metal", size: "Size: M")
+    let email = "recycler.lviv@gmail.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewSetup()
+        
+       
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,9 +51,9 @@ class RCLProfileVC: UIViewController {
         phone.textColor = UIColor.Font.Gray
         trashesTitle.textColor = UIColor.Font.White
         
-        firstName.text = user.firstName
-        lastName.text = user.lastName
-        phone.text = user.phoneNumber
+        firstName.text = userTest.firstName
+        lastName.text = userTest.lastName
+        phone.text = userTest.phoneNumber
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
@@ -58,6 +63,12 @@ class RCLProfileVC: UIViewController {
     }
     
     @IBAction func editProfile(_ sender: UIButton) {
+        
+        FirestoreService.shared.getUserBy(email: email) { user in
+            self.userTest = user
+            self.updateInfo(with: user)
+        }
+        
         sender.isSelected = !sender.isSelected
         isInEditMode = sender.isSelected
         firstName.isUserInteractionEnabled = isInEditMode
@@ -73,7 +84,15 @@ class RCLProfileVC: UIViewController {
     }
     
     private func saveNewData() {
-        user.update(firstName: firstName.text!, lastName: lastName.text!, phoneNumber: phone.text!)
+        userTest.firstName = firstName.text!
+        userTest.lastName = lastName.text!
+        userTest.phoneNumber = phone.text!
+    }
+    
+    private func updateInfo(with user: User) {
+        self.firstName.text = user.firstName
+        self.lastName.text = user.lastName
+        self.phone.text = user.phoneNumber
     }
 }
 
