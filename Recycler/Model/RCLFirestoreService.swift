@@ -79,6 +79,20 @@ class FirestoreService {
     }
     
     /*--------------------------------Queries----------------------------------------------*/
+    func getDocumentById<T: Decodable & Identifiable>(from collectionReference: RCLCollectionReference, returning objectType: T.Type, id: String, completion: @escaping (T) -> Void){
+        reference(to: collectionReference).document(id).getDocument { (document, error) in
+            guard let document = document else {print(error.debugDescription)
+                return
+            }
+            do {
+                let object = try document.decode(as: objectType.self)
+                completion(object)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     
     func getUserBy(id: String, completion: @escaping (User) -> Void){
         reference(to: .users).document(id).getDocument { (document, error) in
@@ -123,21 +137,21 @@ class FirestoreService {
         }
     }
     
-//    func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash) -> Void) {
-//        reference(to: .trash).whereField("trashCanId", isEqualTo: trashCanId).whereField("dateReportedFull", isLessThanOrEqualTo: ).addSnapshotListener { (snapshot, error) in
-//            guard let snapshot = snapshot else {print(error.debugDescription)
-//                return
-//            }
-//            for document in snapshot.documents {
-//                do {
-//                    let trash = try document.decode(as: Trash.self)
-//                    completion(trash)
-//                } catch {
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
-//    }
+    func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash) -> Void) {
+        reference(to: .trash).whereField("trashCanId", isEqualTo: trashCanId).order(by: "dateReportedFull", descending: true).limit(to: 1).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {print(error.debugDescription)
+                return
+            }
+            for document in snapshot.documents {
+                do {
+                    let trash = try document.decode(as: Trash.self)
+                    completion(trash)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
     
     
     

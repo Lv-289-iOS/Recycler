@@ -35,24 +35,9 @@ class LoginVC: UIViewController {
     var styler = Styler()
     var authentificator = Authentificator()
     var infoWindow = InfoWindow()
-    var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let user = FirestoreService.shared.getUserBy(email: "test@mail.com", password: "1111")
-//        print(user)
-//        FirestoreService.shared.get(from: .users, returning: User.self) { (users) in
-//            self.users = users
-//        }
-        
-//        FirestoreService.shared.getUserBy(id: "yBX8iC5sp8xoVtaBUR9g") { (user) in
-//            print(user.email)
-//            print(user)
-//        }
-//        FirestoreService.shared.getUserBy(email: "c") { (user) -> User in
-//
-//        }
         
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
         styler.styleButton(button: signInOutlet)

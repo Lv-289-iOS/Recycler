@@ -26,7 +26,7 @@ class RCLProfileVC: UIViewController {
     let cellId = "RCLProfileCell"
     var isInEditMode = false
     var userTest = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: "boss")
-    let currentCan = TrashCan(trashId: "1", userId: "1", address: "Adress: Lviv",type: "metal", size: "Size: M")
+    let currentCan = TrashCan(userId: "1", address: "Adress: Lviv",type: .metal , size: .large)
     let email = "recycler.lviv@gmail.com"
     
     override func viewDidLoad() {

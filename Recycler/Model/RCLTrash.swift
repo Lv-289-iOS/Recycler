@@ -11,21 +11,19 @@ import Foundation
 struct Trash: Codable, Identifiable {
     var id: String? = nil
     var trashCanId: String
-    var userIdReportedFull: String? = nil
-    var dateReportedFull: Date? = nil
+    var userIdReportedFull: String
+    var dateReportedFull: Date
     var userIdReportedEmpty: String? = nil
     var dateReportedEmpty: Date? = nil
-    var type: String
-    var size: String
     
-    init(trashCanId: String, type: String, size: String) {
+    init(trashCanId: String, userIdReportedFull: String) {
         self.trashCanId = trashCanId
-        self.type = type
-        self.size = size
+        self.userIdReportedFull = userIdReportedFull
+        self.dateReportedFull = Date()
     }
     init() {
         self.trashCanId = ""
-        self.type = ""
-        self.size = ""
+        self.userIdReportedFull = ""
+        self.dateReportedFull = Date()
     }
 }

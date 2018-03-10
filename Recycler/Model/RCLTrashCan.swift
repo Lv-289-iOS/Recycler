@@ -10,22 +10,19 @@ import Foundation
 
 struct TrashCan: Codable, Identifiable {
     var id: String?
-    var trashId: String
     var userId: String
     var address: String
     var isFull: Bool = false
     var type: String
     var size: String
     
-    init(trashId: String, userId: String, address: String, type: RCLTrashType.RawValue, size: RCLTrashSize.RawValue) {
-        self.trashId = trashId
+    init(userId: String, address: String, type: RCLTrashType, size: RCLTrashSize) {
         self.userId = userId
         self.address = address
-        self.type = type
-        self.size = size
+        self.type = type.rawValue
+        self.size = size.rawValue
     }
     init() {
-        self.trashId = ""
         self.userId = ""
         self.address = ""
         self.type = ""
