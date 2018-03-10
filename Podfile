@@ -8,6 +8,9 @@ target 'Recycler' do
 	pod ‘Firebase/Core’
     	pod 'Firebase/Auth'
 	pod ‘Firebase/Firestore’
+        pod 'GoogleMaps'
+        pod ‘GooglePlaces’
+        pod 'GooglePlacePicker'
 
   # Pods for Recycler
 
