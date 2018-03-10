@@ -10,7 +10,7 @@ import UIKit
 
 class RCLCatalogVC: UIViewController {
     
-    var trashImage: String!
+    var trashImage: UIImage!
     var trashLabel: String!
     
     let trashLabels = ["Paper","Glass","Metall","Plastic","Organic","Batteries"]
@@ -76,7 +76,7 @@ extension RCLCatalogVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: CONVERT TO STRING ???
-        trashImage = String(describing: trashImages[indexPath.row])
+        trashImage = trashImages[indexPath.row]
         print(trashImage)
         trashLabel = trashLabels[indexPath.row]
         performSegue(withIdentifier: "AddTrashPopUpSegue", sender: self)

@@ -14,7 +14,7 @@ class RCLAddTrashVC: UIViewController {
     
     var trashLabelFromCatalogVC = ""
     
-    var trashImageFromCatalogVC = ""
+    var trashImageFromCatalogVC :UIImage?
     
     @IBOutlet weak var popUpView: UIView!
     
@@ -35,7 +35,7 @@ class RCLAddTrashVC: UIViewController {
         trashTableView.delegate = self
         trashTableView.dataSource = self
         typeOfTrashLabel.text = trashLabelFromCatalogVC
-        typeOfTrashImage.image = UIImage(named: trashImageFromCatalogVC)
+        typeOfTrashImage.image = trashImageFromCatalogVC
         super.viewDidLoad()
     }
 }
@@ -75,7 +75,7 @@ extension RCLAddTrashVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

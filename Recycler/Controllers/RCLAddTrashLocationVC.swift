@@ -18,11 +18,11 @@ class RCLAddTrashLocationVC: UIViewController {
     
     @IBOutlet weak var addLocationBtn: UIButton!
     
+    @IBAction func addLocationBtn(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let camera = GMSCameraPosition.camera(withLatitude: -33.868,
-                                              longitude: 151.2086,
-                                              zoom: 14)
-        mapView = GMSMapView.map(withFrame: .zero, camera: camera)
     }
 }
