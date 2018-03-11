@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Formatter {
+class RCLFormatter {
     
     func decimalFormatter(text: String, range: NSRange, replacementString: String) -> NSString {
         let newString = (text as NSString).replacingCharacters(in: range, with: replacementString)

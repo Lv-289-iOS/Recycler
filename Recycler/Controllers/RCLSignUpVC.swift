@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpVC: UIViewController {
+class RCLSignUpVC: UIViewController {
 
     @IBOutlet var logosForAction: [UIImageView]!
     
@@ -18,11 +18,11 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
-    var formatter = Formatter()
+    var formatter = RCLFormatter()
     var isAllFieldsValid = true
     
     var images = [#imageLiteral(resourceName: "avatar"), #imageLiteral(resourceName: "padlock"), #imageLiteral(resourceName: "phone-call"), #imageLiteral(resourceName: "envelope")]
-    var styler = Styler()
+    var styler = RCLStyler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,11 +66,13 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func LoginButton(_ sender: UIButton) {
-        if !validator {
-            print("login unsuccessfull")
+        if validator {
+            print("login successfull")
+            let authent = RCLAuthentificator()
+            authent.createUser(userName: nameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
             performSegue(withIdentifier: "ToApp", sender: self)
         } else {
-            print("login successfull")
+            print("login unsuccessfull")
         }
     }
     
@@ -102,7 +104,7 @@ class SignUpVC: UIViewController {
     }
 }
 
-extension SignUpVC: UITextFieldDelegate {
+extension RCLSignUpVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -149,5 +151,7 @@ extension SignUpVC: UITextFieldDelegate {
             return true
         }
     }
+    
+    
 }
 

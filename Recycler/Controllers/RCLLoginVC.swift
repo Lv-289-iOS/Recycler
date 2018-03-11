@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class RCLLoginVC: UIViewController, AuthServiceDelegate {
 
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var loginTextField: UITextField!
@@ -21,25 +21,21 @@ class LoginVC: UIViewController {
         guard let login = loginTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         
-        if !authentificator.isUser(login: login, pass: password) {
-            self.present(infoWindow.wrongCredentials(), animated: true, completion: nil)
-        } else {
-            performSegue(withIdentifier: "ToApp", sender: self)
-        }
+        authentificator.login(login: login, password: password)
     }
     
     @IBAction func signUpButton(_ sender: Any) {
         performSegue(withIdentifier: "ToSignUp", sender: self)
     }
     
-    var styler = Styler()
-    var authentificator = Authentificator()
-    var infoWindow = InfoWindow()
+    var styler = RCLStyler()
+    var authentificator = RCLAuthentificator()
+    var infoWindow = RCLInfoWindow()
     var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        authentificator.delegate = self
 //        let user = FirestoreService.shared.getUserBy(email: "test@mail.com", password: "1111")
 //        print(user)
 //        FirestoreService.shared.get(from: .users, returning: User.self) { (users) in
@@ -61,9 +57,20 @@ class LoginVC: UIViewController {
         passwordTextField.initialStyler()
         styler.renderImage(view: logoImage, image: image)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        if authentificator.isAUserActive() {
+            performSegue(withIdentifier: "ToApp", sender: self)
+        } 
+    }
+    
+    func transitionToProfile() {
+        performSegue(withIdentifier: "ToApp", sender: self)
+    }
 }
 
-extension LoginVC: UITextFieldDelegate {
+extension RCLLoginVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
