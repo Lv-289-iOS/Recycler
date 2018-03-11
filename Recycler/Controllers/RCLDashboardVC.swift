@@ -45,7 +45,19 @@ class RCLDashboardVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+       
+    }
+    
+    @IBAction func logOut(_ sender: UIButton) {
+        RCLAuthentificator.signOut()
+//        self.navigationController?.popToRootViewController(animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let next = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! RCLLoginVC
+        self.present(next, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

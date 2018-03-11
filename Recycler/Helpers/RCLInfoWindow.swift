@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class InfoWindow {
+class RCLInfoWindow {
 
     var alertController: UIAlertController?
     var wrongCredentialsTitle = "Wrong credentials"
