@@ -123,34 +123,29 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func onQrCodeRead(_ qrCode: String) {
-        print(qrCode)
-        validateQrCode(qrCode)
-        explainationLabel.text = qrCode
+        var newScanStatus: ScanStatus = .redyToScan
         
-        // duration in seconds
-        let duration: Double = 2
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
-            self.explainationLabel.text = ""
+        if explainationLabel.text != qrCode {
+            explainationLabel.text = qrCode
         }
-    }
-    
-    func validateQrCode(_ qrCode: String) {
-        // TODO: Initially the button is inactive and title is "Please scan QR"
         
         if !isQrCodeBelongsToApp(qrCode) {
-            scanStatus = .wrong
+            newScanStatus = .wrong
         } else {
             if isTrashCanYours(qrCode) {
                 if isTrashCanEmpty(qrCode) {
-                    scanStatus = .correct
+                    newScanStatus = .correct
                 } else {
-                    scanStatus = .alreadyReported
+                    newScanStatus = .alreadyReported
                 }
             }
             else {
-                scanStatus = .notYours
+                newScanStatus = .notYours
             }
+        }
+        
+        if scanStatus != newScanStatus {
+           scanStatus = newScanStatus
         }
     }
     
