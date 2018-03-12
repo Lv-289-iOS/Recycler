@@ -12,9 +12,14 @@ import AVFoundation
 enum ScanStatus: String {
     case redyToScan = "Please scan QR" // there is no QR code in camera view, ready to scan
     case wrong = "Wrong QR" // there is QR code but it's format is different from our app format "trashCanID: UUID"
-    case notYours = "It's not yours" // there is QR code but this trash can does not belong to current user
-    case alreadyReported = "Already reported" // there is QR code, this trash can belongs to current user but it is already full
+    case notYours = "Trash can is not yours" // there is QR code but this trash can does not belong to current user
+    case alreadyFull = "Trash can is already full" // there is QR code, this trash can belongs to current user but it is already full
     case correct = "Correct QR" // there is QR code and it's format is OK for our app
+}
+
+struct UIConstants {
+    static let enabledButtonAlpha = CGFloat(1)
+    static let disabledButtonAlpha = CGFloat(0.5)
 }
 
 class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
@@ -29,7 +34,6 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var scanStatus: ScanStatus = .redyToScan {
         didSet {
-            //explainationLabel.text = scanStatus.rawValue
             trashIsFullBtn.setTitle(scanStatus.rawValue, for: .normal)
             
             switch scanStatus {
@@ -39,7 +43,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                 setTrashIsFullBtnEnabled(false)
             case .notYours:
                 setTrashIsFullBtnEnabled(false)
-            case .alreadyReported:
+            case .alreadyFull:
                 setTrashIsFullBtnEnabled(false)
             case .correct:
                 setTrashIsFullBtnEnabled(true)
@@ -49,7 +53,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func setTrashIsFullBtnEnabled(_ isEnabled: Bool) {
         trashIsFullBtn.isEnabled = isEnabled
-        trashIsFullBtn.alpha =  (isEnabled ? CGFloat(1) : CGFloat(0.5))
+        trashIsFullBtn.alpha = (isEnabled ? UIConstants.enabledButtonAlpha : UIConstants.disabledButtonAlpha)
     }
     
     override func viewDidLoad() {
@@ -60,9 +64,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func setupUI() {
-        trashIsFullBtn.alpha = 0.5
         trashIsFullBtn.backgroundColor = UIColor.Button.backgroundColor
         trashIsFullBtn.setTitleColor(UIColor.Button.titleColor, for: .normal)
+        setTrashIsFullBtnEnabled(false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +147,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                 if isTrashCanEmpty(qrCode) {
                     result = .correct
                 } else {
-                    result = .alreadyReported
+                    result = .alreadyFull
                 }
             }
             else {
