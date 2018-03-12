@@ -37,18 +37,10 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         authentificator.delegate = self
-//        let user = FirestoreService.shared.getUserBy(email: "test@mail.com", password: "1111")
-//        print(user)
-//        FirestoreService.shared.get(from: .users, returning: User.self) { (users) in
-//            self.users = users
-//        }
-        
-//        FirestoreService.shared.getUserBy(id: "yBX8iC5sp8xoVtaBUR9g") { (user) in
-//            print(user.email)
-//            print(user)
-//        }
-//        FirestoreService.shared.getUserBy(email: "c") { (user) -> User in
-//
+//        let trash = Trash(trashCanId: "uFYf9ltIIloIxWtFiJLf", userIdReportedFull: "CUXMZQRwJD1JfbrjfDEs")
+//        FirestoreService.shared.add(for: trash, in: .trash)
+//        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { (trash) in
+//            print(trash!)
 //        }
         
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
