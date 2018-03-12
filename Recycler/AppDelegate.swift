@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirestoreService.shared.configure()
-
         GMSServices.provideAPIKey("AIzaSyDxWzwu4uTys2yrDIbTLBP4683LR7r6X2g")
         GMSPlacesClient.provideAPIKey("AIzaSyDxWzwu4uTys2yrDIbTLBP4683LR7r6X2g")
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

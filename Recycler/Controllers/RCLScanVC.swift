@@ -10,9 +10,16 @@ import UIKit
 import AVFoundation
 
 enum ScanStatus: String {
-    case redyToScan = "Please scan QR" // there is no recognized QR in camera view, ready to scan
+    case redyToScan = "Please scan QR" // there is no QR code in camera view, ready to scan
     case wrong = "Wrong QR" // there is QR code but it's format is different from our app format "trashCanID: UUID"
+    case notYours = "Trash can is not yours" // there is QR code but this trash can does not belong to current user
+    case alreadyFull = "Trash can is already full" // there is QR code, this trash can belongs to current user but it is already full
     case correct = "Correct QR" // there is QR code and it's format is OK for our app
+}
+
+struct UIConstants {
+    static let enabledButtonAlpha = CGFloat(1)
+    static let disabledButtonAlpha = CGFloat(0.5)
 }
 
 class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
@@ -27,21 +34,26 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var scanStatus: ScanStatus = .redyToScan {
         didSet {
-            explainationLabel.text = scanStatus.rawValue
             trashIsFullBtn.setTitle(scanStatus.rawValue, for: .normal)
             
             switch scanStatus {
             case .redyToScan:
-                trashIsFullBtn.isEnabled = false
-                trashIsFullBtn.alpha = 0.5
+                setTrashIsFullBtnEnabled(false)
             case .wrong:
-                trashIsFullBtn.isEnabled = false
-                trashIsFullBtn.alpha = 0.5
+                setTrashIsFullBtnEnabled(false)
+            case .notYours:
+                setTrashIsFullBtnEnabled(false)
+            case .alreadyFull:
+                setTrashIsFullBtnEnabled(false)
             case .correct:
-                trashIsFullBtn.isEnabled = true
-                trashIsFullBtn.alpha = 1
+                setTrashIsFullBtnEnabled(true)
             }
         }
+    }
+    
+    func setTrashIsFullBtnEnabled(_ isEnabled: Bool) {
+        trashIsFullBtn.isEnabled = isEnabled
+        trashIsFullBtn.alpha = (isEnabled ? UIConstants.enabledButtonAlpha : UIConstants.disabledButtonAlpha)
     }
     
     override func viewDidLoad() {
@@ -52,9 +64,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func setupUI() {
-        trashIsFullBtn.alpha = 0.5
         trashIsFullBtn.backgroundColor = UIColor.Button.backgroundColor
         trashIsFullBtn.setTitleColor(UIColor.Button.titleColor, for: .normal)
+        setTrashIsFullBtnEnabled(false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,42 +121,79 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
                 dismiss(animated: true)
-                onQrCodeRead(code)
+                updateGUIForQR(code)
             }
         }
     }
     
-    func onQrCodeRead(_ qrCode: String) {
-        print(qrCode)
-        validateQrCode(qrCode)
-        captureSession.stopRunning()
-        let alert = UIAlertController(title: nil, message: qrCode, preferredStyle: .alert)
-        self.present(alert, animated: true)
+    func updateGUIForQR(_ qrCode: String) {
+        if explainationLabel.text != qrCode {
+            explainationLabel.text = qrCode
+        }
         
-        // duration in seconds
-        let duration: Double = 2
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
-            alert.dismiss(animated: true)
-            self.captureSession.startRunning()
+        let newScanStatus = getScanStatusForQR(qrCode)
+        if scanStatus != newScanStatus {
+           scanStatus = newScanStatus
         }
     }
     
-    func validateQrCode(_ qrCode: String) {
-        // TODO: Initially the button is inactive and title is "Please scan QR"
-        
-        if !qrCode.hasPrefix("trashCanID:") { // QR code format is "trashCanID: UUID"
-            trashIsFullBtn.isEnabled = false
-            scanStatus = .wrong
+    func getScanStatusForQR(_ qrCode: String) -> ScanStatus {
+        var result: ScanStatus = .redyToScan
+
+        if !isQrCodeBelongsToApp(qrCode) {
+            result = .wrong
         } else {
-            trashIsFullBtn.isEnabled = true
-            scanStatus = .correct
-            
-            // TODO:
-            // If scanned qr code is invalid we the title is "It's not yours"
-            // If scanned qr code is correct and trash can is empty then button becomes active and the title is "Report trash is full"
-            // If scanned qr code is correct and trash can is already full then button becomes inactive and title is "Already reported"
+            if isTrashCanYours(qrCode) {
+                if isTrashCanFull(qrCode) {
+                    result = .alreadyFull
+                } else {
+                    result = .correct
+                }
+            }
+            else {
+                result = .notYours
+            }
         }
+        return result
+    }
+    
+    func isQrCodeBelongsToApp(_ qrCode: String) -> Bool {
+        return qrCode.hasPrefix("trashCanID:") // QR code format is "trashCanID: UUID"
+    }
+    
+    func isTrashCanYours(_ qrCode: String) -> Bool {
+        /*
+        let email = RCLAuthentificator.email()
+        var userID: String?
+        FirestoreService.shared.getUserBy(email: email) { user in
+            if let unwrappedUser = user {
+                userID = unwrappedUser.id
+            }
+        }
+        if let unwrappedUserID = userID {
+            print(unwrappedUserID)
+        }
+         */
+        return true // TODO: implement
+    }
+    
+    func isTrashCanFull(_ qrCode: String) -> Bool {
+        var result: Bool = true
+        /*
+        var myTrashCan: TrashCan?
+        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { trash in
+            if let unwrappedTrash = trash {
+                FirestoreService.shared.getDocumentById(from: .trashCan, returning: TrashCan.self, id: unwrappedTrash.trashCanId, completion: { trashCan in
+                    trashCan?.isFull
+                    myTrashCan = trashCan
+                })
+            }
+        }
+        if let myTrashCan = myTrashCan {
+            result = myTrashCan.isFull
+        }
+         */
+        return result // TODO: implement
     }
     
 }
