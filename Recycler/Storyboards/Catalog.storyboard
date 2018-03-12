@@ -344,39 +344,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6n-ac-0ON" customClass="GMSMapView" customModule="Recycler" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMq-FP-07T">
-                                        <rect key="frame" x="28" y="516" width="318" height="87"/>
-                                        <color key="backgroundColor" red="0.0060861045784782516" green="0.089551337671454886" blue="0.46252379441624369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="87" id="PzP-Zk-CgN"/>
-                                            <constraint firstAttribute="width" constant="318" id="n2d-To-44g"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="Add Location">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addLocationBtn:" destination="o1D-KM-k9S" eventType="touchUpInside" id="FV1-Pg-l2Z"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="gMq-FP-07T" secondAttribute="bottom" constant="64" id="Fbi-5v-Gox"/>
-                                    <constraint firstItem="gMq-FP-07T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X6n-ac-0ON" secondAttribute="leading" constant="28" id="JOs-ch-KtR"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gMq-FP-07T" secondAttribute="trailing" constant="29" id="Lvq-At-JAD"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6n-ac-0ON" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMq-FP-07T">
+                                <rect key="frame" x="17" y="478" width="285" height="42"/>
+                                <color key="backgroundColor" red="0.0060861045784782516" green="0.089551337671454886" blue="0.46252379441624369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="CJR-fw-jmu"/>
+                                    <constraint firstAttribute="width" constant="285" id="Z18-jv-7Kc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Add Location">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addLocationBtn:" destination="o1D-KM-k9S" eventType="touchUpInside" id="FV1-Pg-l2Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="X6n-ac-0ON" firstAttribute="leading" secondItem="Gsv-f2-Fzm" secondAttribute="leading" id="ceE-QP-e0M"/>
-                            <constraint firstItem="X6n-ac-0ON" firstAttribute="bottom" secondItem="Gsv-f2-Fzm" secondAttribute="bottom" id="e0W-wl-dJ5"/>
-                            <constraint firstItem="X6n-ac-0ON" firstAttribute="top" secondItem="Gsv-f2-Fzm" secondAttribute="top" constant="-20" id="kMJ-9e-cqf"/>
-                            <constraint firstItem="X6n-ac-0ON" firstAttribute="trailing" secondItem="Gsv-f2-Fzm" secondAttribute="trailing" id="phi-OV-Cyg"/>
+                            <constraint firstItem="gMq-FP-07T" firstAttribute="leading" secondItem="Gsv-f2-Fzm" secondAttribute="leading" constant="17" id="RtJ-C6-vXG"/>
+                            <constraint firstItem="Gsv-f2-Fzm" firstAttribute="bottom" secondItem="gMq-FP-07T" secondAttribute="bottom" constant="32" id="fNq-iY-QY1"/>
+                            <constraint firstItem="Gsv-f2-Fzm" firstAttribute="trailing" secondItem="gMq-FP-07T" secondAttribute="trailing" constant="18" id="ipj-3q-efI"/>
+                            <constraint firstItem="gMq-FP-07T" firstAttribute="top" secondItem="Gsv-f2-Fzm" secondAttribute="top" constant="458" id="zXj-9X-WUZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gsv-f2-Fzm"/>
                     </view>
@@ -388,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tVN-qM-yBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="10.344827586206897"/>
+            <point key="canvasLocation" x="1771.875" y="9.5070422535211261"/>
         </scene>
     </scenes>
     <resources>
