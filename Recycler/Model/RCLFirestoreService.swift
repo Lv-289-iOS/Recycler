@@ -135,6 +135,25 @@ class FirestoreService {
         }
     }
     
+    func getTrashBy(userIdReportedFull: String, completion: @escaping ([Trash]) -> Void) {
+        reference(to: .trash).whereField("userIdReportedFull", isEqualTo: userIdReportedFull).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {print(error.debugDescription)
+                return}
+            var trashList = [Trash]()
+            for document in snapshot.documents {
+                let trash = try? document.decode(as: Trash.self)
+                if let obj = trash{
+                    trashList.append(obj)
+                }
+            }
+            completion(trashList)
+        }
+    }
+    
+    func getTrashBy(day: Date, completion: @escaping ([Trash]) -> Void) {
+        reference(to: .trash).whereField(<#T##field: String##String#>, isEqualTo: <#T##Any#>)
+    }
+    
     func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash?) -> Void) {
         reference(to: .trash)
             .whereField("trashCanId", isEqualTo: trashCanId)
