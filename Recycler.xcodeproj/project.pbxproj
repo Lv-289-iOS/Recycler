@@ -17,6 +17,10 @@
 		19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C4204D87BB00958858 /* RCLTrashType.swift */; };
 		19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* RCLUser.swift */; };
 		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
+		4B7976B52052CE1C00909227 /* RCLAddTrashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7976B42052CE1C00909227 /* RCLAddTrashVC.swift */; };
+		4B7976B72052EB9000909227 /* RCLSizeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7976B62052EB9000909227 /* RCLSizeViewCell.swift */; };
+		4B7976B92052F5DF00909227 /* RCLAddTrashLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7976B82052F5DF00909227 /* RCLAddTrashLocationVC.swift */; };
+		4B7976BB2052F65700909227 /* RCLLocationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7976BA2052F65700909227 /* RCLLocationViewCell.swift */; };
 		4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */; };
 		4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */; };
 		630020DD204EAD4F002E7D89 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020DC204EAD4F002E7D89 /* Colors.swift */; };
@@ -63,6 +67,10 @@
 		19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
 		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
+		4B7976B42052CE1C00909227 /* RCLAddTrashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLAddTrashVC.swift; sourceTree = "<group>"; };
+		4B7976B62052EB9000909227 /* RCLSizeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLSizeViewCell.swift; sourceTree = "<group>"; };
+		4B7976B82052F5DF00909227 /* RCLAddTrashLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLAddTrashLocationVC.swift; sourceTree = "<group>"; };
+		4B7976BA2052F65700909227 /* RCLLocationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLLocationViewCell.swift; sourceTree = "<group>"; };
 		4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
 		4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
 		630020DC204EAD4F002E7D89 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Recycler/Colors.swift; sourceTree = SOURCE_ROOT; };
@@ -132,6 +140,8 @@
 				630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */,
 				630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */,
 				4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */,
+				4B7976B62052EB9000909227 /* RCLSizeViewCell.swift */,
+				4B7976BA2052F65700909227 /* RCLLocationViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -195,6 +205,8 @@
 				630020DE204EB542002E7D89 /* RCLProfileVC.swift */,
 				A3C4EA0820503D7500815A69 /* RCLScanVC.swift */,
 				4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */,
+				4B7976B42052CE1C00909227 /* RCLAddTrashVC.swift */,
+				4B7976B82052F5DF00909227 /* RCLAddTrashLocationVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -384,11 +396,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Recycler/Pods-Recycler-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +438,9 @@
 				630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */,
 				4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */,
 				D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */,
+				D331CEB7204ECEBD001D0A90 /* Validator.swift in Sources */,
+				4B7976B72052EB9000909227 /* RCLSizeViewCell.swift in Sources */,
+				D331CEB2204ECEBD001D0A90 /* Formatter.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
 				19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */,
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
