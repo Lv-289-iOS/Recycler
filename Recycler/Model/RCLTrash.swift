@@ -15,15 +15,19 @@ struct Trash: Codable, Identifiable {
     var dateReportedFull: Date
     var userIdReportedEmpty: String? = nil
     var dateReportedEmpty: Date? = nil
+    var status: String
+    
     
     init(trashCanId: String, userIdReportedFull: String) {
         self.trashCanId = trashCanId
         self.userIdReportedFull = userIdReportedFull
         self.dateReportedFull = Date()
+        self.status = RCLTrashStatus.available.rawValue
     }
     init() {
         self.trashCanId = ""
         self.userIdReportedFull = ""
         self.dateReportedFull = Date()
+        self.status = RCLTrashStatus.available.rawValue
     }
 }

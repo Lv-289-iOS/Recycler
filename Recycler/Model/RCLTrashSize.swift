@@ -8,9 +8,17 @@
 
 import Foundation
 
-enum RCLTrashSize: String{
+enum RCLTrashSize: String {
     case small
     case medium
     case large
     case extraLarge
 }
+
+//enum RCLTrashSize: Int {
+//    case small = 0
+//    case medium = 1
+//    case large = 2
+//    case extraLarge = 3
+//}
+

@@ -59,7 +59,7 @@ class FirestoreService {
     
     func update<T: Encodable & Identifiable>(for encodableObject: T, in collectionReference: RCLCollectionReference) {
         do {
-            let json = try encodableObject.toJson()
+            let json = try encodableObject.toJson(excluding: ["id"])
             guard let id = encodableObject.id else { throw myEncodingError.encodingError}
             reference(to: collectionReference).document(id).setData(json)
         } catch {
@@ -79,77 +79,77 @@ class FirestoreService {
     }
     
     /*--------------------------------Queries----------------------------------------------*/
-    func getDocumentById<T: Decodable & Identifiable>(from collectionReference: RCLCollectionReference, returning objectType: T.Type, id: String, completion: @escaping (T) -> Void){
+    
+    func getDocumentById<T: Decodable & Identifiable>(from collectionReference: RCLCollectionReference, returning objectType: T.Type, id: String, completion: @escaping (T?) -> Void){
         reference(to: collectionReference).document(id).getDocument { (document, error) in
             guard let document = document else {print(error.debugDescription)
                 return
             }
-            do {
-                let object = try document.decode(as: objectType.self)
-                completion(object)
-            } catch {
-                print(error.localizedDescription)
-            }
+            let object = try? document.decode(as: objectType.self)
+            completion(object)
+            return
         }
-    }
-    
-    
-    func getUserBy(id: String, completion: @escaping (User) -> Void){
-        reference(to: .users).document(id).getDocument { (document, error) in
-            guard let document = document else {print(error.debugDescription)
-                return}
-            do {
-                let user = try document.decode(as: User.self)
-                completion(user)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+        completion(nil)
     }
 
-    func getUserBy(email: String, completion: @escaping (User) -> Void){
-        reference(to: .users).whereField("email", isEqualTo: email).addSnapshotListener { (snapshot, error) in
-            guard let snapshot = snapshot else {return print(error.debugDescription)}
-            for document in snapshot.documents{
-                do {
-                    let user = try document.decode(as: User.self)
+    func getUserBy(email: String, completion: @escaping (User?) -> Void){
+        reference(to: .users)
+            .whereField("email", isEqualTo: email)
+            .limit(to: 1)
+            .addSnapshotListener { (snapshot, error) in
+                guard let snapshot = snapshot else {return print(error.debugDescription)}
+                for document in snapshot.documents{
+                    let user = try? document.decode(as: User.self)
                     completion(user)
-                } catch {
-                    print(error.localizedDescription)
+                }
+                completion(nil)
+        }
+    }
+    
+    func getTrashCansBy(userId: String, completion: @escaping ([TrashCan]) -> Void) {
+        reference(to: .trash).whereField("userId", isEqualTo: userId).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {return print(error.debugDescription)}
+            var trashCanList = [TrashCan]()
+            for document in snapshot.documents{
+                let trashCan = try? document.decode(as: TrashCan.self)
+                if let obj = trashCan{
+                trashCanList.append(obj)
                 }
             }
-            
-        }
-
-    }
-    
-    func getTrashCanBy(id: String, completion: @escaping (TrashCan) -> Void) {
-        reference(to: .trashCan).document(id).getDocument { (document, error) in
-            guard let document = document else {print(error.debugDescription)
-                return
-            }
-            do {
-                let trashCan = try document.decode(as: TrashCan.self)
-                completion(trashCan)
-            } catch {
-                print(error.localizedDescription)
-            }
+            completion(trashCanList)
         }
     }
     
-    func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash) -> Void) {
-        reference(to: .trash).whereField("trashCanId", isEqualTo: trashCanId).order(by: "dateReportedFull", descending: true).limit(to: 1).addSnapshotListener { (snapshot, error) in
+    func getTrashBy(trashCanId: String, completion: @escaping ([Trash]) -> Void) {
+        reference(to: .trash).whereField("trashCanId", isEqualTo: trashCanId).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {print(error.debugDescription)
+                return}
+            var trashList = [Trash]()
+            for document in snapshot.documents {
+                let trash = try? document.decode(as: Trash.self)
+                if let obj = trash{
+                    trashList.append(obj)
+                }
+            }
+            completion(trashList)
+        }
+    }
+    
+    func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash?) -> Void) {
+        reference(to: .trash)
+            .whereField("trashCanId", isEqualTo: trashCanId)
+            .order(by: "dateReportedFull", descending: true)
+            .limit(to: 1)
+            .addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {print(error.debugDescription)
                 return
             }
             for document in snapshot.documents {
-                do {
-                    let trash = try document.decode(as: Trash.self)
-                    completion(trash)
-                } catch {
-                    print(error.localizedDescription)
-                }
+                let trash = try? document.decode(as: Trash.self)
+                completion(trash)
+                return
             }
+            completion(nil)
         }
     }
     
