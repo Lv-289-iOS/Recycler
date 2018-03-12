@@ -41,6 +41,7 @@
 		A3ACADAC2056B2F400E9B918 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACADAD2056B2F400E9B918 /* Charts.framework */; };
 		A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */; };
 		A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4EA0820503D7500815A69 /* RCLScanVC.swift */; };
+		D328EF122056ACD000CCB14F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D328EF132056ACD100CCB14F /* Charts.framework */; };
 		D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D331CE4B204EC0AF001D0A90 /* Main.storyboard */; };
 		D331CEB1204ECEBD001D0A90 /* RCLAuthentificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */; };
 		D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */; };
@@ -90,6 +91,7 @@
 		A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTabBarVC.swift; sourceTree = "<group>"; };
 		A3C4EA0820503D7500815A69 /* RCLScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLScanVC.swift; sourceTree = "<group>"; };
 		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D328EF132056ACD100CCB14F /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D331CE4B204EC0AF001D0A90 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLAuthentificator.swift; sourceTree = "<group>"; };
 		D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFormatter.swift; sourceTree = "<group>"; };

@@ -22,7 +22,7 @@ class RCLAuthentificator {
     
     weak var delegate: AuthServiceDelegate?
     
-    func createUser(userName: String, email: String, phone: String, password: String) {
+    func createUser(userName: String, userLastName: String, email: String, phone: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error == nil {
                 let user = User(firstName: userName, lastName: "", email: email, password: password, phoneNumber: phone, role: "someone")

@@ -256,7 +256,7 @@
                                                 <color key="backgroundColor" red="0.73691737690000003" green="1" blue="0.90994901989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
-                                                    <action selector="LoginButton:" destination="eID-WG-b6O" eventType="touchUpInside" id="eCC-iO-ygV"/>
+                                                    <action selector="loginButton:" destination="eID-WG-b6O" eventType="touchUpInside" id="eCC-iO-ygV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
