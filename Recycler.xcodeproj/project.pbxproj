@@ -179,7 +179,6 @@
 		6F120602204574E20042056E /* Recycler */ = {
 			isa = PBXGroup;
 			children = (
-				6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */,
 				19338E032046D34E007BD6E3 /* GoogleService-Info.plist */,
 				630020DC204EAD4F002E7D89 /* Colors.swift */,
 				630020E4204EB852002E7D89 /* Constants.swift */,
@@ -253,6 +252,7 @@
 				D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */,
 				D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */,
 				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
+				6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
