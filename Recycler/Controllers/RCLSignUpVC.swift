@@ -13,10 +13,15 @@ class RCLSignUpVC: UIViewController {
     @IBOutlet var logosForAction: [UIImageView]!
     
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationPasswordTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var backButtonOutlet: UIButton!
+    @IBOutlet weak var loginButtonOutlet: UIButton!
+    
     
     var formatter = RCLFormatter()
     var isAllFieldsValid = true
@@ -33,6 +38,7 @@ class RCLSignUpVC: UIViewController {
     
     func delegates() {
         nameTextField.delegate = self
+        lastNameTextField.delegate = self
         passwordTextField.delegate = self
         confirmationPasswordTextField.delegate = self
         phoneTextField.delegate = self
@@ -45,12 +51,16 @@ class RCLSignUpVC: UIViewController {
         styler.renderImage(view: logosForAction[2], image: images[1])
         styler.renderImage(view: logosForAction[3], image: images[2])
         styler.renderImage(view: logosForAction[4], image: images[3])
+        styler.styleButton(button: backButtonOutlet)
+        styler.styleButton(button: loginButtonOutlet)
         nameTextField.textType = .generic
+        lastNameTextField.textType = .generic
         passwordTextField.textType = .password
         confirmationPasswordTextField.textType = .password
         phoneTextField.textType = .phone
         emailTextField.textType = .emailAddress
         nameTextField.initialStyler()
+        lastNameTextField.initialStyler()
         passwordTextField.initialStyler()
         confirmationPasswordTextField.initialStyler()
         phoneTextField.initialStyler()
@@ -59,6 +69,7 @@ class RCLSignUpVC: UIViewController {
     
     func styleTextField() {
         nameTextField.styleTextField()
+        lastNameTextField.styleTextField()
         passwordTextField.styleTextField()
         confirmationPasswordTextField.styleTextField()
         phoneTextField.styleTextField()
@@ -83,7 +94,9 @@ class RCLSignUpVC: UIViewController {
 //        transition.type = kCATransitionFade
 //        transition.subtype = kCATransactionDisableActions
 //        self.view.window!.layer.add(transition, forKey: nil)
-        self.dismiss(animated: false, completion: nil)
+        print("back tapped")
+//        self.dismiss(animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     var validator: Bool {
@@ -91,6 +104,7 @@ class RCLSignUpVC: UIViewController {
             styleTextField()
             var a: Bool = true
             a = a && nameTextField.valid
+            a = a && lastNameTextField.valid
             a = a && passwordTextField.valid
             a = a && confirmationPasswordTextField.valid
             a = a && phoneTextField.valid
