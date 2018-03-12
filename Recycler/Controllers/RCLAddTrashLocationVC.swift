@@ -57,6 +57,17 @@ class RCLAddTrashLocationVC: UIViewController,GMSAutocompleteViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "RCLMapStyle", withExtension: "json")
+            {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
         animateCameraTo(coordinate: userLocation.coordinate)
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 50
