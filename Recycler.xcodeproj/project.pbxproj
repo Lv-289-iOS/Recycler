@@ -38,6 +38,7 @@
 		A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB02049785A005A3A87 /* Scan.storyboard */; };
 		A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB22049787F005A3A87 /* Catalog.storyboard */; };
 		A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAB420497892005A3A87 /* Profile.storyboard */; };
+		A3ACADAC2056B2F400E9B918 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACADAD2056B2F400E9B918 /* Charts.framework */; };
 		A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */; };
 		A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4EA0820503D7500815A69 /* RCLScanVC.swift */; };
 		D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D331CE4B204EC0AF001D0A90 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		A39BEAB02049785A005A3A87 /* Scan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
 		A39BEAB22049787F005A3A87 /* Catalog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
 		A39BEAB420497892005A3A87 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		A3ACADAD2056B2F400E9B918 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTabBarVC.swift; sourceTree = "<group>"; };
 		A3C4EA0820503D7500815A69 /* RCLScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLScanVC.swift; sourceTree = "<group>"; };
 		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3ACADAC2056B2F400E9B918 /* Charts.framework in Frameworks */,
 				9A276421DDADC37ACF93013F /* Pods_Recycler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +220,7 @@
 		C99E8D43E96CDC74362F3157 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3ACADAD2056B2F400E9B918 /* Charts.framework */,
 				CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */,
 			);
 			name = Frameworks;
@@ -566,11 +570,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F95D26K5WQ;
+				DEVELOPMENT_TEAM = Z4QUG2MZQ5;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.Recycler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.danylo.Recycler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -585,11 +589,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Z4QUG2MZQ5;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.Recycler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.danylo.Recycler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
