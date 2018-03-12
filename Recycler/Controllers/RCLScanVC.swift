@@ -10,8 +10,10 @@ import UIKit
 import AVFoundation
 
 enum ScanStatus: String {
-    case redyToScan = "Please scan QR" // there is no recognized QR in camera view, ready to scan
+    case redyToScan = "Please scan QR" // there is no QR code in camera view, ready to scan
     case wrong = "Wrong QR" // there is QR code but it's format is different from our app format "trashCanID: UUID"
+    case notYours = "It's not yours" // there is QR code but this trash can does not belong to current user
+    case alreadyReported = "Already reported" // there is QR code, this trash can belongs to current user but it is already full
     case correct = "Correct QR" // there is QR code and it's format is OK for our app
 }
 
@@ -27,21 +29,27 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var scanStatus: ScanStatus = .redyToScan {
         didSet {
-            explainationLabel.text = scanStatus.rawValue
+            //explainationLabel.text = scanStatus.rawValue
             trashIsFullBtn.setTitle(scanStatus.rawValue, for: .normal)
             
             switch scanStatus {
             case .redyToScan:
-                trashIsFullBtn.isEnabled = false
-                trashIsFullBtn.alpha = 0.5
+                setTrashIsFullBtnEnabled(false)
             case .wrong:
-                trashIsFullBtn.isEnabled = false
-                trashIsFullBtn.alpha = 0.5
+                setTrashIsFullBtnEnabled(false)
+            case .notYours:
+                setTrashIsFullBtnEnabled(false)
+            case .alreadyReported:
+                setTrashIsFullBtnEnabled(false)
             case .correct:
-                trashIsFullBtn.isEnabled = true
-                trashIsFullBtn.alpha = 1
+                setTrashIsFullBtnEnabled(true)
             }
         }
+    }
+    
+    func setTrashIsFullBtnEnabled(_ isEnabled: Bool) {
+        trashIsFullBtn.isEnabled = isEnabled
+        trashIsFullBtn.alpha =  (isEnabled ? CGFloat(1) : CGFloat(0.5))
     }
     
     override func viewDidLoad() {
@@ -117,34 +125,45 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     func onQrCodeRead(_ qrCode: String) {
         print(qrCode)
         validateQrCode(qrCode)
-        captureSession.stopRunning()
-        let alert = UIAlertController(title: nil, message: qrCode, preferredStyle: .alert)
-        self.present(alert, animated: true)
+        explainationLabel.text = qrCode
         
         // duration in seconds
         let duration: Double = 2
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
-            alert.dismiss(animated: true)
-            self.captureSession.startRunning()
+            self.explainationLabel.text = ""
         }
     }
     
     func validateQrCode(_ qrCode: String) {
         // TODO: Initially the button is inactive and title is "Please scan QR"
         
-        if !qrCode.hasPrefix("trashCanID:") { // QR code format is "trashCanID: UUID"
-            trashIsFullBtn.isEnabled = false
+        if !isQrCodeBelongsToApp(qrCode) {
             scanStatus = .wrong
         } else {
-            trashIsFullBtn.isEnabled = true
-            scanStatus = .correct
-            
-            // TODO:
-            // If scanned qr code is invalid we the title is "It's not yours"
-            // If scanned qr code is correct and trash can is empty then button becomes active and the title is "Report trash is full"
-            // If scanned qr code is correct and trash can is already full then button becomes inactive and title is "Already reported"
+            if isTrashCanYours(qrCode) {
+                if isTrashCanEmpty(qrCode) {
+                    scanStatus = .correct
+                } else {
+                    scanStatus = .alreadyReported
+                }
+            }
+            else {
+                scanStatus = .notYours
+            }
         }
+    }
+    
+    func isQrCodeBelongsToApp(_ qrCode: String) -> Bool {
+        return qrCode.hasPrefix("trashCanID:") // QR code format is "trashCanID: UUID"
+    }
+    
+    func isTrashCanYours(_ qrCode: String) -> Bool {
+        return true // TODO: implement
+    }
+    
+    func isTrashCanEmpty(_ qrCode: String) -> Bool {
+        return true // TODO: implement
     }
     
 }
