@@ -144,10 +144,10 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             result = .wrong
         } else {
             if isTrashCanYours(qrCode) {
-                if isTrashCanEmpty(qrCode) {
-                    result = .correct
-                } else {
+                if isTrashCanFull(qrCode) {
                     result = .alreadyFull
+                } else {
+                    result = .correct
                 }
             }
             else {
@@ -162,11 +162,38 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func isTrashCanYours(_ qrCode: String) -> Bool {
+        /*
+        let email = RCLAuthentificator.email()
+        var userID: String?
+        FirestoreService.shared.getUserBy(email: email) { user in
+            if let unwrappedUser = user {
+                userID = unwrappedUser.id
+            }
+        }
+        if let unwrappedUserID = userID {
+            print(unwrappedUserID)
+        }
+         */
         return true // TODO: implement
     }
     
-    func isTrashCanEmpty(_ qrCode: String) -> Bool {
-        return true // TODO: implement
+    func isTrashCanFull(_ qrCode: String) -> Bool {
+        var result: Bool = true
+        /*
+        var myTrashCan: TrashCan?
+        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { trash in
+            if let unwrappedTrash = trash {
+                FirestoreService.shared.getDocumentById(from: .trashCan, returning: TrashCan.self, id: unwrappedTrash.trashCanId, completion: { trashCan in
+                    trashCan?.isFull
+                    myTrashCan = trashCan
+                })
+            }
+        }
+        if let myTrashCan = myTrashCan {
+            result = myTrashCan.isFull
+        }
+         */
+        return result // TODO: implement
     }
     
 }
