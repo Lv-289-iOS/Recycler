@@ -8,6 +8,8 @@ target 'Recycler' do
 	pod 'Firebase/Core'
     pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
+   pod 'Charts', '~> 3.0'
+   pod 'PieCharts', '~> 0.0'
 
   # Pods for Recycler
 
