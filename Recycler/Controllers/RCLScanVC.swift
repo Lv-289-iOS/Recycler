@@ -117,36 +117,40 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
                 dismiss(animated: true)
-                onQrCodeRead(code)
+                updateGUIForQR(code)
             }
         }
     }
     
-    func onQrCodeRead(_ qrCode: String) {
-        var newScanStatus: ScanStatus = .redyToScan
-        
+    func updateGUIForQR(_ qrCode: String) {
         if explainationLabel.text != qrCode {
             explainationLabel.text = qrCode
         }
         
-        if !isQrCodeBelongsToApp(qrCode) {
-            newScanStatus = .wrong
-        } else {
-            if isTrashCanYours(qrCode) {
-                if isTrashCanEmpty(qrCode) {
-                    newScanStatus = .correct
-                } else {
-                    newScanStatus = .alreadyReported
-                }
-            }
-            else {
-                newScanStatus = .notYours
-            }
-        }
-        
+        let newScanStatus = getScanStatusForQR(qrCode)
         if scanStatus != newScanStatus {
            scanStatus = newScanStatus
         }
+    }
+    
+    func getScanStatusForQR(_ qrCode: String) -> ScanStatus {
+        var result: ScanStatus = .redyToScan
+
+        if !isQrCodeBelongsToApp(qrCode) {
+            result = .wrong
+        } else {
+            if isTrashCanYours(qrCode) {
+                if isTrashCanEmpty(qrCode) {
+                    result = .correct
+                } else {
+                    result = .alreadyReported
+                }
+            }
+            else {
+                result = .notYours
+            }
+        }
+        return result
     }
     
     func isQrCodeBelongsToApp(_ qrCode: String) -> Bool {
