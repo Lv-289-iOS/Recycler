@@ -7,18 +7,38 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class RCLMapVC: UIViewController {
 
+    @IBOutlet weak var mapView: GMSMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let camera = GMSCameraPosition.camera(withLatitude: 49.838138, longitude: 24.044102, zoom: 12.0)
+       let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "RCLMapStyle", withExtension: "json")
+            {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        view = mapView
+        
+        // Creates a marker in the center of the map.
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: 49.838138, longitude: 24.044102)
+        marker.title = "Чернігівська 15"
+        marker.snippet = "Кількість смітників: "
+        marker.map = mapView
+        marker.icon = GMSMarker.markerImage(with: .red)
     }
     
 

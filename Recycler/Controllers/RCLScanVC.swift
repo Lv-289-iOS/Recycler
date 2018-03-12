@@ -9,6 +9,12 @@
 import UIKit
 import AVFoundation
 
+enum ScanStatus: String {
+    case redyToScan = "Please scan QR" // there is no recognized QR in camera view, ready to scan
+    case wrong = "Wrong QR" // there is QR code but it's format is different from our app format "trashCanID: UUID"
+    case correct = "Correct QR" // there is QR code and it's format is OK for our app
+}
+
 class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var output = AVCaptureMetadataOutput()
@@ -19,10 +25,36 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var explainationLabel: UILabel!
     @IBOutlet weak var trashIsFullBtn: UIButton!
     
+    var scanStatus: ScanStatus = .redyToScan {
+        didSet {
+            explainationLabel.text = scanStatus.rawValue
+            trashIsFullBtn.setTitle(scanStatus.rawValue, for: .normal)
+            
+            switch scanStatus {
+            case .redyToScan:
+                trashIsFullBtn.isEnabled = false
+                trashIsFullBtn.alpha = 0.5
+            case .wrong:
+                trashIsFullBtn.isEnabled = false
+                trashIsFullBtn.alpha = 0.5
+            case .correct:
+                trashIsFullBtn.isEnabled = true
+                trashIsFullBtn.alpha = 1
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCamera()
+        setupUI()
+    }
+    
+    func setupUI() {
+        trashIsFullBtn.alpha = 0.5
+        trashIsFullBtn.backgroundColor = UIColor.Button.backgroundColor
+        trashIsFullBtn.setTitleColor(UIColor.Button.titleColor, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,12 +135,10 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         
         if !qrCode.hasPrefix("trashCanID:") { // QR code format is "trashCanID: UUID"
             trashIsFullBtn.isEnabled = false
-            trashIsFullBtn.setTitle("Wrong QR", for: .normal)
-            //explainationLabel.text = "Wrong QR"
+            scanStatus = .wrong
         } else {
             trashIsFullBtn.isEnabled = true
-            trashIsFullBtn.setTitle("Correct QR", for: .normal)
-            //explainationLabel.text = "Correct QR"
+            scanStatus = .correct
             
             // TODO:
             // If scanned qr code is invalid we the title is "It's not yours"
@@ -118,3 +148,4 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
 }
+

@@ -28,6 +28,8 @@
 		6F120606204574E20042056E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120605204574E20042056E /* ViewController.swift */; };
 		6F12060B204574E20042056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060A204574E20042056E /* Assets.xcassets */; };
 		6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060C204574E20042056E /* LaunchScreen.storyboard */; };
+		6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */; };
+		6F8CF67A20567CF500AF8AE9 /* RCLMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8CF67920567CF500AF8AE9 /* RCLMapVC.swift */; };
 		9A276421DDADC37ACF93013F /* Pods_Recycler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */; };
 		A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */; };
 		A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39BEAA9204971B8005A3A87 /* TabBar.storyboard */; };
@@ -74,8 +76,9 @@
 		6F12060A204574E20042056E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F12060D204574E20042056E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F12060F204574E20042056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RCLMapStyle.json; sourceTree = "<group>"; };
+		6F8CF67920567CF500AF8AE9 /* RCLMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLMapVC.swift; sourceTree = "<group>"; };
 		A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLDashboardVC.swift; sourceTree = "<group>"; };
-		A300B31D2049FD3E00261AEB /* RCLMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLMapVC.swift; sourceTree = "<group>"; };
 		A39BEAA9204971B8005A3A87 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		A39BEAAE20497812005A3A87 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		6F120602204574E20042056E /* Recycler */ = {
 			isa = PBXGroup;
 			children = (
+				6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */,
 				19338E032046D34E007BD6E3 /* GoogleService-Info.plist */,
 				630020DC204EAD4F002E7D89 /* Colors.swift */,
 				630020E4204EB852002E7D89 /* Constants.swift */,
@@ -183,12 +187,12 @@
 		A300B31C2049FCF500261AEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6F8CF67920567CF500AF8AE9 /* RCLMapVC.swift */,
 				D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */,
 				D331CEAC204ECEBC001D0A90 /* RCLSignUpVC.swift */,
 				A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */,
 				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
 				630020DE204EB542002E7D89 /* RCLProfileVC.swift */,
-				A300B31D2049FD3E00261AEB /* RCLMapVC.swift */,
 				A3C4EA0820503D7500815A69 /* RCLScanVC.swift */,
 				4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */,
 			);
@@ -308,6 +312,7 @@
 				D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
+				6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */,
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
@@ -377,9 +382,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Recycler/Pods-Recycler-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -420,6 +430,7 @@
 				A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */,
 				19AF48C3204D876A00958858 /* RCLTrashSize.swift in Sources */,
 				D331CEB5204ECEBD001D0A90 /* RCLTextFieldValidator.swift in Sources */,
+				6F8CF67A20567CF500AF8AE9 /* RCLMapVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,7 +581,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F95D26K5WQ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

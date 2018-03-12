@@ -14,6 +14,10 @@ protocol AuthServiceDelegate: class {
     func transitionToProfile()
 }
 
+protocol GetUserData: class {
+    func getUserData()
+}
+
 class RCLAuthentificator {
     
     weak var delegate: AuthServiceDelegate?
@@ -44,6 +48,9 @@ class RCLAuthentificator {
     
     func isAUserActive() -> Bool {
         if Auth.auth().currentUser != nil {
+//            if let user = Auth.auth().currentUser {
+//                print(user.email)
+//            }
             return true
         } else {
             return false
@@ -56,6 +63,15 @@ class RCLAuthentificator {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    
+    static func email() -> String {
+        if let user = Auth.auth().currentUser {
+            return user.email!
+        } else {
+            return ""
         }
     }
    
