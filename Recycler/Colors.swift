@@ -28,4 +28,9 @@ extension UIColor {
         static var backgroundColor: UIColor { return darkModeratePink }
         static var titleColor: UIColor { return white }
     }
+    
+    struct TextFieldBackGrounds {
+        static var BackgroundForFalse: UIColor { return UIColor(red:0.75, green:0.10, blue:0.10, alpha:1.0) }
+    }
+    
 }

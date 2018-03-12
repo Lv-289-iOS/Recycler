@@ -30,11 +30,13 @@ extension UITextField {
         set {
             autocorrectionType = .no
             autocapitalizationType = .none
+            textColor = UIColor.Font.White
+            let color = UIColor.Font.White
+            self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor : color])
             switch newValue {
             case .emailAddress:
                 keyboardType = .emailAddress
                 isSecureTextEntry = false
-                placeholder = "Email Address"
                 
             case .password:
                 keyboardType = .asciiCapable
@@ -73,14 +75,14 @@ extension UITextField {
 extension UITextField {
     func styleTextField() {
         if valid {
-            self.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+            self.backgroundColor = UIColor.Backgrounds.GrayLight
         } else {
-            self.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            self.backgroundColor = UIColor.TextFieldBackGrounds.BackgroundForFalse
         }
     }
     
     func initialStyler() {
-        self.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+        self.backgroundColor = UIColor.Backgrounds.GrayLight
         self.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.layer.borderWidth = 1
         self.clearButtonMode = .always

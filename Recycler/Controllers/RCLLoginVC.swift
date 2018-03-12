@@ -36,6 +36,8 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         authentificator.delegate = self
 //        let trash = Trash(trashCanId: "uFYf9ltIIloIxWtFiJLf", userIdReportedFull: "CUXMZQRwJD1JfbrjfDEs")
 //        FirestoreService.shared.add(for: trash, in: .trash)
@@ -46,6 +48,8 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
         styler.styleButton(button: signInOutlet)
         styler.styleButton(button: signUpOutlet)
+        loginTextField.textType = .emailAddress
+        passwordTextField.textType = .password
         loginTextField.initialStyler()
         passwordTextField.initialStyler()
         styler.renderImage(view: logoImage, image: image)

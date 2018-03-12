@@ -32,6 +32,7 @@ class RCLSignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
+        self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         delegates()
         styleViews()
     }
@@ -107,7 +108,7 @@ class RCLSignUpVC: UIViewController {
             a = a && phoneTextField.valid
             a = a && emailTextField.valid
             if confirmationPasswordTextField.text != passwordTextField.text {
-                confirmationPasswordTextField.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                confirmationPasswordTextField.backgroundColor = UIColor.TextFieldBackGrounds.BackgroundForFalse
                 a = false
             }
             return a

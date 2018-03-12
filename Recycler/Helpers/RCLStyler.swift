@@ -12,9 +12,9 @@ import UIKit
 class RCLStyler {
     
     func styleButton(button: UIButton) {
-        button.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
-        button.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        button.layer.cornerRadius = 10
+        button.backgroundColor = UIColor.Backgrounds.GrayLight
+        button.tintColor = UIColor.Button.titleColor
+        button.layer.cornerRadius = CGFloat.Design.CornerRadius
         button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         button.layer.borderWidth = 1
     }
@@ -22,7 +22,7 @@ class RCLStyler {
     func renderImage(view: UIImageView, image: UIImage) {
         view.image = image
         view.image = view.image?.withRenderingMode(.alwaysTemplate)
-        view.tintColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+        view.tintColor = UIColor.Font.White
     }
     
 }
