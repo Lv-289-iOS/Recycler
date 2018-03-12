@@ -76,11 +76,11 @@ class RCLSignUpVC: UIViewController {
         emailTextField.styleTextField()
     }
     
-    @IBAction func LoginButton(_ sender: UIButton) {
+    @IBAction func loginButton(_ sender: UIButton) {
         if validator {
             print("login successfull")
             let authent = RCLAuthentificator()
-            authent.createUser(userName: nameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
+            authent.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
             performSegue(withIdentifier: "ToApp", sender: self)
         } else {
             print("login unsuccessfull")
@@ -88,15 +88,12 @@ class RCLSignUpVC: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
-//        let transition = CATransition()
-//        transition.duration = 0.25
-//        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-//        transition.type = kCATransitionFade
-//        transition.subtype = kCATransactionDisableActions
-//        self.view.window!.layer.add(transition, forKey: nil)
         print("back tapped")
-//        self.dismiss(animated: false, completion: nil)
-        self.navigationController?.popToRootViewController(animated: true)
+        if let nav = self.navigationController {
+            nav.popToRootViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     var validator: Bool {
