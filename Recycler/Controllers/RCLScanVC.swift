@@ -53,7 +53,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func setupUI() {
         trashIsFullBtn.alpha = 0.5
-        trashIsFullBtn.backgroundColor = .darkModeratePink //.green
+        trashIsFullBtn.backgroundColor = UIColor.Button.backgroundColor
+        trashIsFullBtn.setTitleColor(UIColor.Button.titleColor, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

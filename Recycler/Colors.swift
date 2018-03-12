@@ -22,6 +22,10 @@ extension UIColor {
     }
     struct TabBar {
         static var tint: UIColor { return darkModeratePink }
-        static var barTint: UIColor { return UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0) }
+        static var barTint: UIColor { return black }
+    }
+    struct Button {
+        static var backgroundColor: UIColor { return darkModeratePink }
+        static var titleColor: UIColor { return white }
     }
 }
