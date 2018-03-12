@@ -26,15 +26,22 @@ class RCLProfileVC: UIViewController {
     let cellId = "RCLProfileCell"
     var isInEditMode = false
     var userTest = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: "boss")
-    let currentCan = TrashCan(userId: "1", address: "Adress: Lviv",type: .metal , size: .large)
-    let email = "recycler.lviv@gmail.com"
+    var currentCan = TrashCan(userId: "1", address: "Adress: Lviv", type: .metal , size: .large)
+    var userTrashCans = [TrashCan]()
+    var currentUser = User()
+    let database = FirestoreService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewSetup()
-        
-       
+        let email = RCLAuthentificator.email()
+        if email != "" {
+            database.getUserBy(email: email, completion: { user in
+                self.currentUser = user!
+                self.getTrashCans(forUser: user!)
+            })
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -64,11 +71,6 @@ class RCLProfileVC: UIViewController {
     
     @IBAction func editProfile(_ sender: UIButton) {
         
-        FirestoreService.shared.getUserBy(email: email) { user in
-            self.userTest = user
-            self.updateInfo(with: user)
-        }
-        
         sender.isSelected = !sender.isSelected
         isInEditMode = sender.isSelected
         firstName.isUserInteractionEnabled = isInEditMode
@@ -93,6 +95,12 @@ class RCLProfileVC: UIViewController {
         self.firstName.text = user.firstName
         self.lastName.text = user.lastName
         self.phone.text = user.phoneNumber
+    }
+    
+    private func getTrashCans(forUser: User) {
+        database.getTrashCansBy(userId: forUser.id!) { result in
+            self.userTrashCans = result
+        }
     }
 }
 
