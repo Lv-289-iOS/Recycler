@@ -12,6 +12,7 @@ target 'Recycler' do
    pod 'PieCharts', '~> 0.0'
 	pod 'GoogleMaps'
 	pod 'GooglePlaces'
+    pod 'GooglePlacePicker'
 
 
   # Pods for Recycler
