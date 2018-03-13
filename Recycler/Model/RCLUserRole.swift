@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+enum RCLUserRole: String {
+    case cust
+    case empl
+}

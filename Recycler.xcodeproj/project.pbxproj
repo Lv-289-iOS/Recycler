@@ -15,6 +15,7 @@
 		19AF48C1204D463A00958858 /* RCLFirestoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C0204D463A00958858 /* RCLFirestoreExtensions.swift */; };
 		19AF48C3204D876A00958858 /* RCLTrashSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C2204D876A00958858 /* RCLTrashSize.swift */; };
 		19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C4204D87BB00958858 /* RCLTrashType.swift */; };
+		19E29F192057E8DE000DAC93 /* RCLUserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E29F182057E8DE000DAC93 /* RCLUserRole.swift */; };
 		19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* RCLUser.swift */; };
 		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
 		1B2D07AB2057B3C4007A56CB /* RCLParsingByJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D07AA2057B3C4007A56CB /* RCLParsingByJSON.swift */; };
@@ -65,6 +66,7 @@
 		19AF48C0204D463A00958858 /* RCLFirestoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreExtensions.swift; sourceTree = "<group>"; };
 		19AF48C2204D876A00958858 /* RCLTrashSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTrashSize.swift; sourceTree = "<group>"; };
 		19AF48C4204D87BB00958858 /* RCLTrashType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTrashType.swift; sourceTree = "<group>"; };
+		19E29F182057E8DE000DAC93 /* RCLUserRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLUserRole.swift; sourceTree = "<group>"; };
 		19F5AF04204938CE00ADF338 /* RCLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLUser.swift; sourceTree = "<group>"; };
 		19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
 		1B2D07AA2057B3C4007A56CB /* RCLParsingByJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLParsingByJSON.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				19AF48C2204D876A00958858 /* RCLTrashSize.swift */,
 				19AF48C4204D87BB00958858 /* RCLTrashType.swift */,
 				1974703220568BA4007E29BA /* RCLTrashStatus.swift */,
+				19E29F182057E8DE000DAC93 /* RCLUserRole.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */,
 				19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */,
 				630020E5204EB852002E7D89 /* Constants.swift in Sources */,
+				19E29F192057E8DE000DAC93 /* RCLUserRole.swift in Sources */,
 				D331CEB4204ECEBD001D0A90 /* RCLSignUpVC.swift in Sources */,
 				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
 				630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */,
