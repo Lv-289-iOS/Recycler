@@ -15,7 +15,7 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInOutlet: UIButton!
     @IBOutlet weak var signUpOutlet: UIButton!
-    var image = #imageLiteral(resourceName: "recycler")
+    var image = #imageLiteral(resourceName: "logo")
     
     @IBAction func signInButton(_ sender: Any) {
         guard let login = loginTextField.text else {return}
@@ -52,7 +52,8 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         passwordTextField.textType = .password
         loginTextField.initialStyler()
         passwordTextField.initialStyler()
-        styler.renderImage(view: logoImage, image: image)
+        logoImage.image = image
+//        styler.renderImage(view: logoImage, image: image)
     }
     
     override func viewDidAppear(_ animated: Bool) {

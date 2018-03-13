@@ -150,9 +150,9 @@ class FirestoreService {
         }
     }
     
-    func getTrashBy(day: Date, completion: @escaping ([Trash]) -> Void) {
-        reference(to: .trash).whereField(<#T##field: String##String#>, isEqualTo: <#T##Any#>)
-    }
+//    func getTrashBy(day: Date, completion: @escaping ([Trash]) -> Void) {
+//        reference(to: .trash).whereField(<#T##field: String##String#>, isEqualTo: <#T##Any#>)
+//    }
     
     func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash?) -> Void) {
         reference(to: .trash)
