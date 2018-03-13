@@ -12,12 +12,23 @@ class RCLTakenVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let cellId = "RCLTakenCell"
     let nib = "RCLTakenCell"
+    var trashList = [Trash]()
+    var user = User()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-          tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
-        // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
+        FirestoreService.shared.getTrashbyStatus(status: .taken) { (trashList) in
+            self.trashList = trashList
+        }
+    }
+    
+    func getUser(from id: String){
+        FirestoreService.shared.getDocumentById(from: .users, returning: User.self, id: id) { user in
+            self.user = user ?? self.user
+            
+        }
     }
 
   }

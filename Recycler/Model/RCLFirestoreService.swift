@@ -45,7 +45,6 @@ class FirestoreService {
             do {
                 var objects = [T]()
                 for document in snapshot.documents {
-                    print(try document.decode(as: objectType.self))
                     let object = try document.decode(as: objectType.self)
                     objects.append(object)
                 }
@@ -187,7 +186,21 @@ class FirestoreService {
         }
     }
     
-    
+    func getTrashbyStatus(status: RCLTrashStatus, completion: @escaping ([Trash]) -> Void) {
+        reference(to: .trash).whereField("status", isEqualTo: status.rawValue).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {return}
+            do {
+                var trashList = [Trash]()
+                for document in snapshot.documents {
+                    let object = try document.decode(as: Trash.self)
+                    trashList.append(object)
+                }
+                completion(trashList)
+            } catch {
+                print(error)
+            }
+        }
+    }
     
     
 }

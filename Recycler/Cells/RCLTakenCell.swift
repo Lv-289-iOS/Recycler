@@ -13,7 +13,7 @@ class RCLTakenCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var phone: UILabel!
-    
+    @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var viewContainer: UIView!
@@ -23,14 +23,7 @@ class RCLTakenCell: UITableViewCell {
     func configureCell(forCan: TrashCan) {
         colorsSetup()
        self.trashCan = forCan
-        switch trashCan.isFull {
-        case true:
-            viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
-            self.isUserInteractionEnabled = true
-        case false:
-            viewContainer.backgroundColor = UIColor.Backgrounds.GrayLight
-            isUserInteractionEnabled = false
-        }
+      
         switch trashCan.type {
         case "plastic" :
             self.icon.image = #imageLiteral(resourceName: "trash_plastic")
@@ -43,11 +36,26 @@ class RCLTakenCell: UITableViewCell {
         default:
             self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
+        var sizeName = ""
+        switch trashCan.size {
+        case 1:
+            sizeName = "small"
+        case 2:
+            sizeName = "medium"
+        case 3:
+            sizeName = "large"
+        case 4:
+            sizeName = "extraL"
+        default:
+            sizeName = "medium"
+        }
         self.name.text = forCan.type
         self.location.text = forCan.address
-        //        self.size.text = forCan.size
+        self.size.text = sizeName
+   
     }
     func colorsSetup() {
+        btn.backgroundColor = UIColor.Backgrounds.GrayLight
         name.textColor = UIColor.Font.White
         location.textColor = UIColor.Font.Gray
         size.textColor = UIColor.Font.White
