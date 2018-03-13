@@ -52,9 +52,9 @@
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ga6-iH-EsE">
-                                <rect key="frame" x="123" y="83" width="128" height="128"/>
+                                <rect key="frame" x="113" y="83" width="148" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="Hlt-12-bke"/>
+                                    <constraint firstAttribute="width" constant="148" id="Hlt-12-bke"/>
                                     <constraint firstAttribute="height" constant="128" id="aDc-wr-L2B"/>
                                 </constraints>
                             </imageView>
@@ -326,6 +326,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YHI-Fj-pTT"/>
+        <segue reference="fJW-kL-Hqv"/>
     </inferredMetricsTieBreakers>
 </document>
