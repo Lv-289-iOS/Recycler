@@ -40,9 +40,22 @@ class RCLProfileCell: UITableViewCell {
         default:
             self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
+        var sizeName = ""
+        switch trashCan.size {
+        case 1:
+            sizeName = "small"
+        case 2:
+            sizeName = "medium"
+        case 3:
+            sizeName = "large"
+        case 4:
+            sizeName = "extraL"
+        default:
+            sizeName = "medium"
+        }
         self.name.text = forCan.type
         self.location.text = forCan.address
-//        self.size.text = forCan.size
+        self.size.text = sizeName
     }
     
     func colorsSetup() {
