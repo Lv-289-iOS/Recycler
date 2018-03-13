@@ -56,6 +56,7 @@
 		D331CEBA204ED077001D0A90 /* RCLInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */; };
 		D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */; };
 		D3A9189B2057FB3400395239 /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D8C7122057F76700039E6C /* CustomAlertVC.xib */; };
+		D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A9189C2058001700395239 /* EmpTabBar.storyboard */; };
 		D3D8C7142057F76900039E6C /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D8C7132057F76800039E6C /* CustomAlertVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLStyler.swift; sourceTree = "<group>"; };
 		D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLInfoWindow.swift; sourceTree = "<group>"; };
 		D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLLoginVC.swift; sourceTree = "<group>"; };
+		D3A9189C2058001700395239 /* EmpTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmpTabBar.storyboard; sourceTree = "<group>"; };
 		D3D8C7122057F76700039E6C /* CustomAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomAlertVC.xib; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.xib; sourceTree = "<absolute>"; };
 		D3D8C7132057F76800039E6C /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAlertVC.swift; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -234,6 +236,7 @@
 		A39BEAAB20497789005A3A87 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D3A9189C2058001700395239 /* EmpTabBar.storyboard */,
 				D331CE4B204EC0AF001D0A90 /* Main.storyboard */,
 				A39BEAA9204971B8005A3A87 /* TabBar.storyboard */,
 				A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */,
@@ -347,6 +350,7 @@
 				A39BEAAF20497812005A3A87 /* Map.storyboard in Resources */,
 				A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */,
 				D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */,
+				D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
 				6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */,

@@ -25,7 +25,7 @@ class RCLProfileVC: UIViewController {
     let nib = "RCLProfileCell"
     let cellId = "RCLProfileCell"
     var isInEditMode = false
-    var userTest = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: "boss")
+    var userTest = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: .cust)
     var currentCan = TrashCan(userId: "1", address: "Adress: Lviv", type: .metal , size: .large)
     var userTrashCans = [TrashCan]()
     var currentUser = User()

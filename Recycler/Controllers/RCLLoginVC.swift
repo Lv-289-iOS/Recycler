@@ -70,13 +70,15 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-        if authentificator.isAUserActive() {
-            performSegue(withIdentifier: "ToApp", sender: self)
-        } 
+        authentificator.isAUserActive()
     }
     
-    func transitionToProfile() {
+    func transitionToCust() {
         performSegue(withIdentifier: "ToApp", sender: self)
+    }
+    
+    func transitionToEmpl() {
+        performSegue(withIdentifier: "ToEmp", sender: self)
     }
 }
 
