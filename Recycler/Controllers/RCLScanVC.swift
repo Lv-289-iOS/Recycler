@@ -34,6 +34,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var captureSession = AVCaptureSession()
     
+    var currentUser = User()
+    var userTrashCans = [TrashCan]()
+    
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var explainationLabel: UILabel!
     @IBOutlet weak var trashIsFullBtn: UIButton!
@@ -70,6 +73,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         
         setupCamera()
         setupUI()
+        
+        let userEmail = RCLAuthentificator.email()
+        getTrashCansBy(userEmail: userEmail)
     }
     
     func setupUI() {
@@ -206,6 +212,26 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         }
          */
         return result // TODO: implement
+    }
+    
+    // MARK: New code
+    
+    func getTrashCansBy(userEmail: String) {
+        if userEmail != "" {
+            FirestoreService.shared.getUserBy(email: userEmail, completion: { user in
+                self.currentUser = user ?? User()
+                self.getTrashCans(forUser: self.currentUser)
+            })
+        }
+    }
+    
+    private func getTrashCans(forUser: User) {
+        guard let userId = forUser.id else {
+            return
+        }
+        FirestoreService.shared.getTrashCansBy(userId: userId) { result in
+            self.userTrashCans = result
+        }
     }
     
 }
