@@ -16,7 +16,22 @@
 		19AF48C3204D876A00958858 /* RCLTrashSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C2204D876A00958858 /* RCLTrashSize.swift */; };
 		19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C4204D87BB00958858 /* RCLTrashType.swift */; };
 		19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* RCLUser.swift */; };
-		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
+		19F5AF0720493ADA00ADF338 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		4B136E772058383800B85C29 /* RCLUserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E762058383800B85C29 /* RCLUserRole.swift */; };
+		4B136E7D2058385400B85C29 /* EmpTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B136E782058385300B85C29 /* EmpTabBar.storyboard */; };
+		4B136E7E2058385400B85C29 /* RCLIssuesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E792058385300B85C29 /* RCLIssuesCell.swift */; };
+		4B136E7F2058385400B85C29 /* Taken.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B136E7A2058385300B85C29 /* Taken.storyboard */; };
+		4B136E802058385400B85C29 /* Issues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B136E7B2058385300B85C29 /* Issues.storyboard */; };
+		4B136E812058385400B85C29 /* RCLIssuesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B136E7C2058385400B85C29 /* RCLIssuesCell.xib */; };
+		4B136E832058386300B85C29 /* RCLTakenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E822058386300B85C29 /* RCLTakenVC.swift */; };
+		4B136E862058387100B85C29 /* RCLTakenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E842058387100B85C29 /* RCLTakenCell.swift */; };
+		4B136E872058387100B85C29 /* RCLTakenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B136E852058387100B85C29 /* RCLTakenCell.xib */; };
+		4B136E8A2058387F00B85C29 /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E882058387F00B85C29 /* CustomAlertVC.swift */; };
+		4B136E8B2058387F00B85C29 /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B136E892058387F00B85C29 /* CustomAlertVC.xib */; };
+		4B136E8F205838CA00B85C29 /* RCLParsingByJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E8E205838CA00B85C29 /* RCLParsingByJSON.swift */; };
+		4B136E9120583B5A00B85C29 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E9020583B5900B85C29 /* RCLFirestoreService.swift */; };
+		4B481AAD2057E0400023A407 /* TrashLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B481AAC2057E0400023A407 /* TrashLocation.swift */; };
+		4B481AAF2057E66D0023A407 /* TrashLocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B481AAE2057E66D0023A407 /* TrashLocationDelegate.swift */; };
 		4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */; };
 		4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */; };
 		4BF83F502056EC8700E4DA6B /* RCLAddTrashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF83F4E2056EC8700E4DA6B /* RCLAddTrashVC.swift */; };
@@ -65,9 +80,23 @@
 		19AF48C2204D876A00958858 /* RCLTrashSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTrashSize.swift; sourceTree = "<group>"; };
 		19AF48C4204D87BB00958858 /* RCLTrashType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTrashType.swift; sourceTree = "<group>"; };
 		19F5AF04204938CE00ADF338 /* RCLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLUser.swift; sourceTree = "<group>"; };
-		19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
 		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
+		4B136E762058383800B85C29 /* RCLUserRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLUserRole.swift; sourceTree = "<group>"; };
+		4B136E782058385300B85C29 /* EmpTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmpTabBar.storyboard; sourceTree = "<group>"; };
+		4B136E792058385300B85C29 /* RCLIssuesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLIssuesCell.swift; sourceTree = "<group>"; };
+		4B136E7A2058385300B85C29 /* Taken.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Taken.storyboard; sourceTree = "<group>"; };
+		4B136E7B2058385300B85C29 /* Issues.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Issues.storyboard; sourceTree = "<group>"; };
+		4B136E7C2058385400B85C29 /* RCLIssuesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLIssuesCell.xib; sourceTree = "<group>"; };
+		4B136E822058386300B85C29 /* RCLTakenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLTakenVC.swift; sourceTree = "<group>"; };
+		4B136E842058387100B85C29 /* RCLTakenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLTakenCell.swift; sourceTree = "<group>"; };
+		4B136E852058387100B85C29 /* RCLTakenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLTakenCell.xib; sourceTree = "<group>"; };
+		4B136E882058387F00B85C29 /* CustomAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
+		4B136E892058387F00B85C29 /* CustomAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertVC.xib; sourceTree = "<group>"; };
+		4B136E8E205838CA00B85C29 /* RCLParsingByJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RCLParsingByJSON.swift; path = JasonParsing/RCLParsingByJSON.swift; sourceTree = "<group>"; };
+		4B136E9020583B5900B85C29 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
+		4B481AAC2057E0400023A407 /* TrashLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashLocation.swift; sourceTree = "<group>"; };
+		4B481AAE2057E66D0023A407 /* TrashLocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashLocationDelegate.swift; sourceTree = "<group>"; };
 		4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
 		4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
 		4BF83F4E2056EC8700E4DA6B /* RCLAddTrashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLAddTrashVC.swift; sourceTree = "<group>"; };
@@ -124,8 +153,9 @@
 		19F5AF032049386100ADF338 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */,
 				197BF746204972D600B8D06B /* RCLCollectionReference.swift */,
+				4B136E9020583B5900B85C29 /* RCLFirestoreService.swift */,
+				4B136E762058383800B85C29 /* RCLUserRole.swift */,
 				19F5AF04204938CE00ADF338 /* RCLUser.swift */,
 				197BF74120496C7700B8D06B /* RCLTrash.swift */,
 				197BF74320496D0900B8D06B /* RCLTrashCan.swift */,
@@ -141,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */,
+				4B136E842058387100B85C29 /* RCLTakenCell.swift */,
+				4B136E852058387100B85C29 /* RCLTakenCell.xib */,
 				630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */,
 				4BF83F512056ECD800E4DA6B /* RCLLocationViewCell.swift */,
 				4BF83F522056ECD800E4DA6B /* RCLSizeViewCell.swift */,
@@ -185,6 +217,9 @@
 				630020E4204EB852002E7D89 /* Constants.swift */,
 				6F120603204574E20042056E /* AppDelegate.swift */,
 				6F120605204574E20042056E /* ViewController.swift */,
+				4B136E8E205838CA00B85C29 /* RCLParsingByJSON.swift */,
+				4B481AAC2057E0400023A407 /* TrashLocation.swift */,
+				4B481AAE2057E66D0023A407 /* TrashLocationDelegate.swift */,
 				D328EF1120559A3000CCB14F /* Helpers */,
 				D328EF10205599B500CCB14F /* Extensions */,
 				4BAB4D4C204D47AE0005C16B /* Cells */,
@@ -206,6 +241,7 @@
 				D331CEAC204ECEBC001D0A90 /* RCLSignUpVC.swift */,
 				A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */,
 				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
+				4B136E822058386300B85C29 /* RCLTakenVC.swift */,
 				630020DE204EB542002E7D89 /* RCLProfileVC.swift */,
 				A3C4EA0820503D7500815A69 /* RCLScanVC.swift */,
 				4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */,
@@ -221,6 +257,11 @@
 				A39BEAA9204971B8005A3A87 /* TabBar.storyboard */,
 				A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */,
 				A39BEAAE20497812005A3A87 /* Map.storyboard */,
+				4B136E782058385300B85C29 /* EmpTabBar.storyboard */,
+				4B136E7B2058385300B85C29 /* Issues.storyboard */,
+				4B136E792058385300B85C29 /* RCLIssuesCell.swift */,
+				4B136E7C2058385400B85C29 /* RCLIssuesCell.xib */,
+				4B136E7A2058385300B85C29 /* Taken.storyboard */,
 				A39BEAB02049785A005A3A87 /* Scan.storyboard */,
 				6F12060C204574E20042056E /* LaunchScreen.storyboard */,
 				A39BEAB22049787F005A3A87 /* Catalog.storyboard */,
@@ -250,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */,
+				4B136E882058387F00B85C29 /* CustomAlertVC.swift */,
+				4B136E892058387F00B85C29 /* CustomAlertVC.xib */,
 				D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */,
 				D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */,
 				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
@@ -294,6 +337,11 @@
 					6F1205FF204574E20042056E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -320,18 +368,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B136E8B2058387F00B85C29 /* CustomAlertVC.xib in Resources */,
 				A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */,
+				4B136E7D2058385400B85C29 /* EmpTabBar.storyboard in Resources */,
 				A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */,
 				A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */,
+				4B136E7F2058385400B85C29 /* Taken.storyboard in Resources */,
 				A39BEAAF20497812005A3A87 /* Map.storyboard in Resources */,
 				A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */,
 				D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
 				6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */,
+				4B136E802058385400B85C29 /* Issues.storyboard in Resources */,
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
+				4B136E872058387100B85C29 /* RCLTakenCell.xib in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
+				4B136E812058385400B85C29 /* RCLIssuesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,12 +417,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Recycler/Pods-Recycler-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/PieCharts/PieCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -378,12 +434,14 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PieCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -426,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D331CEB6204ECEBD001D0A90 /* RCLStyler.swift in Sources */,
+				4B136E8F205838CA00B85C29 /* RCLParsingByJSON.swift in Sources */,
 				A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */,
 				197BF747204972D600B8D06B /* RCLCollectionReference.swift in Sources */,
 				4BF83F532056ECD800E4DA6B /* RCLLocationViewCell.swift in Sources */,
@@ -437,23 +496,30 @@
 				4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */,
 				1974703320568BA4007E29BA /* RCLTrashStatus.swift in Sources */,
 				6F120606204574E20042056E /* ViewController.swift in Sources */,
+				4B481AAF2057E66D0023A407 /* TrashLocationDelegate.swift in Sources */,
 				D331CEBA204ED077001D0A90 /* RCLInfoWindow.swift in Sources */,
+				4B136E772058383800B85C29 /* RCLUserRole.swift in Sources */,
+				4B136E862058387100B85C29 /* RCLTakenCell.swift in Sources */,
 				197BF74220496C7700B8D06B /* RCLTrash.swift in Sources */,
 				19AF48C1204D463A00958858 /* RCLFirestoreExtensions.swift in Sources */,
+				4B136E8A2058387F00B85C29 /* CustomAlertVC.swift in Sources */,
 				630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */,
-				19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */,
+				4B136E7E2058385400B85C29 /* RCLIssuesCell.swift in Sources */,
 				630020E5204EB852002E7D89 /* Constants.swift in Sources */,
 				D331CEB4204ECEBD001D0A90 /* RCLSignUpVC.swift in Sources */,
+				4B136E832058386300B85C29 /* RCLTakenVC.swift in Sources */,
 				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
 				4BF83F562056F11F00E4DA6B /* RCLAddTrashLocationVC.swift in Sources */,
 				630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */,
 				4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */,
 				D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
+				4B136E9120583B5A00B85C29 /* RCLFirestoreService.swift in Sources */,
 				19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */,
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
 				A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */,
 				A300B31B2049FCDC00261AEB /* RCLDashboardVC.swift in Sources */,
+				4B481AAD2057E0400023A407 /* TrashLocation.swift in Sources */,
 				19AF48C3204D876A00958858 /* RCLTrashSize.swift in Sources */,
 				D331CEB5204ECEBD001D0A90 /* RCLTextFieldValidator.swift in Sources */,
 				6F8CF67A20567CF500AF8AE9 /* RCLMapVC.swift in Sources */,
