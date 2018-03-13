@@ -44,7 +44,8 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
 //        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { (trash) in
 //            print(trash!)
 //        }
-        
+        let json = RLCParsingByJSON()
+        json.temp()
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
         styler.styleButton(button: signInOutlet)
         styler.styleButton(button: signUpOutlet)
