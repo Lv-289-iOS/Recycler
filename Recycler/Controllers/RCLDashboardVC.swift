@@ -24,6 +24,8 @@ class RCLDashboardVC: UIViewController {
         chartView.layers = [createCustomViewsLayer(), createTextLayer()]
         
         chartView.models = createModels() // order is important - models have to be set at the end
+        
+//        print(currentUser)
     }
     
     //  MARK: - PieChartDelegate
