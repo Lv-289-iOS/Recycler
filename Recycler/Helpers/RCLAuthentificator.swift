@@ -16,10 +16,6 @@ protocol AuthServiceDelegate: class {
     
 }
 
-protocol GetUserData: class {
-    func getUserData()
-}
-
 class RCLAuthentificator {
     
     weak var delegate: AuthServiceDelegate?
@@ -29,7 +25,6 @@ class RCLAuthentificator {
             if error == nil {
                 let user = User(firstName: userName, lastName: userLastName, email: email, password: password, phoneNumber: phone, role: .cust)
                 FirestoreService.shared.add(for: user, in: .users)
-                print("added \(user.email)")
             } else {
                 print(error?.localizedDescription as Any)
             }

@@ -8,10 +8,19 @@
 
 import UIKit
 
+var currentUser = User()
+
 class RCLTabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUserEmail = RCLAuthentificator.email()
+        FirestoreService.shared.getUserBy(email: currentUserEmail, completion: { (user) in
+            if let tempUser = user {
+                currentUser = tempUser
+            }
+        })
+        
         setupUI()
     }
     
