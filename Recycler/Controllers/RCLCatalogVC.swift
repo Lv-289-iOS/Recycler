@@ -13,7 +13,7 @@ class RCLCatalogVC: UIViewController {
     var trashImage: UIImage!
     var trashLabel: String!
     
-    let trashLabels = ["Paper","Glass","Metall","Plastic","Organic","Batteries"]
+    let trashLabels = ["paper","glass","metall","plastic","organic","batteries"]
     
     // trash_glass add
     let trashImages : [UIImage] = [
