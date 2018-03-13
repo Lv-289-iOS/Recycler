@@ -35,13 +35,13 @@ class RCLDashboardVC: UIViewController {
     }
     
     // MARK: - Models
-    @IBAction func signOutButton(_ sender: UIButton) {
-        RCLAuthentificator.signOut()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let next = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! RCLLoginVC
-        self.present(next, animated: true, completion: nil)
-        print("logout tapped")
-    }
+//    @IBAction func signOutButton(_ sender: UIButton) {
+//        RCLAuthentificator.signOut()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let next = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! RCLLoginVC
+//        self.present(next, animated: true, completion: nil)
+//        print("logout tapped")
+//    }
     
     fileprivate func createModels() -> [PieSliceModel] {
         let alpha: CGFloat = 0.5

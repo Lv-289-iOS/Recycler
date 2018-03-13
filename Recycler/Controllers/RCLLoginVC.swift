@@ -62,13 +62,19 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         
     }
     
-    func addView() {
-//        customAlert.modalTransitionStyle = UIModalTransitionStyle.partialCurl
-        
+    func alert(text: String) {
         customAlert.modalPresentationStyle = .overCurrentContext
         present(customAlert, animated: true, completion: nil)
-        customAlert.errorTextLabel?.text = "Loooool, it's so easy!"
+        customAlert.errorTextLabel?.text = text
     }
+    
+//    func addView() {
+////        customAlert.modalTransitionStyle = UIModalTransitionStyle.partialCurl
+//
+//        customAlert.modalPresentationStyle = .overCurrentContext
+//        present(customAlert, animated: true, completion: nil)
+//        customAlert.errorTextLabel?.text = "Loooool, it's so easy!"
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
