@@ -35,7 +35,13 @@ class RCLAuthentificator {
         Auth.auth().signIn(withEmail: login, password: password) { (user, error) in
             if error == nil {
                 FirestoreService.shared.getUserBy(email: login, completion: { (user) in
-                    self.goTo(user: user)
+                    if let tempUser = user {
+                        if tempUser.role == RCLUserRole.empl.rawValue {
+                            self.delegate?.transitionToEmpl()
+                        } else {
+                            self.delegate?.transitionToCust()
+                        }
+                    }
                 })
                 
             } else {
@@ -48,18 +54,14 @@ class RCLAuthentificator {
     func isAUserActive() {
         if Auth.auth().currentUser != nil {
             FirestoreService.shared.getUserBy(email: (Auth.auth().currentUser?.email)!, completion: { (user) in
-                self.goTo(user: user)
+                if let tempUser = user {
+                    if tempUser.role == RCLUserRole.empl.rawValue {
+                        self.delegate?.transitionToEmpl()
+                    } else {
+                        self.delegate?.transitionToCust()
+                    }
+                }
             })
-        }
-    }
-    
-    func goTo(user: User?) {
-        if let tempUser = user {
-            if tempUser.role == RCLUserRole.empl.rawValue {
-                self.delegate?.transitionToEmpl()
-            } else {
-                self.delegate?.transitionToCust()
-            }
         }
     }
     
