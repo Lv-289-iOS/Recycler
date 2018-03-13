@@ -14,7 +14,18 @@ enum ScanStatus: String {
     case wrong = "Wrong QR" // there is QR code but it's format is different from our app format "trashCanID: UUID"
     case notYours = "Trash can is not yours" // there is QR code but this trash can does not belong to current user
     case alreadyFull = "Trash can is already full" // there is QR code, this trash can belongs to current user but it is already full
-    case correct = "Correct QR" // there is QR code and it's format is OK for our app
+    case correct = "Trash can is full" // there is QR code and it's format is OK for our app
+}
+
+extension UIView {
+    /// Shake animation
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.rotation")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 1.0
+        animation.values = [-Double.pi / 6, Double.pi / 6, -Double.pi / 6, Double.pi / 6, -Double.pi / 7, Double.pi / 7, -Double.pi / 8, Double.pi / 8, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
 }
 
 class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
@@ -47,8 +58,11 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func setTrashIsFullBtnEnabled(_ isEnabled: Bool) {
-        trashIsFullBtn.isEnabled = isEnabled
+        if(!trashIsFullBtn.isEnabled && isEnabled) {
+            trashIsFullBtn.shake()
+        }
         trashIsFullBtn.alpha = (isEnabled ? CGFloat.Design.enabledButtonAlpha : CGFloat.Design.disabledButtonAlpha)
+        trashIsFullBtn.isEnabled = isEnabled
     }
     
     override func viewDidLoad() {
@@ -176,7 +190,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func isTrashCanFull(_ qrCode: String) -> Bool {
-        var result: Bool = true
+        var result: Bool = false
         /*
         var myTrashCan: TrashCan?
         FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { trash in
