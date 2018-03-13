@@ -70,7 +70,7 @@ class RLCParsingByJSON {
                                 trash.idInJson = Double(id) ?? 0
                             }
                             
-                            print("name = \(trash.nameInJson),coordinates: latitude = \(trash.latitudeInJson), longitude = \(trash.longitudeInJson), numberOfRaffle = \(trash.numberOfRaffleInJson),id = \(trash.idInJson)\n")
+//                            print("name = \(trash.nameInJson),coordinates: latitude = \(trash.latitudeInJson), longitude = \(trash.longitudeInJson), numberOfRaffle = \(trash.numberOfRaffleInJson),id = \(trash.idInJson)\n")
                             
                             trashDictionary[trash.nameInJson] = trash
                         }

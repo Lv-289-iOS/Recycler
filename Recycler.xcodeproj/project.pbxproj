@@ -47,8 +47,6 @@
 		A3ACADAC2056B2F400E9B918 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACADAD2056B2F400E9B918 /* Charts.framework */; };
 		A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */; };
 		A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4EA0820503D7500815A69 /* RCLScanVC.swift */; };
-		D328EF152056E3DA00CCB14F /* RCLCustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = D328EF142056E3DA00CCB14F /* RCLCustomAlert.xib */; };
-		D328EF172056E50F00CCB14F /* RCLCustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D328EF162056E50F00CCB14F /* RCLCustomAlert.swift */; };
 		D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D331CE4B204EC0AF001D0A90 /* Main.storyboard */; };
 		D331CEB1204ECEBD001D0A90 /* RCLAuthentificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */; };
 		D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */; };
@@ -57,6 +55,11 @@
 		D331CEB6204ECEBD001D0A90 /* RCLStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */; };
 		D331CEBA204ED077001D0A90 /* RCLInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */; };
 		D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */; };
+		D374B6452058043700BB129C /* RCLTakenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374B6432058043600BB129C /* RCLTakenCell.swift */; };
+		D374B6462058043700BB129C /* RCLTakenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D374B6442058043700BB129C /* RCLTakenCell.xib */; };
+		D3A9189B2057FB3400395239 /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D8C7122057F76700039E6C /* CustomAlertVC.xib */; };
+		D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A9189C2058001700395239 /* EmpTabBar.storyboard */; };
+		D3D8C7142057F76900039E6C /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D8C7132057F76800039E6C /* CustomAlertVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,8 +107,6 @@
 		A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTabBarVC.swift; sourceTree = "<group>"; };
 		A3C4EA0820503D7500815A69 /* RCLScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLScanVC.swift; sourceTree = "<group>"; };
 		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D328EF142056E3DA00CCB14F /* RCLCustomAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCLCustomAlert.xib; sourceTree = "<group>"; };
-		D328EF162056E50F00CCB14F /* RCLCustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCustomAlert.swift; sourceTree = "<group>"; };
 		D331CE4B204EC0AF001D0A90 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLAuthentificator.swift; sourceTree = "<group>"; };
 		D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFormatter.swift; sourceTree = "<group>"; };
@@ -114,6 +115,11 @@
 		D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLStyler.swift; sourceTree = "<group>"; };
 		D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLInfoWindow.swift; sourceTree = "<group>"; };
 		D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLLoginVC.swift; sourceTree = "<group>"; };
+		D374B6432058043600BB129C /* RCLTakenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLTakenCell.swift; sourceTree = "<group>"; };
+		D374B6442058043700BB129C /* RCLTakenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLTakenCell.xib; sourceTree = "<group>"; };
+		D3A9189C2058001700395239 /* EmpTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmpTabBar.storyboard; sourceTree = "<group>"; };
+		D3D8C7122057F76700039E6C /* CustomAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomAlertVC.xib; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.xib; sourceTree = "<absolute>"; };
+		D3D8C7132057F76800039E6C /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAlertVC.swift; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */,
+				D374B6432058043600BB129C /* RCLTakenCell.swift */,
+				D374B6442058043700BB129C /* RCLTakenCell.xib */,
 				630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */,
 				4BF83F512056ECD800E4DA6B /* RCLLocationViewCell.swift */,
 				4BF83F522056ECD800E4DA6B /* RCLSizeViewCell.swift */,
@@ -234,6 +242,7 @@
 		A39BEAAB20497789005A3A87 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D3A9189C2058001700395239 /* EmpTabBar.storyboard */,
 				D331CE4B204EC0AF001D0A90 /* Main.storyboard */,
 				A39BEAA9204971B8005A3A87 /* TabBar.storyboard */,
 				A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */,
@@ -271,8 +280,8 @@
 				D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */,
 				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
 				6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */,
-				D328EF142056E3DA00CCB14F /* RCLCustomAlert.xib */,
-				D328EF162056E50F00CCB14F /* RCLCustomAlert.swift */,
+				D3D8C7132057F76800039E6C /* CustomAlertVC.swift */,
+				D3D8C7122057F76700039E6C /* CustomAlertVC.xib */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -340,17 +349,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A9189B2057FB3400395239 /* CustomAlertVC.xib in Resources */,
 				A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */,
 				A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */,
+				D374B6462058043700BB129C /* RCLTakenCell.xib in Resources */,
 				A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */,
 				A39BEAAF20497812005A3A87 /* Map.storyboard in Resources */,
 				A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */,
 				D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */,
+				D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
 				6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */,
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
-				D328EF152056E3DA00CCB14F /* RCLCustomAlert.xib in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
 			);
@@ -452,17 +463,18 @@
 			files = (
 				4BF83F4F2056EC8700E4DA6B /* RCLAddTrashLocationVC.swift in Sources */,
 				D331CEB6204ECEBD001D0A90 /* RCLStyler.swift in Sources */,
-				D328EF172056E50F00CCB14F /* RCLCustomAlert.swift in Sources */,
 				A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */,
 				197BF747204972D600B8D06B /* RCLCollectionReference.swift in Sources */,
 				4BF83F532056ECD800E4DA6B /* RCLLocationViewCell.swift in Sources */,
 				1B2D07AB2057B3C4007A56CB /* RCLParsingByJSON.swift in Sources */,
 				630020DD204EAD4F002E7D89 /* Colors.swift in Sources */,
 				D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */,
+				D3D8C7142057F76900039E6C /* CustomAlertVC.swift in Sources */,
 				4BF83F542056ECD800E4DA6B /* RCLSizeViewCell.swift in Sources */,
 				D331CEB1204ECEBD001D0A90 /* RCLAuthentificator.swift in Sources */,
 				4BF83F502056EC8700E4DA6B /* RCLAddTrashVC.swift in Sources */,
 				4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */,
+				D374B6452058043700BB129C /* RCLTakenCell.swift in Sources */,
 				1974703320568BA4007E29BA /* RCLTrashStatus.swift in Sources */,
 				6F120606204574E20042056E /* ViewController.swift in Sources */,
 				D331CEBA204ED077001D0A90 /* RCLInfoWindow.swift in Sources */,
@@ -616,11 +628,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F95D26K5WQ;
+				DEVELOPMENT_TEAM = LDWUKS5K42;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.Recycler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.shved.Recycler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -635,11 +647,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F95D26K5WQ;
+				DEVELOPMENT_TEAM = LDWUKS5K42;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.Recycler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.shved.Recycler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

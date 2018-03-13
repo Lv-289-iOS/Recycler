@@ -42,7 +42,7 @@ class RCLProfileCell: UITableViewCell {
         }
         self.name.text = forCan.type
         self.location.text = forCan.address
-        self.size.text = forCan.size
+//        self.size.text = forCan.size
     }
     
     func colorsSetup() {
