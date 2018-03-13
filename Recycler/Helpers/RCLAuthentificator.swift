@@ -11,11 +11,9 @@ import UIKit
 import Firebase
 
 protocol AuthServiceDelegate: class {
-    func transitionToProfile()
-}
-
-protocol GetUserData: class {
-    func getUserData()
+    func transitionToCust()
+    func transitionToEmpl()
+    
 }
 
 class RCLAuthentificator {
@@ -25,9 +23,8 @@ class RCLAuthentificator {
     func createUser(userName: String, userLastName: String, email: String, phone: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error == nil {
-                let user = User(firstName: userName, lastName: "", email: email, password: password, phoneNumber: phone, role: "someone")
+                let user = User(firstName: userName, lastName: userLastName, email: email, password: password, phoneNumber: phone, role: .cust)
                 FirestoreService.shared.add(for: user, in: .users)
-                print("added \(user.email)")
             } else {
                 print(error?.localizedDescription as Any)
             }
@@ -37,8 +34,16 @@ class RCLAuthentificator {
     func login(login: String, password: String) {
         Auth.auth().signIn(withEmail: login, password: password) { (user, error) in
             if error == nil {
-                print("You have successfully logged in")
-                self.delegate?.transitionToProfile()
+                FirestoreService.shared.getUserBy(email: login, completion: { (user) in
+                    if let tempUser = user {
+                        if tempUser.role == RCLUserRole.empl.rawValue {
+                            self.delegate?.transitionToEmpl()
+                        } else {
+                            self.delegate?.transitionToCust()
+                        }
+                    }
+                })
+                
             } else {
                 print("Error \(error!.localizedDescription)")
             }
@@ -46,14 +51,17 @@ class RCLAuthentificator {
 
     }
     
-    func isAUserActive() -> Bool {
+    func isAUserActive() {
         if Auth.auth().currentUser != nil {
-//            if let user = Auth.auth().currentUser {
-//                print(user.email)
-//            }
-            return true
-        } else {
-            return false
+            FirestoreService.shared.getUserBy(email: (Auth.auth().currentUser?.email)!, completion: { (user) in
+                if let tempUser = user {
+                    if tempUser.role == RCLUserRole.empl.rawValue {
+                        self.delegate?.transitionToEmpl()
+                    } else {
+                        self.delegate?.transitionToCust()
+                    }
+                }
+            })
         }
     }
     

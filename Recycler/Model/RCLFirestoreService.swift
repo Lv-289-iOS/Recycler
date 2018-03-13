@@ -107,7 +107,7 @@ class FirestoreService {
     }
     
     func getTrashCansBy(userId: String, completion: @escaping ([TrashCan]) -> Void) {
-        reference(to: .trash).whereField("userId", isEqualTo: userId).addSnapshotListener { (snapshot, error) in
+        reference(to: .trashCan).whereField("userId", isEqualTo: userId).addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {return print(error.debugDescription)}
             var trashCanList = [TrashCan]()
             for document in snapshot.documents{
@@ -134,6 +134,40 @@ class FirestoreService {
             completion(trashList)
         }
     }
+    
+//    func getSizeFromTrashBy(userIdReportedFull: String, completion: @escaping ([Trash]) -> Void) {
+//        reference(to: .trash).whereField("userIdReportedFull", isEqualTo: userIdReportedFull).addSnapshotListener { (snapshot, error) in
+//            guard let snapshot = snapshot else {print(error.debugDescription)
+//                return}
+//            var trashList = [Trash]()
+//            for document in snapshot.documents {
+//                let trash = try? document.decode(as: Trash.self)
+//                if let obj = trash{
+//                    trashList.append(obj)
+//                    guard let trashCanId = obj.id else {return}
+//                    reference(to: .trashCan).document(trashCanId).getDocument(completion: { (document, error) in
+//                        guard let document = document else {return}
+//                        let object = try? document.decode(as: TrashCan.self)
+//                        com
+//                    })
+//                }
+//            }
+//        }
+//    }
+    
+
+//    func getTrashBy(oneDay: Date, completion: @escaping ([Trash]) -> Void) {
+//        var components = DateComponents()
+//        let calendar = Calendar.current
+//        components.day = calendar.component(.day, from: oneDay) + 1
+//        components.hour = 0
+//        components.minute = 0
+//        components.second = 0
+////        reference(to: .trash).whereField("dateReportedFull", isGreaterThan: <#T##Any#>)
+//
+//    func getTrashBy(day: Date, completion: @escaping ([Trash]) -> Void) {
+//        reference(to: .trash).whereField(<#T##field: String##String#>, isEqualTo: <#T##Any#>)
+//    }
     
     func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash?) -> Void) {
         reference(to: .trash)

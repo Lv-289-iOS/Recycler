@@ -1,25 +1,28 @@
 //
-//  RCLProfileCell.swift
+//  RCLTakenCell.swift
 //  Recycler
 //
-//  Created by David on 3/6/18.
+//  Created by Ostin Ostwald on 3/13/18.
 //  Copyright © 2018 softserve.university. All rights reserved.
 //
 
 import UIKit
 
-class RCLProfileCell: UITableViewCell {
-    @IBOutlet weak var icon: UIImageView!
+class RCLTakenCell: UITableViewCell {
+   
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var location: UILabel!
     @IBOutlet weak var size: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var viewContainer: UIView!
     
-    var trashCan = TrashCan()
+      var trashCan = TrashCan()
     
     func configureCell(forCan: TrashCan) {
         colorsSetup()
-        self.trashCan = forCan
+       self.trashCan = forCan
         switch trashCan.isFull {
         case true:
             viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
@@ -40,24 +43,10 @@ class RCLProfileCell: UITableViewCell {
         default:
             self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
-        var sizeName = ""
-        switch trashCan.size {
-        case 1:
-            sizeName = "small"
-        case 2:
-            sizeName = "medium"
-        case 3:
-            sizeName = "large"
-        case 4:
-            sizeName = "extraL"
-        default:
-            sizeName = "medium"
-        }
         self.name.text = forCan.type
         self.location.text = forCan.address
-        self.size.text = sizeName
+        //        self.size.text = forCan.size
     }
-    
     func colorsSetup() {
         name.textColor = UIColor.Font.White
         location.textColor = UIColor.Font.Gray
@@ -66,4 +55,5 @@ class RCLProfileCell: UITableViewCell {
         
         backgroundColor = UIColor.Backgrounds.GrayDark
     }
+    
 }

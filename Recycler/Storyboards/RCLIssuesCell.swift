@@ -1,14 +1,15 @@
 //
-//  RCLProfileCell.swift
+//  RCLIssuesCell.swift
 //  Recycler
 //
-//  Created by David on 3/6/18.
+//  Created by Roman Shveda on 3/13/18.
 //  Copyright © 2018 softserve.university. All rights reserved.
 //
 
 import UIKit
 
-class RCLProfileCell: UITableViewCell {
+class RCLIssuesCell: UITableViewCell {
+
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -40,22 +41,9 @@ class RCLProfileCell: UITableViewCell {
         default:
             self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
-        var sizeName = ""
-        switch trashCan.size {
-        case 1:
-            sizeName = "small"
-        case 2:
-            sizeName = "medium"
-        case 3:
-            sizeName = "large"
-        case 4:
-            sizeName = "extraL"
-        default:
-            sizeName = "medium"
-        }
         self.name.text = forCan.type
         self.location.text = forCan.address
-        self.size.text = sizeName
+        //self.size.text = forCan.size
     }
     
     func colorsSetup() {
@@ -66,4 +54,5 @@ class RCLProfileCell: UITableViewCell {
         
         backgroundColor = UIColor.Backgrounds.GrayDark
     }
+    
 }

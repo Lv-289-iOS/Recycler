@@ -108,6 +108,7 @@
                         <outlet property="signUpOutlet" destination="E3o-2b-jT6" id="i34-7x-TWv"/>
                         <segue destination="eID-WG-b6O" kind="show" identifier="ToSignUp" id="tGp-o9-tNm"/>
                         <segue destination="UeF-8l-Ddz" kind="show" identifier="ToApp" id="fJW-kL-Hqv"/>
+                        <segue destination="KK8-bM-KpY" kind="show" identifier="ToEmp" id="HjI-Pw-ljZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -298,6 +299,14 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="890.10494752623697"/>
         </scene>
+        <!--EmpTabBar-->
+        <scene sceneID="JQ2-wf-tgS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EmpTabBar" id="KK8-bM-KpY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="287-Yo-8KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="-96"/>
+        </scene>
         <!--TabBar-->
         <scene sceneID="MMz-AP-AHl">
             <objects>
@@ -308,6 +317,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YHI-Fj-pTT"/>
+        <segue reference="fJW-kL-Hqv"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,7 +14,7 @@ struct TrashCan: Codable, Identifiable {
     var address: String
     var isFull: Bool = false
     var type: String
-    var size: String
+    var size: Int
     
     init(userId: String, address: String, type: RCLTrashType, size: RCLTrashSize) {
         self.userId = userId
@@ -26,6 +26,6 @@ struct TrashCan: Codable, Identifiable {
         self.userId = ""
         self.address = ""
         self.type = ""
-        self.size = ""
+        self.size = 0
     }
 }
