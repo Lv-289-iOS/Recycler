@@ -169,7 +169,5 @@ extension RCLSignUpVC: UITextFieldDelegate {
             return true
         }
     }
-    
-    
 }
 

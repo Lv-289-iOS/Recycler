@@ -35,6 +35,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession = AVCaptureSession()
     
     var userTrashCans = [TrashCan]()
+    var trashCanToReport: TrashCan? = nil
     
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var explainationLabel: UILabel!
@@ -155,7 +156,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func getScanStatusForQR(_ qrCode: String) -> ScanStatus {
         var result: ScanStatus = .redyToScan
-
+        trashCanToReport = nil
+        
         if !isQrCodeBelongsToApp(qrCode) {
             result = .wrong
         } else {
@@ -164,6 +166,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     result = .alreadyFull
                 } else {
                     result = .correct
+                    trashCanToReport = trashCan
                 }
             }
             else {
@@ -198,5 +201,13 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             self.userTrashCans = result
         }
     }
+    
+    @IBAction func btnTrashCanIsFullClicked(_ sender: UIButton) {
+        if var trashCan = trashCanToReport {
+            trashCan.isFull = true
+            // TODO: update the database. Please take into account that trashCan is value type (struct)
+        }
+    }
+    
     
 }

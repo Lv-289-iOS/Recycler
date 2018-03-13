@@ -58,7 +58,7 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         passwordTextField.initialStyler()
         logoImage.image = image
 //        styler.renderImage(view: logoImage, image: image)
-        addView()
+//        addView()
         
     }
     
