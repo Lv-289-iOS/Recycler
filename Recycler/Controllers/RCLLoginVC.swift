@@ -17,6 +17,9 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     @IBOutlet weak var signUpOutlet: UIButton!
     var image = #imageLiteral(resourceName: "logo")
     
+    let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
+
+    
     @IBAction func signInButton(_ sender: Any) {
         guard let login = loginTextField.text else {return}
         guard let password = passwordTextField.text else {return}
@@ -61,8 +64,8 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     }
     
     func addView() {
-        let view = RCLCustomAlert()
-        view.setText(text: "testTestTest")
+        customAlert.modalTransitionStyle = UIModalTransitionStyle.partialCurl
+        present(customAlert, animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
