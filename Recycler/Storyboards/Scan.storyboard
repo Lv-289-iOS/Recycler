@@ -72,6 +72,9 @@
                                     <constraint firstAttribute="width" secondItem="ean-42-xHM" secondAttribute="height" multiplier="53:10" id="KiD-Fn-fpc"/>
                                 </constraints>
                                 <state key="normal" title="Trash is full"/>
+                                <connections>
+                                    <action selector="btnTrashCanIsFullClicked:" destination="3V6-Tq-PTg" eventType="touchUpInside" id="sb6-PS-408"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
