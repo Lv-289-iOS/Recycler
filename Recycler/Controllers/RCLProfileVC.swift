@@ -38,8 +38,9 @@ class RCLProfileVC: UIViewController {
         let email = RCLAuthentificator.email()
         if email != "" {
             database.getUserBy(email: email, completion: { user in
-                self.currentUser = user!
-                self.getTrashCans(forUser: user!)
+                self.currentUser = user ?? self.currentUser
+                self.getTrashCans(forUser: self.currentUser)
+                self.updateInfo(with: self.currentUser)
             })
         }
         
@@ -58,9 +59,6 @@ class RCLProfileVC: UIViewController {
         phone.textColor = UIColor.Font.Gray
         trashesTitle.textColor = UIColor.Font.White
         
-        firstName.text = userTest.firstName
-        lastName.text = userTest.lastName
-        phone.text = userTest.phoneNumber
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
@@ -100,13 +98,20 @@ class RCLProfileVC: UIViewController {
     private func getTrashCans(forUser: User) {
         database.getTrashCansBy(userId: forUser.id!) { result in
             self.userTrashCans = result
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func getTrash(forTrashCan: TrashCan) {
+        database.getTrashBy(trashCanId: forTrashCan.id!) { trash in
+            print(trash.count)
         }
     }
 }
 
 extension RCLProfileVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return userTrashCans.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,7 +123,11 @@ extension RCLProfileVC: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.selectionStyle = .none
         
-        cell.configureCell(forCan: currentCan)
+        cell.configureCell(forCan: userTrashCans[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        getTrash(forTrashCan: userTrashCans[indexPath.row])
     }
 }

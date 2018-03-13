@@ -15,12 +15,20 @@ class RCLProfileCell: UITableViewCell {
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var viewContainer: UIView!
     
-    var trashCan: TrashCan?
+    var trashCan = TrashCan()
     
     func configureCell(forCan: TrashCan) {
         colorsSetup()
         self.trashCan = forCan
-        switch forCan.type {
+        switch trashCan.isFull {
+        case true:
+            viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
+            self.isUserInteractionEnabled = true
+        case false:
+            viewContainer.backgroundColor = UIColor.Backgrounds.GrayLight
+            isUserInteractionEnabled = false
+        }
+        switch trashCan.type {
         case "plastic" :
             self.icon.image = #imageLiteral(resourceName: "trash_plastic")
         case "metal" :
@@ -28,7 +36,7 @@ class RCLProfileCell: UITableViewCell {
         case "organic" :
             self.icon.image = #imageLiteral(resourceName: "trash_organic")
         case "battaries" :
-            self.icon.image = #imageLiteral(resourceName: "trash_battaries")
+            self.icon.image = #imageLiteral(resourceName: "battery")
         default:
             self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
@@ -42,7 +50,7 @@ class RCLProfileCell: UITableViewCell {
         location.textColor = UIColor.Font.Gray
         size.textColor = UIColor.Font.White
         viewContainer.layer.cornerRadius = CGFloat.Design.CornerRadius
-        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLight
+        
         backgroundColor = UIColor.Backgrounds.GrayDark
     }
 }
