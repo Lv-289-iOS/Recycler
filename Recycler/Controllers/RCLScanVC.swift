@@ -180,19 +180,15 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func isTrashCanYours(_ qrCode: String) -> Bool {
-        /*
-        let email = RCLAuthentificator.email()
-        var userID: String?
-        FirestoreService.shared.getUserBy(email: email) { user in
-            if let unwrappedUser = user {
-                userID = unwrappedUser.id
+        for trashCan in userTrashCans {
+            print(" " + trashCan.address)
+            if let trashCanId = trashCan.id {
+                if qrCode.range(of: trashCanId) != nil {
+                    return true;
+                }
             }
         }
-        if let unwrappedUserID = userID {
-            print(unwrappedUserID)
-        }
-         */
-        return true // TODO: implement
+        return false;
     }
     
     func isTrashCanFull(_ qrCode: String) -> Bool {
@@ -235,4 +231,3 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
 }
-
