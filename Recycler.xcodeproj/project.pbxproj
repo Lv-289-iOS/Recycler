@@ -30,6 +30,9 @@
 		630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */; };
 		630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */; };
 		630020E5204EB852002E7D89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E4204EB852002E7D89 /* Constants.swift */; };
+		637D79392058055E0065E82B /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637D79372058055E0065E82B /* CustomAlertVC.xib */; };
+		637D793A2058055E0065E82B /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D79382058055E0065E82B /* CustomAlertVC.swift */; };
+		637D793C205806C50065E82B /* Taken.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637D793B205806C50065E82B /* Taken.storyboard */; };
 		6F120604204574E20042056E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120603204574E20042056E /* AppDelegate.swift */; };
 		6F120606204574E20042056E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120605204574E20042056E /* ViewController.swift */; };
 		6F12060B204574E20042056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060A204574E20042056E /* Assets.xcassets */; };
@@ -57,9 +60,7 @@
 		D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */; };
 		D374B6452058043700BB129C /* RCLTakenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374B6432058043600BB129C /* RCLTakenCell.swift */; };
 		D374B6462058043700BB129C /* RCLTakenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D374B6442058043700BB129C /* RCLTakenCell.xib */; };
-		D3A9189B2057FB3400395239 /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D8C7122057F76700039E6C /* CustomAlertVC.xib */; };
 		D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A9189C2058001700395239 /* EmpTabBar.storyboard */; };
-		D3D8C7142057F76900039E6C /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D8C7132057F76800039E6C /* CustomAlertVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,9 @@
 		630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLProfileCell.swift; sourceTree = "<group>"; };
 		630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCLProfileCell.xib; sourceTree = "<group>"; };
 		630020E4204EB852002E7D89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		637D79372058055E0065E82B /* CustomAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertVC.xib; sourceTree = "<group>"; };
+		637D79382058055E0065E82B /* CustomAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
+		637D793B205806C50065E82B /* Taken.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Taken.storyboard; sourceTree = "<group>"; };
 		6F120600204574E20042056E /* Recycler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recycler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F120603204574E20042056E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F120605204574E20042056E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,8 +122,6 @@
 		D374B6432058043600BB129C /* RCLTakenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLTakenCell.swift; sourceTree = "<group>"; };
 		D374B6442058043700BB129C /* RCLTakenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLTakenCell.xib; sourceTree = "<group>"; };
 		D3A9189C2058001700395239 /* EmpTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmpTabBar.storyboard; sourceTree = "<group>"; };
-		D3D8C7122057F76700039E6C /* CustomAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomAlertVC.xib; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.xib; sourceTree = "<absolute>"; };
-		D3D8C7132057F76800039E6C /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAlertVC.swift; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		A39BEAAB20497789005A3A87 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				637D793B205806C50065E82B /* Taken.storyboard */,
 				D3A9189C2058001700395239 /* EmpTabBar.storyboard */,
 				D331CE4B204EC0AF001D0A90 /* Main.storyboard */,
 				A39BEAA9204971B8005A3A87 /* TabBar.storyboard */,
@@ -275,13 +278,13 @@
 		D328EF1120559A3000CCB14F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				637D79382058055E0065E82B /* CustomAlertVC.swift */,
+				637D79372058055E0065E82B /* CustomAlertVC.xib */,
 				D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */,
 				D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */,
 				D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */,
 				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
 				6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */,
-				D3D8C7132057F76800039E6C /* CustomAlertVC.swift */,
-				D3D8C7122057F76700039E6C /* CustomAlertVC.xib */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -349,7 +352,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A9189B2057FB3400395239 /* CustomAlertVC.xib in Resources */,
 				A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */,
 				A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */,
 				D374B6462058043700BB129C /* RCLTakenCell.xib in Resources */,
@@ -360,9 +362,11 @@
 				D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
+				637D793C205806C50065E82B /* Taken.storyboard in Resources */,
 				6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */,
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
+				637D79392058055E0065E82B /* CustomAlertVC.xib in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +473,6 @@
 				1B2D07AB2057B3C4007A56CB /* RCLParsingByJSON.swift in Sources */,
 				630020DD204EAD4F002E7D89 /* Colors.swift in Sources */,
 				D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */,
-				D3D8C7142057F76900039E6C /* CustomAlertVC.swift in Sources */,
 				4BF83F542056ECD800E4DA6B /* RCLSizeViewCell.swift in Sources */,
 				D331CEB1204ECEBD001D0A90 /* RCLAuthentificator.swift in Sources */,
 				4BF83F502056EC8700E4DA6B /* RCLAddTrashVC.swift in Sources */,
@@ -490,6 +493,7 @@
 				4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */,
 				D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
+				637D793A2058055E0065E82B /* CustomAlertVC.swift in Sources */,
 				19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */,
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
 				A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */,
