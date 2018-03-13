@@ -101,6 +101,12 @@ class RCLProfileVC: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    private func getTrash(forTrashCan: TrashCan) {
+        database.getTrashBy(trashCanId: forTrashCan.id!) { trash in
+            print(trash.count)
+        }
+    }
 }
 
 extension RCLProfileVC: UITableViewDelegate, UITableViewDataSource {
@@ -117,7 +123,11 @@ extension RCLProfileVC: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.selectionStyle = .none
         
-        cell.configureCell(forCan: currentCan)
+        cell.configureCell(forCan: userTrashCans[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        getTrash(forTrashCan: userTrashCans[indexPath.row])
     }
 }
