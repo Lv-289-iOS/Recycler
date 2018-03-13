@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--TakenVC-->
         <scene sceneID="pNF-9n-wQf">
             <objects>
-                <viewController id="cxc-xS-Rd8" sceneMemberID="viewController">
+                <viewController id="cxc-xS-Rd8" customClass="RCLTakenVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qff-cH-wfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +27,9 @@
                         <viewLayoutGuide key="safeArea" id="qzL-Wu-ivi"/>
                     </view>
                     <navigationItem key="navigationItem" id="dN3-MU-vzj"/>
+                    <connections>
+                        <outlet property="tableView" destination="LHI-dq-yG3" id="R91-F5-cG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26W-fg-lXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

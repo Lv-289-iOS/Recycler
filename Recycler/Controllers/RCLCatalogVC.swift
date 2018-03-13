@@ -13,7 +13,7 @@ class RCLCatalogVC: UIViewController {
     var trashImage: UIImage!
     var trashLabel: String!
     
-    let trashLabels = ["Paper","Glass","Metall","Plastic","Organic","Batteries"]
+    let trashLabels = ["paper","glass","metall","plastic","organic","batteries"]
     
     // trash_glass add
     let trashImages : [UIImage] = [
@@ -59,9 +59,9 @@ extension RCLCatalogVC: UITableViewDataSource {
         cell.catalogLabel.text = trashLabels[indexPath.row]
         
         // Design of CardCell
-        // Using closure
-        cell.catalogView.layer.cornerRadius = cell.catalogView.frame.height / 2
-        cell.catalogImageView.layer.cornerRadius = cell.catalogImageView.frame.height / 2
+        // Using closure 
+        cell.catalogView.layer.cornerRadius = CGFloat.Design.CornerRadius
+        cell.catalogImageView.layer.cornerRadius = CGFloat.Design.CornerRadius
         cell.alpha = 0
         cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1)
         UIView.animate(withDuration: 0.6, animations: { () -> Void in
@@ -75,9 +75,7 @@ extension RCLCatalogVC: UITableViewDataSource {
 extension RCLCatalogVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: CONVERT TO STRING ???
         trashImage = trashImages[indexPath.row]
-        print(trashImage)
         trashLabel = trashLabels[indexPath.row]
         performSegue(withIdentifier: "AddTrashPopUpSegue", sender: self)
     }

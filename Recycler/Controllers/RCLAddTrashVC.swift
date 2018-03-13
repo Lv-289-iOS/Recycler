@@ -10,11 +10,17 @@ import UIKit
 
 class RCLAddTrashVC: UIViewController {
     
-    private let sizeOfTrash = ["Small", "Medium", "Large"]
+     var locationFromDelegate = TrashLocation()
+    
+    var locationPlaceholder = "Tap to add a location"
+    
+    private let sizeOfTrash = [RCLTrashSize.small, .medium, .large, .extraLarge]
     
     var trashLabelFromCatalogVC = ""
     
     var trashImageFromCatalogVC :UIImage?
+    
+    var trashSizeFromPicker = RCLTrashSize.small
     
     @IBOutlet weak var popUpView: UIView!
     
@@ -25,6 +31,14 @@ class RCLAddTrashVC: UIViewController {
     @IBOutlet weak var typeOfTrashLabel: UILabel!
     
     @IBAction func orderTrashBtn(_ sender: UIButton) {
+        if locationFromDelegate.name.count <= 0 {
+            let titles = "Failed"
+            let message = "Please add location"
+            showAlert(titles, message)
+        }
+        let trashCan = TrashCan(userId: currentUser.id!, address: locationFromDelegate.name, type: RCLTrashType(rawValue: trashLabelFromCatalogVC)!, size: trashSizeFromPicker)
+        FirestoreService.shared.add(for: trashCan, in: .trashCan)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
@@ -32,11 +46,34 @@ class RCLAddTrashVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        trashTableView.reloadData()
         trashTableView.delegate = self
         trashTableView.dataSource = self
         typeOfTrashLabel.text = trashLabelFromCatalogVC
         typeOfTrashImage.image = trashImageFromCatalogVC
-        super.viewDidLoad()
+    }
+    
+    func showAlert(_ title: String, _ message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert,animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddTrashLocationSegue" {
+            let mapVC = segue.destination as! RCLAddTrashLocationVC
+            mapVC.trashLocationDelegate = self
+        }
+    }
+}
+
+extension RCLAddTrashVC: TrashLocationDelegate {
+    
+    func setLocation(location: TrashLocation) {
+        locationFromDelegate = location
+        self.trashTableView.reloadData()
     }
 }
 
@@ -51,7 +88,7 @@ extension RCLAddTrashVC: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let string = sizeOfTrash[row]
+        let string = String(describing: sizeOfTrash[row])
         return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     }
 }
@@ -59,14 +96,13 @@ extension RCLAddTrashVC: UIPickerViewDataSource {
 extension RCLAddTrashVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sizeOfTrash[row]
+        return String(sizeOfTrash[row].rawValue)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        trashSizeFromPicker = sizeOfTrash[row]
     }
 }
-
 
 extension RCLAddTrashVC: UITableViewDataSource {
     
@@ -85,6 +121,11 @@ extension RCLAddTrashVC: UITableViewDataSource {
             return cell
         case 1:
             let cell = trashTableView.dequeueReusableCell(withIdentifier: "LocationTrashCell") as! RCLLocationViewCell
+            if locationFromDelegate.name.count > 0 {
+                cell.locationOfTrashLabel.text = locationFromDelegate.name
+            } else {
+            cell.locationOfTrashLabel.text = locationPlaceholder
+            }
             return cell
         default:
             fatalError("you missed some cells")

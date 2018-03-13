@@ -12,63 +12,66 @@ import GooglePlaces
 import GooglePlacePicker
 import CoreLocation
 
-class RCLAddTrashLocationVC: UIViewController,GMSAutocompleteViewControllerDelegate {
+class RCLAddTrashLocationVC: UIViewController {
     
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        
-    }
-    
-    
-    lazy var currentPlace = GMSPlace()
-    var isOnEnter = true
     
     var locationManager = CLLocationManager()
     var userLocation = CLLocation()
-    var selectedLocation = CLLocation()
-    lazy var geocoder = GMSGeocoder()
-    var resultsViewController: GMSAutocompleteResultsViewController?
-    var searchController: UISearchController?
-    var resultView: UITextView?
+    var trashLocation = TrashLocation()
     var marker = GMSMarker()
-    var radiusCircle = GMSCircle()
-    let defaultCamera = GMSCameraPosition.camera(withLatitude: 49.8383,
-                                                 longitude: 24.0232,
-                                                 zoom: 12.0)
-    var isAddLocationTapped = false
-    var isGeocodeCompleted = false
+    var geocoder = GMSGeocoder()
+    let defaultCamera = GMSCameraPosition.camera(withLatitude: 49.8383,longitude: 24.0232, zoom: 12.0)
+    var trashLocationDelegate: TrashLocationDelegate?
     
-   
     @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet weak var addLocationBtn: UIButton!
     
     @IBAction func addLocationBtn(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        geocoder.reverseGeocodeCoordinate(marker.position) { (response, error) in
+            guard error == nil else { return }
+            if let result = response?.firstResult()?.lines?.first {
+                self.trashLocation.name = result
+                self.trashLocation.latitude = self.marker.position.latitude
+                self.trashLocation.longitude = self.marker.position.longitude
+                self.completeAddingLocation()
+                print(self.trashLocation)
+            }
+        }
+         dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customizeMap()
         mapView.delegate = self
         animateCameraTo(coordinate: userLocation.coordinate)
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
-        locationManager.delegate = self
-        if let loc = locationManager.location {
-            userLocation = loc
+        if let locationOfMarker = locationManager.location {
+            userLocation = locationOfMarker
             animateCameraTo(coordinate: userLocation.coordinate)
         }
     }
     
+    func customizeMap() {
+        do {
+            if let styleURL = Bundle.main.url(forResource: "RCLMapStyle", withExtension: "json")
+            {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        animateCameraTo(coordinate: userLocation.coordinate)
         marker.position = userLocation.coordinate
         marker.map = mapView
     }
@@ -77,11 +80,9 @@ class RCLAddTrashLocationVC: UIViewController,GMSAutocompleteViewControllerDeleg
         let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: zoom)
         mapView.animate(to: camera)
     }
-}
-
-extension RCLAddTrashLocationVC: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    private func completeAddingLocation() {
+        trashLocationDelegate?.setLocation(location: trashLocation)
     }
 }
 
@@ -89,6 +90,7 @@ extension RCLAddTrashLocationVC: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         marker.position = coordinate
+        animateCameraTo(coordinate: coordinate, zoom: 14.0)
     }
     
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
@@ -97,11 +99,8 @@ extension RCLAddTrashLocationVC: GMSMapViewDelegate {
     }
 }
 
-extension RCLAddTrashLocationVC: UISearchBarDelegate, UISearchControllerDelegate {
+extension RCLAddTrashLocationVC: CLLocationManagerDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        present(autocompleteController, animated: true, completion: nil)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     }
 }

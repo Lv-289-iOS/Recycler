@@ -19,7 +19,6 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     
     let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
 
-    
     @IBAction func signInButton(_ sender: Any) {
         guard let login = loginTextField.text else {return}
         guard let password = passwordTextField.text else {return}
@@ -59,14 +58,23 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         passwordTextField.initialStyler()
         logoImage.image = image
 //        styler.renderImage(view: logoImage, image: image)
-        addView()
+//        addView()
         
     }
     
-    func addView() {
-        customAlert.modalTransitionStyle = UIModalTransitionStyle.partialCurl
+    func alert(text: String) {
+        customAlert.modalPresentationStyle = .overCurrentContext
         present(customAlert, animated: true, completion: nil)
+        customAlert.errorTextLabel?.text = text
     }
+    
+//    func addView() {
+////        customAlert.modalTransitionStyle = UIModalTransitionStyle.partialCurl
+//
+//        customAlert.modalPresentationStyle = .overCurrentContext
+//        present(customAlert, animated: true, completion: nil)
+//        customAlert.errorTextLabel?.text = "Loooool, it's so easy!"
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
