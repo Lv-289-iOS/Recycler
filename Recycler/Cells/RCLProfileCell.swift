@@ -35,10 +35,10 @@ class RCLProfileCell: UITableViewCell {
             self.icon.image = #imageLiteral(resourceName: "trash_metal")
         case "organic" :
             self.icon.image = #imageLiteral(resourceName: "trash_organic")
-        case "battaries" :
-            self.icon.image = #imageLiteral(resourceName: "battery")
+        case "batteries" :
+            self.icon.image = #imageLiteral(resourceName: "trash_batteries")
         default:
-            self.icon.image = #imageLiteral(resourceName: "trash_other")
+            self.icon.image = #imageLiteral(resourceName: "trash_paper")
         }
         var sizeName = ""
         switch trashCan.size {
