@@ -156,18 +156,29 @@ class FirestoreService {
 //    }
     
 
-//    func getTrashBy(oneDay: Date, completion: @escaping ([Trash]) -> Void) {
-//        var components = DateComponents()
-//        let calendar = Calendar.current
-//        components.day = calendar.component(.day, from: oneDay) + 1
-//        components.hour = 0
-//        components.minute = 0
-//        components.second = 0
-////        reference(to: .trash).whereField("dateReportedFull", isGreaterThan: <#T##Any#>)
-//
-//    func getTrashBy(day: Date, completion: @escaping ([Trash]) -> Void) {
-//        reference(to: .trash).whereField(<#T##field: String##String#>, isEqualTo: <#T##Any#>)
-//    }
+    func getTrashBy(oneDay: Date, completion: @escaping ([Trash]) -> Void) {
+        var components = DateComponents()
+        let calendar = Calendar.current
+        components.year = calendar.component(.year, from: oneDay)
+        components.month = calendar.component(.month, from: oneDay)
+        components.day = calendar.component(.day, from: oneDay) + 1
+        let dateLess = calendar.date(from: components)
+        guard let secondDate = dateLess else{return}
+        reference(to: .trash)
+        .whereField("dateReportedFull", isGreaterThan: oneDay)
+            .whereField("dateReportedFull", isLessThan: secondDate).addSnapshotListener { (snapshot, error) in
+                guard let snapshot = snapshot else {return}
+                var trashList = [Trash]()
+                for document in snapshot.documents{
+                    let trash = try? document.decode(as: Trash.self)
+                    if let obj = trash{
+                        trashList.append(obj)
+                    }
+                }
+                completion(trashList)
+        }
+    }
+    
     
     func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash?) -> Void) {
         reference(to: .trash)
@@ -188,6 +199,21 @@ class FirestoreService {
     }
     
     
-    
+    //        let date = Date()
+    //        var components = DateComponents()
+    //        let calendar = Calendar.current
+    //        components.year = calendar.component(.year, from: date)
+    //        components.month = calendar.component(.month, from: date)
+    //        components.hour = 0
+    //        components.minute = 0
+    //        components.second = 0
+    //        let someDate = components.date
+    //        guard let current = someDate else {return}
+    //        print(current)
+    //        FirestoreService.shared.getTrashBy(oneDay: current) { (trashList) in
+    //            for trash in trashList{
+    //                print(trash)
+    //            }
+    //        }
     
 }
