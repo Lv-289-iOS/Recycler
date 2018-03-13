@@ -34,6 +34,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var captureSession = AVCaptureSession()
     
+    var userTrashCans = [TrashCan]()
+    
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var explainationLabel: UILabel!
     @IBOutlet weak var trashIsFullBtn: UIButton!
@@ -70,6 +72,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         
         setupCamera()
         setupUI()
+        
+        getTrashCans(forUser: currentUser)
     }
     
     func setupUI() {
@@ -155,8 +159,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         if !isQrCodeBelongsToApp(qrCode) {
             result = .wrong
         } else {
-            if isTrashCanYours(qrCode) {
-                if isTrashCanFull(qrCode) {
+            if let trashCan = getUserTrashCanBy(id: qrCode) {
+                if trashCan.isFull {
                     result = .alreadyFull
                 } else {
                     result = .correct
@@ -173,40 +177,26 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         return qrCode.hasPrefix("trashCanID:") // QR code format is "trashCanID: UUID"
     }
     
-    func isTrashCanYours(_ qrCode: String) -> Bool {
-        /*
-        let email = RCLAuthentificator.email()
-        var userID: String?
-        FirestoreService.shared.getUserBy(email: email) { user in
-            if let unwrappedUser = user {
-                userID = unwrappedUser.id
+    func getUserTrashCanBy(id: String) -> TrashCan? {
+        for trashCan in userTrashCans {
+            if let curTrashCanId = trashCan.id {
+                if id.range(of: curTrashCanId) != nil {
+                    return trashCan
+                }
             }
         }
-        if let unwrappedUserID = userID {
-            print(unwrappedUserID)
-        }
-         */
-        return true // TODO: implement
+        return nil;
     }
     
-    func isTrashCanFull(_ qrCode: String) -> Bool {
-        var result: Bool = false
-        /*
-        var myTrashCan: TrashCan?
-        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { trash in
-            if let unwrappedTrash = trash {
-                FirestoreService.shared.getDocumentById(from: .trashCan, returning: TrashCan.self, id: unwrappedTrash.trashCanId, completion: { trashCan in
-                    trashCan?.isFull
-                    myTrashCan = trashCan
-                })
-            }
+    // MARK: New code
+    
+    private func getTrashCans(forUser: User) {
+        guard let userId = forUser.id else {
+            return
         }
-        if let myTrashCan = myTrashCan {
-            result = myTrashCan.isFull
+        FirestoreService.shared.getTrashCansBy(userId: userId) { result in
+            self.userTrashCans = result
         }
-         */
-        return result // TODO: implement
     }
     
 }
-

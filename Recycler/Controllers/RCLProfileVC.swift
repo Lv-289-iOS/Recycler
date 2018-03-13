@@ -25,8 +25,6 @@ class RCLProfileVC: UIViewController {
     let nib = "RCLProfileCell"
     let cellId = "RCLProfileCell"
     var isInEditMode = false
-    var userTest = User(firstName: "Ivan", lastName: "Ivanenko", email: "petya@gmail.com", password: "12345678", phoneNumber: "063-000-00-00", role: .cust)
-    var currentCan = TrashCan(userId: "1", address: "Adress: Lviv", type: .metal , size: .large)
     var userTrashCans = [TrashCan]()
     var currentUser = User()
     let database = FirestoreService.shared
@@ -59,14 +57,28 @@ class RCLProfileVC: UIViewController {
         phone.textColor = UIColor.Font.Gray
         trashesTitle.textColor = UIColor.Font.White
         
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
+        self.tableView.backgroundColor = UIColor.Backgrounds.GrayDark
         profileView.backgroundColor = UIColor.Backgrounds.GrayLight
         profileView.layer.cornerRadius = CGFloat.Design.CornerRadius
     }
     
+    @IBAction func logout(_ sender: UIButton) {
+        let alertView = UIAlertController(title: "Warning!", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive) {
+            UIAlertAction in
+            self.logOut()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            return
+        }
+        alertView.addAction(okAction)
+        alertView.addAction(cancelAction)
+        self.present(alertView, animated: true, completion: nil)
+    }
     @IBAction func editProfile(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
@@ -83,10 +95,19 @@ class RCLProfileVC: UIViewController {
         }
     }
     
+    private func logOut() {
+        RCLAuthentificator.signOut()
+        let st = UIStoryboard(name: "Main", bundle: nil)
+        guard let loginVC = st.instantiateViewController(withIdentifier: "LoginVC") as? RCLLoginVC else {
+            return
+        }
+        self.present(loginVC, animated: true, completion: nil)
+    }
+    
     private func saveNewData() {
-        userTest.firstName = firstName.text!
-        userTest.lastName = lastName.text!
-        userTest.phoneNumber = phone.text!
+        currentUser.firstName = firstName.text!
+        currentUser.lastName = lastName.text!
+        currentUser.phoneNumber = phone.text!
     }
     
     private func updateInfo(with user: User) {
@@ -103,8 +124,8 @@ class RCLProfileVC: UIViewController {
     }
     
     private func getTrash(forTrashCan: TrashCan) {
-        database.getTrashBy(trashCanId: forTrashCan.id!) { trash in
-            print(trash.count)
+        database.getLatestTrashBy(trashCanId: forTrashCan.id!) { trash in
+            print(trash?.dateReportedFull.description)
         }
     }
 }
