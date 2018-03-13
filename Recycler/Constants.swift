@@ -12,5 +12,7 @@ import UIKit
 extension CGFloat {
     struct Design {
         static var CornerRadius: CGFloat { return 6.0 }
+        static var enabledButtonAlpha: CGFloat { return 1 }
+        static var disabledButtonAlpha: CGFloat { return 0.5 }
     }
 }

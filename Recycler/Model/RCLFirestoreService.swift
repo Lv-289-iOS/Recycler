@@ -150,6 +150,7 @@ class FirestoreService {
         }
     }
     
+
 //    func getTrashBy(oneDay: Date, completion: @escaping ([Trash]) -> Void) {
 //        var components = DateComponents()
 //        let calendar = Calendar.current
@@ -158,7 +159,9 @@ class FirestoreService {
 //        components.minute = 0
 //        components.second = 0
 ////        reference(to: .trash).whereField("dateReportedFull", isGreaterThan: <#T##Any#>)
-//        
+//
+//    func getTrashBy(day: Date, completion: @escaping ([Trash]) -> Void) {
+//        reference(to: .trash).whereField(<#T##field: String##String#>, isEqualTo: <#T##Any#>)
 //    }
     
     func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash?) -> Void) {
