@@ -90,9 +90,15 @@ class RCLSignUpVC: UIViewController {
     
     @IBAction func backButton(_ sender: UIButton) {
         print("back tapped")
-        if let nav = self.navigationController {
-            nav.popToRootViewController(animated: true)
-        } else {
+//        if let nav = self.navigationController {
+//            nav.popToRootViewController(animated: true)
+//        } else {
+//            self.dismiss(animated: true, completion: nil)
+//        }
+        
+        ///
+        
+        if self.navigationController?.popToRootViewController(animated: true) == nil {
             self.dismiss(animated: true, completion: nil)
         }
     }
