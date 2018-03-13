@@ -17,11 +17,6 @@ enum ScanStatus: String {
     case correct = "Correct QR" // there is QR code and it's format is OK for our app
 }
 
-struct UIConstants {
-    static let enabledButtonAlpha = CGFloat(1)
-    static let disabledButtonAlpha = CGFloat(0.5)
-}
-
 class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var output = AVCaptureMetadataOutput()
@@ -53,7 +48,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func setTrashIsFullBtnEnabled(_ isEnabled: Bool) {
         trashIsFullBtn.isEnabled = isEnabled
-        trashIsFullBtn.alpha = (isEnabled ? UIConstants.enabledButtonAlpha : UIConstants.disabledButtonAlpha)
+        trashIsFullBtn.alpha = (isEnabled ? CGFloat.Design.enabledButtonAlpha : CGFloat.Design.disabledButtonAlpha)
     }
     
     override func viewDidLoad() {
@@ -66,6 +61,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     func setupUI() {
         trashIsFullBtn.backgroundColor = UIColor.Button.backgroundColor
         trashIsFullBtn.setTitleColor(UIColor.Button.titleColor, for: .normal)
+        trashIsFullBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
+        //button.layer.borderWidth = 1
+        //button.layer.borderColor = UIColor.black.cgColor
         setTrashIsFullBtnEnabled(false)
     }
     
