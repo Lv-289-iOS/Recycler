@@ -26,6 +26,6 @@ struct TrashCan: Codable, Identifiable {
         self.userId = ""
         self.address = ""
         self.type = ""
-        self.size = ""
+        self.size = 0
     }
 }
