@@ -8,8 +8,8 @@
 
 import UIKit
 
-class RCLSignUpVC: UIViewController {
-
+class RCLSignUpVC: UIViewController, AuthServiceDelegate {
+    
     @IBOutlet var logosForAction: [UIImageView]!
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -22,6 +22,7 @@ class RCLSignUpVC: UIViewController {
     @IBOutlet weak var backButtonOutlet: UIButton!
     @IBOutlet weak var loginButtonOutlet: UIButton!
     
+    let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
     
     var formatter = RCLFormatter()
     var isAllFieldsValid = true
@@ -79,17 +80,30 @@ class RCLSignUpVC: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
         if validator {
-            print("login successfull")
             let authent = RCLAuthentificator()
             authent.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
             performSegue(withIdentifier: "ToApp", sender: self)
         } else {
-            print("login unsuccessfull")
+            alert(text: "please, fill all fields correctly")
         }
     }
     
+    func alert(text: String) {
+        customAlert.modalPresentationStyle = .overCurrentContext
+        present(customAlert, animated: true, completion: nil)
+        customAlert.errorTextLabel?.text = text
+    }
+    
+    func transitionToCust() {
+        performSegue(withIdentifier: "ToApp", sender: self)
+    }
+    
+    func transitionToEmpl() {
+        performSegue(withIdentifier: "ToApp", sender: self)
+    }
+    
     @IBAction func backButton(_ sender: UIButton) {
-        print("back tapped")
+//        print("back tapped")
 //        if let nav = self.navigationController {
 //            nav.popToRootViewController(animated: true)
 //        } else {

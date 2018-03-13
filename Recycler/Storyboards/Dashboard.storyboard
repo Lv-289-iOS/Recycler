@@ -37,18 +37,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="f6v-fc-d3W"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LRo-fj-NMT">
-                        <barButtonItem key="rightBarButtonItem" id="pme-mz-Kld">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9tl-aQ-F0S">
-                                <rect key="frame" x="253" y="1" width="106" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="signOutButton:" destination="Uc9-gx-L6W" eventType="touchUpInside" id="fIH-D0-vnn"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="LRo-fj-NMT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvm-Qi-OCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
