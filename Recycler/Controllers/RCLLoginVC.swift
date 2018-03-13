@@ -44,7 +44,7 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
 //        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { (trash) in
 //            print(trash!)
 //        }
-        
+//        infoWindow.showAlertAction(text: "I test it", controller: self)
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
         styler.styleButton(button: signInOutlet)
         styler.styleButton(button: signUpOutlet)
@@ -53,6 +53,13 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         loginTextField.initialStyler()
         passwordTextField.initialStyler()
         styler.renderImage(view: logoImage, image: image)
+        addView()
+        
+    }
+    
+    func addView() {
+        let view = RCLCustomAlert()
+        view.setText(text: "testTestTest")
     }
     
     override func viewDidAppear(_ animated: Bool) {

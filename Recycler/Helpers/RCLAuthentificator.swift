@@ -25,7 +25,7 @@ class RCLAuthentificator {
     func createUser(userName: String, userLastName: String, email: String, phone: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error == nil {
-                let user = User(firstName: userName, lastName: "", email: email, password: password, phoneNumber: phone, role: "someone")
+                let user = User(firstName: userName, lastName: userLastName, email: email, password: password, phoneNumber: phone, role: "someone")
                 FirestoreService.shared.add(for: user, in: .users)
                 print("added \(user.email)")
             } else {

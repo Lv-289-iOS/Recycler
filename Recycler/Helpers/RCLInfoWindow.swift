@@ -26,4 +26,26 @@ class RCLInfoWindow {
         return alertController!
     }
     
+//    func showAlertAction(text: String, controller: UIViewController) {
+//        let alertController = UIAlertController(title: "Oops!", message: text, preferredStyle: .alert)
+//        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.Backgrounds.GrayLight
+//        alertController.view.tintColor = UIColor.Font.White
+//        text.addAtt
+//        
+//        let fontAwesomeAttributes = [NSAttributedStringKey.foregroundColor : UIColor.red]
+//        
+//        
+//        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//        controller.present(alertController, animated: true, completion: nil)
+//        alertController.view.tintColor = UIColor.green
+//        
+//    }
+    
+    
+//    let fontAwesomeAttributes = [
+//        NSForegroundColorAttributeName : UIColor.redColor()
+//    ]
+//    let matchRange = customTitle.rangeOfString(fontAwesomeHeart)
+//    attributedString.addAttributes(fontAwesomeAttributes, range: matchRange)
+//    alertController.setValue(attributedString, forKey: "attributedTitle")
 }

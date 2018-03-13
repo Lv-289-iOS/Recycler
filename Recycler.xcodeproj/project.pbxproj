@@ -41,7 +41,8 @@
 		A3ACADAC2056B2F400E9B918 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACADAD2056B2F400E9B918 /* Charts.framework */; };
 		A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */; };
 		A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4EA0820503D7500815A69 /* RCLScanVC.swift */; };
-		D328EF122056ACD000CCB14F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D328EF132056ACD100CCB14F /* Charts.framework */; };
+		D328EF152056E3DA00CCB14F /* RCLCustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = D328EF142056E3DA00CCB14F /* RCLCustomAlert.xib */; };
+		D328EF172056E50F00CCB14F /* RCLCustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D328EF162056E50F00CCB14F /* RCLCustomAlert.swift */; };
 		D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D331CE4B204EC0AF001D0A90 /* Main.storyboard */; };
 		D331CEB1204ECEBD001D0A90 /* RCLAuthentificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */; };
 		D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */; };
@@ -91,7 +92,8 @@
 		A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTabBarVC.swift; sourceTree = "<group>"; };
 		A3C4EA0820503D7500815A69 /* RCLScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLScanVC.swift; sourceTree = "<group>"; };
 		CF904F54F4846D18D7883A8F /* Pods_Recycler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recycler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D328EF132056ACD100CCB14F /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D328EF142056E3DA00CCB14F /* RCLCustomAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCLCustomAlert.xib; sourceTree = "<group>"; };
+		D328EF162056E50F00CCB14F /* RCLCustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCustomAlert.swift; sourceTree = "<group>"; };
 		D331CE4B204EC0AF001D0A90 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLAuthentificator.swift; sourceTree = "<group>"; };
 		D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFormatter.swift; sourceTree = "<group>"; };
@@ -243,6 +245,8 @@
 				D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */,
 				D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */,
 				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
+				D328EF142056E3DA00CCB14F /* RCLCustomAlert.xib */,
+				D328EF162056E50F00CCB14F /* RCLCustomAlert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -320,6 +324,7 @@
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
 				6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */,
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
+				D328EF152056E3DA00CCB14F /* RCLCustomAlert.xib in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
 			);
@@ -414,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D331CEB6204ECEBD001D0A90 /* RCLStyler.swift in Sources */,
+				D328EF172056E50F00CCB14F /* RCLCustomAlert.swift in Sources */,
 				A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */,
 				197BF747204972D600B8D06B /* RCLCollectionReference.swift in Sources */,
 				630020DD204EAD4F002E7D89 /* Colors.swift in Sources */,
