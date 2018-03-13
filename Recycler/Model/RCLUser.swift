@@ -28,7 +28,7 @@ struct User: Codable, Identifiable {
         self.email = email
         self.password = password
         self.phoneNumber = phoneNumber
-        self.role = RCLUserRole.rawValue
+        self.role = role.rawValue
     }
 
     init() {

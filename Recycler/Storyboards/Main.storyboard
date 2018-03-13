@@ -298,6 +298,14 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="890.10494752623697"/>
         </scene>
+        <!--EmpTabBar-->
+        <scene sceneID="JQ2-wf-tgS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EmpTabBar" id="KK8-bM-KpY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="287-Yo-8KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="-96"/>
+        </scene>
         <!--TabBar-->
         <scene sceneID="MMz-AP-AHl">
             <objects>
