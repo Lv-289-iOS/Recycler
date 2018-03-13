@@ -20,6 +20,8 @@ class RCLAddTrashVC: UIViewController {
     
     var trashImageFromCatalogVC :UIImage?
     
+    var trashSizeFromPicker = RCLTrashSize.small
+    
     @IBOutlet weak var popUpView: UIView!
     
     @IBOutlet weak var trashTableView: UITableView!
@@ -34,6 +36,9 @@ class RCLAddTrashVC: UIViewController {
             let message = "Please add location"
             showAlert(titles, message)
         }
+        let trashCan = TrashCan(userId: currentUser.id!, address: locationFromDelegate.name, type: RCLTrashType(rawValue: trashLabelFromCatalogVC)!, size: trashSizeFromPicker)
+        FirestoreService.shared.add(for: trashCan, in: .trashCan)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
@@ -95,7 +100,7 @@ extension RCLAddTrashVC: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        trashSizeFromPicker = sizeOfTrash[row]
     }
 }
 

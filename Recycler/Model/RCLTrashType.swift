@@ -12,5 +12,7 @@ enum RCLTrashType: String {
     case plastic
     case metal
     case organic
-    case battaries
+    case batteries
+    case glass
+    case paper
 }

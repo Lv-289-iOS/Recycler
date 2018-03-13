@@ -16,7 +16,6 @@
 		19AF48C3204D876A00958858 /* RCLTrashSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C2204D876A00958858 /* RCLTrashSize.swift */; };
 		19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF48C4204D87BB00958858 /* RCLTrashType.swift */; };
 		19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* RCLUser.swift */; };
-		19F5AF0720493ADA00ADF338 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4B136E772058383800B85C29 /* RCLUserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E762058383800B85C29 /* RCLUserRole.swift */; };
 		4B136E7D2058385400B85C29 /* EmpTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B136E782058385300B85C29 /* EmpTabBar.storyboard */; };
 		4B136E7E2058385400B85C29 /* RCLIssuesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B136E792058385300B85C29 /* RCLIssuesCell.swift */; };
@@ -654,11 +653,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9YL9NSJ599;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.danylo.Recycler5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.danylo.Recycler56;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -673,11 +672,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9YL9NSJ599;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.danylo.Recycler5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.danylo.Recycler56;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
