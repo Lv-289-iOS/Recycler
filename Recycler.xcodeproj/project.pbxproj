@@ -60,6 +60,7 @@
 		D3A9189B2057FB3400395239 /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D8C7122057F76700039E6C /* CustomAlertVC.xib */; };
 		D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A9189C2058001700395239 /* EmpTabBar.storyboard */; };
 		D3D8C7142057F76900039E6C /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D8C7132057F76800039E6C /* CustomAlertVC.swift */; };
+		D3F376F720580BDD0023F1AA /* Taken.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F376F620580BDD0023F1AA /* Taken.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		D3A9189C2058001700395239 /* EmpTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmpTabBar.storyboard; sourceTree = "<group>"; };
 		D3D8C7122057F76700039E6C /* CustomAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomAlertVC.xib; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.xib; sourceTree = "<absolute>"; };
 		D3D8C7132057F76800039E6C /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAlertVC.swift; path = /Users/gannamelnyk/Documents/Recycler/Recycler/Helpers/CustomAlertVC.swift; sourceTree = "<absolute>"; };
+		D3F376F620580BDD0023F1AA /* Taken.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Taken.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			children = (
 				D3A9189C2058001700395239 /* EmpTabBar.storyboard */,
 				D331CE4B204EC0AF001D0A90 /* Main.storyboard */,
+				D3F376F620580BDD0023F1AA /* Taken.storyboard */,
 				A39BEAA9204971B8005A3A87 /* TabBar.storyboard */,
 				A39BEAAC204977E4005A3A87 /* Dashboard.storyboard */,
 				A39BEAAE20497812005A3A87 /* Map.storyboard */,
@@ -359,6 +362,7 @@
 				D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */,
 				D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
+				D3F376F720580BDD0023F1AA /* Taken.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
 				6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */,
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
