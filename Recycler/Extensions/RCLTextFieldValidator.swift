@@ -10,6 +10,7 @@ import UIKit
 
 extension UITextField {
     public enum TextType {
+        case name
         case emailAddress
         case password
         case phone
@@ -24,16 +25,24 @@ extension UITextField {
                 return .password
             } else if keyboardType == .numberPad {
                 return .phone
+            } else if keyboardType == .alphabet {
+                return .name
+            } else {
+                return .generic
             }
-            return .generic
         }
         set {
             autocorrectionType = .no
             autocapitalizationType = .none
             textColor = UIColor.Font.White
             let color = UIColor.Font.White
-            self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor : color])
+            if self.placeholder != nil {
+                self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor : color])
+            }
             switch newValue {
+            case .name:
+                keyboardType = .alphabet
+                isSecureTextEntry = false
             case .emailAddress:
                 keyboardType = .emailAddress
                 isSecureTextEntry = false
@@ -55,6 +64,8 @@ extension UITextField {
     public var valid: Bool {
         get {
             switch textType {
+            case .name:
+                return text != nil ? text!.count > 3 : false
             case .password:
                 return text != nil ? text!.count >= 8 && text!.count <= 25 : false
             case .emailAddress:

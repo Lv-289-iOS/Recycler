@@ -33,20 +33,7 @@
                     <view key="view" contentMode="scaleToFill" id="e9V-KX-Y6r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsE-RM-W01">
-                                <rect key="frame" x="16" y="20" width="343" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="f6v-fc-d3W" firstAttribute="trailing" secondItem="WsE-RM-W01" secondAttribute="trailing" constant="16" id="HQp-1z-3Mm"/>
-                            <constraint firstItem="WsE-RM-W01" firstAttribute="leading" secondItem="f6v-fc-d3W" secondAttribute="leading" constant="16" id="QOs-lV-eFH"/>
-                            <constraint firstItem="WsE-RM-W01" firstAttribute="top" secondItem="f6v-fc-d3W" secondAttribute="top" id="pR8-cR-Bnq"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="f6v-fc-d3W"/>
                     </view>
                     <navigationItem key="navigationItem" id="LRo-fj-NMT"/>

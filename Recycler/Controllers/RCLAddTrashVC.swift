@@ -10,7 +10,7 @@ import UIKit
 
 class RCLAddTrashVC: UIViewController {
     
-     var locationFromDelegate = TrashLocation()
+    var locationFromDelegate = TrashLocation()
     
     var locationPlaceholder = "Tap to add a location"
     
@@ -35,6 +35,7 @@ class RCLAddTrashVC: UIViewController {
             let titles = "Failed"
             let message = "Please add location"
             showAlert(titles, message)
+            return
         }
         let trashCan = TrashCan(userId: currentUser.id!, address: locationFromDelegate.name, type: RCLTrashType(rawValue: trashLabelFromCatalogVC)!, size: trashSizeFromPicker)
         FirestoreService.shared.add(for: trashCan, in: .trashCan)
@@ -93,17 +94,6 @@ extension RCLAddTrashVC: UIPickerViewDataSource {
     }
 }
 
-extension RCLAddTrashVC: UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(sizeOfTrash[row].rawValue)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        trashSizeFromPicker = sizeOfTrash[row]
-    }
-}
-
 extension RCLAddTrashVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,3 +134,15 @@ extension RCLAddTrashVC: UITableViewDelegate {
         }
     }
 }
+
+extension RCLAddTrashVC: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(sizeOfTrash[row].rawValue)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        trashSizeFromPicker = sizeOfTrash[row]
+    }
+}
+

@@ -9,6 +9,16 @@
 import UIKit
 import PieCharts
 
+struct TotalSizes {
+    var plastic = 0
+    var metal = 0
+    var organic = 0
+    var batteries = 0
+    var glass = 0
+    var paper = 0
+    var unknown = 0
+}
+
 class RCLDashboardVC: UIViewController {
     
     let chartView: PieChart = PieChart(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
@@ -16,6 +26,7 @@ class RCLDashboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(chartView)
+        addLabel()
 
     }
     
@@ -118,21 +129,57 @@ class RCLDashboardVC: UIViewController {
             let imageName: String? = {
                 switch slice.data.id {
 
-                case 0: return "apple"
-                case 1: return "battery"
-                case 2: return "big-bottle-of-water-2"
-                case 3: return "paper-plane (1)"
-                case 4: return "robot"
-                case 5: return "bottle-2"
+                case 0: return "trash_organic"
+                case 1: return "trash_batteries"
+                case 2: return "trash_glass"
+                case 3: return "trash_paper"
+                case 4: return "trash_metal"
+                case 5: return "trash_plastic"
                 
                 default: return nil
                 }
             }()
             
             view.image = imageName.flatMap{UIImage(named: $0)}
+            view.contentMode = .scaleAspectFit
             
             return container
         }
+    }
+    //    MARK: - dn - label
+    func addLabel(){
+        let label = UILabel(frame: CGRect(x: 16, y: 21, width: 300, height: 32))
+        //        let lblNew = UILabel()
+        //        lblNew.backgroundColor = UIColor.blue
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.text = "Dashboard"
+        label.textColor = UIColor.white
+        //        label.translatesAutoresizingMaskIntoConstraints = false
+        //        label.constraints.
+        view.addSubview(label)
+    }
+
+    func getTrashCansTotalSize(trashCans: [TrashCan]) -> TotalSizes {
+        var result = TotalSizes()
+        for trashCan in trashCans {
+            switch trashCan.type {
+            case "plastic" :
+                result.plastic += trashCan.size
+            case "metal" :
+                result.metal += trashCan.size
+            case "organic" :
+                result.organic += trashCan.size
+            case "battaries" :
+                result.batteries += trashCan.size
+            case "glass" :
+                result.glass += trashCan.size
+            case "paper" :
+                result.paper += trashCan.size
+            default:
+                result.unknown += trashCan.size
+            }
+        }
+        return result
     }
 
 }

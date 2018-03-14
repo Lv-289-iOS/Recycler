@@ -26,36 +26,41 @@ class RCLProfileVC: UIViewController {
     let cellId = "RCLProfileCell"
     var isInEditMode = false
     var userTrashCans = [TrashCan]()
-    var currentUser = User()
+    var user = User()
     let database = FirestoreService.shared
+    let formatter = RCLFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewSetup()
-        let email = RCLAuthentificator.email()
-        if email != "" {
-            database.getUserBy(email: email, completion: { user in
-                self.currentUser = user ?? self.currentUser
-                self.getTrashCans(forUser: self.currentUser)
-                self.updateInfo(with: self.currentUser)
-            })
-        }
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupDelegates()
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
         
-        navigationController?.isNavigationBarHidden = true
+        user = currentUser
+        self.getTrashCans(forUser: self.user)
+        self.updateInfo(with: self.user)
+    }
+    
+    private func setupDelegates() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        phone.delegate = self
+        firstName.delegate = self
+        lastName.delegate = self
     }
     
     private func viewSetup() {
+        navigationController?.isNavigationBarHidden = true
+        
         profileTitle.textColor = UIColor.Font.White
         firstName.textColor = UIColor.Font.White
         lastName.textColor = UIColor.Font.White
         phoneTitle.textColor = UIColor.Font.Gray
         phone.textColor = UIColor.Font.Gray
         trashesTitle.textColor = UIColor.Font.White
+        
+        phone.textType = .phone
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
@@ -105,9 +110,10 @@ class RCLProfileVC: UIViewController {
     }
     
     private func saveNewData() {
-        currentUser.firstName = firstName.text!
-        currentUser.lastName = lastName.text!
-        currentUser.phoneNumber = phone.text!
+        user.firstName = firstName.text!
+        user.lastName = lastName.text!
+        user.phoneNumber = phone.text!
+        database.update(for: user, in: .users)
     }
     
     private func updateInfo(with user: User) {
@@ -152,3 +158,61 @@ extension RCLProfileVC: UITableViewDelegate, UITableViewDataSource {
         getTrash(forTrashCan: userTrashCans[indexPath.row])
     }
 }
+
+extension RCLProfileVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func hideKeyboardOnTap(_ selector: Selector) {
+        let tap = UITapGestureRecognizer(target: self, action: selector)
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (textField == phone) && textField.text?.count == 0 {
+            textField.text = "+38("
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.styleTextField()
+        if (textField == phone) && textField.text?.count == 4 {
+            textField.text = ""
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.borderStyle = .none
+        
+        if (textField == phone) {
+            let decimalString = formatter.decimalFormatter(text: textField.text!, range: range, replacementString: string)
+            let length = decimalString.length
+            if length == 0 || length > 12 {
+                let newLength = (textField.text! as NSString).length + (string as NSString).length - range.length as Int
+                return (newLength > 11) ? false : true
+            }
+            textField.text = formatter.formatString(text: decimalString, length: length)
+            textField.styleTextField()
+            editProfile.isEnabled = textField.valid
+            return false
+        } else {
+            let text = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+            if text.count >= 3 {
+                editProfile.isEnabled = true
+                textField.backgroundColor = UIColor.clear
+            } else {
+                editProfile.isEnabled = false
+                textField.backgroundColor = UIColor.red
+            }
+            return text.count <= 16
+        }
+    }
+}
+
