@@ -66,10 +66,6 @@ class RCLAddTrashVC: UIViewController {
         if segue.identifier == "AddTrashLocationSegue" {
             let mapVC = segue.destination as! RCLAddTrashLocationVC
             mapVC.trashLocationDelegate = self
-            mapVC.navigationItem.title = "Add location"
-            mapVC.navigationController?.navigationBar.isHidden = false
-            mapVC.navigationItem.backBarButtonItem?.title = "Cancel"
-            mapVC.navigationController?.navigationItem.leftBarButtonItem?.title = "Cancel"
         }
     }
 }

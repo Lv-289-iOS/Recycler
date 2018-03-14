@@ -13,12 +13,11 @@ class RCLCatalogVC: UIViewController {
     var trashImage: UIImage!
     var trashLabel: String!
     
-    let trashLabels = ["paper","glass","metall","plastic","organic","batteries"]
+    let trashLabels = ["paper","glass","metal","plastic","organic","batteries"]
     
-    // trash_glass add
     let trashImages : [UIImage] = [
         UIImage (named : "trash_paper")!,
-        UIImage (named : "trash_paper")!,
+        UIImage (named : "trash_glass")!,
         UIImage (named : "trash_metal")!,
         UIImage (named : "trash_plastic")!,
         UIImage (named : "trash_organic")!,
@@ -50,7 +49,7 @@ extension RCLCatalogVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
