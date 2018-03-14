@@ -212,8 +212,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBAction func btnTrashCanIsFullClicked(_ sender: UIButton) {
         if var trashCan = trashCanToReport {
             trashCan.isFull = true
-            // TODO: update the database. Please take into account that trashCan is value type (struct)
-            // FirestoreService.shared.update(for: trashCan, in: .trashCan)
+            FirestoreService.shared.update(for: trashCan, in: .trashCan)
         }
     }
     
