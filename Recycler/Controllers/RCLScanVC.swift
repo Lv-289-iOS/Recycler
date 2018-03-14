@@ -211,8 +211,16 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBAction func btnTrashCanIsFullClicked(_ sender: UIButton) {
         if var trashCan = trashCanToReport {
-            trashCan.isFull = true
-            FirestoreService.shared.update(for: trashCan, in: .trashCan)
+            if let trashCanId = trashCan.id {
+                if let currentUserId = currentUser.id {
+                    trashCan.isFull = true
+                    FirestoreService.shared.update(for: trashCan, in: .trashCan)
+                    
+                    var trash = Trash(trashCanId: trashCanId, userIdReportedFull: currentUserId)
+                    trash.dateReportedFull = Date()
+                    FirestoreService.shared.add(for: trash, in: .trash)
+                }
+            }
         }
     }
     
