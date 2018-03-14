@@ -55,7 +55,7 @@ class RCLAddTrashLocationVC: UIViewController {
             userLocation = locationOfMarker
             animateCameraTo(coordinate: userLocation.coordinate)
         }
-    }
+            }
     
     func customizeMap() {
         do {
