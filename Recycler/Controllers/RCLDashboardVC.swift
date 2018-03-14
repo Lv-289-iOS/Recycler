@@ -9,6 +9,16 @@
 import UIKit
 import PieCharts
 
+struct TotalSizes {
+    var plastic = 0
+    var metal = 0
+    var organic = 0
+    var batteries = 0
+    var glass = 0
+    var paper = 0
+    var unknown = 0
+}
+
 class RCLDashboardVC: UIViewController {
     
     let chartView: PieChart = PieChart(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
@@ -133,6 +143,29 @@ class RCLDashboardVC: UIViewController {
             
             return container
         }
+    }
+    
+    func getTrashCansTotalSize(trashCans: [TrashCan]) -> TotalSizes {
+        var result = TotalSizes()
+        for trashCan in trashCans {
+            switch trashCan.type {
+            case "plastic" :
+                result.plastic += trashCan.size
+            case "metal" :
+                result.metal += trashCan.size
+            case "organic" :
+                result.organic += trashCan.size
+            case "battaries" :
+                result.batteries += trashCan.size
+            case "glass" :
+                result.glass += trashCan.size
+            case "paper" :
+                result.paper += trashCan.size
+            default:
+                result.unknown += trashCan.size
+            }
+        }
+        return result
     }
 
 }
