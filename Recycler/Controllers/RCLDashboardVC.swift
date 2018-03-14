@@ -128,12 +128,12 @@ class RCLDashboardVC: UIViewController {
             let imageName: String? = {
                 switch slice.data.id {
 
-                case 0: return "apple"
-                case 1: return "battery"
-                case 2: return "big-bottle-of-water-2"
-                case 3: return "paper-plane (1)"
-                case 4: return "robot"
-                case 5: return "bottle-2"
+                case 0: return "trash_organic"
+                case 1: return "trash_batteries"
+                case 2: return "trash_glass"
+                case 3: return "trash_paper"
+                case 4: return "trash_metal"
+                case 5: return "trash_plastic"
                 
                 default: return nil
                 }
