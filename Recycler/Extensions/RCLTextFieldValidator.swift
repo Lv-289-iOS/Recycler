@@ -25,8 +25,11 @@ extension UITextField {
                 return .password
             } else if keyboardType == .numberPad {
                 return .phone
+            } else if keyboardType == .alphabet {
+                return .name
+            } else {
+                return .generic
             }
-            return .generic
         }
         set {
             autocorrectionType = .no
@@ -38,6 +41,7 @@ extension UITextField {
             }
             switch newValue {
             case .name:
+                keyboardType = .alphabet
                 isSecureTextEntry = false
             case .emailAddress:
                 keyboardType = .emailAddress
@@ -61,7 +65,7 @@ extension UITextField {
         get {
             switch textType {
             case .name:
-                return text != nil ? text!.count >= 3 : false
+                return text != nil ? text!.count > 3 : false
             case .password:
                 return text != nil ? text!.count >= 8 && text!.count <= 25 : false
             case .emailAddress:

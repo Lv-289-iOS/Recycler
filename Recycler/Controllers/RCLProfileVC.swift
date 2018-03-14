@@ -61,8 +61,6 @@ class RCLProfileVC: UIViewController {
         trashesTitle.textColor = UIColor.Font.White
         
         phone.textType = .phone
-        firstName.textType = .name
-        lastName.textType = .name
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
@@ -178,7 +176,6 @@ extension RCLProfileVC: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.initialStyler()
         if (textField == phone) && textField.text?.count == 0 {
             textField.text = "+38("
         }
@@ -192,8 +189,8 @@ extension RCLProfileVC: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.styleTextField()
-        editProfile.isEnabled = textField.valid
+        textField.borderStyle = .none
+        
         if (textField == phone) {
             let decimalString = formatter.decimalFormatter(text: textField.text!, range: range, replacementString: string)
             let length = decimalString.length
@@ -202,13 +199,19 @@ extension RCLProfileVC: UITextFieldDelegate {
                 return (newLength > 11) ? false : true
             }
             textField.text = formatter.formatString(text: decimalString, length: length)
-            
+            textField.styleTextField()
+            editProfile.isEnabled = textField.valid
             return false
         } else {
-            let currentText = textField.text ?? ""
-            guard let stringRange = Range(range, in: currentText) else { return false }
-            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            return updatedText.count <= 16
+            let text = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+            if text.count >= 3 {
+                editProfile.isEnabled = true
+                textField.backgroundColor = UIColor.clear
+            } else {
+                editProfile.isEnabled = false
+                textField.backgroundColor = UIColor.red
+            }
+            return text.count <= 16
         }
     }
 }
