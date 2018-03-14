@@ -26,10 +26,10 @@ class RCLAuthentificator {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error == nil {
                 let user = User(firstName: userName, lastName: userLastName, email: email, password: password, phoneNumber: phone, role: .cust)
-                FirestoreService.shared.add(for: user, in: .users)	
+                FirestoreService.shared.add(for: user, in: .users)
+                self.delegate?.transitionToCust()
             } else {
                 self.delegate?.alert(text: (error?.localizedDescription)!)
-                print(error?.localizedDescription as Any)
             }
         }
     }
@@ -49,7 +49,6 @@ class RCLAuthentificator {
                 
             } else {
                 self.delegate?.alert(text: "wrong credentials")
-                print("Error \(error!.localizedDescription)")
             }
         }
 

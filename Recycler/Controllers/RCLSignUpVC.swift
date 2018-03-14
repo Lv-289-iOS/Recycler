@@ -25,6 +25,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
     
     var formatter = RCLFormatter()
+    var authentificator = RCLAuthentificator()
     var isAllFieldsValid = true
     
     var images = [#imageLiteral(resourceName: "avatar"), #imageLiteral(resourceName: "padlock"), #imageLiteral(resourceName: "phone-call"), #imageLiteral(resourceName: "envelope")]
@@ -32,6 +33,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authentificator.delegate = self
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         delegates()
@@ -45,6 +47,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         confirmationPasswordTextField.delegate = self
         phoneTextField.delegate = self
         emailTextField.delegate = self
+        
     }
     
     func styleViews() {
@@ -80,9 +83,8 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     
     @IBAction func loginButton(_ sender: UIButton) {
         if validator {
-            let authent = RCLAuthentificator()
-            authent.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
-            performSegue(withIdentifier: "ToApp", sender: self)
+            authentificator.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
+//            performSegue(withIdentifier: "ToApp", sender: self)
         } else {
             alert(text: "please, fill all fields correctly")
         }
@@ -100,6 +102,14 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     
     func transitionToEmpl() {
         performSegue(withIdentifier: "ToApp", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToApp" {
+            if let tabBar = segue.destination as? UITabBarController {
+                tabBar.selectedIndex = 2
+            }
+        }
     }
     
     @IBAction func backButton(_ sender: UIButton) {

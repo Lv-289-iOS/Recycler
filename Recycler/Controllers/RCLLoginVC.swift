@@ -52,14 +52,13 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
         styler.styleButton(button: signInOutlet)
         styler.styleButton(button: signUpOutlet)
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
         loginTextField.textType = .emailAddress
         passwordTextField.textType = .password
         loginTextField.initialStyler()
         passwordTextField.initialStyler()
         logoImage.image = image
-//        styler.renderImage(view: logoImage, image: image)
-//        addView()
-        
     }
     
     func alert(text: String) {
@@ -67,14 +66,6 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         present(customAlert, animated: true, completion: nil)
         customAlert.errorTextLabel?.text = text
     }
-    
-//    func addView() {
-////        customAlert.modalTransitionStyle = UIModalTransitionStyle.partialCurl
-//
-//        customAlert.modalPresentationStyle = .overCurrentContext
-//        present(customAlert, animated: true, completion: nil)
-//        customAlert.errorTextLabel?.text = "Loooool, it's so easy!"
-//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
@@ -87,6 +78,14 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     
     func transitionToEmpl() {
         performSegue(withIdentifier: "ToEmp", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToApp" {
+            if let tabBar = segue.destination as? UITabBarController {
+                tabBar.selectedIndex = 2
+            }
+        }
     }
 }
 
