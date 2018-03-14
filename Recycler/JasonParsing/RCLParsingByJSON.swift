@@ -32,7 +32,8 @@ class RLCParsingByJSON {
     let latitudeIndex = 4
     let longitudeIndex = 5
     let numberOfraffleIndex = 6
-    let url = "https://firebasestorage.googleapis.com/v0/b/recycler032.appspot.com/o/Divided%20trashmap(.json)%2FBigDiv4%20(2).json?alt=media&token=9840c3cb-c231-44f4-8e50-8e960c7a5138"
+    let url = "https://firebasestorage.googleapis.com/v0/b/recycler032.appspot.com/o/newBigMap.json?alt=media&token=21bc329d-8fd7-4daf-b15e-106becd042d8"
+    //"https://firebasestorage.googleapis.com/v0/b/recycler032.appspot.com/o/Divided%20trashmap(.json)%2FBigDiv4%20(2).json?alt=media&token=9840c3cb-c231-44f4-8e50-8e960c7a5138"
     var tempDict = [TrashFromJson]()
     
 
@@ -58,6 +59,7 @@ class RLCParsingByJSON {
                 }
                 
                 do {
+//                    let str = String.init(data: data, encoding: String.Encoding.utf8)
                     let json = try JSON.init(data: data)
                 
                     var result = [TrashFromJson]()
