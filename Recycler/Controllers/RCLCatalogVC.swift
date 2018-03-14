@@ -27,9 +27,16 @@ class RCLCatalogVC: UIViewController {
     @IBOutlet weak var catalogTableView: UITableView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         catalogTableView.delegate = self
         catalogTableView.dataSource = self
-        super.viewDidLoad()
+        viewSetup()
+    }
+    
+    private func viewSetup() {
+        self.view.backgroundColor = UIColor.Backgrounds.GrayDark
+        catalogTableView.backgroundColor = UIColor.Backgrounds.GrayDark
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,7 +65,9 @@ extension RCLCatalogVC: UITableViewDataSource {
         cell.catalogLabel.text = trashLabels[indexPath.row]
         
         // Design of CardCell
-        // Using closure 
+        // Using closure
+        cell.backgroundColor = UIColor.Backgrounds.GrayDark
+        cell.catalogView.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.catalogView.layer.cornerRadius = CGFloat.Design.CornerRadius
         cell.catalogImageView.layer.cornerRadius = CGFloat.Design.CornerRadius
         cell.alpha = 0
