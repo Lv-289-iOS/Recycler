@@ -19,12 +19,17 @@ enum ScanStatus: String {
 
 extension UIView {
     /// Shake animation
-    func shake() {
+    func animationShakeStart() {
         let animation = CAKeyframeAnimation(keyPath: "transform.rotation")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = 1.0
         animation.values = [-Double.pi / 6, Double.pi / 6, -Double.pi / 6, Double.pi / 6, -Double.pi / 7, Double.pi / 7, -Double.pi / 8, Double.pi / 8, 0.0 ]
         layer.add(animation, forKey: "shake")
+    }
+    
+    func animationsStop() {
+        layer.removeAllAnimations()
+        layoutIfNeeded()
     }
 }
 
@@ -62,7 +67,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func setTrashIsFullBtnEnabled(_ isEnabled: Bool) {
         if(!trashIsFullBtn.isEnabled && isEnabled) {
-            trashIsFullBtn.shake()
+            trashIsFullBtn.animationShakeStart()
+        } else {
+            trashIsFullBtn.animationsStop()
         }
         trashIsFullBtn.alpha = (isEnabled ? CGFloat.Design.enabledButtonAlpha : CGFloat.Design.disabledButtonAlpha)
         trashIsFullBtn.isEnabled = isEnabled
@@ -83,7 +90,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         trashIsFullBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
         //button.layer.borderWidth = 1
         //button.layer.borderColor = UIColor.black.cgColor
-        setTrashIsFullBtnEnabled(false)
+        setTrashIsFullBtnEnabled(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -205,7 +212,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBAction func btnTrashCanIsFullClicked(_ sender: UIButton) {
         if var trashCan = trashCanToReport {
             trashCan.isFull = true
-            // TODO: update the database. Please take into account that trashCan is value type (struct)
+            FirestoreService.shared.update(for: trashCan, in: .trashCan)
         }
     }
     

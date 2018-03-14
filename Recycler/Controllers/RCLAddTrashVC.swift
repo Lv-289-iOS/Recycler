@@ -10,7 +10,7 @@ import UIKit
 
 class RCLAddTrashVC: UIViewController {
     
-     var locationFromDelegate = TrashLocation()
+    var locationFromDelegate = TrashLocation()
     
     var locationPlaceholder = "Tap to add a location"
     
@@ -35,6 +35,7 @@ class RCLAddTrashVC: UIViewController {
             let titles = "Failed"
             let message = "Please add location"
             showAlert(titles, message)
+            return
         }
         let trashCan = TrashCan(userId: currentUser.id!, address: locationFromDelegate.name, type: RCLTrashType(rawValue: trashLabelFromCatalogVC)!, size: trashSizeFromPicker)
         FirestoreService.shared.add(for: trashCan, in: .trashCan)
@@ -65,6 +66,10 @@ class RCLAddTrashVC: UIViewController {
         if segue.identifier == "AddTrashLocationSegue" {
             let mapVC = segue.destination as! RCLAddTrashLocationVC
             mapVC.trashLocationDelegate = self
+            mapVC.navigationItem.title = "Add location"
+            mapVC.navigationController?.navigationBar.isHidden = false
+            mapVC.navigationItem.backBarButtonItem?.title = "Cancel"
+            mapVC.navigationController?.navigationItem.leftBarButtonItem?.title = "Cancel"
         }
     }
 }
@@ -90,17 +95,6 @@ extension RCLAddTrashVC: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let string = String(describing: sizeOfTrash[row])
         return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-    }
-}
-
-extension RCLAddTrashVC: UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(sizeOfTrash[row].rawValue)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        trashSizeFromPicker = sizeOfTrash[row]
     }
 }
 
@@ -144,3 +138,15 @@ extension RCLAddTrashVC: UITableViewDelegate {
         }
     }
 }
+
+extension RCLAddTrashVC: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(sizeOfTrash[row].rawValue)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        trashSizeFromPicker = sizeOfTrash[row]
+    }
+}
+
