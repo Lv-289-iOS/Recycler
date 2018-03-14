@@ -68,38 +68,14 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wm0-nz-2Cf">
-                                <rect key="frame" x="16" y="20" width="343" height="36"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="seL-TS-p0L">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmS-5M-JPR">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="DmS-5M-JPR" secondAttribute="trailing" id="04D-NF-UpZ"/>
-                                        <constraint firstItem="DmS-5M-JPR" firstAttribute="leading" secondItem="seL-TS-p0L" secondAttribute="leading" id="A0Y-RK-h0D"/>
-                                        <constraint firstItem="DmS-5M-JPR" firstAttribute="top" secondItem="seL-TS-p0L" secondAttribute="top" id="ROY-eE-Pqs"/>
-                                        <constraint firstAttribute="bottom" secondItem="DmS-5M-JPR" secondAttribute="bottom" id="hQU-yZ-Sfz"/>
-                                    </constraints>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ean-42-xHM" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.7" id="8Hw-Bi-42P"/>
-                            <constraint firstItem="Wm0-nz-2Cf" firstAttribute="top" secondItem="2fv-gF-hKi" secondAttribute="top" id="9vW-nu-isU"/>
-                            <constraint firstItem="Wm0-nz-2Cf" firstAttribute="leading" secondItem="2fv-gF-hKi" secondAttribute="leading" constant="16" id="CFC-jE-l3U"/>
                             <constraint firstItem="2fv-gF-hKi" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xad-EL-OzA" secondAttribute="trailing" constant="10" id="CPk-gM-1yh"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="top" secondItem="2fv-gF-hKi" secondAttribute="top" constant="100" id="Kp0-l5-bVJ"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="MU3-1s-7q4"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2fv-gF-hKi" secondAttribute="leading" constant="10" id="QWR-ow-G7a"/>
                             <constraint firstItem="ean-42-xHM" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="Rxc-At-QBd"/>
-                            <constraint firstItem="2fv-gF-hKi" firstAttribute="trailing" secondItem="Wm0-nz-2Cf" secondAttribute="trailing" constant="16" id="T93-Kg-snZ"/>
                             <constraint firstItem="2fv-gF-hKi" firstAttribute="bottom" secondItem="ean-42-xHM" secondAttribute="bottom" constant="25" id="rJj-jG-IE4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2fv-gF-hKi"/>

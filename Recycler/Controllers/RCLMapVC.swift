@@ -12,7 +12,8 @@ import GoogleMaps
 class RCLMapVC: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,25 +32,43 @@ class RCLMapVC: UIViewController {
         }
         view = mapView
         
-        // Creates a marker in the center of the map.
+        addMarkers()
         
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 49.838138, longitude: 24.044102)
-        marker.title = "Чернігівська 15"
-        marker.snippet = "Кількість смітників: "
-        marker.map = mapView
-        marker.icon = GMSMarker.markerImage(with: .red)
+        addLabel()
+
+        
+
+      
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func addLabel(){
+        let lblNew = UILabel()
+        lblNew.backgroundColor = UIColor.blue
+        lblNew.text = "Test"
+        lblNew.textColor = UIColor.white
+        lblNew.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(lblNew)
     }
-    */
+    
+    func addMarkers(){
+        let parsed = RLCParsingByJSON()
+        parsed.temp { (trashList, error) in
+            if error == nil {
+                for trash in trashList! {
+                    let marker = GMSMarker()
+                    marker.position = trash.coordinate
+                    marker.title = trash.nameInJson
+                    marker.snippet = "Кількість смітників: \(trash.numberOfRaffleInJson)"
+                    marker.icon = GMSMarker.markerImage(with: .red)
+                    marker.map = self.view as? GMSMapView
+                    
+                }
+            }
+            
+            print("TrashCount \(String(describing: trashList?.count)) error: \(String(describing: error))")
+}
+    }
 
+    
 }
