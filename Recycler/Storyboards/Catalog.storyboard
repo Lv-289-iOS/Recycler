@@ -54,17 +54,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaz-Mg-gd3">
-                                                    <rect key="frame" x="10" y="5" width="300" height="89.5"/>
+                                                    <rect key="frame" x="15" y="5" width="290" height="89.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash_batteries" translatesAutoresizingMaskIntoConstraints="NO" id="ouv-W0-hih">
-                                                            <rect key="frame" x="0.0" y="20" width="50" height="50"/>
+                                                            <rect key="frame" x="8" y="20" width="42" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="gdf-JV-hq2"/>
-                                                                <constraint firstAttribute="width" constant="50" id="uaw-1z-FFO"/>
+                                                                <constraint firstAttribute="width" constant="42" id="uaw-1z-FFO"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="batteries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-1T-cKW">
-                                                            <rect key="frame" x="58" y="8" width="234" height="73.5"/>
+                                                            <rect key="frame" x="58" y="8" width="224" height="73.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,7 +76,7 @@
                                                         <constraint firstItem="ouv-W0-hih" firstAttribute="centerY" secondItem="vaz-Mg-gd3" secondAttribute="centerY" id="Rov-5G-ZUe"/>
                                                         <constraint firstAttribute="trailing" secondItem="lDf-1T-cKW" secondAttribute="trailing" constant="8" id="T7a-IA-f2z"/>
                                                         <constraint firstItem="lDf-1T-cKW" firstAttribute="leading" secondItem="ouv-W0-hih" secondAttribute="trailing" constant="8" id="TPC-Jp-7dc"/>
-                                                        <constraint firstItem="ouv-W0-hih" firstAttribute="leading" secondItem="vaz-Mg-gd3" secondAttribute="leading" id="aP4-oM-od5"/>
+                                                        <constraint firstItem="ouv-W0-hih" firstAttribute="leading" secondItem="vaz-Mg-gd3" secondAttribute="leading" constant="8" id="aP4-oM-od5"/>
                                                         <constraint firstAttribute="bottom" secondItem="lDf-1T-cKW" secondAttribute="bottom" constant="8" id="qH6-TS-YC8"/>
                                                         <constraint firstItem="lDf-1T-cKW" firstAttribute="top" secondItem="vaz-Mg-gd3" secondAttribute="top" constant="8" id="ruM-wA-BEA"/>
                                                     </constraints>
@@ -85,8 +85,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="vaz-Mg-gd3" secondAttribute="bottom" constant="5" id="9ZA-2h-yI0"/>
                                                 <constraint firstItem="vaz-Mg-gd3" firstAttribute="top" secondItem="Ksu-z0-MwZ" secondAttribute="top" constant="5" id="ILJ-l2-1Ap"/>
-                                                <constraint firstAttribute="trailing" secondItem="vaz-Mg-gd3" secondAttribute="trailing" constant="10" id="LwQ-Ir-df2"/>
-                                                <constraint firstItem="vaz-Mg-gd3" firstAttribute="leading" secondItem="Ksu-z0-MwZ" secondAttribute="leading" constant="10" id="am1-Ws-zST"/>
+                                                <constraint firstAttribute="trailing" secondItem="vaz-Mg-gd3" secondAttribute="trailing" constant="15" id="LwQ-Ir-df2"/>
+                                                <constraint firstItem="vaz-Mg-gd3" firstAttribute="leading" secondItem="Ksu-z0-MwZ" secondAttribute="leading" constant="15" id="am1-Ws-zST"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1D-us-uwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175.19999999999999" y="11.244377811094454"/>
+            <point key="canvasLocation" x="174.375" y="10.56338028169014"/>
         </scene>
         <!--Add TrashVC-->
         <scene sceneID="qwF-4S-t64">
