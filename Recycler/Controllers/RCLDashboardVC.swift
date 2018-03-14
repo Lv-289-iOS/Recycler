@@ -140,6 +140,7 @@ class RCLDashboardVC: UIViewController {
             }()
             
             view.image = imageName.flatMap{UIImage(named: $0)}
+            view.contentMode = .scaleAspectFit
             
             return container
         }
