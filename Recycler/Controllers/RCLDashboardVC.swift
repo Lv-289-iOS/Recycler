@@ -26,6 +26,7 @@ class RCLDashboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(chartView)
+        addLabel()
 
     }
     
@@ -144,7 +145,19 @@ class RCLDashboardVC: UIViewController {
             return container
         }
     }
-    
+    //    MARK: - dn - label
+    func addLabel(){
+        let label = UILabel(frame: CGRect(x: 16, y: 21, width: 300, height: 32))
+        //        let lblNew = UILabel()
+        //        lblNew.backgroundColor = UIColor.blue
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.text = "Dashboard"
+        label.textColor = UIColor.white
+        //        label.translatesAutoresizingMaskIntoConstraints = false
+        //        label.constraints.
+        view.addSubview(label)
+    }
+
     func getTrashCansTotalSize(trashCans: [TrashCan]) -> TotalSizes {
         var result = TotalSizes()
         for trashCan in trashCans {

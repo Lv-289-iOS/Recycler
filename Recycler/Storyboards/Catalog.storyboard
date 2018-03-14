@@ -130,7 +130,7 @@
         <!--Add TrashVC-->
         <scene sceneID="qwF-4S-t64">
             <objects>
-                <viewController storyboardIdentifier="AddTrashPopUpID" modalPresentationStyle="overCurrentContext" id="XYH-22-ki8" customClass="RCLAddTrashVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTrashPopUpID" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="XYH-22-ki8" customClass="RCLAddTrashVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Dx-kg-Dqr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,7 +308,7 @@
         <!--Add Location-->
         <scene sceneID="YW2-dq-eTF">
             <objects>
-                <viewController id="o1D-KM-k9S" customClass="RCLAddTrashLocationVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="o1D-KM-k9S" customClass="RCLAddTrashLocationVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F4A-Sr-kEx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,6 +357,6 @@
     </scenes>
     <resources>
         <image name="catalog" width="25" height="19"/>
-        <image name="trash_batteries" width="13" height="24"/>
+        <image name="trash_batteries" width="22" height="41"/>
     </resources>
 </document>
