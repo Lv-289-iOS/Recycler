@@ -47,6 +47,19 @@ class RCLCatalogVC: UIViewController {
             trashLabelFromCatalog.trashLabelFromCatalogVC = trashLabel
         }
     }
+    
+    func designOfCell(cell:RCLCatalogTableViewCell) {
+        cell.backgroundColor = UIColor.Backgrounds.GrayDark
+        cell.catalogView.backgroundColor = UIColor.Backgrounds.GrayLight
+        cell.catalogView.layer.cornerRadius = CGFloat.Design.CornerRadius
+        cell.catalogImageView.layer.cornerRadius = CGFloat.Design.CornerRadius
+        cell.alpha = 0
+        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1)
+        UIView.animate(withDuration: 0.6, animations: { () -> Void in
+            cell.alpha = 1
+            cell.layer.transform = CATransform3DScale(CATransform3DIdentity, 1, 1, 1)
+        })
+    }
 }
 
 extension RCLCatalogVC: UITableViewDataSource {
@@ -61,21 +74,10 @@ extension RCLCatalogVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = catalogTableView.dequeueReusableCell(withIdentifier: "CatalogCell") as! RCLCatalogTableViewCell
+        designOfCell(cell: cell)
         cell.catalogImageView.image = trashImages[indexPath.row]
         cell.catalogLabel.text = trashLabels[indexPath.row]
         
-        // Design of CardCell
-        // Using closure
-        cell.backgroundColor = UIColor.Backgrounds.GrayDark
-        cell.catalogView.backgroundColor = UIColor.Backgrounds.GrayLight
-        cell.catalogView.layer.cornerRadius = CGFloat.Design.CornerRadius
-        cell.catalogImageView.layer.cornerRadius = CGFloat.Design.CornerRadius
-        cell.alpha = 0
-        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1)
-        UIView.animate(withDuration: 0.6, animations: { () -> Void in
-            cell.alpha = 1
-            cell.layer.transform = CATransform3DScale(CATransform3DIdentity, 1, 1, 1)
-        })
         return cell
     }
 }
