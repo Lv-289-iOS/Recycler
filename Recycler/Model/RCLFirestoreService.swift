@@ -134,25 +134,20 @@ class FirestoreService {
         }
     }
     
-//    func getSizeFromTrashBy(userIdReportedFull: String, completion: @escaping ([Trash]) -> Void) {
-//        reference(to: .trash).whereField("userIdReportedFull", isEqualTo: userIdReportedFull).addSnapshotListener { (snapshot, error) in
-//            guard let snapshot = snapshot else {print(error.debugDescription)
-//                return}
-//            var trashList = [Trash]()
-//            for document in snapshot.documents {
-//                let trash = try? document.decode(as: Trash.self)
-//                if let obj = trash{
-//                    trashList.append(obj)
-//                    guard let trashCanId = obj.id else {return}
-//                    reference(to: .trashCan).document(trashCanId).getDocument(completion: { (document, error) in
-//                        guard let document = document else {return}
-//                        let object = try? document.decode(as: TrashCan.self)
-//                        com
-//                    })
-//                }
-//            }
-//        }
-//    }
+    func getTrashBy(userIdReportedFull: String, completion: @escaping ([Trash]) -> Void) {
+        reference(to: .trash).whereField("userIdReportedFull", isEqualTo: userIdReportedFull).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {print(error.debugDescription)
+                return}
+            var trashList = [Trash]()
+            for document in snapshot.documents {
+                let trash = try? document.decode(as: Trash.self)
+                if let obj = trash{
+                    trashList.append(obj)
+                }
+            }
+            completion(trashList)
+        }
+    }
     
 
     func getTrashBy(oneDay: Date, completion: @escaping ([Trash]) -> Void) {
@@ -231,6 +226,38 @@ class FirestoreService {
             }
         }
     }
-
+    
+    func getDataForEmployer(status: RCLTrashStatus, completion: @escaping ([Trash],[TrashCan],[User]) -> Void) {
+        reference(to: .trash).whereField("status", isEqualTo: status.rawValue).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {return}
+            let group = DispatchGroup()
+            
+            var trashList = [Trash]()
+            var trashCanList = [TrashCan]()
+            var users = [User]()
+            for document in snapshot.documents {
+                group.enter()
+                let trash = try? document.decode(as: Trash.self)
+                trashList.append(trash!)
+                
+                self.reference(to: .trashCan).document(trash!.trashCanId).getDocument(completion: { (snapshot, error) in
+                guard let snapshot = snapshot else {return}
+                let trashCan = try? snapshot.decode(as: TrashCan.self)
+                trashCanList.append(trashCan!)
+                    
+                    self.reference(to: .users).document(trash!.userIdReportedFull).getDocument(completion: { (snapshot, error) in
+                        guard let snapshot = snapshot else {return}
+                        let user = try? snapshot.decode(as: User.self)
+                        users.append(user!)
+                        group.leave()
+                    })
+                    
+                })
+            }
+            group.notify(queue: .main, execute: {
+                completion(trashList, trashCanList, users)
+            })
+        }
+    }
     
 }

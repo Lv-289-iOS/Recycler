@@ -11,24 +11,23 @@ import UIKit
 class RCLIssuesCell: UITableViewCell {
 
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var size: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var viewContainer: UIView!
     
+    @IBAction func btn(_ sender: UIButton) {
+    }
     var trashCan = TrashCan()
+    var trash = Trash()
+    var user = User()
     
-    func configureCell(forCan: TrashCan) {
+    func configureCell(forCan: TrashCan, forTrash: Trash, forUser: User) {
         colorsSetup()
         self.trashCan = forCan
-        switch trashCan.isFull {
-        case true:
-            viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
-            self.isUserInteractionEnabled = true
-        case false:
-            viewContainer.backgroundColor = UIColor.Backgrounds.GrayLight
-            isUserInteractionEnabled = false
-        }
+        self.trash = forTrash
+        self.user = forUser
+
         switch trashCan.type {
         case "plastic" :
             self.icon.image = #imageLiteral(resourceName: "trash_plastic")
@@ -44,27 +43,27 @@ class RCLIssuesCell: UITableViewCell {
         var sizeName = ""
         switch trashCan.size {
         case 1:
-            sizeName = "small"
+            sizeName = "S"
         case 2:
-            sizeName = "medium"
+            sizeName = "M"
         case 3:
-            sizeName = "large"
+            sizeName = "L"
         case 4:
-            sizeName = "extraL"
+            sizeName = "XL"
         default:
-            sizeName = "medium"
+            sizeName = "M"
         }
-        self.name.text = forCan.type
+        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
         self.location.text = forCan.address
         self.size.text = sizeName
+        self.phoneNumber.text = forUser.phoneNumber
     }
     
     func colorsSetup() {
-        name.textColor = UIColor.Font.White
         location.textColor = UIColor.Font.Gray
         size.textColor = UIColor.Font.White
         viewContainer.layer.cornerRadius = CGFloat.Design.CornerRadius
-        
+        size.textColor = UIColor.Font.White
         backgroundColor = UIColor.Backgrounds.GrayDark
     }
     
