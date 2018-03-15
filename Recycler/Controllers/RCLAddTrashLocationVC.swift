@@ -37,7 +37,8 @@ class RCLAddTrashLocationVC: UIViewController {
                 print(self.trashLocation)
             }
         }
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func myLocationBtn(_ sender: UIButton) {
@@ -60,6 +61,7 @@ class RCLAddTrashLocationVC: UIViewController {
             userLocation = locationOfMarker
             animateCameraTo(coordinate: userLocation.coordinate)
         }
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +74,11 @@ class RCLAddTrashLocationVC: UIViewController {
     private func viewDesign(){
         addLocationBtn.backgroundColor = UIColor.darkModeratePink
         addLocationBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func customizeMap() {

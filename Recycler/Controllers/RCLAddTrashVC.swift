@@ -41,19 +41,21 @@ class RCLAddTrashVC: UIViewController {
         }
         let trashCan = TrashCan(userId: currentUser.id!, address: locationFromDelegate.name, type: RCLTrashType(rawValue: trashLabelFromCatalogVC)!, size: trashSizeFromPicker)
         FirestoreService.shared.add(for: trashCan, in: .trashCan)
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     private func viewDesign(){
         view.backgroundColor = UIColor.Backgrounds.GrayDarkAlpha
         orderTrashBtn.backgroundColor = UIColor.darkModeratePink
         orderTrashBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
-        trashTableView.backgroundColor = UIColor.black
-        popUpView.backgroundColor = UIColor.black
+        trashTableView.backgroundColor = UIColor.Backgrounds.GrayLight
+        popUpView.backgroundColor = UIColor.Backgrounds.GrayLight
         popUpView.layer.cornerRadius = (CGFloat.Design.CornerRadius+2)
     }
     
@@ -121,6 +123,7 @@ extension RCLAddTrashVC: UITableViewDataSource {
         case 0:
             let cell = trashTableView.dequeueReusableCell(withIdentifier: "SizeTrashCell") as! RCLSizeViewCell
             cellDesign(cell: cell)
+            cell.sizeImageView.setRenderedImage(image: #imageLiteral(resourceName: "arrows"))
             return cell
         case 1:
             let cell = trashTableView.dequeueReusableCell(withIdentifier: "LocationTrashCell") as! RCLLocationViewCell
@@ -137,7 +140,7 @@ extension RCLAddTrashVC: UITableViewDataSource {
     }
     
     private func cellDesign(cell:UITableViewCell) {
-        cell.backgroundColor = UIColor.black
+        cell.backgroundColor = UIColor.Backgrounds.GrayLight
     }
 }
 
