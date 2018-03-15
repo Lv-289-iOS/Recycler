@@ -102,6 +102,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         trashIsFullBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
         //button.layer.borderWidth = 1
         //button.layer.borderColor = UIColor.black.cgColor
+        addTitleLabel(text: "Scan to report")
         setTrashIsFullBtnEnabled(false)
         scanStatus = .redyToScan
     }
