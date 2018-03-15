@@ -22,7 +22,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     @IBOutlet weak var backButtonOutlet: UIButton!
     @IBOutlet weak var loginButtonOutlet: UIButton!
     
-    let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
+    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
     
     var formatter = RCLFormatter()
     var authentificator = RCLAuthentificator()

@@ -34,11 +34,10 @@
 		630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */; };
 		630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */; };
 		630020E5204EB852002E7D89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E4204EB852002E7D89 /* Constants.swift */; };
-		637D79392058055E0065E82B /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637D79372058055E0065E82B /* CustomAlertVC.xib */; };
-		637D793A2058055E0065E82B /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D79382058055E0065E82B /* CustomAlertVC.swift */; };
+		637D79392058055E0065E82B /* RCLCustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637D79372058055E0065E82B /* RCLCustomAlertVC.xib */; };
+		637D793A2058055E0065E82B /* RCLCustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D79382058055E0065E82B /* RCLCustomAlertVC.swift */; };
 		637D793C205806C50065E82B /* Taken.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637D793B205806C50065E82B /* Taken.storyboard */; };
 		6F120604204574E20042056E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120603204574E20042056E /* AppDelegate.swift */; };
-		6F120606204574E20042056E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120605204574E20042056E /* ViewController.swift */; };
 		6F12060B204574E20042056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060A204574E20042056E /* Assets.xcassets */; };
 		6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060C204574E20042056E /* LaunchScreen.storyboard */; };
 		6F8CF6782056732A00AF8AE9 /* RCLMapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */; };
@@ -63,7 +62,6 @@
 		D331CEB4204ECEBD001D0A90 /* RCLSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAC204ECEBC001D0A90 /* RCLSignUpVC.swift */; };
 		D331CEB5204ECEBD001D0A90 /* RCLTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAD204ECEBC001D0A90 /* RCLTextFieldValidator.swift */; };
 		D331CEB6204ECEBD001D0A90 /* RCLStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */; };
-		D331CEBA204ED077001D0A90 /* RCLInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */; };
 		D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */; };
 		D374B6452058043700BB129C /* RCLTakenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374B6432058043600BB129C /* RCLTakenCell.swift */; };
 		D374B6462058043700BB129C /* RCLTakenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D374B6442058043700BB129C /* RCLTakenCell.xib */; };
@@ -100,12 +98,11 @@
 		630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLProfileCell.swift; sourceTree = "<group>"; };
 		630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCLProfileCell.xib; sourceTree = "<group>"; };
 		630020E4204EB852002E7D89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		637D79372058055E0065E82B /* CustomAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertVC.xib; sourceTree = "<group>"; };
-		637D79382058055E0065E82B /* CustomAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
+		637D79372058055E0065E82B /* RCLCustomAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLCustomAlertVC.xib; sourceTree = "<group>"; };
+		637D79382058055E0065E82B /* RCLCustomAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLCustomAlertVC.swift; sourceTree = "<group>"; };
 		637D793B205806C50065E82B /* Taken.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Taken.storyboard; sourceTree = "<group>"; };
 		6F120600204574E20042056E /* Recycler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recycler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F120603204574E20042056E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6F120605204574E20042056E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6F12060A204574E20042056E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F12060D204574E20042056E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F12060F204574E20042056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,7 +128,6 @@
 		D331CEAC204ECEBC001D0A90 /* RCLSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLSignUpVC.swift; sourceTree = "<group>"; };
 		D331CEAD204ECEBC001D0A90 /* RCLTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTextFieldValidator.swift; sourceTree = "<group>"; };
 		D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLStyler.swift; sourceTree = "<group>"; };
-		D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLInfoWindow.swift; sourceTree = "<group>"; };
 		D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLLoginVC.swift; sourceTree = "<group>"; };
 		D374B6432058043600BB129C /* RCLTakenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLTakenCell.swift; sourceTree = "<group>"; };
 		D374B6442058043700BB129C /* RCLTakenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLTakenCell.xib; sourceTree = "<group>"; };
@@ -229,7 +225,6 @@
 				630020DC204EAD4F002E7D89 /* Colors.swift */,
 				630020E4204EB852002E7D89 /* Constants.swift */,
 				6F120603204574E20042056E /* AppDelegate.swift */,
-				6F120605204574E20042056E /* ViewController.swift */,
 				D328EF1120559A3000CCB14F /* Helpers */,
 				D328EF10205599B500CCB14F /* Extensions */,
 				4BAB4D4C204D47AE0005C16B /* Cells */,
@@ -299,11 +294,10 @@
 		D328EF1120559A3000CCB14F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				637D79382058055E0065E82B /* CustomAlertVC.swift */,
-				637D79372058055E0065E82B /* CustomAlertVC.xib */,
+				637D79382058055E0065E82B /* RCLCustomAlertVC.swift */,
+				637D79372058055E0065E82B /* RCLCustomAlertVC.xib */,
 				D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */,
 				D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */,
-				D331CEB8204ED077001D0A90 /* RCLInfoWindow.swift */,
 				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
 				6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */,
 			);
@@ -389,7 +383,7 @@
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
 				19E29F2D20594DFB000DAC93 /* Issues.storyboard in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
-				637D79392058055E0065E82B /* CustomAlertVC.xib in Resources */,
+				637D79392058055E0065E82B /* RCLCustomAlertVC.xib in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,8 +498,6 @@
 				4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */,
 				D374B6452058043700BB129C /* RCLTakenCell.swift in Sources */,
 				1974703320568BA4007E29BA /* RCLTrashStatus.swift in Sources */,
-				6F120606204574E20042056E /* ViewController.swift in Sources */,
-				D331CEBA204ED077001D0A90 /* RCLInfoWindow.swift in Sources */,
 				197BF74220496C7700B8D06B /* RCLTrash.swift in Sources */,
 				19AF48C1204D463A00958858 /* RCLFirestoreExtensions.swift in Sources */,
 				630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */,
@@ -520,7 +512,7 @@
 				4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */,
 				D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
-				637D793A2058055E0065E82B /* CustomAlertVC.swift in Sources */,
+				637D793A2058055E0065E82B /* RCLCustomAlertVC.swift in Sources */,
 				19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */,
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
 				A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */,

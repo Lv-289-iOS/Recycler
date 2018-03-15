@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlertVC" customModule="Recycler" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RCLCustomAlertVC" customModule="Recycler" customModuleProvider="target">
             <connections>
                 <outlet property="errorTextLabel" destination="FIJ-ul-jH1" id="hVz-rW-LD5"/>
                 <outlet property="mainView" destination="DkQ-97-eqi" id="8b7-Cg-IhU"/>
