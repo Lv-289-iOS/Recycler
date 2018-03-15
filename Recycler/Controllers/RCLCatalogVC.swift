@@ -24,22 +24,19 @@ class RCLCatalogVC: UIViewController {
         UIImage (named : "trash_batteries")!
     ]
     
-    @IBOutlet weak var catalogLabel: UILabel!
-    
     @IBOutlet weak var catalogTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         catalogTableView.delegate = self
         catalogTableView.dataSource = self
+        addTitleLabel(text: "Catalog")
         viewDesign()
     }
     
     private func viewDesign() {
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         catalogTableView.backgroundColor = UIColor.Backgrounds.GrayDark
-        catalogLabel.backgroundColor = UIColor.Backgrounds.GrayDark
-        catalogLabel.textColor = UIColor.Font.White
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
