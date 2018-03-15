@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="135" y="-485"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab BarVC-->
         <scene sceneID="xIz-kk-DNA">
             <objects>
-                <tabBarController id="YrK-2E-SaL" sceneMemberID="viewController">
+                <tabBarController id="YrK-2E-SaL" customClass="RCLTabBarVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HKa-sE-FcF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

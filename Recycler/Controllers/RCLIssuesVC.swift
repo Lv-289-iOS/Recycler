@@ -28,15 +28,11 @@ class RCLIssuesVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
-        
-//        self.tableView.reloadData()
     }
     
     private func viewSetup() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
-        self.view.backgroundColor = UIColor.Backgrounds.GrayDark
-        self.tableView.backgroundColor = UIColor.Backgrounds.GrayDark
     }
 }
 

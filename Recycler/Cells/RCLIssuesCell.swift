@@ -15,8 +15,9 @@ class RCLIssuesCell: UITableViewCell {
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var viewContainer: UIView!
-    
+    @IBOutlet weak var button: UIButton!
     @IBAction func btn(_ sender: UIButton) {
+        
     }
     var trashCan = TrashCan()
     var trash = Trash()
@@ -53,18 +54,22 @@ class RCLIssuesCell: UITableViewCell {
         default:
             sizeName = "M"
         }
-        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
+//        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
         self.location.text = forCan.address
         self.size.text = sizeName
         self.phoneNumber.text = forUser.phoneNumber
+        self.button.backgroundColor = UIColor.Backgrounds.GrayLight
+        self.button.layer.cornerRadius = CGFloat.Design.CornerRadius
     }
     
     func colorsSetup() {
+        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
         location.textColor = UIColor.Font.Gray
         size.textColor = UIColor.Font.White
         viewContainer.layer.cornerRadius = CGFloat.Design.CornerRadius
         size.textColor = UIColor.Font.White
-        backgroundColor = UIColor.Backgrounds.GrayDark
+        backgroundColor = UIColor.clear
+//            UIColor.Backgrounds.GrayDark
     }
     
 }
