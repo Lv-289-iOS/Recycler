@@ -23,6 +23,7 @@
 		19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF04204938CE00ADF338 /* RCLUser.swift */; };
 		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
 		1B2D07AB2057B3C4007A56CB /* RCLParsingByJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D07AA2057B3C4007A56CB /* RCLParsingByJSON.swift */; };
+		1B548D81205AED9C001AC38E /* RCLStatisticsVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B548D80205AED9C001AC38E /* RCLStatisticsVCViewController.swift */; };
 		4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */; };
 		4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */; };
 		4BF30B8C205AAA2A009E4FFA /* EasterEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF30B8A205AAA2A009E4FFA /* EasterEgg.swift */; };
@@ -39,8 +40,8 @@
 		637D79392058055E0065E82B /* RCLCustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637D79372058055E0065E82B /* RCLCustomAlertVC.xib */; };
 		637D793A2058055E0065E82B /* RCLCustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D79382058055E0065E82B /* RCLCustomAlertVC.swift */; };
 		637D793C205806C50065E82B /* Taken.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637D793B205806C50065E82B /* Taken.storyboard */; };
-		63EA5CED205AA70A00EF102D /* RCLEggsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA5CEB205AA70A00EF102D /* RCLEggsStruct.swift */; };
-		63EA5CEE205AA70A00EF102D /* RCLEasterEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA5CEC205AA70A00EF102D /* RCLEasterEgg.swift */; };
+		63EA5CED205AA70A00EF102D /* (null) in Sources */ = {isa = PBXBuildFile; };
+		63EA5CEE205AA70A00EF102D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		6F120604204574E20042056E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120603204574E20042056E /* AppDelegate.swift */; };
 		6F12060B204574E20042056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060A204574E20042056E /* Assets.xcassets */; };
 		6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060C204574E20042056E /* LaunchScreen.storyboard */; };
@@ -89,6 +90,7 @@
 		19F5AF04204938CE00ADF338 /* RCLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLUser.swift; sourceTree = "<group>"; };
 		19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFirestoreService.swift; sourceTree = "<group>"; };
 		1B2D07AA2057B3C4007A56CB /* RCLParsingByJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLParsingByJSON.swift; sourceTree = "<group>"; };
+		1B548D80205AED9C001AC38E /* RCLStatisticsVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RCLStatisticsVCViewController.swift; path = Recycler/Controllers/RCLStatisticsVCViewController.swift; sourceTree = SOURCE_ROOT; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
 		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
 		4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
@@ -248,8 +250,6 @@
 		A300B31C2049FCF500261AEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				63EA5CEC205AA70A00EF102D /* RCLEasterEgg.swift */,
-				63EA5CEB205AA70A00EF102D /* RCLEggsStruct.swift */,
 				19E29F2A20592582000DAC93 /* RCLIssuesVC.swift */,
 				6F8CF68B20583EC800AF8AE9 /* RCLTakenVC.swift */,
 				6F8CF67920567CF500AF8AE9 /* RCLMapVC.swift */,
@@ -257,6 +257,7 @@
 				D331CEAC204ECEBC001D0A90 /* RCLSignUpVC.swift */,
 				A3B50301204EBFCD009276D0 /* RCLTabBarVC.swift */,
 				A300B31A2049FCDC00261AEB /* RCLDashboardVC.swift */,
+				1B548D80205AED9C001AC38E /* RCLStatisticsVCViewController.swift */,
 				630020DE204EB542002E7D89 /* RCLProfileVC.swift */,
 				A3C4EA0820503D7500815A69 /* RCLScanVC.swift */,
 				4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */,
@@ -505,11 +506,12 @@
 				D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */,
 				4BF83F542056ECD800E4DA6B /* RCLSizeViewCell.swift in Sources */,
 				D331CEB1204ECEBD001D0A90 /* RCLAuthentificator.swift in Sources */,
-				63EA5CEE205AA70A00EF102D /* RCLEasterEgg.swift in Sources */,
+				63EA5CEE205AA70A00EF102D /* (null) in Sources */,
 				4BF83F502056EC8700E4DA6B /* RCLAddTrashVC.swift in Sources */,
 				4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */,
 				D374B6452058043700BB129C /* RCLTakenCell.swift in Sources */,
 				1974703320568BA4007E29BA /* RCLTrashStatus.swift in Sources */,
+				1B548D81205AED9C001AC38E /* RCLStatisticsVCViewController.swift in Sources */,
 				197BF74220496C7700B8D06B /* RCLTrash.swift in Sources */,
 				19AF48C1204D463A00958858 /* RCLFirestoreExtensions.swift in Sources */,
 				630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */,
@@ -520,7 +522,7 @@
 				6F8CF68C20583EC800AF8AE9 /* RCLTakenVC.swift in Sources */,
 				D331CEB4204ECEBD001D0A90 /* RCLSignUpVC.swift in Sources */,
 				6F120604204574E20042056E /* AppDelegate.swift in Sources */,
-				63EA5CED205AA70A00EF102D /* RCLEggsStruct.swift in Sources */,
+				63EA5CED205AA70A00EF102D /* (null) in Sources */,
 				630020DF204EB542002E7D89 /* RCLProfileVC.swift in Sources */,
 				4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */,
 				D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */,
@@ -666,11 +668,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y8CF7ZMY8K;
+				DEVELOPMENT_TEAM = 3W6QZF2EK2;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.Recycler5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.vova.Recycler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -685,11 +687,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y8CF7ZMY8K;
+				DEVELOPMENT_TEAM = 3W6QZF2EK2;
 				INFOPLIST_FILE = Recycler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.Recycler5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.vova.Recycler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
