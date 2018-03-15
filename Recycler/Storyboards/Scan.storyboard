@@ -70,12 +70,13 @@
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ean-42-xHM" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.7" id="8Hw-Bi-42P"/>
+                            <constraint firstItem="ean-42-xHM" firstAttribute="width" secondItem="MHI-qB-3ux" secondAttribute="width" multiplier="0.7" priority="750" id="8Hw-Bi-42P"/>
                             <constraint firstItem="2fv-gF-hKi" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xad-EL-OzA" secondAttribute="trailing" constant="10" id="CPk-gM-1yh"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="top" secondItem="2fv-gF-hKi" secondAttribute="top" constant="100" id="Kp0-l5-bVJ"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="MU3-1s-7q4"/>
                             <constraint firstItem="xad-EL-OzA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2fv-gF-hKi" secondAttribute="leading" constant="10" id="QWR-ow-G7a"/>
                             <constraint firstItem="ean-42-xHM" firstAttribute="centerX" secondItem="2fv-gF-hKi" secondAttribute="centerX" id="Rxc-At-QBd"/>
+                            <constraint firstItem="ean-42-xHM" firstAttribute="height" relation="lessThanOrEqual" secondItem="MHI-qB-3ux" secondAttribute="height" multiplier="0.15" id="YNK-yS-io6"/>
                             <constraint firstItem="2fv-gF-hKi" firstAttribute="bottom" secondItem="ean-42-xHM" secondAttribute="bottom" constant="25" id="rJj-jG-IE4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2fv-gF-hKi"/>
