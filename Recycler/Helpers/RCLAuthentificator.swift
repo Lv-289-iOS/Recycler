@@ -76,7 +76,10 @@ class RCLAuthentificator {
     
     static func email() -> String {
         if let user = Auth.auth().currentUser {
-            return user.email!
+            if let userEmail = user.email {
+                return userEmail
+            }
+            return ""
         } else {
             return ""
         }
