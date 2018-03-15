@@ -41,14 +41,6 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         authentificator.delegate = self
-//        let trash = Trash(trashCanId: "uFYf9ltIIloIxWtFiJLf", userIdReportedFull: "CUXMZQRwJD1JfbrjfDEs")
-//        FirestoreService.shared.add(for: trash, in: .trash)
-//        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { (trash) in
-//            print(trash!)
-//        }
-//        let json = RLCParsingByJSON()
-//        json.temp()
-//        infoWindow.showAlertAction(text: "I test it", controller: self)
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
         styler.styleButton(button: signInOutlet)
         styler.styleButton(button: signUpOutlet)
