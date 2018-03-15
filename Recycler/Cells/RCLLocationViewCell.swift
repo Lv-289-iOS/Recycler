@@ -10,14 +10,7 @@ import UIKit
 
 class RCLLocationViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var trashLocationLabel: UILabel!
     
     @IBOutlet weak var locationOfTrashLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }
