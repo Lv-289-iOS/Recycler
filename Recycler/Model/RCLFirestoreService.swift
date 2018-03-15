@@ -158,9 +158,11 @@ class FirestoreService {
         components.day = calendar.component(.day, from: oneDay) + 1
         let dateLess = calendar.date(from: components)
         guard let secondDate = dateLess else{return}
+        let first = oneDay.timeIntervalSinceReferenceDate as Double
+        let second = secondDate.timeIntervalSinceReferenceDate as Double
         reference(to: .trash)
-        .whereField("dateReportedFull", isGreaterThan: oneDay)
-            .whereField("dateReportedFull", isLessThan: secondDate).addSnapshotListener { (snapshot, error) in
+        .whereField("dateReportedFull", isGreaterThan: first)
+            .whereField("dateReportedFull", isLessThan: second).addSnapshotListener { (snapshot, error) in
                 guard let snapshot = snapshot else {return}
                 var trashList = [Trash]()
                 for document in snapshot.documents{
@@ -191,25 +193,6 @@ class FirestoreService {
             completion(nil)
         }
     }
-    
-
-    
-    //        let date = Date()
-    //        var components = DateComponents()
-    //        let calendar = Calendar.current
-    //        components.year = calendar.component(.year, from: date)
-    //        components.month = calendar.component(.month, from: date)
-    //        components.hour = 0
-    //        components.minute = 0
-    //        components.second = 0
-    //        let someDate = components.date
-    //        guard let current = someDate else {return}
-    //        print(current)
-    //        FirestoreService.shared.getTrashBy(oneDay: current) { (trashList) in
-    //            for trash in trashList{
-    //                print(trash)
-    //            }
-    //        }
 
     func getTrashbyStatus(status: RCLTrashStatus, completion: @escaping ([Trash]) -> Void) {
         reference(to: .trash).whereField("status", isEqualTo: status.rawValue).addSnapshotListener { (snapshot, error) in
