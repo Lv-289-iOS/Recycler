@@ -17,13 +17,19 @@ class RCLCustomAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorTextLabel.backgroundColor = UIColor.Backgrounds.GrayLight
-        submitButtonOutlet.backgroundColor = UIColor.Backgrounds.GrayLight
-        mainView.backgroundColor = UIColor.Backgrounds.GrayDark
-//        mainView.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-//        mainView.layer.borderWidth = 2
-        mainView.layer.cornerRadius = CGFloat.Design.CornerRadius * 3
-        submitButtonOutlet.layer.cornerRadius = CGFloat.Design.CornerRadius
+        errorTextLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        errorTextLabel.layer.borderWidth = 1
         errorTextLabel.layer.cornerRadius = CGFloat.Design.CornerRadius
+        submitButtonOutlet.backgroundColor = UIColor.Backgrounds.GrayLight
+        submitButtonOutlet.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        submitButtonOutlet.layer.borderWidth = 1
+        submitButtonOutlet.layer.cornerRadius = CGFloat.Design.CornerRadius
+        mainView.backgroundColor = UIColor.Backgrounds.GrayDark
+        mainView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        mainView.layer.borderWidth = 1
+        mainView.layer.cornerRadius = CGFloat.Design.CornerRadius * 3
+        
+        
     }
     
     @IBAction func submitActionButton(sender: UIButton) {
