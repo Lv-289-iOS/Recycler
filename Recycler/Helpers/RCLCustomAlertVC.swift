@@ -28,8 +28,6 @@ class RCLCustomAlertVC: UIViewController {
         mainView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         mainView.layer.borderWidth = 1
         mainView.layer.cornerRadius = CGFloat.Design.CornerRadius * 3
-        
-        
     }
     
     @IBAction func submitActionButton(sender: UIButton) {
