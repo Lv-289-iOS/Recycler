@@ -107,33 +107,40 @@ class RCLDashboardVC: UIViewController {
         
         if plastic > 0
         {
-            let slice = PieSliceModel(value: Double(plastic), color: UIColor.yellow, obj: RCLTrashType.plastic)
+//            let slice = PieSliceModel(value: Double(plastic), color: UIColor.yellow, obj: RCLTrashType.plastic)
+            let slice = PieSliceModel(value: Double(plastic), color: UIColor.Charts.color0, obj: RCLTrashType.plastic)
               slices.append(slice)
         }
         
-        if metal > 0 {
-            let slice = PieSliceModel(value: Double(metal), color: UIColor.green, obj: RCLTrashType.metal)
+        if metal > 0
+        {
+//            let slice = PieSliceModel(value: Double(metal), color: UIColor.green, obj: RCLTrashType.metal)
+            let slice = PieSliceModel(value: Double(metal), color: UIColor.Charts.color1, obj: RCLTrashType.metal)
             slices.append(slice)
         }
         
         if organic > 0
         {
-            let slice = PieSliceModel(value: Double(organic), color: UIColor.orange, obj: RCLTrashType.organic)
+//            let slice = PieSliceModel(value: Double(organic), color: UIColor.orange, obj: RCLTrashType.organic)
+            let slice = PieSliceModel(value: Double(organic), color: UIColor.Charts.color2, obj: RCLTrashType.organic)
             slices.append(slice)
         }
         if batteries > 0
         {
-            let slice = PieSliceModel(value: Double(batteries), color: UIColor.purple, obj: RCLTrashType.batteries)
+//            let slice = PieSliceModel(value: Double(batteries), color: UIColor.purple, obj: RCLTrashType.batteries)
+            let slice = PieSliceModel(value: Double(batteries), color: UIColor.Charts.color3, obj: RCLTrashType.batteries)
             slices.append(slice)
         }
         if glass > 0
         {
-            let slice = PieSliceModel(value: Double(glass), color: UIColor.white, obj: RCLTrashType.glass)
+//             let slice = PieSliceModel(value: Double(glass), color: UIColor.white, obj: RCLTrashType.glass)
+            let slice = PieSliceModel(value: Double(glass), color: UIColor.Charts.color4, obj: RCLTrashType.glass)
             slices.append(slice)
         }
         if paper > 0
         {
-            let slice = PieSliceModel(value: Double(paper), color: UIColor.blue, obj: RCLTrashType.paper)
+//            let slice = PieSliceModel(value: Double(paper), color: UIColor.blue, obj: RCLTrashType.paper)
+             let slice = PieSliceModel(value: Double(paper), color: UIColor.Charts.color5, obj: RCLTrashType.paper)
             slices.append(slice)
         }
         return slices
