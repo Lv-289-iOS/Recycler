@@ -33,7 +33,6 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
 
     var styler = RCLStyler()
     var authentificator = RCLAuthentificator()
-    var infoWindow = RCLInfoWindow()
     var users = [User]()
     
     override func viewDidLoad() {
