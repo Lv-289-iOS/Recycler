@@ -36,7 +36,7 @@ class RCLProfileVC: UIViewController {
         viewSetup()
         setupDelegates()
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
-        
+        profileView.addEgg()
         user = currentUser
         self.getTrashCans(forUser: self.user)
         self.updateInfo(with: self.user)
@@ -49,6 +49,7 @@ class RCLProfileVC: UIViewController {
         firstName.delegate = self
         lastName.delegate = self
     }
+    
     
     private func viewSetup() {
         navigationController?.isNavigationBarHidden = true
