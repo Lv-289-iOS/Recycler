@@ -26,11 +26,6 @@ class RCLAddTrashLocationVC: UIViewController {
     
     @IBOutlet weak var addLocationBtn: UIButton!
     
-    @IBAction func myLocationBtn(_ sender: UIButton) {
-        marker.position = userLocation.coordinate
-        animateCameraTo(coordinate: userLocation.coordinate)
-    }
-    
     @IBAction func addLocationBtn(_ sender: UIButton) {
         geocoder.reverseGeocodeCoordinate(marker.position) { (response, error) in
             guard error == nil else { return }
@@ -68,8 +63,10 @@ class RCLAddTrashLocationVC: UIViewController {
         viewDesign()
         customizeMap()
         mapView.delegate = self
+        mapView.settings.myLocationButton = true
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 10)
         locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 50
