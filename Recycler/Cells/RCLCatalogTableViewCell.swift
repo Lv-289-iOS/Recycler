@@ -10,7 +10,6 @@ import UIKit
 
 class RCLCatalogTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var catalogView: UIView!
     
     @IBOutlet weak var catalogImageView: UIImageView!

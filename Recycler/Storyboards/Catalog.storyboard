@@ -12,7 +12,7 @@
         <!--Catalog-->
         <scene sceneID="37X-IC-hdO">
             <objects>
-                <navigationController navigationBarHidden="YES" hidesBarsOnSwipe="YES" id="9EG-g4-TWk" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="overCurrentContext" navigationBarHidden="YES" id="9EG-g4-TWk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Catalog" image="catalog" id="C7j-Xx-ImE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="vcw-3T-dXt">
                         <autoresizingMask key="autoresizingMask"/>
@@ -35,7 +35,7 @@
         <!--CatalogVC-->
         <scene sceneID="YPI-t4-hsJ">
             <objects>
-                <viewController storyboardIdentifier="CatalogID" id="UbN-st-05L" customClass="RCLCatalogVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CatalogID" modalPresentationStyle="overCurrentContext" id="UbN-st-05L" customClass="RCLCatalogVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mzz-2C-Bkn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
                     <navigationItem key="navigationItem" id="PsM-aW-My0"/>
                     <connections>
                         <outlet property="catalogTableView" destination="I5R-pp-M4R" id="J02-i5-t3A"/>
-                        <segue destination="XYH-22-ki8" kind="presentation" identifier="AddTrashPopUpSegue" modalTransitionStyle="crossDissolve" id="nC0-YI-EZi"/>
+                        <segue destination="XYH-22-ki8" kind="show" identifier="AddTrashPopUpSegue" animates="NO" id="Pxq-Cv-fQk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1D-us-uwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,7 +128,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyN-DZ-C26">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="dismissPopUp:" destination="XYH-22-ki8" eventType="touchUpInside" id="I0e-4z-0oh"/>
                                 </connections>
@@ -162,6 +165,11 @@
                                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6T-nW-EMc">
+                                                            <rect key="frame" x="248" y="6" width="25" height="33"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
                                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tw1-cp-xdL">
                                                             <rect key="frame" x="95" y="0.0" width="183" height="44"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -187,6 +195,7 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
+                                                    <outlet property="sizeImageView" destination="L6T-nW-EMc" id="NIG-ax-anL"/>
                                                     <outlet property="sizeLabel" destination="Lge-RJ-k7P" id="zg1-e3-oEg"/>
                                                     <outlet property="sizePickerView" destination="Tw1-cp-xdL" id="uGO-eg-3je"/>
                                                 </connections>
@@ -270,7 +279,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.54395906690140849" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Tx5-d3-YFl" firstAttribute="top" secondItem="bLR-Ih-o76" secondAttribute="top" constant="136" id="67s-Gf-4E5"/>
                             <constraint firstItem="goT-Xq-Ucq" firstAttribute="centerX" secondItem="fyN-DZ-C26" secondAttribute="centerX" id="NVj-ln-mep"/>
@@ -284,6 +293,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bLR-Ih-o76"/>
                     </view>
+                    <navigationItem key="navigationItem" id="a9y-GS-QPY"/>
                     <connections>
                         <outlet property="orderTrashBtn" destination="xPZ-HB-9VO" id="W6v-RK-lqQ"/>
                         <outlet property="popUpView" destination="Tx5-d3-YFl" id="61a-NF-cho"/>
@@ -295,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lux-zi-HaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050" y="6.3380281690140849"/>
+            <point key="canvasLocation" x="1040.625" y="10.56338028169014"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="YW2-dq-eTF">
@@ -349,7 +359,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gsv-f2-Fzm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Location" id="rU0-IF-Ozf"/>
+                    <navigationItem key="navigationItem" title="Add Location" id="rU0-IF-Ozf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="sTV-Qh-rtD"/>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addLocationBtn" destination="gMq-FP-07T" id="pXO-FX-vgI"/>
                         <outlet property="mapView" destination="X6n-ac-0ON" id="KtP-v6-hBn"/>
@@ -357,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tVN-qM-yBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807.5" y="5.28169014084507"/>
+            <point key="canvasLocation" x="1804" y="11"/>
         </scene>
     </scenes>
     <resources>

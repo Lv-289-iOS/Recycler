@@ -14,11 +14,5 @@ class RCLSizeViewCell: UITableViewCell {
     
     @IBOutlet weak var sizePickerView: UIPickerView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-   
-    
+    @IBOutlet weak var sizeImageView: UIImageView!
 }
