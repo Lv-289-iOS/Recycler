@@ -65,7 +65,7 @@
 		D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */; };
 		D331CEB4204ECEBD001D0A90 /* RCLSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAC204ECEBC001D0A90 /* RCLSignUpVC.swift */; };
 		D331CEB5204ECEBD001D0A90 /* RCLTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAD204ECEBC001D0A90 /* RCLTextFieldValidator.swift */; };
-		D331CEB6204ECEBD001D0A90 /* RCLStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */; };
+		D331CEB6204ECEBD001D0A90 /* RCLStyleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEAE204ECEBC001D0A90 /* RCLStyleExtensions.swift */; };
 		D331CEBB204ED077001D0A90 /* RCLLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */; };
 		D374B6452058043700BB129C /* RCLTakenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374B6432058043600BB129C /* RCLTakenCell.swift */; };
 		D374B6462058043700BB129C /* RCLTakenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D374B6442058043700BB129C /* RCLTakenCell.xib */; };
@@ -133,7 +133,7 @@
 		D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLFormatter.swift; sourceTree = "<group>"; };
 		D331CEAC204ECEBC001D0A90 /* RCLSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLSignUpVC.swift; sourceTree = "<group>"; };
 		D331CEAD204ECEBC001D0A90 /* RCLTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLTextFieldValidator.swift; sourceTree = "<group>"; };
-		D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLStyler.swift; sourceTree = "<group>"; };
+		D331CEAE204ECEBC001D0A90 /* RCLStyleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLStyleExtensions.swift; sourceTree = "<group>"; };
 		D331CEB9204ED077001D0A90 /* RCLLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLLoginVC.swift; sourceTree = "<group>"; };
 		D374B6432058043600BB129C /* RCLTakenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLTakenCell.swift; sourceTree = "<group>"; };
 		D374B6442058043700BB129C /* RCLTakenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLTakenCell.xib; sourceTree = "<group>"; };
@@ -296,6 +296,7 @@
 		D328EF10205599B500CCB14F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D331CEAE204ECEBC001D0A90 /* RCLStyleExtensions.swift */,
 				D331CEAD204ECEBC001D0A90 /* RCLTextFieldValidator.swift */,
 			);
 			path = Extensions;
@@ -308,7 +309,6 @@
 				637D79372058055E0065E82B /* RCLCustomAlertVC.xib */,
 				D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */,
 				D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */,
-				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
 				6F8CF6772056732A00AF8AE9 /* RCLMapStyle.json */,
 			);
 			path = Helpers;
@@ -493,7 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF83F4F2056EC8700E4DA6B /* RCLAddTrashLocationVC.swift in Sources */,
-				D331CEB6204ECEBD001D0A90 /* RCLStyler.swift in Sources */,
+				D331CEB6204ECEBD001D0A90 /* RCLStyleExtensions.swift in Sources */,
 				19E29F2B20592582000DAC93 /* RCLIssuesVC.swift in Sources */,
 				A3C4EA0920503D7500815A69 /* RCLScanVC.swift in Sources */,
 				6F8CF6902058595E00AF8AE9 /* TrashLocationDelegate.swift in Sources */,

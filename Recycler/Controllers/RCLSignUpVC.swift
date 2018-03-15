@@ -10,7 +10,11 @@ import UIKit
 
 class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     
-    @IBOutlet var logosForAction: [UIImageView]!
+    @IBOutlet weak var firstAndLastNameUIImageView: UIImageView!
+    @IBOutlet weak var passwordUIImageView: UIImageView!
+    @IBOutlet weak var passwordConfirmationUIImageView: UIImageView!
+    @IBOutlet weak var phoneUIImageView: UIImageView!
+    @IBOutlet weak var emailUIImageView: UIImageView!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -28,8 +32,11 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     var authentificator = RCLAuthentificator()
     var isAllFieldsValid = true
     
-    var images = [#imageLiteral(resourceName: "avatar"), #imageLiteral(resourceName: "padlock"), #imageLiteral(resourceName: "phone-call"), #imageLiteral(resourceName: "envelope")]
-//    var styler = RCLStyler()
+    var namesImage = #imageLiteral(resourceName: "avatar-1")
+    var passwordImage = #imageLiteral(resourceName: "padlock")
+    var phoneImage = #imageLiteral(resourceName: "phone-call")
+    var emailImage = #imageLiteral(resourceName: "envelope")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,20 +59,13 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     }
     
     func styleViews() {
-        logosForAction[0].setRenderedImage(image: images[0])
-        logosForAction[1].setRenderedImage(image: images[1])
-        logosForAction[2].setRenderedImage(image: images[1])
-        logosForAction[3].setRenderedImage(image: images[2])
-        logosForAction[4].setRenderedImage(image: images[3])
-//        styler.renderImage(view: logosForAction[0], image: images[0])
-//        styler.renderImage(view: logosForAction[1], image: images[1])
-//        styler.renderImage(view: logosForAction[2], image: images[1])
-//        styler.renderImage(view: logosForAction[3], image: images[2])
-//        styler.renderImage(view: logosForAction[4], image: images[3])
+        firstAndLastNameUIImageView.setRenderedImage(image: namesImage)
+        passwordUIImageView.setRenderedImage(image: passwordImage)
+        passwordConfirmationUIImageView.setRenderedImage(image: passwordImage)
+        phoneUIImageView.setRenderedImage(image: phoneImage)
+        emailUIImageView.setRenderedImage(image: emailImage)
         backButtonOutlet.styleButton()
         loginButtonOutlet.styleButton()
-//        styler.styleButton(button: backButtonOutlet)
-//        styler.styleButton(button: loginButtonOutlet)
         nameTextField.textType = .generic
         lastNameTextField.textType = .generic
         passwordTextField.textType = .password

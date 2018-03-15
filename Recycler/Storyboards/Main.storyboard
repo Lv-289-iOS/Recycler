@@ -282,16 +282,16 @@
                         <outlet property="backButtonOutlet" destination="tNH-X3-SV3" id="ypQ-dh-0Cp"/>
                         <outlet property="confirmationPasswordTextField" destination="T3F-UU-ReG" id="JjN-pR-UAN"/>
                         <outlet property="emailTextField" destination="Nay-Rq-WEU" id="2oY-H8-nCX"/>
+                        <outlet property="emailUIImageView" destination="uNb-o6-e3U" id="gog-cJ-FLO"/>
+                        <outlet property="firstAndLastNameUIImageView" destination="IdY-VS-LKQ" id="C1C-v0-KaJ"/>
                         <outlet property="lastNameTextField" destination="aoC-ds-D3W" id="5Cg-nC-aSZ"/>
                         <outlet property="loginButtonOutlet" destination="86X-tb-cDT" id="uvt-OA-z9V"/>
                         <outlet property="nameTextField" destination="Tbp-re-aPp" id="4X9-AZ-nDW"/>
+                        <outlet property="passwordConfirmationUIImageView" destination="LbB-9N-MoN" id="JRy-ry-ybS"/>
                         <outlet property="passwordTextField" destination="99a-OP-TWo" id="iWz-Bm-kWX"/>
+                        <outlet property="passwordUIImageView" destination="LzM-Ru-mpH" id="i6T-ij-eOf"/>
                         <outlet property="phoneTextField" destination="Ouf-Wv-b1s" id="2S9-Xt-Cg1"/>
-                        <outletCollection property="logosForAction" destination="IdY-VS-LKQ" collectionClass="NSMutableArray" id="PZt-2i-OI8"/>
-                        <outletCollection property="logosForAction" destination="LzM-Ru-mpH" collectionClass="NSMutableArray" id="ZoB-Q9-Phb"/>
-                        <outletCollection property="logosForAction" destination="LbB-9N-MoN" collectionClass="NSMutableArray" id="Zr7-uk-HYu"/>
-                        <outletCollection property="logosForAction" destination="Sjd-lp-oue" collectionClass="NSMutableArray" id="bAG-80-Cac"/>
-                        <outletCollection property="logosForAction" destination="uNb-o6-e3U" collectionClass="NSMutableArray" id="EeZ-UD-1mw"/>
+                        <outlet property="phoneUIImageView" destination="Sjd-lp-oue" id="bae-iq-ROS"/>
                         <segue destination="UeF-8l-Ddz" kind="show" identifier="ToApp" id="YHI-Fj-pTT"/>
                     </connections>
                 </viewController>
