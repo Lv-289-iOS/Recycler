@@ -14,13 +14,12 @@ import CoreLocation
 
 class RCLAddTrashLocationVC: UIViewController {
     
-    
-    var locationManager = CLLocationManager()
-    var userLocation = CLLocation()
-    var trashLocation = TrashLocation()
-    var marker = GMSMarker()
-    var geocoder = GMSGeocoder()
-    let defaultCamera = GMSCameraPosition.camera(withLatitude: 49.8383,longitude: 24.0232, zoom: 12.0)
+    private var locationManager = CLLocationManager()
+    private var userLocation = CLLocation()
+    private var trashLocation = TrashLocation()
+    private var marker = GMSMarker()
+    private var geocoder = GMSGeocoder()
+    private let defaultCamera = GMSCameraPosition.camera(withLatitude: 49.8383,longitude: 24.0232, zoom: 12.0)
     var trashLocationDelegate: TrashLocationDelegate?
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -38,11 +37,17 @@ class RCLAddTrashLocationVC: UIViewController {
                 print(self.trashLocation)
             }
         }
-         dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func myLocationBtn(_ sender: UIButton) {
+        marker.position = userLocation.coordinate
+        animateCameraTo(coordinate: userLocation.coordinate)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewDesign()
         customizeMap()
         mapView.delegate = self
         animateCameraTo(coordinate: userLocation.coordinate)
@@ -55,9 +60,21 @@ class RCLAddTrashLocationVC: UIViewController {
             userLocation = locationOfMarker
             animateCameraTo(coordinate: userLocation.coordinate)
         }
-            }
+    }
     
-    func customizeMap() {
+    override func viewWillAppear(_ animated: Bool) {
+        animateCameraTo(coordinate: userLocation.coordinate)
+        marker.position = userLocation.coordinate
+        marker.map = mapView
+        mapView.isMyLocationEnabled = true
+    }
+    
+    private func viewDesign(){
+        addLocationBtn.backgroundColor = UIColor.darkModeratePink
+        addLocationBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
+    }
+    
+    private func customizeMap() {
         do {
             if let styleURL = Bundle.main.url(forResource: "RCLMapStyle", withExtension: "json")
             {
@@ -68,12 +85,6 @@ class RCLAddTrashLocationVC: UIViewController {
         } catch {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        animateCameraTo(coordinate: userLocation.coordinate)
-        marker.position = userLocation.coordinate
-        marker.map = mapView
     }
     
     private func animateCameraTo(coordinate: CLLocationCoordinate2D, zoom: Float = 14.0) {

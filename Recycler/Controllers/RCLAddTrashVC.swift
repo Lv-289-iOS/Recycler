@@ -10,9 +10,9 @@ import UIKit
 
 class RCLAddTrashVC: UIViewController {
     
-    var locationFromDelegate = TrashLocation()
+    private var locationFromDelegate = TrashLocation()
     
-    var locationPlaceholder = "Tap to add a location"
+    private var locationPlaceholder = "Tap to add a location"
     
     private let sizeOfTrash = [RCLTrashSize.small, .medium, .large, .extraLarge]
     
@@ -20,7 +20,7 @@ class RCLAddTrashVC: UIViewController {
     
     var trashImageFromCatalogVC :UIImage?
     
-    var trashSizeFromPicker = RCLTrashSize.small
+    private var trashSizeFromPicker = RCLTrashSize.small
     
     @IBOutlet weak var popUpView: UIView!
     
@@ -29,6 +29,8 @@ class RCLAddTrashVC: UIViewController {
     @IBOutlet weak var typeOfTrashImage: UIImageView!
     
     @IBOutlet weak var typeOfTrashLabel: UILabel!
+    
+    @IBOutlet weak var orderTrashBtn: UIButton!
     
     @IBAction func orderTrashBtn(_ sender: UIButton) {
         if locationFromDelegate.name.count <= 0 {
@@ -46,8 +48,18 @@ class RCLAddTrashVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    private func viewDesign(){
+        view.backgroundColor = UIColor.Backgrounds.GrayDarkAlpha
+        orderTrashBtn.backgroundColor = UIColor.darkModeratePink
+        orderTrashBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
+        trashTableView.backgroundColor = UIColor.black
+        popUpView.backgroundColor = UIColor.black
+        popUpView.layer.cornerRadius = (CGFloat.Design.CornerRadius+2)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewDesign()
         trashTableView.reloadData()
         trashTableView.delegate = self
         trashTableView.dataSource = self
@@ -55,7 +67,7 @@ class RCLAddTrashVC: UIViewController {
         typeOfTrashImage.image = trashImageFromCatalogVC
     }
     
-    func showAlert(_ title: String, _ message: String) {
+    private func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(alertAction)
@@ -108,18 +120,24 @@ extension RCLAddTrashVC: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = trashTableView.dequeueReusableCell(withIdentifier: "SizeTrashCell") as! RCLSizeViewCell
+            cellDesign(cell: cell)
             return cell
         case 1:
             let cell = trashTableView.dequeueReusableCell(withIdentifier: "LocationTrashCell") as! RCLLocationViewCell
+            cellDesign(cell: cell)
             if locationFromDelegate.name.count > 0 {
                 cell.locationOfTrashLabel.text = locationFromDelegate.name
             } else {
-            cell.locationOfTrashLabel.text = locationPlaceholder
+                cell.locationOfTrashLabel.text = locationPlaceholder
             }
             return cell
         default:
             fatalError("you missed some cells")
         }
+    }
+    
+    private func cellDesign(cell:UITableViewCell) {
+        cell.backgroundColor = UIColor.black
     }
 }
 
