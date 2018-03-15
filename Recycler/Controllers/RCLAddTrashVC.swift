@@ -123,7 +123,7 @@ extension RCLAddTrashVC: UITableViewDataSource {
         case 0:
             let cell = trashTableView.dequeueReusableCell(withIdentifier: "SizeTrashCell") as! RCLSizeViewCell
             cellDesign(cell: cell)
-            cell.sizeImageView.image = #imageLiteral(resourceName: "arrows")
+            cell.sizeImageView.setRenderedImage(image: #imageLiteral(resourceName: "arrows"))
             return cell
         case 1:
             let cell = trashTableView.dequeueReusableCell(withIdentifier: "LocationTrashCell") as! RCLLocationViewCell

@@ -165,10 +165,13 @@
                                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6T-nW-EMc">
-                                                            <rect key="frame" x="248" y="6" width="25" height="33"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L6T-nW-EMc">
+                                                            <rect key="frame" x="248" y="10" width="25" height="33"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="33" id="L42-50-IIF"/>
+                                                                <constraint firstAttribute="width" constant="25" id="gu3-2I-AQ6"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tw1-cp-xdL">
                                                             <rect key="frame" x="95" y="0.0" width="183" height="44"/>
@@ -188,9 +191,11 @@
                                                         <constraint firstItem="Tw1-cp-xdL" firstAttribute="top" secondItem="tfC-TY-cd2" secondAttribute="top" id="9hL-7b-A1Y"/>
                                                         <constraint firstAttribute="trailing" secondItem="Tw1-cp-xdL" secondAttribute="trailing" constant="10" id="Bsf-iM-IDY"/>
                                                         <constraint firstItem="Tw1-cp-xdL" firstAttribute="leading" secondItem="Lge-RJ-k7P" secondAttribute="trailing" constant="5" id="OEi-ZR-Cg1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="L6T-nW-EMc" secondAttribute="trailing" constant="15" id="aGY-vD-7hj"/>
                                                         <constraint firstItem="Lge-RJ-k7P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tfC-TY-cd2" secondAttribute="leading" constant="10" id="hUT-L5-Gab"/>
                                                         <constraint firstItem="Lge-RJ-k7P" firstAttribute="centerY" secondItem="tfC-TY-cd2" secondAttribute="centerY" id="hoh-zF-ljC"/>
                                                         <constraint firstAttribute="bottom" secondItem="Tw1-cp-xdL" secondAttribute="bottom" id="pVi-kd-ABD"/>
+                                                        <constraint firstItem="L6T-nW-EMc" firstAttribute="top" secondItem="tfC-TY-cd2" secondAttribute="top" constant="10" id="yf3-lK-TIa"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
