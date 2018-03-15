@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomAlertVC: UIViewController {
+class RCLCustomAlertVC: UIViewController {
 
     @IBOutlet var errorTextLabel: UILabel!
     

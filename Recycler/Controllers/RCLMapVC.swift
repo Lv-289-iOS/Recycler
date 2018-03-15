@@ -34,20 +34,7 @@ class RCLMapVC: UIViewController {
         view = mapView
         
         addMarkers()
-        addLabel()
-    }
-    
-
-    func addLabel(){
-        let label = UILabel(frame: CGRect(x: 16, y: 21, width: 300, height: 32))
-//        let lblNew = UILabel()
-//        lblNew.backgroundColor = UIColor.blue
-        label.font = UIFont.systemFont(ofSize: 30.0)
-        label.text = "Public trash cans"
-        label.textColor = UIColor.white
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.constraints.
-        view.addSubview(label)
+        addTitleLabel(text: "Public trash cans")
     }
     
     func addMarkers(){
@@ -58,18 +45,8 @@ class RCLMapVC: UIViewController {
                     let markerImage = #imageLiteral(resourceName: "smallPin")
                     let marker = GMSMarker()
                     marker.position = trash.coordinate
-                
-                    
-//  MARK: - Fix this shit
-                    
-
-                    
-//                    let string = trash.nameInJson
-//                    string.data(using: String.Encoding.)
-//                    let dataenc = string.data(using: String.Encoding.windowsCP1252)
-//                    var encodevalue = String(data: dataenc!, encoding: String.Encoding.utf8)
-//                    marker.title = encodevalue//trash.nameInJson
-                    marker.snippet = "Trash cans amount: \(trash.numberOfRaffleInJson)"
+                    marker.title = trash.nameInJson
+                    marker.snippet = "Кількість смітників: \(trash.numberOfRaffleInJson)"
                     marker.icon = markerImage//GMSMarker.markerImage(with: .red)
                     marker.map = self.view as? GMSMapView
                     

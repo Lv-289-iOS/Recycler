@@ -17,6 +17,10 @@ enum ScanStatus: String {
     case correct = "Trash can is full" // there is QR code and it's format is OK for our app
 }
 
+struct QrConstants {
+    static var codePrefix = "trashCanID:" // QR code format is "trashCanID: UUID"
+}
+
 extension UIView {
     /// Shake animation
     func animationShakeStart() {
@@ -53,14 +57,20 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             switch scanStatus {
             case .redyToScan:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
+                explainationLabel.text = scanStatus.rawValue
             case .wrong:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
             case .notYours:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
             case .alreadyFull:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
             case .correct:
                 setTrashIsFullBtnEnabled(true)
+                visualEffectView.isHidden = true
             }
         }
     }
@@ -80,7 +90,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         
         setupCamera()
         setupUI()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getTrashCans(forUser: currentUser)
     }
     
@@ -90,7 +102,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         trashIsFullBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
         //button.layer.borderWidth = 1
         //button.layer.borderColor = UIColor.black.cgColor
-        setTrashIsFullBtnEnabled(true)
+        addTitleLabel(text: "Scan to report")
+        setTrashIsFullBtnEnabled(false)
+        scanStatus = .redyToScan
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -184,7 +198,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func isQrCodeBelongsToApp(_ qrCode: String) -> Bool {
-        return qrCode.hasPrefix("trashCanID:") // QR code format is "trashCanID: UUID"
+        return qrCode.hasPrefix(QrConstants.codePrefix) // QR code format is "trashCanID: UUID"
     }
     
     func getUserTrashCanBy(id: String) -> TrashCan? {
@@ -219,6 +233,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     var trash = Trash(trashCanId: trashCanId, userIdReportedFull: currentUserId)
                     trash.dateReportedFull = Date()
                     FirestoreService.shared.add(for: trash, in: .trash)
+                    // TODO: Update the button state here!!!
                 }
             }
         }

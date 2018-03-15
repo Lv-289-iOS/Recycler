@@ -36,7 +36,7 @@ class RCLProfileVC: UIViewController {
         viewSetup()
         setupDelegates()
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
-        
+        profileView.addEgg()
         user = currentUser
         self.getTrashCans(forUser: self.user)
         self.updateInfo(with: self.user)
@@ -50,10 +50,12 @@ class RCLProfileVC: UIViewController {
         lastName.delegate = self
     }
     
+    
     private func viewSetup() {
+        addTitleLabel(text: "Profile")
         navigationController?.isNavigationBarHidden = true
         
-        profileTitle.textColor = UIColor.Font.White
+        //profileTitle.textColor = UIColor.Font.White
         firstName.textColor = UIColor.Font.White
         lastName.textColor = UIColor.Font.White
         phoneTitle.textColor = UIColor.Font.Gray

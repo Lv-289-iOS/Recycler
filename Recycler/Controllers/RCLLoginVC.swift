@@ -17,7 +17,7 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     @IBOutlet weak var signUpOutlet: UIButton!
     var image = #imageLiteral(resourceName: "logo")
     
-    let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
+    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
 
     @IBAction func signInButton(_ sender: Any) {
         guard let login = loginTextField.text else {return}
@@ -31,9 +31,8 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     }
     
 
-    var styler = RCLStyler()
+//    var styler = RCLStyler()
     var authentificator = RCLAuthentificator()
-    var infoWindow = RCLInfoWindow()
     var users = [User]()
     
     override func viewDidLoad() {
@@ -41,17 +40,11 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         authentificator.delegate = self
-//        let trash = Trash(trashCanId: "uFYf9ltIIloIxWtFiJLf", userIdReportedFull: "CUXMZQRwJD1JfbrjfDEs")
-//        FirestoreService.shared.add(for: trash, in: .trash)
-//        FirestoreService.shared.getLatestTrashBy(trashCanId: "uFYf9ltIIloIxWtFiJLf") { (trash) in
-//            print(trash!)
-//        }
-//        let json = RLCParsingByJSON()
-//        json.temp()
-//        infoWindow.showAlertAction(text: "I test it", controller: self)
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
-        styler.styleButton(button: signInOutlet)
-        styler.styleButton(button: signUpOutlet)
+        signInOutlet.styleButton()
+        signUpOutlet.styleButton()
+//        styler.styleButton(button: signInOutlet)
+//        styler.styleButton(button: signUpOutlet)
         loginTextField.delegate = self
         passwordTextField.delegate = self
         loginTextField.textType = .emailAddress

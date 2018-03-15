@@ -10,7 +10,11 @@ import UIKit
 
 class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     
-    @IBOutlet var logosForAction: [UIImageView]!
+    @IBOutlet weak var firstAndLastNameUIImageView: UIImageView!
+    @IBOutlet weak var passwordUIImageView: UIImageView!
+    @IBOutlet weak var passwordConfirmationUIImageView: UIImageView!
+    @IBOutlet weak var phoneUIImageView: UIImageView!
+    @IBOutlet weak var emailUIImageView: UIImageView!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -22,14 +26,17 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     @IBOutlet weak var backButtonOutlet: UIButton!
     @IBOutlet weak var loginButtonOutlet: UIButton!
     
-    let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
+    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
     
     var formatter = RCLFormatter()
     var authentificator = RCLAuthentificator()
     var isAllFieldsValid = true
     
-    var images = [#imageLiteral(resourceName: "avatar"), #imageLiteral(resourceName: "padlock"), #imageLiteral(resourceName: "phone-call"), #imageLiteral(resourceName: "envelope")]
-    var styler = RCLStyler()
+    var namesImage = #imageLiteral(resourceName: "avatar-1")
+    var passwordImage = #imageLiteral(resourceName: "padlock")
+    var phoneImage = #imageLiteral(resourceName: "phone-call")
+    var emailImage = #imageLiteral(resourceName: "envelope")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +45,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         delegates()
         styleViews()
+        addTitleLabel(text: "Registration")
     }
     
     func delegates() {
@@ -51,13 +59,13 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     }
     
     func styleViews() {
-        styler.renderImage(view: logosForAction[0], image: images[0])
-        styler.renderImage(view: logosForAction[1], image: images[1])
-        styler.renderImage(view: logosForAction[2], image: images[1])
-        styler.renderImage(view: logosForAction[3], image: images[2])
-        styler.renderImage(view: logosForAction[4], image: images[3])
-        styler.styleButton(button: backButtonOutlet)
-        styler.styleButton(button: loginButtonOutlet)
+        firstAndLastNameUIImageView.setRenderedImage(image: namesImage)
+        passwordUIImageView.setRenderedImage(image: passwordImage)
+        passwordConfirmationUIImageView.setRenderedImage(image: passwordImage)
+        phoneUIImageView.setRenderedImage(image: phoneImage)
+        emailUIImageView.setRenderedImage(image: emailImage)
+        backButtonOutlet.styleButton()
+        loginButtonOutlet.styleButton()
         nameTextField.textType = .generic
         lastNameTextField.textType = .generic
         passwordTextField.textType = .password
@@ -84,7 +92,6 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     @IBAction func loginButton(_ sender: UIButton) {
         if validator {
             authentificator.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
-//            performSegue(withIdentifier: "ToApp", sender: self)
         } else {
             alert(text: "please, fill all fields correctly")
         }
@@ -107,21 +114,12 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToApp" {
             if let tabBar = segue.destination as? UITabBarController {
-                tabBar.selectedIndex = 2
+                tabBar.selectedIndex = 4
             }
         }
     }
     
     @IBAction func backButton(_ sender: UIButton) {
-//        print("back tapped")
-//        if let nav = self.navigationController {
-//            nav.popToRootViewController(animated: true)
-//        } else {
-//            self.dismiss(animated: true, completion: nil)
-//        }
-        
-        ///
-        
         if self.navigationController?.popToRootViewController(animated: true) == nil {
             self.dismiss(animated: true, completion: nil)
         }
@@ -130,18 +128,18 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     var validator: Bool {
         get {
             styleTextField()
-            var a: Bool = true
-            a = a && nameTextField.valid
-            a = a && lastNameTextField.valid
-            a = a && passwordTextField.valid
-            a = a && confirmationPasswordTextField.valid
-            a = a && phoneTextField.valid
-            a = a && emailTextField.valid
+            var isAllFieldsValid: Bool = true
+            isAllFieldsValid = isAllFieldsValid && nameTextField.valid
+            isAllFieldsValid = isAllFieldsValid && lastNameTextField.valid
+            isAllFieldsValid = isAllFieldsValid && passwordTextField.valid
+            isAllFieldsValid = isAllFieldsValid && confirmationPasswordTextField.valid
+            isAllFieldsValid = isAllFieldsValid && phoneTextField.valid
+            isAllFieldsValid = isAllFieldsValid && emailTextField.valid
             if confirmationPasswordTextField.text != passwordTextField.text {
                 confirmationPasswordTextField.backgroundColor = UIColor.TextFieldBackGrounds.BackgroundForFalse
-                a = false
+                isAllFieldsValid = false
             }
-            return a
+            return isAllFieldsValid
         }
     }
 }
