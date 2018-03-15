@@ -86,7 +86,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         
         setupCamera()
         setupUI()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getTrashCans(forUser: currentUser)
     }
     
