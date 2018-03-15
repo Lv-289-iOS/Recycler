@@ -26,4 +26,14 @@ class RCLStyler {
     }
     
 }
+extension UIViewController {
+    
+    func addTitleLabel(text: String){
+        let label = UILabel(frame: CGRect(x: 16, y: 21, width: 300, height: 32))
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.text = text
+        label.textColor = UIColor.white
+        self.view.addSubview(label)
+    }
+}
 
