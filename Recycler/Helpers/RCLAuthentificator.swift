@@ -18,8 +18,6 @@ protocol AuthServiceDelegate: class {
 }
 
 class RCLAuthentificator {
-    
-    
     weak var delegate: AuthServiceDelegate?
     
     func createUser(userName: String, userLastName: String, email: String, phone: String, password: String) {
@@ -46,12 +44,10 @@ class RCLAuthentificator {
                         }
                     }
                 })
-                
             } else {
                 self.delegate?.alert(text: "wrong credentials")
             }
         }
-
     }
     
     func isAUserActive() {
@@ -85,5 +81,4 @@ class RCLAuthentificator {
             return ""
         }
     }
-   
 }
