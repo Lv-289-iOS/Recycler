@@ -19,6 +19,8 @@ class RCLDashboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(chartView)
+        addTitleLabel(text: "Dashboard")
+        buttonCreate()
     }
     
     func getTrashCans(forUser: User) {
@@ -38,6 +40,41 @@ class RCLDashboardVC: UIViewController {
         chartView.models = createModels()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    func buttonCreate() {
+        
+        let button = UIButton(type: UIButtonType.system) as UIButton
+        
+        let xPostion:CGFloat = 120
+        let yPostion:CGFloat = 550
+        let buttonWidth:CGFloat = 150
+        let buttonHeight:CGFloat = 45
+        
+        button.frame = CGRect(x:xPostion, y:yPostion, width:buttonWidth, height:buttonHeight)
+        
+        button.backgroundColor = UIColor.Button.backgroundColor
+        button.setTitle("Statistic", for: UIControlState.normal)
+        button.layer.cornerRadius = CGFloat.Design.CornerRadius
+        button.tintColor = UIColor.Button.titleColor
+        button.addTarget(self, action: #selector(RCLDashboardVC.buttonAction(_:)), for: .touchUpInside)
+        self.view.addSubview(button)
+    }
+    
+    @objc func buttonAction(_ sender:UIButton!)
+    {
+        performSegue(withIdentifier: "StatisticsSegue", sender: self)
+        print("Button tapped")
+    }
+    
 
     fileprivate func createModels() -> [PieSliceModel] {
 
