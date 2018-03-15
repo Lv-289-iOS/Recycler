@@ -365,7 +365,11 @@
                         <viewLayoutGuide key="safeArea" id="Gsv-f2-Fzm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="rU0-IF-Ozf">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="sTV-Qh-rtD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="sTV-Qh-rtD">
+                            <connections>
+                                <action selector="searchLocationBtn:" destination="o1D-KM-k9S" id="7gs-5W-J93"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
