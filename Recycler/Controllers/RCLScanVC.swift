@@ -53,15 +53,20 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             switch scanStatus {
             case .redyToScan:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
                 explainationLabel.text = scanStatus.rawValue
             case .wrong:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
             case .notYours:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
             case .alreadyFull:
                 setTrashIsFullBtnEnabled(false)
+                visualEffectView.isHidden = false
             case .correct:
                 setTrashIsFullBtnEnabled(true)
+                visualEffectView.isHidden = true
             }
         }
     }
