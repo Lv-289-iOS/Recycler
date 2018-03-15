@@ -59,10 +59,6 @@ class RLCParsingByJSON {
                 }
                 
                 do {
-//                    let str = data(using: .utf8)
-                    //let str = String(UTF8String: strToDecode.cStringUsingEncoding(String.Encoding.utf8))
-//                    let str = String.init(data: data, encoding: String.Encoding.utf8)
-//                     let json = JSON.init(parseJSON: str!)
                     let json = try JSON.init(data: data)
                 
                     var result = [TrashFromJson]()
