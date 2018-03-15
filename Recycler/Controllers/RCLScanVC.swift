@@ -53,6 +53,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             switch scanStatus {
             case .redyToScan:
                 setTrashIsFullBtnEnabled(false)
+                explainationLabel.text = scanStatus.rawValue
             case .wrong:
                 setTrashIsFullBtnEnabled(false)
             case .notYours:
@@ -90,7 +91,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         trashIsFullBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
         //button.layer.borderWidth = 1
         //button.layer.borderColor = UIColor.black.cgColor
-        setTrashIsFullBtnEnabled(true)
+        setTrashIsFullBtnEnabled(false)
+        scanStatus = .redyToScan
     }
     
     override func viewWillAppear(_ animated: Bool) {
