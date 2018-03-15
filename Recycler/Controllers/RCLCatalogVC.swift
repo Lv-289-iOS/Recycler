@@ -10,12 +10,12 @@ import UIKit
 
 class RCLCatalogVC: UIViewController {
     
-    var trashImage: UIImage!
-    var trashLabel: String!
+    private var trashImage: UIImage!
+    private var trashLabel: String!
     
-    let trashLabels = ["paper","glass","metal","plastic","organic","batteries"]
+    private let trashLabels = ["paper","glass","metal","plastic","organic","batteries"]
     
-    let trashImages : [UIImage] = [
+    private let trashImages : [UIImage] = [
         UIImage (named : "trash_paper")!,
         UIImage (named : "trash_glass")!,
         UIImage (named : "trash_metal")!,
@@ -24,19 +24,22 @@ class RCLCatalogVC: UIViewController {
         UIImage (named : "trash_batteries")!
     ]
     
+    @IBOutlet weak var catalogLabel: UILabel!
+    
     @IBOutlet weak var catalogTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         catalogTableView.delegate = self
         catalogTableView.dataSource = self
-        viewSetup()
+        viewDesign()
     }
     
-    private func viewSetup() {
+    private func viewDesign() {
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         catalogTableView.backgroundColor = UIColor.Backgrounds.GrayDark
-        
+        catalogLabel.backgroundColor = UIColor.Backgrounds.GrayDark
+        catalogLabel.textColor = UIColor.Font.White
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,7 +51,8 @@ class RCLCatalogVC: UIViewController {
         }
     }
     
-    func designOfCell(cell:RCLCatalogTableViewCell) {
+    private func designOfCell(cell:RCLCatalogTableViewCell) {
+        cell.catalogLabel.textColor = UIColor.Font.White
         cell.backgroundColor = UIColor.Backgrounds.GrayDark
         cell.catalogView.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.catalogView.layer.cornerRadius = CGFloat.Design.CornerRadius
