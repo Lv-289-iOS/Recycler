@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
 class RCLMapVC: UIViewController {
 
@@ -15,11 +16,14 @@ class RCLMapVC: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
 
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let camera = GMSCameraPosition.camera(withLatitude: 49.838138, longitude: 24.044102, zoom: 18.0)
-       let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        let camera = GMSCameraPosition.camera(withLatitude: 49.841608, longitude: 24.031728, zoom: 16.0)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
         do {
             // Set the map style by passing the URL of the local file.
             if let styleURL = Bundle.main.url(forResource: "RCLMapStyle", withExtension: "json")
@@ -32,12 +36,14 @@ class RCLMapVC: UIViewController {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
         view = mapView
-        
+    
         addMarkers()
         addTitleLabel(text: "Public trash cans")
     }
+  
+
     
-    func addMarkers(){
+    private func addMarkers(){
         let parsed = RLCParsingByJSON()
         parsed.temp { (trashList, error) in
             if error == nil {
