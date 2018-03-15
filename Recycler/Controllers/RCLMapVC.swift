@@ -68,8 +68,8 @@ class RCLMapVC: UIViewController {
 //                    string.data(using: String.Encoding.)
 //                    let dataenc = string.data(using: String.Encoding.windowsCP1252)
 //                    var encodevalue = String(data: dataenc!, encoding: String.Encoding.utf8)
-//                    marker.title = encodevalue//trash.nameInJson
-                    marker.snippet = "Trash cans amount: \(trash.numberOfRaffleInJson)"
+                    marker.title = trash.nameInJson
+                    marker.snippet = "Кількість смітників: \(trash.numberOfRaffleInJson)"
                     marker.icon = markerImage//GMSMarker.markerImage(with: .red)
                     marker.map = self.view as? GMSMapView
                     
