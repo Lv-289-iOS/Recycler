@@ -41,22 +41,11 @@ class RCLAddTrashVC: UIViewController {
         }
         let trashCan = TrashCan(userId: currentUser.id!, address: locationFromDelegate.name, type: RCLTrashType(rawValue: trashLabelFromCatalogVC)!, size: trashSizeFromPicker)
         FirestoreService.shared.add(for: trashCan, in: .trashCan)
-//        dismiss(animated: true, completion: nil)
         _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
-//        dismiss(animated: true, completion: nil)
         _ = navigationController?.popViewController(animated: true)
-    }
-    
-    private func viewDesign(){
-        view.backgroundColor = UIColor.Backgrounds.GrayDarkAlpha
-        orderTrashBtn.backgroundColor = UIColor.darkModeratePink
-        orderTrashBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
-        trashTableView.backgroundColor = UIColor.Backgrounds.GrayLight
-        popUpView.backgroundColor = UIColor.Backgrounds.GrayLight
-        popUpView.layer.cornerRadius = (CGFloat.Design.CornerRadius+2)
     }
     
     override func viewDidLoad() {
@@ -67,6 +56,15 @@ class RCLAddTrashVC: UIViewController {
         trashTableView.dataSource = self
         typeOfTrashLabel.text = trashLabelFromCatalogVC
         typeOfTrashImage.image = trashImageFromCatalogVC
+    }
+    
+    private func viewDesign(){
+        view.backgroundColor = UIColor.Backgrounds.GrayDarkAlpha
+        orderTrashBtn.backgroundColor = UIColor.darkModeratePink
+        orderTrashBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
+        trashTableView.backgroundColor = UIColor.Backgrounds.GrayLight
+        popUpView.backgroundColor = UIColor.Backgrounds.GrayLight
+        popUpView.layer.cornerRadius = (CGFloat.Design.CornerRadius+2)
     }
     
     private func showAlert(_ title: String, _ message: String) {
@@ -89,22 +87,6 @@ extension RCLAddTrashVC: TrashLocationDelegate {
     func setLocation(location: TrashLocation) {
         locationFromDelegate = location
         self.trashTableView.reloadData()
-    }
-}
-
-extension RCLAddTrashVC: UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sizeOfTrash.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let string = String(describing: sizeOfTrash[row])
-        return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     }
 }
 
@@ -156,6 +138,22 @@ extension RCLAddTrashVC: UITableViewDelegate {
     }
 }
 
+extension RCLAddTrashVC: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sizeOfTrash.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let string = String(describing: sizeOfTrash[row])
+        return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+    }
+}
+
 extension RCLAddTrashVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -166,4 +164,3 @@ extension RCLAddTrashVC: UIPickerViewDelegate {
         trashSizeFromPicker = sizeOfTrash[row]
     }
 }
-
