@@ -31,7 +31,7 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     }
     
 
-    var styler = RCLStyler()
+//    var styler = RCLStyler()
     var authentificator = RCLAuthentificator()
     var users = [User]()
     
@@ -41,8 +41,10 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         authentificator.delegate = self
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
-        styler.styleButton(button: signInOutlet)
-        styler.styleButton(button: signUpOutlet)
+        signInOutlet.styleButton()
+        signUpOutlet.styleButton()
+//        styler.styleButton(button: signInOutlet)
+//        styler.styleButton(button: signUpOutlet)
         loginTextField.delegate = self
         passwordTextField.delegate = self
         loginTextField.textType = .emailAddress
