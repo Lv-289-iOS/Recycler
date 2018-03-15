@@ -17,6 +17,10 @@ enum ScanStatus: String {
     case correct = "Trash can is full" // there is QR code and it's format is OK for our app
 }
 
+struct QrConstants {
+    static var codePrefix = "trashCanID:" // QR code format is "trashCanID: UUID"
+}
+
 extension UIView {
     /// Shake animation
     func animationShakeStart() {
@@ -193,7 +197,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func isQrCodeBelongsToApp(_ qrCode: String) -> Bool {
-        return qrCode.hasPrefix("trashCanID:") // QR code format is "trashCanID: UUID"
+        return qrCode.hasPrefix(QrConstants.codePrefix) // QR code format is "trashCanID: UUID"
     }
     
     func getUserTrashCanBy(id: String) -> TrashCan? {
@@ -228,6 +232,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     var trash = Trash(trashCanId: trashCanId, userIdReportedFull: currentUserId)
                     trash.dateReportedFull = Date()
                     FirestoreService.shared.add(for: trash, in: .trash)
+                    // TODO: Update the button state here!!!
                 }
             }
         }
