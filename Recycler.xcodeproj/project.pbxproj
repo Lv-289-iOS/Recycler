@@ -34,8 +34,8 @@
 		630020E2204EB7D7002E7D89 /* RCLProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */; };
 		630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */; };
 		630020E5204EB852002E7D89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630020E4204EB852002E7D89 /* Constants.swift */; };
-		637D79392058055E0065E82B /* CustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637D79372058055E0065E82B /* CustomAlertVC.xib */; };
-		637D793A2058055E0065E82B /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D79382058055E0065E82B /* CustomAlertVC.swift */; };
+		637D79392058055E0065E82B /* RCLCustomAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637D79372058055E0065E82B /* RCLCustomAlertVC.xib */; };
+		637D793A2058055E0065E82B /* RCLCustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D79382058055E0065E82B /* RCLCustomAlertVC.swift */; };
 		637D793C205806C50065E82B /* Taken.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637D793B205806C50065E82B /* Taken.storyboard */; };
 		6F120604204574E20042056E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F120603204574E20042056E /* AppDelegate.swift */; };
 		6F12060B204574E20042056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12060A204574E20042056E /* Assets.xcassets */; };
@@ -98,8 +98,8 @@
 		630020E0204EB7D7002E7D89 /* RCLProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLProfileCell.swift; sourceTree = "<group>"; };
 		630020E1204EB7D7002E7D89 /* RCLProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCLProfileCell.xib; sourceTree = "<group>"; };
 		630020E4204EB852002E7D89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		637D79372058055E0065E82B /* CustomAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertVC.xib; sourceTree = "<group>"; };
-		637D79382058055E0065E82B /* CustomAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
+		637D79372058055E0065E82B /* RCLCustomAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCLCustomAlertVC.xib; sourceTree = "<group>"; };
+		637D79382058055E0065E82B /* RCLCustomAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCLCustomAlertVC.swift; sourceTree = "<group>"; };
 		637D793B205806C50065E82B /* Taken.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Taken.storyboard; sourceTree = "<group>"; };
 		6F120600204574E20042056E /* Recycler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recycler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F120603204574E20042056E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 		D328EF1120559A3000CCB14F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				637D79382058055E0065E82B /* CustomAlertVC.swift */,
-				637D79372058055E0065E82B /* CustomAlertVC.xib */,
+				637D79382058055E0065E82B /* RCLCustomAlertVC.swift */,
+				637D79372058055E0065E82B /* RCLCustomAlertVC.xib */,
 				D331CEA9204ECEBB001D0A90 /* RCLAuthentificator.swift */,
 				D331CEAA204ECEBB001D0A90 /* RCLFormatter.swift */,
 				D331CEAE204ECEBC001D0A90 /* RCLStyler.swift */,
@@ -383,7 +383,7 @@
 				630020E3204EB7D7002E7D89 /* RCLProfileCell.xib in Resources */,
 				19E29F2D20594DFB000DAC93 /* Issues.storyboard in Resources */,
 				19338E042046D34F007BD6E3 /* GoogleService-Info.plist in Resources */,
-				637D79392058055E0065E82B /* CustomAlertVC.xib in Resources */,
+				637D79392058055E0065E82B /* RCLCustomAlertVC.xib in Resources */,
 				6F12060B204574E20042056E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,7 +512,7 @@
 				4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */,
 				D331CEB2204ECEBD001D0A90 /* RCLFormatter.swift in Sources */,
 				19F5AF05204938CE00ADF338 /* RCLUser.swift in Sources */,
-				637D793A2058055E0065E82B /* CustomAlertVC.swift in Sources */,
+				637D793A2058055E0065E82B /* RCLCustomAlertVC.swift in Sources */,
 				19AF48C5204D87BB00958858 /* RCLTrashType.swift in Sources */,
 				197BF74420496D0900B8D06B /* RCLTrashCan.swift in Sources */,
 				A3B50302204EBFCD009276D0 /* RCLTabBarVC.swift in Sources */,

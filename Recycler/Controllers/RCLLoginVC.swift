@@ -17,7 +17,7 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
     @IBOutlet weak var signUpOutlet: UIButton!
     var image = #imageLiteral(resourceName: "logo")
     
-    let customAlert = CustomAlertVC(nibName: "CustomAlertVC", bundle: nil)
+    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
 
     @IBAction func signInButton(_ sender: Any) {
         guard let login = loginTextField.text else {return}
