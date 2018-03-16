@@ -11,10 +11,10 @@ import UIKit
 import Darwin
 
 class GameVC: UIViewController {
-
+    
     var gameStruct = MiniGameStruct()
-    let imageHeight = 40 as CGFloat
-    let imageWidth = 40 as CGFloat
+    let imageHeight = 60 as CGFloat
+    let imageWidth = 60 as CGFloat
     let gameOverlay = UIView()
     
     @objc func createNewGame() {
@@ -33,14 +33,27 @@ class GameVC: UIViewController {
         let rangeX = self.view.frame.width - imageWidth
         
         for index in 0..<images.count {
-            let imageView = UIImageView(image: images[index])
-            let randPos = random(rangeX: Int(rangeX), rangeY: Int(rangeY))
+            let randomAngle = arc4random_uniform(1000)
+            let angle = Double(2 * Double.pi * 1000)/Double(randomAngle)
             
+            let imageView = UIImageView(image: images[index])
+            
+            let randPos = random(rangeX: Int(rangeX), rangeY: Int(rangeY))
             imageView.frame = CGRect(origin: randPos, size: gameStruct.imageSize)
             imageView.addTapGesture()
             imageView.isUserInteractionEnabled = true
             gameOverlay.addSubview(imageView)
             
+            UIView.animate(withDuration: 0.5,
+                           delay: 0.0,
+                           options: UIViewAnimationOptions.curveLinear,
+                           animations:
+                { () -> Void in
+                    for view in self.gameOverlay.subviews {
+                        view.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
+                    }
+            },
+                           completion: nil)
         }
     }
     
@@ -51,19 +64,6 @@ class GameVC: UIViewController {
 
 
 extension UIView {
-//    func rotateView() {
-//        let random = arc4random_uniform(1000)
-//        let angle = Double(2 * Double.pi * 1000)/Double(random)
-//        self.vanimateWithDuration(5,
-//                                   delay: 0.0,
-//                                   options: UIViewAnimationOptions.CurveLinear,
-//                                   animations:
-//            { () -> Void in
-//                self.imageView.transform =
-//                    CGAffineTransformRotate(angle)
-//        },
-//                                   completion: nil)
-//    }
     
     func addGameToVC() {
         let del = UIApplication.shared.delegate as? AppDelegate

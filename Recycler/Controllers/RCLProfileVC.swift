@@ -59,7 +59,6 @@ class RCLProfileVC: UIViewController {
         addTitleLabel(text: "Profile")
         navigationController?.isNavigationBarHidden = true
         
-        //profileTitle.textColor = UIColor.Font.White
         firstName.textColor = UIColor.Font.White
         lastName.textColor = UIColor.Font.White
         phoneTitle.textColor = UIColor.Font.Gray
