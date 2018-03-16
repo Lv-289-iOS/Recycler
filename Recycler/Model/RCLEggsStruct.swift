@@ -29,7 +29,7 @@ struct MiniGameStruct {
         imageSize = size
     }
     init() {
-        numberOfImages = Int(arc4random_uniform(6)) + 1
-        imageSize = CGSize(width: 40, height: 40)
+        numberOfImages = Int(arc4random_uniform(9)) + 1
+        imageSize = CGSize(width: 60, height: 60)
     }
 }
