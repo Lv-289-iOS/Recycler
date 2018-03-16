@@ -14,7 +14,6 @@ protocol AuthServiceDelegate: class {
     func transitionToCust()
     func transitionToEmpl()
     func alert(text: String)
-    
 }
 
 class RCLAuthentificator {
@@ -72,7 +71,6 @@ class RCLAuthentificator {
             print ("Error signing out: %@", signOutError)
         }
     }
-    
     
     static func email() -> String {
         if let user = Auth.auth().currentUser {
