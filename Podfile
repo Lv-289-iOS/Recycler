@@ -14,7 +14,7 @@ target 'Recycler' do
 	pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'SwiftyJSON', '~> 4.0'
-    pod 'Alamofire', '~> 4.7'
+    pod 'Alamofire'
 
 
   # Pods for Recycler
