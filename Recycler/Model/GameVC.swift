@@ -51,6 +51,19 @@ class GameVC: UIViewController {
 
 
 extension UIView {
+//    func rotateView() {
+//        let random = arc4random_uniform(1000)
+//        let angle = Double(2 * Double.pi * 1000)/Double(random)
+//        self.vanimateWithDuration(5,
+//                                   delay: 0.0,
+//                                   options: UIViewAnimationOptions.CurveLinear,
+//                                   animations:
+//            { () -> Void in
+//                self.imageView.transform =
+//                    CGAffineTransformRotate(angle)
+//        },
+//                                   completion: nil)
+//    }
     
     func addGameToVC() {
         let del = UIApplication.shared.delegate as? AppDelegate

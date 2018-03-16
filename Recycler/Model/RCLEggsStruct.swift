@@ -16,7 +16,7 @@ struct MiniGameStruct {
     
     var baseImages: [UIImage]  {
         get {
-            return [ #imageLiteral(resourceName: "trash_metal"), #imageLiteral(resourceName: "trash_paper"), #imageLiteral(resourceName: "trash_glass"), #imageLiteral(resourceName: "trash_plastic"), #imageLiteral(resourceName: "trash_organic")].shuffled()
+            return [ #imageLiteral(resourceName: "game1"), #imageLiteral(resourceName: "game2"), #imageLiteral(resourceName: "game3"), #imageLiteral(resourceName: "game4"), #imageLiteral(resourceName: "game5"), #imageLiteral(resourceName: "game6"), #imageLiteral(resourceName: "game7"), #imageLiteral(resourceName: "game8"), #imageLiteral(resourceName: "game9")].shuffled()
         }
     }
     func getImages() -> [UIImage] {
@@ -29,7 +29,7 @@ struct MiniGameStruct {
         imageSize = size
     }
     init() {
-        numberOfImages = 5
+        numberOfImages = Int(arc4random_uniform(6)) + 1
         imageSize = CGSize(width: 40, height: 40)
     }
 }
