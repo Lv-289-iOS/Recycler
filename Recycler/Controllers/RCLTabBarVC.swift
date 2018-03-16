@@ -25,8 +25,8 @@ class RCLTabBarVC: UITabBarController {
     }
     
     func setupUI() {
-        self.tabBar.tintColor = UIColor.TabBar.tint
-        self.tabBar.barTintColor = UIColor.TabBar.barTint
+        self.tabBar.tintColor = UIColor.TabBar.Tint
+        self.tabBar.barTintColor = UIColor.TabBar.BarTint
     }
 
 }
