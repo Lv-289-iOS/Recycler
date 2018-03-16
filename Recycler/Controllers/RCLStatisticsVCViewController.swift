@@ -41,7 +41,9 @@ class RCLStatisticsVCViewController: UIViewController {
     }
     
     var testArray  :[Double] = []
-    var numbersForGlass : [Double] = []
+    var numbersForGlass : [Double] = [9,3,5,12,24,16,9]
+    var numbersForBatteries : [Double] = [1,5,10,6,14,10,11]
+    var numbersForOrganic : [Double] = [2,3,8,2,4,12,21]
     var numbersForPlastic: [Double] = [3,4,9,2,9,17,13]
     var numbersForPaper :   [Double] = [7,10,15,2,10,11,15]
     var numbersForMetal :   [Double] = [13,4,0,2,1,25,20]
@@ -76,30 +78,49 @@ class RCLStatisticsVCViewController: UIViewController {
         var lineChartEntryPlastic = [ChartDataEntry]()
         var lineChartEntryPaper   = [ChartDataEntry]()
         var lineChartEntryMetal   = [ChartDataEntry]()
+        var lineChartEntryBatteries = [ChartDataEntry]()
+        var lineChartEntryOrganic = [ChartDataEntry]()
+        var lineChartEntryGlass = [ChartDataEntry]()
         
         for i in 0..<daysInWeek {
             //set the X and Y status in a data chart entry
             let valueForPlastic = ChartDataEntry(x: Double(i), y: numbersForPlastic[i])
             let valueForPaper   = ChartDataEntry(x: Double(i), y: numbersForPaper  [i])
             let valueForMetal   = ChartDataEntry(x: Double(i), y: numbersForMetal  [i])
+            let valueForGlass   = ChartDataEntry(x: Double(i), y: numbersForGlass  [i])
+            let valueForBatteries   = ChartDataEntry(x: Double(i), y: numbersForBatteries  [i])
+            let valueForOrganic   = ChartDataEntry(x: Double(i), y: numbersForOrganic  [i])
+            
             // here we add it to the data set
             lineChartEntryPlastic.append(valueForPlastic)
             lineChartEntryPaper.append(valueForPaper)
             lineChartEntryMetal.append(valueForMetal)
+            lineChartEntryBatteries.append(valueForBatteries)
+            lineChartEntryGlass.append(valueForGlass)
+            lineChartEntryOrganic.append(valueForOrganic)
         }
         
         //Here we convert lineChartEntry to a LineChartDataSet
         let line1 = LineChartDataSet(values: lineChartEntryPlastic, label: "Plastic")
         let line2 = LineChartDataSet(values: lineChartEntryPaper, label: "Paper")
         let line3 = LineChartDataSet(values: lineChartEntryMetal, label: "Metal")
-        
+        let line4 = LineChartDataSet(values: lineChartEntryBatteries, label: "Batteries")
+        let line5 = LineChartDataSet(values: lineChartEntryGlass, label: "Glass")
+        let line6 = LineChartDataSet(values: lineChartEntryOrganic, label: "Organic")
         //Sets the colours
         line1.colors = [NSUIColor.blue]
         line2.colors = [NSUIColor.yellow]
         line3.colors = [NSUIColor.red]
-        line1.valueTextColor = NSUIColor.blue
+        line4.colors = [NSUIColor.cyan]
+        line5.colors = [NSUIColor.black]
+        line6.colors = [NSUIColor.darkGray]
+        
+        line1.valueTextColor = UIColor.blue
         line2.valueTextColor = NSUIColor.yellow
         line3.valueTextColor = NSUIColor.red
+        line4.valueTextColor = NSUIColor.cyan
+        line5.valueTextColor = NSUIColor.black
+        line6.valueTextColor = NSUIColor.darkGray
         
         //This is the object that will be added to the chart
         let data = LineChartData()
@@ -107,6 +128,9 @@ class RCLStatisticsVCViewController: UIViewController {
         data.addDataSet(line1) //Adds the line to the dataSet
         data.addDataSet(line2)
         data.addDataSet(line3)
+        data.addDataSet(line4)
+        data.addDataSet(line5)
+        data.addDataSet(line6)
         
         //it adds the chart data to the chart and causes an update
         lineChartView.data = data
