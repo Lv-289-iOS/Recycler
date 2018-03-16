@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9EG-g4-TWk">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -43,24 +43,24 @@
             <objects>
                 <viewController storyboardIdentifier="CatalogID" modalPresentationStyle="overCurrentContext" id="UbN-st-05L" customClass="RCLCatalogVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mzz-2C-Bkn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I5R-pp-M4R">
-                                <rect key="frame" x="0.0" y="61" width="320" height="507"/>
+                                <rect key="frame" x="0.0" y="61" width="375" height="606"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CatalogCell" rowHeight="100" id="oIm-tE-GWU" customClass="RCLCatalogTableViewCell" customModule="Recycler" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CatalogCell" rowHeight="100" id="oIm-tE-GWU" customClass="RCLCatalogTableViewCell" customModule="Recycler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oIm-tE-GWU" id="Ksu-z0-MwZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaz-Mg-gd3">
-                                                    <rect key="frame" x="15" y="5" width="290" height="89.5"/>
+                                                    <rect key="frame" x="15" y="5" width="345" height="89.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash_batteries" translatesAutoresizingMaskIntoConstraints="NO" id="ouv-W0-hih">
                                                             <rect key="frame" x="8" y="20" width="42" height="50"/>
@@ -70,7 +70,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="batteries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-1T-cKW">
-                                                            <rect key="frame" x="58" y="8" width="224" height="73.5"/>
+                                                            <rect key="frame" x="58" y="8" width="279" height="73.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -127,13 +127,13 @@
         <!--Add TrashVC-->
         <scene sceneID="qwF-4S-t64">
             <objects>
-                <viewController storyboardIdentifier="AddTrashPopUpID" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="XYH-22-ki8" customClass="RCLAddTrashVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTrashPopUpID" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" hidesBottomBarWhenPushed="YES" id="XYH-22-ki8" customClass="RCLAddTrashVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Dx-kg-Dqr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyN-DZ-C26">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -143,44 +143,44 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tx5-d3-YFl">
-                                <rect key="frame" x="16" y="156" width="288" height="316"/>
+                                <rect key="frame" x="16" y="156" width="343" height="415"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash_batteries" translatesAutoresizingMaskIntoConstraints="NO" id="goT-Xq-Ucq">
-                                        <rect key="frame" x="109" y="14" width="70" height="61"/>
+                                        <rect key="frame" x="136.5" y="14" width="70" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="5Qz-N4-eF4"/>
                                             <constraint firstAttribute="width" constant="70" id="OKx-DM-Z1A"/>
                                         </constraints>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J9x-yy-OUV">
-                                        <rect key="frame" x="0.0" y="116" width="288" height="146"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="116" width="343" height="245"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SizeTrashCell" id="ifE-y9-c2j" customClass="RCLSizeViewCell" customModule="Recycler" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ifE-y9-c2j" id="tfC-TY-cd2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-RJ-k7P">
-                                                            <rect key="frame" x="48" y="12" width="42" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L6T-nW-EMc">
-                                                            <rect key="frame" x="249" y="10" width="25" height="33"/>
+                                                            <rect key="frame" x="304" y="10" width="25" height="33"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="33" id="L42-50-IIF"/>
                                                                 <constraint firstAttribute="width" constant="25" id="gu3-2I-AQ6"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-RJ-k7P">
+                                                            <rect key="frame" x="103" y="12" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tw1-cp-xdL">
-                                                            <rect key="frame" x="95" y="0.0" width="183" height="44"/>
+                                                            <rect key="frame" x="150" y="0.0" width="183" height="44"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -212,10 +212,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LocationTrashCell" id="PyC-8v-AC1" customClass="RCLLocationViewCell" customModule="Recycler" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="72" width="288" height="44"/>
+                                                <rect key="frame" x="0.0" y="72" width="343" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PyC-8v-AC1" id="tK5-Vt-0Cv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiC-0u-xpI">
@@ -255,7 +255,7 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="batteries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8L-af-7aR">
-                                        <rect key="frame" x="109" y="83" width="68" height="20.5"/>
+                                        <rect key="frame" x="136.5" y="83" width="68" height="20.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="W7F-dn-yvF"/>
@@ -265,7 +265,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPZ-HB-9VO">
-                                        <rect key="frame" x="9" y="270" width="270" height="30"/>
+                                        <rect key="frame" x="9" y="369" width="325" height="30"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Order Trash">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -311,38 +311,27 @@
                         <outlet property="trashTableView" destination="J9x-yy-OUV" id="Oa1-DR-0p0"/>
                         <outlet property="typeOfTrashImage" destination="goT-Xq-Ucq" id="bXl-Ac-gdU"/>
                         <outlet property="typeOfTrashLabel" destination="u8L-af-7aR" id="PL1-Nt-W5V"/>
-                        <segue destination="o1D-KM-k9S" kind="show" identifier="AddTrashLocationSegue" id="euO-z9-9wf"/>
+                        <segue destination="o1D-KM-k9S" kind="show" identifier="AddTrashLocationSegue" animates="NO" id="euO-z9-9wf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lux-zi-HaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.625" y="10.56338028169014"/>
+            <point key="canvasLocation" x="1039.2" y="10.344827586206897"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="YW2-dq-eTF">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="o1D-KM-k9S" customClass="RCLAddTrashLocationVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="o1D-KM-k9S" customClass="RCLAddTrashLocationVC" customModule="Recycler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F4A-Sr-kEx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6n-ac-0ON" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTG-L8-1Rx" userLabel="my Location Btn">
-                                <rect key="frame" x="250" y="438" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="6x8-eP-Aob"/>
-                                    <constraint firstAttribute="height" constant="50" id="gKD-vv-Fcy"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="myLocation"/>
-                                <connections>
-                                    <action selector="myLocationBtn:" destination="o1D-KM-k9S" eventType="touchUpInside" id="spZ-va-zJP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMq-FP-07T">
-                                <rect key="frame" x="20" y="508" width="280" height="40"/>
+                                <rect key="frame" x="20" y="607" width="335" height="40"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wcA-1E-r0S"/>
@@ -359,11 +348,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gsv-f2-Fzm" firstAttribute="bottom" secondItem="gMq-FP-07T" secondAttribute="bottom" constant="20" id="2y2-IO-CZe"/>
-                            <constraint firstItem="Gsv-f2-Fzm" firstAttribute="trailing" secondItem="vTG-L8-1Rx" secondAttribute="trailing" constant="20" id="BMc-C9-WKe"/>
                             <constraint firstItem="X6n-ac-0ON" firstAttribute="trailing" secondItem="Gsv-f2-Fzm" secondAttribute="trailing" id="JPH-7r-7YK"/>
                             <constraint firstItem="gMq-FP-07T" firstAttribute="leading" secondItem="Gsv-f2-Fzm" secondAttribute="leading" constant="20" id="Lm8-CR-WXP"/>
                             <constraint firstItem="X6n-ac-0ON" firstAttribute="top" secondItem="F4A-Sr-kEx" secondAttribute="top" id="QgJ-bl-f6t"/>
-                            <constraint firstItem="gMq-FP-07T" firstAttribute="top" secondItem="vTG-L8-1Rx" secondAttribute="bottom" constant="20" id="Yrk-9p-Obz"/>
                             <constraint firstItem="X6n-ac-0ON" firstAttribute="bottom" secondItem="Gsv-f2-Fzm" secondAttribute="bottom" id="b9H-T0-DZC"/>
                             <constraint firstItem="X6n-ac-0ON" firstAttribute="leading" secondItem="Gsv-f2-Fzm" secondAttribute="leading" id="kEG-aD-rmo"/>
                             <constraint firstItem="Gsv-f2-Fzm" firstAttribute="trailing" secondItem="gMq-FP-07T" secondAttribute="trailing" constant="20" id="vP3-dB-B7z"/>
@@ -390,7 +377,6 @@
     </scenes>
     <resources>
         <image name="catalog" width="25" height="19"/>
-        <image name="myLocation" width="240" height="240"/>
         <image name="trash_batteries" width="22" height="41"/>
     </resources>
 </document>
