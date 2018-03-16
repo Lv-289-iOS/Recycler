@@ -107,7 +107,7 @@ class RCLDashboardVC: UIViewController {
         
         if plastic > 0
         {
-            let slice = PieSliceModel(value: Double(plastic), color: UIColor..Charts.Color0, obj: RCLTrashType.plastic)
+            let slice = PieSliceModel(value: Double(plastic), color: UIColor.Charts.Color0, obj: RCLTrashType.plastic)
               slices.append(slice)
         }
         
