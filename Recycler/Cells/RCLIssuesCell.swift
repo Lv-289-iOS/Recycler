@@ -15,10 +15,7 @@ class RCLIssuesCell: UITableViewCell {
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var viewContainer: UIView!
-    @IBOutlet weak var button: UIButton!
-    @IBAction func btn(_ sender: UIButton) {
-        
-    }
+
     var trashCan = TrashCan()
     var trash = Trash()
     var user = User()
@@ -58,8 +55,7 @@ class RCLIssuesCell: UITableViewCell {
         self.location.text = forCan.address
         self.size.text = sizeName
         self.phoneNumber.text = forUser.phoneNumber
-        self.button.backgroundColor = UIColor.Backgrounds.GrayLight
-        self.button.layer.cornerRadius = CGFloat.Design.CornerRadius
+    
     }
     
     func colorsSetup() {
