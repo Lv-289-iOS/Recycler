@@ -26,8 +26,21 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     @IBOutlet weak var backButtonOutlet: UIButton!
     @IBOutlet weak var loginButtonOutlet: UIButton!
     
-    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
+    @IBAction func loginButton(_ sender: UIButton) {
+        if validator {
+            authentificator.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
+        } else {
+            alert(text: "please, fill all fields correctly")
+        }
+    }
     
+    @IBAction func backButton(_ sender: UIButton) {
+        if self.navigationController?.popToRootViewController(animated: true) == nil {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
     var formatter = RCLFormatter()
     var authentificator = RCLAuthentificator()
     var isAllFieldsValid = true
@@ -36,7 +49,6 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     var passwordImage = #imageLiteral(resourceName: "padlock")
     var phoneImage = #imageLiteral(resourceName: "phone-call")
     var emailImage = #imageLiteral(resourceName: "envelope")
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +67,6 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         confirmationPasswordTextField.delegate = self
         phoneTextField.delegate = self
         emailTextField.delegate = self
-        
     }
     
     func styleViews() {
@@ -89,11 +100,21 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         emailTextField.styleTextField()
     }
     
-    @IBAction func loginButton(_ sender: UIButton) {
-        if validator {
-            authentificator.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
-        } else {
-            alert(text: "please, fill all fields correctly")
+    var validator: Bool {
+        get {
+            styleTextField()
+            var isAllFieldsValid: Bool = true
+            isAllFieldsValid = isAllFieldsValid && nameTextField.valid
+            isAllFieldsValid = isAllFieldsValid && lastNameTextField.valid
+            isAllFieldsValid = isAllFieldsValid && passwordTextField.valid
+            isAllFieldsValid = isAllFieldsValid && confirmationPasswordTextField.valid
+            isAllFieldsValid = isAllFieldsValid && phoneTextField.valid
+            isAllFieldsValid = isAllFieldsValid && emailTextField.valid
+            if confirmationPasswordTextField.text != passwordTextField.text {
+                confirmationPasswordTextField.backgroundColor = UIColor.TextFieldBackGrounds.BackgroundForFalse
+                isAllFieldsValid = false
+            }
+            return isAllFieldsValid
         }
     }
     
@@ -116,30 +137,6 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
             if let tabBar = segue.destination as? UITabBarController {
                 tabBar.selectedIndex = 4
             }
-        }
-    }
-    
-    @IBAction func backButton(_ sender: UIButton) {
-        if self.navigationController?.popToRootViewController(animated: true) == nil {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    var validator: Bool {
-        get {
-            styleTextField()
-            var isAllFieldsValid: Bool = true
-            isAllFieldsValid = isAllFieldsValid && nameTextField.valid
-            isAllFieldsValid = isAllFieldsValid && lastNameTextField.valid
-            isAllFieldsValid = isAllFieldsValid && passwordTextField.valid
-            isAllFieldsValid = isAllFieldsValid && confirmationPasswordTextField.valid
-            isAllFieldsValid = isAllFieldsValid && phoneTextField.valid
-            isAllFieldsValid = isAllFieldsValid && emailTextField.valid
-            if confirmationPasswordTextField.text != passwordTextField.text {
-                confirmationPasswordTextField.backgroundColor = UIColor.TextFieldBackGrounds.BackgroundForFalse
-                isAllFieldsValid = false
-            }
-            return isAllFieldsValid
         }
     }
 }

@@ -15,13 +15,13 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    lazy var egg = EasterEgg()
+    lazy var game = GameVC()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirestoreService.shared.configure()
-        GMSServices.provideAPIKey("AIzaSyDxWzwu4uTys2yrDIbTLBP4683LR7r6X2g")
-        GMSPlacesClient.provideAPIKey("AIzaSyDxWzwu4uTys2yrDIbTLBP4683LR7r6X2g")
+        GMSServices.provideAPIKey("AIzaSyCWcSYlAdJoreGdTvPK5poq0BH9k1TIGmM")
+        GMSPlacesClient.provideAPIKey("AIzaSyCWcSYlAdJoreGdTvPK5poq0BH9k1TIGmM")
         UIApplication.shared.statusBarStyle = .lightContent
         return true
     }

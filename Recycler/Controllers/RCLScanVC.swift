@@ -18,7 +18,7 @@ enum ScanStatus: String {
 }
 
 struct QrConstants {
-    static var codePrefix = "trashCanID:" // QR code format is "trashCanID: UUID"
+    static var codePrefix = "trashCanID:" // QR code format is "trashCanID:UUID"
 }
 
 extension UIView {
@@ -64,13 +64,13 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                 visualEffectView.isHidden = false
             case .notYours:
                 setTrashIsFullBtnEnabled(false)
-                visualEffectView.isHidden = false
+                visualEffectView.isHidden = true
             case .alreadyFull:
                 setTrashIsFullBtnEnabled(false)
                 visualEffectView.isHidden = false
             case .correct:
                 setTrashIsFullBtnEnabled(true)
-                visualEffectView.isHidden = true
+                visualEffectView.isHidden = false
             }
         }
     }
@@ -100,8 +100,6 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         trashIsFullBtn.backgroundColor = UIColor.Button.backgroundColor
         trashIsFullBtn.setTitleColor(UIColor.Button.titleColor, for: .normal)
         trashIsFullBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
-        //button.layer.borderWidth = 1
-        //button.layer.borderColor = UIColor.black.cgColor
         addTitleLabel(text: "Scan to report")
         setTrashIsFullBtnEnabled(false)
         scanStatus = .redyToScan
@@ -146,15 +144,14 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             captureSession.addOutput(metadataOutput)
             
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.qr] // metadataOutput.availableMetadataObjectTypes
-            // TODO: metadataOutput.rectOfInterest
+            metadataOutput.metadataObjectTypes = [.qr]
         } else {
             print("Could not add metadata output")
         }
     }
     
+    // Informs the delegate when a code is read
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        // This is the delegate's method that is called when a code is read
         for metadata in metadataObjects {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
@@ -173,6 +170,10 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         if scanStatus != newScanStatus {
            scanStatus = newScanStatus
         }
+        
+        if let trashCan = trashCanToReport {
+            explainationLabel.text = trashCan.type
+        }
     }
     
     func getScanStatusForQR(_ qrCode: String) -> ScanStatus {
@@ -183,11 +184,12 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             result = .wrong
         } else {
             if let trashCan = getUserTrashCanBy(id: qrCode) {
+                trashCanToReport = trashCan
+                
                 if trashCan.isFull {
                     result = .alreadyFull
                 } else {
                     result = .correct
-                    trashCanToReport = trashCan
                 }
             }
             else {
@@ -198,7 +200,7 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func isQrCodeBelongsToApp(_ qrCode: String) -> Bool {
-        return qrCode.hasPrefix(QrConstants.codePrefix) // QR code format is "trashCanID: UUID"
+        return qrCode.hasPrefix(QrConstants.codePrefix)
     }
     
     func getUserTrashCanBy(id: String) -> TrashCan? {
@@ -211,8 +213,6 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         }
         return nil;
     }
-    
-    // MARK: New code
     
     private func getTrashCans(forUser: User) {
         guard let userId = forUser.id else {
@@ -233,11 +233,9 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     var trash = Trash(trashCanId: trashCanId, userIdReportedFull: currentUserId)
                     trash.dateReportedFull = Date()
                     FirestoreService.shared.add(for: trash, in: .trash)
-                    // TODO: Update the button state here!!!
                 }
             }
         }
     }
-    
     
 }

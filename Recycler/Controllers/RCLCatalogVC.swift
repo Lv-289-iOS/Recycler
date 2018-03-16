@@ -11,6 +11,7 @@ import UIKit
 class RCLCatalogVC: UIViewController {
     
     private var trashImage: UIImage!
+    
     private var trashLabel: String!
     
     private let trashLabels = ["paper","glass","metal","plastic","organic","batteries"]
@@ -78,7 +79,6 @@ extension RCLCatalogVC: UITableViewDataSource {
         designOfCell(cell: cell)
         cell.catalogImageView.image = trashImages[indexPath.row]
         cell.catalogLabel.text = trashLabels[indexPath.row]
-        
         return cell
     }
 }
