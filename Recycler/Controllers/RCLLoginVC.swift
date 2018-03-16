@@ -9,20 +9,16 @@
 import UIKit
 
 class RCLLoginVC: UIViewController, AuthServiceDelegate {
-
+    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInOutlet: UIButton!
     @IBOutlet weak var signUpOutlet: UIButton!
-    var image = #imageLiteral(resourceName: "logo")
     
-    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
-
     @IBAction func signInButton(_ sender: Any) {
         guard let login = loginTextField.text else {return}
         guard let password = passwordTextField.text else {return}
-        
         authentificator.login(login: login, password: password)
     }
     
@@ -30,23 +26,34 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         performSegue(withIdentifier: "ToSignUp", sender: self)
     }
     
-
-//    var styler = RCLStyler()
     var authentificator = RCLAuthentificator()
     var users = [User]()
+    var image = #imageLiteral(resourceName: "logo")
+    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
-        authentificator.delegate = self
+        delegates()
+        styles()
         self.hideKeyboardOnTap(#selector(self.dismissKeyboard))
-        signInOutlet.styleButton()
-        signUpOutlet.styleButton()
-//        styler.styleButton(button: signInOutlet)
-//        styler.styleButton(button: signUpOutlet)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        authentificator.isAUserActive()
+    }
+    
+    func delegates() {
+        authentificator.delegate = self
         loginTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    func styles() {
+        signInOutlet.styleButton()
+        signUpOutlet.styleButton()
         loginTextField.textType = .emailAddress
         passwordTextField.textType = .password
         loginTextField.initialStyler()
@@ -58,11 +65,6 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         customAlert.modalPresentationStyle = .overCurrentContext
         present(customAlert, animated: true, completion: nil)
         customAlert.errorTextLabel?.text = text
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
-        authentificator.isAUserActive()
     }
     
     func transitionToCust() {
@@ -98,3 +100,4 @@ extension RCLLoginVC: UITextFieldDelegate {
         view.endEditing(true)
     }
 }
+
