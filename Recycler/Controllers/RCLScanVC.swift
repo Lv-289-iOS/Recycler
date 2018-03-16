@@ -64,13 +64,13 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                 visualEffectView.isHidden = false
             case .notYours:
                 setTrashIsFullBtnEnabled(false)
-                visualEffectView.isHidden = false
+                visualEffectView.isHidden = true
             case .alreadyFull:
                 setTrashIsFullBtnEnabled(false)
                 visualEffectView.isHidden = false
             case .correct:
                 setTrashIsFullBtnEnabled(true)
-                visualEffectView.isHidden = true
+                visualEffectView.isHidden = false
             }
         }
     }
@@ -170,6 +170,10 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         if scanStatus != newScanStatus {
            scanStatus = newScanStatus
         }
+        
+        if let trashCan = trashCanToReport {
+            explainationLabel.text = trashCan.type
+        }
     }
     
     func getScanStatusForQR(_ qrCode: String) -> ScanStatus {
@@ -180,11 +184,12 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             result = .wrong
         } else {
             if let trashCan = getUserTrashCanBy(id: qrCode) {
+                trashCanToReport = trashCan
+                
                 if trashCan.isFull {
                     result = .alreadyFull
                 } else {
                     result = .correct
-                    trashCanToReport = trashCan
                 }
             }
             else {
