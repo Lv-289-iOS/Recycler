@@ -21,7 +21,7 @@ class RCLAddTrashLocationVC: UIViewController {
     private var trashLocation = TrashLocation()
     private var marker = GMSMarker()
     private var geocoder = GMSGeocoder()
-
+    
     @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet weak var addLocationBtn: UIButton!
@@ -34,7 +34,6 @@ class RCLAddTrashLocationVC: UIViewController {
                 self.trashLocation.latitude = self.marker.position.latitude
                 self.trashLocation.longitude = self.marker.position.longitude
                 self.completeAddingLocation()
-                print(self.trashLocation)
             }
         }
         _ = navigationController?.popViewController(animated: true)
@@ -60,12 +59,15 @@ class RCLAddTrashLocationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewDesign()
-        customizeMap()
         mapView.delegate = self
-        mapView.settings.myLocationButton = true
-        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 10)
         locationManager.delegate = self
+        viewDesign()
+        loadMap()
+        customizeMap()
+    }
+    
+    private func loadMap() {
+        mapView.settings.myLocationButton = true
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -73,7 +75,6 @@ class RCLAddTrashLocationVC: UIViewController {
         if let locationOfMarker = locationManager.location {
             userLocation = locationOfMarker
             marker.position = userLocation.coordinate
-            print(userLocation.coordinate)
             marker.map = mapView
             animateCameraTo(coordinate: userLocation.coordinate)
         }
@@ -82,12 +83,13 @@ class RCLAddTrashLocationVC: UIViewController {
     private func completeAddingLocation() {
         trashLocationDelegate?.setLocation(location: trashLocation)
     }
-
+    
     private func viewDesign() {
         addLocationBtn.backgroundColor = UIColor.darkModeratePink
         addLocationBtn.layer.cornerRadius = CGFloat.Design.CornerRadius
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 10)
     }
-
+    
     private func customizeMap() {
         do {
             if let styleURL = Bundle.main.url(forResource: "RCLMapStyle", withExtension: "json")
@@ -101,24 +103,9 @@ class RCLAddTrashLocationVC: UIViewController {
         }
     }
     
-    private func animateCameraTo(coordinate: CLLocationCoordinate2D, zoom: Float = 14.0) {
+    private func animateCameraTo(coordinate: CLLocationCoordinate2D, zoom: Float = 16.0) {
         let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: zoom)
         mapView.animate(to: camera)
-    }
-}
-extension RCLAddTrashLocationVC: GMSAutocompleteViewControllerDelegate {
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        animateCameraTo(coordinate: place.coordinate, zoom: 15.0)
-        self.dismiss(animated: true, completion: nil) // dismiss after select place
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        print("ERROR AUTO COMPLETE \(error)")
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        self.dismiss(animated: true, completion: nil) // when cancel search
     }
 }
 
@@ -126,7 +113,35 @@ extension RCLAddTrashLocationVC: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         marker.position = coordinate
-        animateCameraTo(coordinate: coordinate, zoom: 14.0)
+        animateCameraTo(coordinate: coordinate)
+    }
+    
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        marker.position = userLocation.coordinate
+        animateCameraTo(coordinate: userLocation.coordinate)
+        return true
+    }
+}
+
+extension RCLAddTrashLocationVC: GMSAutocompleteViewControllerDelegate {
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        mapView.reloadInputViews()
+        mapView.clear()
+        animateCameraTo(coordinate: place.coordinate)
+        let lat = place.coordinate.latitude
+        let long = place.coordinate.longitude
+        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        marker.map = mapView
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print("ERROR AUTO COMPLETE \(error)")
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
