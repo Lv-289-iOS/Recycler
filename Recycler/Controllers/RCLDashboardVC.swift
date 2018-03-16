@@ -76,7 +76,7 @@ class RCLDashboardVC: UIViewController {
     }
     
 
-    fileprivate func createModels() -> [PieSliceModel] {
+    private func createModels() -> [PieSliceModel] {
 
         var slices = [PieSliceModel]()
         var plastic = 0
@@ -107,40 +107,34 @@ class RCLDashboardVC: UIViewController {
         
         if plastic > 0
         {
-//            let slice = PieSliceModel(value: Double(plastic), color: UIColor.yellow, obj: RCLTrashType.plastic)
-            let slice = PieSliceModel(value: Double(plastic), color: UIColor.Charts.Color0, obj: RCLTrashType.plastic)
+            let slice = PieSliceModel(value: Double(plastic), color: UIColor.yellow, obj: RCLTrashType.plastic)
               slices.append(slice)
         }
         
         if metal > 0
         {
-//            let slice = PieSliceModel(value: Double(metal), color: UIColor.green, obj: RCLTrashType.metal)
-            let slice = PieSliceModel(value: Double(metal), color: UIColor.Charts.Color1, obj: RCLTrashType.metal)
+            let slice = PieSliceModel(value: Double(metal), color: UIColor.green, obj: RCLTrashType.metal)
             slices.append(slice)
         }
         
         if organic > 0
         {
-//            let slice = PieSliceModel(value: Double(organic), color: UIColor.orange, obj: RCLTrashType.organic)
-            let slice = PieSliceModel(value: Double(organic), color: UIColor.Charts.Color2, obj: RCLTrashType.organic)
+            let slice = PieSliceModel(value: Double(organic), color: UIColor.orange, obj: RCLTrashType.organic)
             slices.append(slice)
         }
         if batteries > 0
         {
-//            let slice = PieSliceModel(value: Double(batteries), color: UIColor.purple, obj: RCLTrashType.batteries)
-            let slice = PieSliceModel(value: Double(batteries), color: UIColor.Charts.Color3, obj: RCLTrashType.batteries)
+            let slice = PieSliceModel(value: Double(batteries), color: UIColor.purple, obj: RCLTrashType.batteries)
             slices.append(slice)
         }
         if glass > 0
         {
-//             let slice = PieSliceModel(value: Double(glass), color: UIColor.white, obj: RCLTrashType.glass)
-            let slice = PieSliceModel(value: Double(glass), color: UIColor.Charts.Color4, obj: RCLTrashType.glass)
+             let slice = PieSliceModel(value: Double(glass), color: UIColor.white, obj: RCLTrashType.glass)
             slices.append(slice)
         }
         if paper > 0
         {
-//            let slice = PieSliceModel(value: Double(paper), color: UIColor.blue, obj: RCLTrashType.paper)
-             let slice = PieSliceModel(value: Double(paper), color: UIColor.Charts.Color5, obj: RCLTrashType.paper)
+            let slice = PieSliceModel(value: Double(paper), color: UIColor.blue, obj: RCLTrashType.paper)
             slices.append(slice)
         }
         return slices
@@ -148,7 +142,7 @@ class RCLDashboardVC: UIViewController {
     
     //  MARK: - Layers
     
-    fileprivate func createCustomViewsLayer() -> PieCustomViewsLayer {
+    private func createCustomViewsLayer() -> PieCustomViewsLayer {
         
         let viewLayer = PieCustomViewsLayer()
         
@@ -162,7 +156,7 @@ class RCLDashboardVC: UIViewController {
         return viewLayer
     }
     
-    fileprivate func createTextLayer() -> PiePlainTextLayer {
+    private func createTextLayer() -> PiePlainTextLayer {
         let textLayerSettings = PiePlainTextLayerSettings()
         textLayerSettings.viewRadius = 75
         textLayerSettings.hideOnOverflow = true
@@ -179,7 +173,7 @@ class RCLDashboardVC: UIViewController {
         return textLayer
     }
     
-    fileprivate func createViewGenerator() -> (PieSlice, CGPoint) -> UIView {
+    private func createViewGenerator() -> (PieSlice, CGPoint) -> UIView {
         return
             
             {
@@ -191,20 +185,6 @@ class RCLDashboardVC: UIViewController {
             let view = UIImageView()
             view.frame = CGRect(x: 30, y: 0, width: 40, height: 40)
             container.addSubview(view)
-            
-            if slice.data.id == 3 || slice.data.id == 0 {
-                let specialTextLabel = UILabel()
-                specialTextLabel.textAlignment = .center
-                if slice.data.id == 0 {
-                    specialTextLabel.font = UIFont.boldSystemFont(ofSize: 18)
-                } else if slice.data.id == 3 {
-                    specialTextLabel.textColor = UIColor.blue
-                }
-                specialTextLabel.sizeToFit()
-                specialTextLabel.frame = CGRect(x: 0, y: 40, width: 100, height: 20)
-                container.addSubview(specialTextLabel)
-                container.frame.size = CGSize(width: 100, height: 60)
-            }
             
                  let imageName: String? = {
                 if let temp = slice.data.model.obj {
