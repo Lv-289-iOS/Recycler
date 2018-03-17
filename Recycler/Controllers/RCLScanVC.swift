@@ -155,7 +155,6 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         for metadata in metadataObjects {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
-                dismiss(animated: true)
                 updateGUIForQR(code)
             }
         }
