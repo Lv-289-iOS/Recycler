@@ -135,8 +135,8 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.frame = view.bounds
         view.layer.addSublayer(videoPreviewLayer)
-        view.addSubview(visualEffectView)
-        view.addSubview(trashIsFullBtn)
+        view.bringSubview(toFront: visualEffectView)
+        view.bringSubview(toFront: trashIsFullBtn)
         
         let metadataOutput = AVCaptureMetadataOutput()
         
