@@ -135,9 +135,14 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.frame = view.bounds
         view.layer.addSublayer(videoPreviewLayer)
+
         //view.bringSubview(toFront: <#T##UIView#>)
         view.addSubview(visualEffectView)
         view.addSubview(trashIsFullBtn)
+
+        view.bringSubview(toFront: visualEffectView)
+        view.bringSubview(toFront: trashIsFullBtn)
+
         
         let metadataOutput = AVCaptureMetadataOutput()
         
@@ -156,7 +161,6 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         for metadata in metadataObjects {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
-                dismiss(animated: true)
                 updateGUIForQR(code)
             }
         }
