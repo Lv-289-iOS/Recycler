@@ -78,7 +78,7 @@ class RCLDashboardVC: UIViewController {
 
     private func createModels() -> [PieSliceModel] {
 
-        var slices = [PieSliceModel]()
+        //var slices = [PieSliceModel]()
         var plastic = 0
         var metal = 0
         var organic = 0
@@ -105,39 +105,14 @@ class RCLDashboardVC: UIViewController {
             }
     }
         
-        if plastic > 0
-        {
-            let slice = PieSliceModel(value: Double(plastic), color: UIColor.Charts.Color0, obj: RCLTrashType.plastic)
-              slices.append(slice)
-        }
+        let materials  = [plastic, metal, organic, batteries, glass, paper]
         
-        if metal > 0
-        {
-            let slice = PieSliceModel(value: Double(metal), color: UIColor.Charts.Color1, obj: RCLTrashType.metal)
-            slices.append(slice)
+        let colors = [UIColor.Charts.Color0, UIColor.Charts.Color1, UIColor.Charts.Color2, UIColor.Charts.Color3, UIColor.Charts.Color4, UIColor.Charts.Color5]
+
+            return zip(materials, colors).flatMap { $0.0 > 0 ?
+            PieSliceModel(value: Double($0.0), color: $0.1) : nil
         }
-        
-        if organic > 0
-        {
-            let slice = PieSliceModel(value: Double(organic), color: UIColor.Charts.Color2, obj: RCLTrashType.organic)
-            slices.append(slice)
-        }
-        if batteries > 0
-        {
-            let slice = PieSliceModel(value: Double(batteries), color: UIColor.Charts.Color3, obj: RCLTrashType.batteries)
-            slices.append(slice)
-        }
-        if glass > 0
-        {
-             let slice = PieSliceModel(value: Double(glass), color: UIColor.Charts.Color4, obj: RCLTrashType.glass)
-            slices.append(slice)
-        }
-        if paper > 0
-        {
-            let slice = PieSliceModel(value: Double(paper), color: UIColor.Charts.Color5, obj: RCLTrashType.paper)
-            slices.append(slice)
-        }
-        return slices
+
 }
     
     //  MARK: - Layers
@@ -185,29 +160,30 @@ class RCLDashboardVC: UIViewController {
             let view = UIImageView()
             view.frame = CGRect(x: 30, y: 0, width: 40, height: 40)
             container.addSubview(view)
-            
-                 let imageName: String? = {
-                if let temp = slice.data.model.obj {
-                    print(temp)
-                    switch temp {
-                    case RCLTrashType.plastic:
-                        return "trash_plastic"
-                    case RCLTrashType.glass:
-                        return "trash_glass"
-                    case RCLTrashType.metal:
-                        return "trash_metal"
-                    case RCLTrashType.organic:
-                        return "trash_organic"
-                    case RCLTrashType.paper:
-                        return "trash_paper"
-                    case RCLTrashType.batteries:
-                        return "trash_batteries"
-                    default:
-                        return nil
+
+               let imageName: String? = {
+                    let temp = slice.data.model.color
+                        print(temp)
+                        switch temp {
+                        case UIColor.Charts.Color0:
+                            return "trash_plastic"
+                        case UIColor.Charts.Color1:
+                            return "trash_glass"
+                        case UIColor.Charts.Color2:
+                            return "trash_metal"
+                        case UIColor.Charts.Color3:
+                            return "trash_organic"
+                        case UIColor.Charts.Color4:
+                            return "trash_paper"
+                        case UIColor.Charts.Color5:
+                            return "trash_batteries"
+                        default:
+                            return nil
+                        
                     }
-                }
-                    return nil
+                
                 }()
+
 
             view.image = imageName.flatMap{UIImage(named: $0)}
             view.contentMode = .scaleAspectFit

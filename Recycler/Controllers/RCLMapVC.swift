@@ -46,18 +46,23 @@ class RCLMapVC: UIViewController {
     private func addMarkers(){
         let parsed = RLCParsingByJSON()
         parsed.temp { (trashList, error) in
-            if error == nil {
-                for trash in trashList! {
-                    let markerImage = #imageLiteral(resourceName: "smallPin")
-                    let marker = GMSMarker()
-                    marker.position = trash.coordinate
-                    marker.title = trash.nameInJson
-                    marker.snippet = "Кількість смітників: \(trash.numberOfRaffleInJson)"
-                    marker.icon = markerImage//GMSMarker.markerImage(with: .red)
-                    marker.map = self.view as? GMSMapView
-                    
-                }
-            }
+            
+            let marker = GMSMarker()
+            let pos = CLLocationCoordinate2D(latitude: 49.839734, longitude: 24.036009)
+            marker.position = pos
+            marker.map = self.view as? GMSMapView
+//            if error == nil {
+//                for trash in trashList! {
+//                    let markerImage = #imageLiteral(resourceName: "smallPin")
+//                    let marker = GMSMarker()
+//                    marker.position = trash.coordinate
+//                    marker.title = trash.nameInJson
+//                    marker.snippet = "Кількість смітників: \(trash.numberOfRaffleInJson)"
+//                    marker.icon = markerImage//GMSMarker.markerImage(with: .red)
+//                    marker.map = self.view as? GMSMapView
+//
+//                }
+//            }
             
             print("TrashCount \(String(describing: trashList?.count)) error: \(String(describing: error))")
 }
