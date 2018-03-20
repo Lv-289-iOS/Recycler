@@ -34,7 +34,7 @@ extension UIColor {
     struct TextFieldBackGrounds {
         static var BackgroundForFalse: UIColor { return UIColor(red:0.75, green:0.10, blue:0.10, alpha:1.0) }
     }
-    struct Charts {
+    enum Charts {
         static var Color0: UIColor  { return UIColor(red:0.633, green:0.786, blue:0.333, alpha:1.0) }
         static var Color1: UIColor  { return UIColor(red:0.310, green:0.680, blue:0.545, alpha:1.0) }
         static var Color2: UIColor  { return UIColor(red:0.864, green:0.351, blue:0.600, alpha:1.0) }

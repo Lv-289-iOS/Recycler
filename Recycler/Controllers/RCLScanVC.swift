@@ -18,7 +18,7 @@ enum ScanStatus: String {
 }
 
 struct QrConstants {
-    static var codePrefix = "trashCanID:" // QR code format is "trashCanID:UUID"
+    static let codePrefix = "trashCanID:" // QR code format is "trashCanID:UUID"
 }
 
 extension UIView {
@@ -135,8 +135,14 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.frame = view.bounds
         view.layer.addSublayer(videoPreviewLayer)
+
+        //view.bringSubview(toFront: <#T##UIView#>)
         view.addSubview(visualEffectView)
         view.addSubview(trashIsFullBtn)
+
+        view.bringSubview(toFront: visualEffectView)
+        view.bringSubview(toFront: trashIsFullBtn)
+
         
         let metadataOutput = AVCaptureMetadataOutput()
         
@@ -155,7 +161,6 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         for metadata in metadataObjects {
             if let readableObject = metadata as? AVMetadataMachineReadableCodeObject,
                 let code = readableObject.stringValue {
-                dismiss(animated: true)
                 updateGUIForQR(code)
             }
         }
@@ -204,14 +209,10 @@ class RCLScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func getUserTrashCanBy(id: String) -> TrashCan? {
-        for trashCan in userTrashCans {
-            if let curTrashCanId = trashCan.id {
-                if id.range(of: curTrashCanId) != nil {
-                    return trashCan
-                }
-            }
+        userTrashCans.filter { (trashCan) -> Bool in
+             return true//(trashCan.id, id.range(of: trashCan.id!) != nil)
         }
-        return nil;
+        return nil
     }
     
     private func getTrashCans(forUser: User) {

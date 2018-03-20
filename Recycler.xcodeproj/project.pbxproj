@@ -174,12 +174,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1B2D07A720572639007A56CB /* JasonParsing */ = {
+		1B2D07A720572639007A56CB /* JSONParsing */ = {
 			isa = PBXGroup;
 			children = (
 				1B2D07AA2057B3C4007A56CB /* RCLParsingByJSON.swift */,
 			);
-			path = JasonParsing;
+			path = JSONParsing;
 			sourceTree = "<group>";
 		};
 		4BAB4D4C204D47AE0005C16B /* Cells */ = {
@@ -230,7 +230,7 @@
 			children = (
 				6F8CF68D2058595E00AF8AE9 /* TrashLocation.swift */,
 				6F8CF68E2058595E00AF8AE9 /* TrashLocationDelegate.swift */,
-				1B2D07A720572639007A56CB /* JasonParsing */,
+				1B2D07A720572639007A56CB /* JSONParsing */,
 				19338E032046D34E007BD6E3 /* GoogleService-Info.plist */,
 				630020DC204EAD4F002E7D89 /* Colors.swift */,
 				630020E4204EB852002E7D89 /* Constants.swift */,
