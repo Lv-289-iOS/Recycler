@@ -20,43 +20,52 @@ class RCLAuthentificator {
     weak var delegate: AuthServiceDelegate?
     
     func createUser(userName: String, userLastName: String, email: String, phone: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) {[weak self] (user, error) in
             if error == nil {
                 let user = User(firstName: userName, lastName: userLastName, email: email, password: password, phoneNumber: phone, role: .cust)
                 FirestoreService.shared.add(for: user, in: .users)
-                self.delegate?.transitionToCust()
+                guard let weakSelf = self else {
+                    return
+                }
+                weakSelf.delegate?.transitionToCust()
             } else {
-                self.delegate?.alert(text: (error?.localizedDescription)!)
+                self?.delegate?.alert(text: (error?.localizedDescription)!)
             }
         }
     }
     
     func login(login: String, password: String) {
-        Auth.auth().signIn(withEmail: login, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: login, password: password) {[weak self] (user, error) in
             if error == nil {
                 FirestoreService.shared.getUserBy(email: login, completion: { (user) in
                     if let tempUser = user {
+                        guard let weakSelf = self else {
+                            return
+                        }
                         if tempUser.role == RCLUserRole.empl.rawValue {
-                            self.delegate?.transitionToEmpl()
+                            weakSelf.delegate?.transitionToEmpl()
                         } else {
-                            self.delegate?.transitionToCust()
+                            weakSelf.delegate?.transitionToCust()
                         }
                     }
                 })
             } else {
-                self.delegate?.alert(text: "wrong credentials")
+                self?.delegate?.alert(text: "wrong credentials")
             }
         }
     }
     
     func isAUserActive() {
         if Auth.auth().currentUser != nil {
-            FirestoreService.shared.getUserBy(email: (Auth.auth().currentUser?.email)!, completion: { (user) in
+            FirestoreService.shared.getUserBy(email: (Auth.auth().currentUser?.email)!, completion: {[weak self] (user) in
                 if let tempUser = user {
+                    guard let weakSelf = self else {
+                        return
+                    }
                     if tempUser.role == RCLUserRole.empl.rawValue {
-                        self.delegate?.transitionToEmpl()
+                        weakSelf.delegate?.transitionToEmpl()
                     } else {
-                        self.delegate?.transitionToCust()
+                        weakSelf.delegate?.transitionToCust()
                     }
                 }
             })
