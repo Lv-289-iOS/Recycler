@@ -24,6 +24,10 @@
 		19F5AF0720493ADA00ADF338 /* RCLFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5AF0620493ADA00ADF338 /* RCLFirestoreService.swift */; };
 		1B2D07AB2057B3C4007A56CB /* RCLParsingByJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D07AA2057B3C4007A56CB /* RCLParsingByJSON.swift */; };
 		1B548D81205AED9C001AC38E /* RCLStatisticsVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B548D80205AED9C001AC38E /* RCLStatisticsVCViewController.swift */; };
+		4B9EFCBC20613D8F00D28D42 /* Heatmap in Resources */ = {isa = PBXBuildFile; fileRef = 4B9EFCB820613D8E00D28D42 /* Heatmap */; };
+		4B9EFCBD20613D8F00D28D42 /* Clustering in Resources */ = {isa = PBXBuildFile; fileRef = 4B9EFCB920613D8E00D28D42 /* Clustering */; };
+		4B9EFCBE20613D8F00D28D42 /* Geometry in Resources */ = {isa = PBXBuildFile; fileRef = 4B9EFCBA20613D8E00D28D42 /* Geometry */; };
+		4B9EFCBF20613D8F00D28D42 /* QuadTree in Resources */ = {isa = PBXBuildFile; fileRef = 4B9EFCBB20613D8F00D28D42 /* QuadTree */; };
 		4BB77E8D20515C84002175A8 /* RCLCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */; };
 		4BB77E8F20515F0B002175A8 /* RCLCatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */; };
 		4BF30B8C205AAA2A009E4FFA /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF30B8A205AAA2A009E4FFA /* GameVC.swift */; };
@@ -93,6 +97,11 @@
 		1B548D80205AED9C001AC38E /* RCLStatisticsVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RCLStatisticsVCViewController.swift; path = Recycler/Controllers/RCLStatisticsVCViewController.swift; sourceTree = SOURCE_ROOT; };
 		34A7A3AA16A34D7B20BE7365 /* Pods-Recycler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.release.xcconfig"; sourceTree = "<group>"; };
 		4A90D50215391FF5A8AD7E8F /* Pods-Recycler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recycler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recycler/Pods-Recycler.debug.xcconfig"; sourceTree = "<group>"; };
+		4B9EFCB820613D8E00D28D42 /* Heatmap */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Heatmap; sourceTree = "<group>"; };
+		4B9EFCB920613D8E00D28D42 /* Clustering */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Clustering; sourceTree = "<group>"; };
+		4B9EFCBA20613D8E00D28D42 /* Geometry */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Geometry; sourceTree = "<group>"; };
+		4B9EFCBB20613D8F00D28D42 /* QuadTree */ = {isa = PBXFileReference; lastKnownFileType = folder; path = QuadTree; sourceTree = "<group>"; };
+		4BB4359A206100EC00EAF24D /* RCLmarker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCLmarker.h; sourceTree = "<group>"; };
 		4BB77E8C20515C84002175A8 /* RCLCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogVC.swift; sourceTree = "<group>"; };
 		4BB77E8E20515F0B002175A8 /* RCLCatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCLCatalogTableViewCell.swift; sourceTree = "<group>"; };
 		4BF30B8A205AAA2A009E4FFA /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
@@ -182,6 +191,17 @@
 			path = JSONParsing;
 			sourceTree = "<group>";
 		};
+		4B9EFCB720613D6600D28D42 /* Google-Maps-iOS-Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4B9EFCB920613D8E00D28D42 /* Clustering */,
+				4B9EFCBA20613D8E00D28D42 /* Geometry */,
+				4B9EFCB820613D8E00D28D42 /* Heatmap */,
+				4B9EFCBB20613D8F00D28D42 /* QuadTree */,
+			);
+			path = "Google-Maps-iOS-Utils";
+			sourceTree = "<group>";
+		};
 		4BAB4D4C204D47AE0005C16B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				6F8CF68D2058595E00AF8AE9 /* TrashLocation.swift */,
+				4B9EFCB720613D6600D28D42 /* Google-Maps-iOS-Utils */,
 				6F8CF68E2058595E00AF8AE9 /* TrashLocationDelegate.swift */,
 				1B2D07A720572639007A56CB /* JSONParsing */,
 				19338E032046D34E007BD6E3 /* GoogleService-Info.plist */,
@@ -243,6 +264,7 @@
 				6F12060A204574E20042056E /* Assets.xcassets */,
 				19F5AF032049386100ADF338 /* Model */,
 				6F12060F204574E20042056E /* Info.plist */,
+				4BB4359A206100EC00EAF24D /* RCLmarker.h */,
 			);
 			path = Recycler;
 			sourceTree = "<group>";
@@ -379,13 +401,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				19E29F29205913B1000DAC93 /* RCLIssuesCell.xib in Resources */,
+				4B9EFCBE20613D8F00D28D42 /* Geometry in Resources */,
 				A39BEAB32049787F005A3A87 /* Catalog.storyboard in Resources */,
+				4B9EFCBD20613D8F00D28D42 /* Clustering in Resources */,
 				A39BEAAA204971B8005A3A87 /* TabBar.storyboard in Resources */,
 				D374B6462058043700BB129C /* RCLTakenCell.xib in Resources */,
 				A39BEAB520497892005A3A87 /* Profile.storyboard in Resources */,
 				A39BEAAF20497812005A3A87 /* Map.storyboard in Resources */,
 				A39BEAAD204977E4005A3A87 /* Dashboard.storyboard in Resources */,
+				4B9EFCBC20613D8F00D28D42 /* Heatmap in Resources */,
 				D331CE4C204EC0B0001D0A90 /* Main.storyboard in Resources */,
+				4B9EFCBF20613D8F00D28D42 /* QuadTree in Resources */,
 				D3A9189D2058001700395239 /* EmpTabBar.storyboard in Resources */,
 				A39BEAB12049785A005A3A87 /* Scan.storyboard in Resources */,
 				6F12060E204574E20042056E /* LaunchScreen.storyboard in Resources */,
