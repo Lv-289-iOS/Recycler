@@ -32,6 +32,7 @@ extension UITextField {
             }
         }
         set {
+            keyboardAppearance = .dark
             autocorrectionType = .no
             autocapitalizationType = .none
             textColor = UIColor.Font.White

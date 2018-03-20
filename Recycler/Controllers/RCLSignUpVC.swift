@@ -10,23 +10,23 @@ import UIKit
 
 class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     
-    @IBOutlet weak var firstAndLastNameUIImageView: UIImageView!
-    @IBOutlet weak var passwordUIImageView: UIImageView!
-    @IBOutlet weak var passwordConfirmationUIImageView: UIImageView!
-    @IBOutlet weak var phoneUIImageView: UIImageView!
-    @IBOutlet weak var emailUIImageView: UIImageView!
+    @IBOutlet private weak var firstAndLastNameUIImageView: UIImageView!
+    @IBOutlet private weak var passwordUIImageView: UIImageView!
+    @IBOutlet private weak var passwordConfirmationUIImageView: UIImageView!
+    @IBOutlet private weak var phoneUIImageView: UIImageView!
+    @IBOutlet private weak var emailUIImageView: UIImageView!
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmationPasswordTextField: UITextField!
-    @IBOutlet weak var phoneTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var lastNameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var confirmationPasswordTextField: UITextField!
+    @IBOutlet private weak var phoneTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     
-    @IBOutlet weak var backButtonOutlet: UIButton!
-    @IBOutlet weak var loginButtonOutlet: UIButton!
+    @IBOutlet private weak var backButtonOutlet: UIButton!
+    @IBOutlet private weak var loginButtonOutlet: UIButton!
     
-    @IBAction func loginButton(_ sender: UIButton) {
+    @IBAction private func loginButton(_ sender: UIButton) {
         if validator {
             authentificator.createUser(userName: nameTextField.text!, userLastName: lastNameTextField.text!, email: emailTextField.text!, phone: phoneTextField.text!, password: passwordTextField.text!)
         } else {
@@ -34,21 +34,21 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         }
     }
     
-    @IBAction func backButton(_ sender: UIButton) {
+    @IBAction private func backButton(_ sender: UIButton) {
         if self.navigationController?.popToRootViewController(animated: true) == nil {
             self.dismiss(animated: true, completion: nil)
         }
     }
     
-    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
-    var formatter = RCLFormatter()
-    var authentificator = RCLAuthentificator()
-    var isAllFieldsValid = true
+    private let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
+    private var formatter = RCLFormatter()
+    private var authentificator = RCLAuthentificator()
+    private var isAllFieldsValid = true
     
-    var namesImage = #imageLiteral(resourceName: "avatar-1")
-    var passwordImage = #imageLiteral(resourceName: "padlock")
-    var phoneImage = #imageLiteral(resourceName: "phone-call")
-    var emailImage = #imageLiteral(resourceName: "envelope")
+    private var namesImage = #imageLiteral(resourceName: "avatar-1")
+    private var passwordImage = #imageLiteral(resourceName: "padlock")
+    private var phoneImage = #imageLiteral(resourceName: "phone-call")
+    private var emailImage = #imageLiteral(resourceName: "envelope")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         addTitleLabel(text: "Registration")
     }
     
-    func delegates() {
+    private func delegates() {
         nameTextField.delegate = self
         lastNameTextField.delegate = self
         passwordTextField.delegate = self
@@ -69,7 +69,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         emailTextField.delegate = self
     }
     
-    func styleViews() {
+    private func styleViews() {
         firstAndLastNameUIImageView.setRenderedImage(image: namesImage)
         passwordUIImageView.setRenderedImage(image: passwordImage)
         passwordConfirmationUIImageView.setRenderedImage(image: passwordImage)
@@ -91,7 +91,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         emailTextField.initialStyler()
     }
     
-    func styleTextField() {
+    private func styleTextField() {
         nameTextField.styleTextField()
         lastNameTextField.styleTextField()
         passwordTextField.styleTextField()
@@ -100,8 +100,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
         emailTextField.styleTextField()
     }
     
-    var validator: Bool {
-        get {
+    private var validator: Bool {
             styleTextField()
             var isAllFieldsValid: Bool = true
             isAllFieldsValid = isAllFieldsValid && nameTextField.valid
@@ -115,20 +114,19 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
                 isAllFieldsValid = false
             }
             return isAllFieldsValid
-        }
     }
     
-    func alert(text: String) {
+    internal func alert(text: String) {
         customAlert.modalPresentationStyle = .overCurrentContext
         present(customAlert, animated: true, completion: nil)
         customAlert.errorTextLabel?.text = text
     }
     
-    func transitionToCust() {
+    internal func transitionToCust() {
         performSegue(withIdentifier: "ToApp", sender: self)
     }
     
-    func transitionToEmpl() {
+    internal func transitionToEmpl() {
         performSegue(withIdentifier: "ToApp", sender: self)
     }
     
@@ -142,36 +140,36 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
 }
 
 extension RCLSignUpVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
-    func hideKeyboardOnTap(_ selector: Selector) {
+    internal func hideKeyboardOnTap(_ selector: Selector) {
         let tap = UITapGestureRecognizer(target: self, action: selector)
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
-    @objc func dismissKeyboard() {
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    internal func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.initialStyler()
         if (textField == phoneTextField) && textField.text?.count == 0 {
             textField.text = "+38("
         }
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    internal func textFieldDidEndEditing(_ textField: UITextField) {
         textField.styleTextField()
         if (textField == phoneTextField) && textField.text?.count == 4 {
             textField.text = ""
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         isAllFieldsValid = true
         if (textField == phoneTextField) {
             let decimalString = formatter.decimalFormatter(text: textField.text!, range: range, replacementString: string)

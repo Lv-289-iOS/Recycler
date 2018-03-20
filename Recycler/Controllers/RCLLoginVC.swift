@@ -10,26 +10,25 @@ import UIKit
 
 class RCLLoginVC: UIViewController, AuthServiceDelegate {
     
-    @IBOutlet weak var logoImage: UIImageView!
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInOutlet: UIButton!
-    @IBOutlet weak var signUpOutlet: UIButton!
+    @IBOutlet private weak var logoImage: UIImageView!
+    @IBOutlet private weak var loginTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var signInOutlet: UIButton!
+    @IBOutlet private weak var signUpOutlet: UIButton!
     
-    @IBAction func signInButton(_ sender: Any) {
+    @IBAction private func signInButton(_ sender: Any) {
         guard let login = loginTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         authentificator.login(login: login, password: password)
     }
     
-    @IBAction func signUpButton(_ sender: Any) {
+    @IBAction private func signUpButton(_ sender: Any) {
         performSegue(withIdentifier: "ToSignUp", sender: self)
     }
     
-    var authentificator = RCLAuthentificator()
-    var users = [User]()
-    var image = #imageLiteral(resourceName: "logo")
-    let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
+    private var authentificator = RCLAuthentificator()
+    private var image = #imageLiteral(resourceName: "logo")
+    private let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +44,13 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         authentificator.isAUserActive()
     }
     
-    func delegates() {
+    private func delegates() {
         authentificator.delegate = self
         loginTextField.delegate = self
         passwordTextField.delegate = self
     }
     
-    func styles() {
+    private func styles() {
         signInOutlet.styleButton()
         signUpOutlet.styleButton()
         loginTextField.textType = .emailAddress
@@ -61,17 +60,17 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         logoImage.image = image
     }
     
-    func alert(text: String) {
+    internal func alert(text: String) {
         customAlert.modalPresentationStyle = .overCurrentContext
         present(customAlert, animated: true, completion: nil)
         customAlert.errorTextLabel?.text = text
     }
     
-    func transitionToCust() {
+    internal func transitionToCust() {
         performSegue(withIdentifier: "ToApp", sender: self)
     }
     
-    func transitionToEmpl() {
+    internal func transitionToEmpl() {
         performSegue(withIdentifier: "ToEmp", sender: self)
     }
     
@@ -85,18 +84,18 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
 }
 
 extension RCLLoginVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
-    func hideKeyboardOnTap(_ selector: Selector) {
+    internal func hideKeyboardOnTap(_ selector: Selector) {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: selector)
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
-    @objc func dismissKeyboard() {
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
 }
