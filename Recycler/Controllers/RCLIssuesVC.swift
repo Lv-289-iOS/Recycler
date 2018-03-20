@@ -10,6 +10,10 @@ import UIKit
 
 class RCLIssuesVC: UIViewController {
 
+    @IBOutlet var popUp: UIView!
+    @IBOutlet weak var visualEfect: UIVisualEffectView!
+    var effect: UIVisualEffect!
+
     @IBOutlet weak var tableView: UITableView!
     let cellId = "RCLIssuesCell"
     let nib = "RCLIssuesCell"
@@ -19,6 +23,8 @@ class RCLIssuesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        effect = visualEfect.effect
+        visualEfect.effect = nil
         FirestoreService.shared.getDataForEmployer(status: .available) { (trashList, trashCanList, users) in
             self.trashList = trashList
             self.trashCanList = trashCanList
@@ -28,6 +34,39 @@ class RCLIssuesVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
+         addTitleLabel(text: "Issues")
+    }
+    
+    func animateIn() {
+        self.view.addSubview(popUp)
+        popUp.center = self.view.center
+        popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        popUp.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.visualEfect.effect = self.effect
+            self.popUp.alpha = 1
+            self.popUp.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.popUp.alpha = 0
+            self.visualEfect.effect = nil
+        }) { (success) in
+            self.popUp.removeFromSuperview()
+        }
+    }
+    
+    
+    @IBAction func assignToMe(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func dissmiss(_ sender: UIButton) {
+        animateOut()
     }
     
     private func viewSetup() {
@@ -45,7 +84,6 @@ extension RCLIssuesVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? RCLIssuesCell else {
             return UITableViewCell()
         }
-//        tableView.estimatedRowHeight = 93
         tableView.rowHeight = 93
         cell.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.selectionStyle = .none
@@ -54,6 +92,8 @@ extension RCLIssuesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        getTrash(forTrashCan: userTrashCans[indexPath.row])
+        let cell = tableView.cellForRow(at: indexPath) as! RCLIssuesCell
+        animateIn()
+        
     }
 }

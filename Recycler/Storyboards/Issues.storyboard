@@ -50,19 +50,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzW-xi-kuS">
-                                <rect key="frame" x="16" y="38" width="282" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rQO-af-Nwz" secondAttribute="trailing" id="03j-Oj-EQX"/>
-                            <constraint firstItem="IlC-hh-4Qv" firstAttribute="trailing" secondItem="vzW-xi-kuS" secondAttribute="trailing" constant="77" id="W3Y-6w-yqv"/>
-                            <constraint firstItem="vzW-xi-kuS" firstAttribute="leading" secondItem="IlC-hh-4Qv" secondAttribute="leading" constant="16" id="Wyy-da-PS3"/>
-                            <constraint firstItem="vzW-xi-kuS" firstAttribute="top" secondItem="nj0-yG-yPu" secondAttribute="top" constant="38" id="akS-xL-bej"/>
                             <constraint firstItem="rQO-af-Nwz" firstAttribute="leading" secondItem="nj0-yG-yPu" secondAttribute="leading" id="mkJ-Qu-mpB"/>
                             <constraint firstItem="rQO-af-Nwz" firstAttribute="top" secondItem="IlC-hh-4Qv" secondAttribute="top" constant="62" id="uR2-iu-Sgt"/>
                             <constraint firstItem="rQO-af-Nwz" firstAttribute="bottom" secondItem="IlC-hh-4Qv" secondAttribute="bottom" id="ym4-Ch-Jry"/>
@@ -71,6 +62,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="t1G-hU-ulc"/>
                     <connections>
+                        <outlet property="popUp" destination="uqU-ou-sot" id="ufM-24-ud6"/>
                         <outlet property="tableView" destination="rQO-af-Nwz" id="CKe-AN-ANU"/>
                     </connections>
                 </viewController>
@@ -85,6 +77,9 @@
                             <state key="normal" title="Absolutely">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="assignToMe:" destination="aN8-MD-5EP" eventType="touchUpInside" id="vhl-8T-Lr8"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAT-me-Acx">
                             <rect key="frame" x="144" y="78" width="67" height="30"/>
@@ -92,6 +87,9 @@
                             <state key="normal" title="Nope">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="dissmiss:" destination="aN8-MD-5EP" eventType="touchUpInside" id="bqo-4M-nSt"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are tou sure ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wX-WN-Bmf">
                             <rect key="frame" x="67" y="28" width="106" height="21"/>
