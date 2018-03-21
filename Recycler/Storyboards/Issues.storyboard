@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,12 +69,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igr-C2-nGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="uqU-ou-sot">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4A-YN-Pus">
-                            <rect key="frame" x="30" y="78" width="73" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want do take this task ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wX-WN-Bmf">
+                            <rect key="frame" x="6" y="15" width="268" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="do7-R5-gs8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4A-YN-Pus">
+                            <rect key="frame" x="37" y="103" width="85" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="85" id="myc-6s-K73"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Absolutely">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -81,9 +94,9 @@
                                 <action selector="assignToMe:" destination="aN8-MD-5EP" eventType="touchUpInside" id="vhl-8T-Lr8"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAT-me-Acx">
-                            <rect key="frame" x="144" y="78" width="67" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAT-me-Acx">
+                            <rect key="frame" x="159" y="103" width="85" height="37"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Nope">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -91,15 +104,20 @@
                                 <action selector="dissmiss:" destination="aN8-MD-5EP" eventType="touchUpInside" id="bqo-4M-nSt"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are tou sure ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wX-WN-Bmf">
-                            <rect key="frame" x="67" y="28" width="106" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="D4A-YN-Pus" secondAttribute="bottom" constant="20" symbolic="YES" id="AKL-ST-T5r"/>
+                        <constraint firstItem="gAT-me-Acx" firstAttribute="leading" secondItem="D4A-YN-Pus" secondAttribute="trailing" constant="37" id="GLH-O8-Cl0"/>
+                        <constraint firstItem="0wX-WN-Bmf" firstAttribute="top" secondItem="vtt-6n-8np" secondAttribute="top" constant="15" id="P76-MQ-9V2"/>
+                        <constraint firstItem="D4A-YN-Pus" firstAttribute="top" secondItem="gAT-me-Acx" secondAttribute="top" id="ZEf-Wu-4bR"/>
+                        <constraint firstItem="D4A-YN-Pus" firstAttribute="top" secondItem="0wX-WN-Bmf" secondAttribute="bottom" constant="24" id="Zux-T6-x64"/>
+                        <constraint firstItem="0wX-WN-Bmf" firstAttribute="leading" secondItem="vtt-6n-8np" secondAttribute="leading" constant="6" id="d1F-4w-Mdw"/>
+                        <constraint firstItem="D4A-YN-Pus" firstAttribute="baseline" secondItem="gAT-me-Acx" secondAttribute="firstBaseline" id="uuP-jt-w7p"/>
+                        <constraint firstItem="D4A-YN-Pus" firstAttribute="leading" secondItem="vtt-6n-8np" secondAttribute="leading" constant="37" id="uuQ-NF-6fY"/>
+                        <constraint firstItem="0wX-WN-Bmf" firstAttribute="centerX" secondItem="uqU-ou-sot" secondAttribute="centerX" id="uxH-eM-IPV"/>
+                        <constraint firstItem="vtt-6n-8np" firstAttribute="trailing" secondItem="gAT-me-Acx" secondAttribute="trailing" constant="36" id="v3U-Cx-Bk4"/>
+                    </constraints>
                     <viewLayoutGuide key="safeArea" id="vtt-6n-8np"/>
                 </view>
             </objects>

@@ -10,21 +10,21 @@ import UIKit
 
 class RCLTakenCell: UITableViewCell {
    
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var phone: UILabel!
-    @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var viewContainer: UIView!
     
-      var trashCan = TrashCan()
+    var data = (Trash(),TrashCan(),User())
     
-    func configureCell(forCan: TrashCan) {
+    func configureCell(forData: (Trash,TrashCan,User)) {
         colorsSetup()
-       self.trashCan = forCan
+       self.data = forData
       
-        switch trashCan.type {
+        switch data.1.type {
         case "plastic" :
             self.icon.image = #imageLiteral(resourceName: "trash_plastic")
         case "metal" :
@@ -37,7 +37,7 @@ class RCLTakenCell: UITableViewCell {
             self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
         var sizeName = ""
-        switch trashCan.size {
+        switch data.1.size {
         case 1:
             sizeName = "small"
         case 2:
@@ -49,14 +49,15 @@ class RCLTakenCell: UITableViewCell {
         default:
             sizeName = "medium"
         }
-        self.name.text = forCan.type
-        self.location.text = forCan.address
+        self.userName.text = data.0.userIdReportedFull
+        self.location.text = data.1.address
         self.size.text = sizeName
+        self.phone.text = data.2.phoneNumber
    
     }
     func colorsSetup() {
-        btn.backgroundColor = UIColor.Backgrounds.GrayLight
-        name.textColor = UIColor.Font.White
+//        btn.backgroundColor = UIColor.Backgrounds.GrayLight
+//        name.textColor = UIColor.Font.White
         location.textColor = UIColor.Font.Gray
         size.textColor = UIColor.Font.White
         viewContainer.layer.cornerRadius = CGFloat.Design.CornerRadius

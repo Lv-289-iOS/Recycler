@@ -210,35 +210,39 @@ class FirestoreService {
         }
     }
     
-    func getDataForEmployer(status: RCLTrashStatus, completion: @escaping ([Trash],[TrashCan],[User]) -> Void) {
+    func getDataForEmployer(status: RCLTrashStatus, userId: String? = nil, completion: @escaping ([(Trash,TrashCan,User)]) -> Void) {
         reference(to: .trash).whereField("status", isEqualTo: status.rawValue).addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {return}
             let group = DispatchGroup()
-            
-            var trashList = [Trash]()
-            var trashCanList = [TrashCan]()
-            var users = [User]()
+            var data = [(Trash,TrashCan,User)]()
             for document in snapshot.documents {
                 group.enter()
                 let trash = try? document.decode(as: Trash.self)
-                trashList.append(trash!)
-                
-                self.reference(to: .trashCan).document(trash!.trashCanId).getDocument(completion: { (snapshot, error) in
+                guard let unTrash = trash else{
+                    group.leave()
+                    return
+                }
+                self.reference(to: .trashCan).document(unTrash.trashCanId).getDocument(completion: { (snapshot, error) in
                 guard let snapshot = snapshot else {return}
                 let trashCan = try? snapshot.decode(as: TrashCan.self)
-                trashCanList.append(trashCan!)
-                    
-                    self.reference(to: .users).document(trash!.userIdReportedFull).getDocument(completion: { (snapshot, error) in
+                    guard let unTrashCan = trashCan else {
+                        group.leave()
+                        return
+                    }
+                    self.reference(to: .users).document(unTrash.userIdReportedFull).getDocument(completion: { (snapshot, error) in
                         guard let snapshot = snapshot else {return}
                         let user = try? snapshot.decode(as: User.self)
-                        users.append(user!)
+                        guard let unUser = user else {
+                            group.leave()
+                            return
+                        }
+                        data.append((unTrash,unTrashCan,unUser))
                         group.leave()
                     })
-                    
                 })
             }
             group.notify(queue: .main, execute: {
-                completion(trashList, trashCanList, users)
+                completion(data)
             })
         }
     }
