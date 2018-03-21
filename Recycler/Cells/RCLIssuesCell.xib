@@ -92,7 +92,7 @@
                 <outlet property="size" destination="ETs-sS-jzB" id="tlG-f1-6da"/>
                 <outlet property="viewContainer" destination="HY7-vv-MB4" id="oCw-Vi-CQ5"/>
             </connections>
-            <point key="canvasLocation" x="-202" y="49"/>
+            <point key="canvasLocation" x="-218" y="61"/>
         </tableViewCell>
     </objects>
     <resources>

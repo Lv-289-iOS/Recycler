@@ -16,17 +16,13 @@ class RCLIssuesCell: UITableViewCell {
     @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var viewContainer: UIView!
 
-    var trashCan = TrashCan()
-    var trash = Trash()
-    var user = User()
+    var data = (Trash(),TrashCan(),User())
     
-    func configureCell(forCan: TrashCan, forTrash: Trash, forUser: User) {
+    func configureCell(forData: (Trash,TrashCan,User)) {
         colorsSetup()
-        self.trashCan = forCan
-        self.trash = forTrash
-        self.user = forUser
-
-        switch trashCan.type {
+        self.data = forData
+        
+        switch data.1.type {
         case "plastic" :
             self.icon.image = #imageLiteral(resourceName: "trash_plastic")
         case "metal" :
@@ -39,7 +35,7 @@ class RCLIssuesCell: UITableViewCell {
             self.icon.image = #imageLiteral(resourceName: "trash_other")
         }
         var sizeName = ""
-        switch trashCan.size {
+        switch data.1.size {
         case 1:
             sizeName = "S"
         case 2:
@@ -51,11 +47,9 @@ class RCLIssuesCell: UITableViewCell {
         default:
             sizeName = "M"
         }
-//        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
-        self.location.text = forCan.address
+        self.location.text = data.1.address
         self.size.text = sizeName
-        self.phoneNumber.text = forUser.phoneNumber
-    
+        self.phoneNumber.text = data.2.phoneNumber
     }
     
     func colorsSetup() {

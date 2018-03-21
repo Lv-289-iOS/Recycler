@@ -11,50 +11,60 @@ import UIKit
 class RCLIssuesVC: UIViewController {
 
     @IBOutlet var popUp: UIView!
-    @IBOutlet weak var visualEfect: UIVisualEffectView!
-    var effect: UIVisualEffect!
-
     @IBOutlet weak var tableView: UITableView!
+
     let cellId = "RCLIssuesCell"
     let nib = "RCLIssuesCell"
-    var trashList = [Trash]()
-    var trashCanList = [TrashCan]()
-    var users = [User]()
+    var data = [(Trash,TrashCan,User)]()
+    var arrIndex: Int?
+    var user = currentUser
+    
+    var blurEffect: UIBlurEffect!
+    var blurView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        effect = visualEfect.effect
-        visualEfect.effect = nil
-        FirestoreService.shared.getDataForEmployer(status: .available) { (trashList, trashCanList, users) in
-            self.trashList = trashList
-            self.trashCanList = trashCanList
-            self.users = users
-            self.tableView.reloadData()
-        }
+        self.blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        self.blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        blurView.center = view.center
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
-         addTitleLabel(text: "Issues")
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        FirestoreService.shared.getDataForEmployer(status: .available) { data in
+            self.data = data
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        popUp.layer.cornerRadius = 5
+        addTitleLabel(text: "Issues")
+        self.tableView.reloadData()
     }
     
     func animateIn() {
+        view.addSubview(blurView)
         self.view.addSubview(popUp)
         popUp.center = self.view.center
         popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         popUp.alpha = 0
         
         UIView.animate(withDuration: 0.4) {
-            self.visualEfect.effect = self.effect
             self.popUp.alpha = 1
             self.popUp.transform = CGAffineTransform.identity
         }
     }
     
     func animateOut(){
+        self.blurView.removeFromSuperview()
         UIView.animate(withDuration: 0.3, animations: {
             self.popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.popUp.alpha = 0
-            self.visualEfect.effect = nil
         }) { (success) in
             self.popUp.removeFromSuperview()
         }
@@ -62,7 +72,13 @@ class RCLIssuesVC: UIViewController {
     
     
     @IBAction func assignToMe(_ sender: UIButton) {
-        
+        let tuple = data.remove(at: arrIndex!)
+        var trash = tuple.0
+        trash.status = RCLTrashStatus.taken.rawValue
+        trash.userIdReportedEmpty = user.id
+        FirestoreService.shared.update(for: trash, in: .trash)
+        tableView.reloadData()
+        animateOut()
     }
     
     @IBAction func dissmiss(_ sender: UIButton) {
@@ -77,7 +93,7 @@ class RCLIssuesVC: UIViewController {
 
 extension RCLIssuesVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  trashList.count
+        return  data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,13 +103,12 @@ extension RCLIssuesVC: UITableViewDataSource, UITableViewDelegate {
         tableView.rowHeight = 93
         cell.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.selectionStyle = .none
-        cell.configureCell(forCan: trashCanList[indexPath.row], forTrash: trashList[indexPath.row], forUser: users[indexPath.row])
+        cell.configureCell(forData: data[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! RCLIssuesCell
         animateIn()
-        
+        arrIndex = indexPath.row
     }
 }
