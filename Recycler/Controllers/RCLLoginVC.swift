@@ -26,7 +26,7 @@ class RCLLoginVC: UIViewController, AuthServiceDelegate {
         performSegue(withIdentifier: "ToSignUp", sender: self)
     }
     
-    private var authentificator = RCLAuthentificator()
+    private var authentificator = RCLAuthentificator.shared
     private var image = #imageLiteral(resourceName: "logo")
     private let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
     

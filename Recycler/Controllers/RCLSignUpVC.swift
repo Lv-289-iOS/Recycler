@@ -42,7 +42,7 @@ class RCLSignUpVC: UIViewController, AuthServiceDelegate {
     
     private let customAlert = RCLCustomAlertVC(nibName: "RCLCustomAlertVC", bundle: nil)
     private var formatter = RCLFormatter()
-    private var authentificator = RCLAuthentificator()
+    private var authentificator = RCLAuthentificator.shared
     private var isAllFieldsValid = true
     
     private var namesImage = #imageLiteral(resourceName: "avatar-1")

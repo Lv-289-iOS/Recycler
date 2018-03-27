@@ -19,6 +19,9 @@ protocol AuthServiceDelegate: class {
 class RCLAuthentificator {
     weak var delegate: AuthServiceDelegate?
     
+    private init() { }
+    static let shared = RCLAuthentificator()
+    
     func createUser(userName: String, userLastName: String, email: String, phone: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) {[weak self] (user, error) in
             if error == nil {
@@ -72,7 +75,7 @@ class RCLAuthentificator {
         }
     }
     
-    static func signOut() {
+    class func signOut() {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -81,7 +84,8 @@ class RCLAuthentificator {
         }
     }
     
-    static func email() -> String {
+    
+    class func email() -> String {
         if let user = Auth.auth().currentUser {
             if let userEmail = user.email {
                 return userEmail
