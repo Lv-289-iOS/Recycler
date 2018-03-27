@@ -9,7 +9,7 @@
 import UIKit
 
 class RCLTakenCell: UITableViewCell {
-   
+    
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var phone: UILabel!
@@ -23,7 +23,7 @@ class RCLTakenCell: UITableViewCell {
     func configureCell(forData: (Trash,TrashCan,User)) {
         colorsSetup()
        self.data = forData
-      
+
         switch data.1.type {
         case "plastic" :
             self.icon.image = #imageLiteral(resourceName: "trash_plastic")
@@ -39,30 +39,33 @@ class RCLTakenCell: UITableViewCell {
         var sizeName = ""
         switch data.1.size {
         case 1:
-            sizeName = "small"
+            sizeName = "S"
         case 2:
-            sizeName = "medium"
+            sizeName = "M"
         case 3:
-            sizeName = "large"
+            sizeName = "L"
         case 4:
-            sizeName = "extraL"
+            sizeName = "XL"
         default:
-            sizeName = "medium"
+            sizeName = "m"
         }
-        self.userName.text = data.0.userIdReportedFull
+        self.userName.text = "\(data.2.firstName) \(data.2.lastName)"
         self.location.text = data.1.address
         self.size.text = sizeName
         self.phone.text = data.2.phoneNumber
-   
+        self.status.text = data.0.status.uppercased()
     }
     func colorsSetup() {
-//        btn.backgroundColor = UIColor.Backgrounds.GrayLight
-//        name.textColor = UIColor.Font.White
+        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLight
         location.textColor = UIColor.Font.Gray
         size.textColor = UIColor.Font.White
         viewContainer.layer.cornerRadius = CGFloat.Design.CornerRadius
+        size.textColor = UIColor.Font.White
+        backgroundColor = UIColor.clear
+        status.backgroundColor = UIColor.Backgrounds.GrayDark
+        status.layer.masksToBounds = true
+        status.layer.cornerRadius = 6
         
-        backgroundColor = UIColor.Backgrounds.GrayDark
     }
     
 }

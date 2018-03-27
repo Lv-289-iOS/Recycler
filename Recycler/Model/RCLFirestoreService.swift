@@ -211,7 +211,13 @@ class FirestoreService {
     }
     
     func getDataForEmployer(status: RCLTrashStatus, userId: String? = nil, completion: @escaping ([(Trash,TrashCan,User)]) -> Void) {
-        reference(to: .trash).whereField("status", isEqualTo: status.rawValue).addSnapshotListener { (snapshot, error) in
+        let query: Query?
+        if let id = userId {
+             query = reference(to: .trash).whereField("status", isEqualTo: status.rawValue).whereField("userIdReportedEmpty", isEqualTo: id)
+        }else {
+           query = reference(to: .trash).whereField("status", isEqualTo: status.rawValue)
+        }
+        query?.addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {return}
             let group = DispatchGroup()
             var data = [(Trash,TrashCan,User)]()
