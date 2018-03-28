@@ -10,10 +10,21 @@ import UIKit
 
 class RCLTakenVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var inProgress: UILabel!
+    @IBOutlet weak var done: UILabel!
+
     
     let cellId = "RCLTakenCell"
     let nib = "RCLTakenCell"
     var data = [(Trash,TrashCan,User)]()
+    
+    @IBAction func logOut(_ sender: UIButton) {
+        RCLAuthentificator.signOut()
+        let st = UIStoryboard(name: "Main", bundle: nil)
+        guard let loginVC = st.instantiateViewController(withIdentifier: "LoginVC") as? RCLLoginVC else {return}
+        self.present(loginVC, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +33,18 @@ class RCLTakenVC: UIViewController {
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        currentUser
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.backgroundColor = UIColor.Backgrounds.GrayDark
+        addTitleLabel(text: "MyTasks")
+        name.text = "\(currentUser.firstName) \(currentUser.lastName)"
+        inProgress.text = "In progress: \(5)"
+        done.text = "Done: \(2)"
+        FirestoreService.shared.getDataForEmployer(status: .taken) { data in
+            self.data = data
+            self.tableView.reloadData()
+        }
     }
+    
   }
 
 extension RCLTakenVC: UITableViewDataSource, UITableViewDelegate {
@@ -36,9 +56,7 @@ extension RCLTakenVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? RCLTakenCell else {
             return UITableViewCell()
         }
-        tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
-        cell.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.selectionStyle = .none
         cell.configureCell(forData: data[indexPath.row])
         return cell
@@ -47,5 +65,4 @@ extension RCLTakenVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
-    
 }

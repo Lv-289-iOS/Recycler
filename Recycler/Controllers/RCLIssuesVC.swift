@@ -31,20 +31,17 @@ class RCLIssuesVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(UINib(nibName: nib, bundle: nil ), forCellReuseIdentifier: cellId)
-        
+        popUp.layer.cornerRadius = 5
+        self.view.backgroundColor = UIColor.Backgrounds.GrayDark
+        addTitleLabel(text: "Issues")
     }
-    override func viewWillAppear(_ animated: Bool) {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         FirestoreService.shared.getDataForEmployer(status: .available) { data in
             self.data = data
             self.tableView.reloadData()
         }
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        popUp.layer.cornerRadius = 5
-        addTitleLabel(text: "Issues")
-        self.tableView.reloadData()
     }
     
     func animateIn() {
@@ -101,7 +98,6 @@ extension RCLIssuesVC: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         tableView.rowHeight = 93
-        cell.backgroundColor = UIColor.Backgrounds.GrayLight
         cell.selectionStyle = .none
         cell.configureCell(forData: data[indexPath.row])
         return cell

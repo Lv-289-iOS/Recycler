@@ -53,13 +53,12 @@ class RCLIssuesCell: UITableViewCell {
     }
     
     func colorsSetup() {
-        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLighter
+        viewContainer.backgroundColor = UIColor.Backgrounds.GrayLight
         location.textColor = UIColor.Font.Gray
         size.textColor = UIColor.Font.White
         viewContainer.layer.cornerRadius = CGFloat.Design.CornerRadius
         size.textColor = UIColor.Font.White
         backgroundColor = UIColor.clear
-//            UIColor.Backgrounds.GrayDark
     }
     
 }
