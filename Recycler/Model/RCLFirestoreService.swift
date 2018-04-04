@@ -150,15 +150,14 @@ class FirestoreService {
     }
     
 
-    func getTrashBy(oneDay: Date, completion: @escaping ([Trash]) -> Void) {
+    func getTrashBy(oneMonth: Date, completion: @escaping ([Trash]) -> Void) {
         var components = DateComponents()
         let calendar = Calendar.current
-        components.year = calendar.component(.year, from: oneDay)
-        components.month = calendar.component(.month, from: oneDay)
-        components.day = calendar.component(.day, from: oneDay) + 1
+        components.year = calendar.component(.year, from: oneMonth)
+        components.month = calendar.component(.month, from: oneMonth) + 1
         let dateLess = calendar.date(from: components)
-        guard let secondDate = dateLess else{return}
-        let first = oneDay.timeIntervalSinceReferenceDate as Double
+        guard let secondDate = dateLess else {return}
+        let first = oneMonth.timeIntervalSinceReferenceDate as Double
         let second = secondDate.timeIntervalSinceReferenceDate as Double
         reference(to: .trash)
         .whereField("dateReportedFull", isGreaterThan: first)
@@ -175,6 +174,28 @@ class FirestoreService {
         }
     }
     
+    func getTrashBy(oneYear: Date, completion: @escaping ([Trash]) -> Void) {
+        var components = DateComponents()
+        let calendar = Calendar.current
+        components.year = calendar.component(.year, from: oneYear) + 1
+        let dateLess = calendar.date(from: components)
+        guard let secondDate = dateLess else {return}
+        let first = oneYear.timeIntervalSinceReferenceDate as Double
+        let second = secondDate.timeIntervalSinceReferenceDate as Double
+        reference(to: .trash)
+            .whereField("dateReportedFull", isGreaterThan: first)
+            .whereField("dateReportedFull", isLessThan: second).addSnapshotListener { (snapshot, error) in
+                guard let snapshot = snapshot else {return}
+                var trashList = [Trash]()
+                for document in snapshot.documents{
+                    let trash = try? document.decode(as: Trash.self)
+                    if let obj = trash{
+                        trashList.append(obj)
+                    }
+                }
+                completion(trashList)
+        }
+    }
     
     func getLatestTrashBy(trashCanId: String, completion: @escaping (Trash?) -> Void) {
         reference(to: .trash)
