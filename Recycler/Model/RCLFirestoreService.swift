@@ -150,7 +150,7 @@ class FirestoreService {
     }
     
 
-    func getTrashBy(oneMonth: Date, completion: @escaping ([Trash]) -> Void) {
+    func getTrashBy(oneMonth: Date, completion: @escaping ([Trash]) -> Void) { //parameter onMonth must have components.year, components.month
         var components = DateComponents()
         let calendar = Calendar.current
         components.year = calendar.component(.year, from: oneMonth)
@@ -174,10 +174,14 @@ class FirestoreService {
         }
     }
     
-    func getTrashBy(oneYear: Date, completion: @escaping ([Trash]) -> Void) {
+    func getTrashBy(oneYear: Date, completion: @escaping ([Trash]) -> Void) {//parameter onMonth must have components.year
         var components = DateComponents()
         let calendar = Calendar.current
         components.year = calendar.component(.year, from: oneYear) + 1
+//        components.month = 0
+//        components.day = 0
+//        components.hour = 0
+//        
         let dateLess = calendar.date(from: components)
         guard let secondDate = dateLess else {return}
         let first = oneYear.timeIntervalSinceReferenceDate as Double
