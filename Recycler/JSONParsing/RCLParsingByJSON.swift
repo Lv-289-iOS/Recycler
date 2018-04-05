@@ -36,6 +36,8 @@ class RLCParsingByJSON {
 
     var tempDict = [TrashFromJson]()
 
+    
+    
     func temp(_ completion: @escaping (_ trashList: [TrashFromJson]?, _ error: String?)->Void ) {
         
         func executeCompletion(_ trashList: [TrashFromJson]?, _ error: String?) {
