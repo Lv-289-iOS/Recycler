@@ -38,6 +38,9 @@ class RCLDashboardVC: UIViewController {
         chartView.layers = [createCustomViewsLayer(), createTextLayer()]
         getTrashCans(forUser : currentUser)
         chartView.models = createModels()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.chartView.models = self.createModels()
+        })
 
     }
     override func viewWillAppear(_ animated: Bool) {
