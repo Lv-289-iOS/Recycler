@@ -11,8 +11,8 @@ import UIKit
 class RCLTakenVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var inProgress: UILabel!
-    @IBOutlet weak var done: UILabel!
+    @IBOutlet weak var userView: UIView!
+    
 
     
     let cellId = "RCLTakenCell"
@@ -36,9 +36,9 @@ class RCLTakenVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.view.backgroundColor = UIColor.Backgrounds.GrayDark
         addTitleLabel(text: "MyTasks")
-        name.text = "\(currentUser.firstName) \(currentUser.lastName)"
-        inProgress.text = "In progress: \(5)"
-        done.text = "Done: \(2)"
+        userView.layer.cornerRadius = 10
+        userView.backgroundColor = UIColor.Backgrounds.GrayLight
+        name.text = "User: \(currentUser.firstName) \(currentUser.lastName)"
         FirestoreService.shared.getDataForEmployer(status: .taken) { data in
             self.data = data
             self.tableView.reloadData()

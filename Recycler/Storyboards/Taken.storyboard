@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cm4-7g-h9V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cm4-7g-h9V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-dq-yG3">
-                                <rect key="frame" x="0.0" y="171" width="375" height="447"/>
+                                <rect key="frame" x="0.0" y="186" width="375" height="432"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -35,24 +35,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMX-I4-FVZ">
-                                <rect key="frame" x="0.0" y="40" width="375" height="126"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHF-i9-4Tc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHF-i9-4Tc">
                                         <rect key="frame" x="8" y="15" width="156" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In progress: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-dG-axM">
-                                        <rect key="frame" x="8" y="53" width="105" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Done: 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3L-Vo-BPx">
-                                        <rect key="frame" x="8" y="90" width="61" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,21 +67,20 @@
                         <constraints>
                             <constraint firstItem="bMX-I4-FVZ" firstAttribute="trailing" secondItem="LHI-dq-yG3" secondAttribute="trailing" id="KUM-r4-mb7"/>
                             <constraint firstItem="bMX-I4-FVZ" firstAttribute="leading" secondItem="LHI-dq-yG3" secondAttribute="leading" id="MHx-nU-22U"/>
-                            <constraint firstItem="LHI-dq-yG3" firstAttribute="top" secondItem="bMX-I4-FVZ" secondAttribute="bottom" constant="5" id="U4c-kc-KjD"/>
+                            <constraint firstItem="LHI-dq-yG3" firstAttribute="top" secondItem="bMX-I4-FVZ" secondAttribute="bottom" constant="38" id="U4c-kc-KjD"/>
                             <constraint firstItem="qzL-Wu-ivi" firstAttribute="trailing" secondItem="bMX-I4-FVZ" secondAttribute="trailing" id="bY8-v6-rW1"/>
-                            <constraint firstItem="bMX-I4-FVZ" firstAttribute="top" secondItem="qzL-Wu-ivi" secondAttribute="top" constant="20" id="fra-dm-E7K"/>
+                            <constraint firstItem="bMX-I4-FVZ" firstAttribute="top" secondItem="qzL-Wu-ivi" secondAttribute="top" constant="64" id="fra-dm-E7K"/>
                             <constraint firstItem="bMX-I4-FVZ" firstAttribute="leading" secondItem="qzL-Wu-ivi" secondAttribute="leading" id="lYn-5R-8Fp"/>
-                            <constraint firstAttribute="bottom" secondItem="bMX-I4-FVZ" secondAttribute="bottom" constant="501" id="uLt-7K-eck"/>
+                            <constraint firstAttribute="bottom" secondItem="bMX-I4-FVZ" secondAttribute="bottom" constant="519" id="uLt-7K-eck"/>
                             <constraint firstItem="LHI-dq-yG3" firstAttribute="bottom" secondItem="qzL-Wu-ivi" secondAttribute="bottom" id="vki-wI-cRV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qzL-Wu-ivi"/>
                     </view>
                     <navigationItem key="navigationItem" id="dN3-MU-vzj"/>
                     <connections>
-                        <outlet property="done" destination="Z3L-Vo-BPx" id="gou-XY-h90"/>
-                        <outlet property="inProgress" destination="fd7-dG-axM" id="0GS-Oe-KfQ"/>
                         <outlet property="name" destination="YHF-i9-4Tc" id="gxk-WC-fqM"/>
                         <outlet property="tableView" destination="LHI-dq-yG3" id="R91-F5-cG5"/>
+                        <outlet property="userView" destination="bMX-I4-FVZ" id="i7X-Jl-BgS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26W-fg-lXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,7 +91,7 @@
         <scene sceneID="tQu-UV-sFL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Cm4-7g-h9V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MyTasks" id="9Qf-Tj-EZ2"/>
+                    <tabBarItem key="tabBarItem" title="MyTasks" image="avatar" id="9Qf-Tj-EZ2"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o94-cX-JG8">
@@ -122,4 +107,7 @@
             <point key="canvasLocation" x="-444" y="62"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="avatar" width="21" height="25"/>
+    </resources>
 </document>
