@@ -12,7 +12,7 @@ import CoreLocation
 
 class RCLMapVC: UIViewController,CLLocationManagerDelegate {
     
-    private var clusterManager: GMUClusterManager!
+    private var clusterManager: GMUClusterManager?
     private var locationManager = CLLocationManager()
     private var userLocation = CLLocation()
     
@@ -49,8 +49,8 @@ class RCLMapVC: UIViewController,CLLocationManagerDelegate {
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
         clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
-        clusterManager.setDelegate(self, mapDelegate: self)
-        clusterManager.cluster()
+        clusterManager?.setDelegate(self, mapDelegate: self)
+        clusterManager?.cluster()
     }
     
     private func initMarkers() {
@@ -58,19 +58,14 @@ class RCLMapVC: UIViewController,CLLocationManagerDelegate {
         parsed.temp { (trashList, error) in
             if error == nil {
                 for trash in trashList! {
-//                    let marker = GMSMarker()
-//                    marker.title = trash.nameInJson
-//                    marker.snippet = "Кількість смітників: \(trash.numberOfRaffleInJson)"
-//                    marker.map = self.mapView
-                    let lat = trash.coordinate.latitude
+               let lat = trash.coordinate.latitude
                     let lng = trash.coordinate.longitude
                     let name = trash.nameInJson
                     let item = POIItem(position: CLLocationCoordinate2DMake(lat, lng), name: name)
-                    self.clusterManager.add(item)
+                    self.clusterManager?.add(item)
                 }
             }
             self.animateCameraTo(coordinate: self.userLocation.coordinate, zoom: 17)
-            print("TrashCount \(String(describing: trashList?.count)) error: \(String(describing: error))")
         }
     }
     

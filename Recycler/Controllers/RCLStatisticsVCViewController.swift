@@ -144,7 +144,7 @@ class RCLStatisticsVCViewController: UIViewController {
         
         
         let data = LineChartData()
-        _ = zip(lines3, colors).compactMap {
+        _ = zip(lines3, colors).flatMap {
             $0.0.colors = [$0.1]
             $0.0.valueTextColor = $0.1
             data.addDataSet($0.0)
