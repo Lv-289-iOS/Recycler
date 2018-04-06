@@ -41,7 +41,6 @@ class RCLDashboardVC: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
             self.chartView.models = self.createModels()
         })
-
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -81,7 +80,6 @@ class RCLDashboardVC: UIViewController {
 
     private func createModels() -> [PieSliceModel] {
 
-        //var slices = [PieSliceModel]()
         var plastic = 0
         var metal = 0
         var organic = 0
@@ -156,7 +154,6 @@ class RCLDashboardVC: UIViewController {
             
             {
             slice, center in
-            print(slice)
             let container = UIView()
             container.frame.size = CGSize(width: 100, height: 40)
             container.center = center
@@ -182,15 +179,10 @@ class RCLDashboardVC: UIViewController {
                             return "trash_batteries"
                         default:
                             return nil
-                        
                     }
-                
                 }()
-
-
             view.image = imageName.flatMap{UIImage(named: $0)}
             view.contentMode = .scaleAspectFit
-
             return container
         }
     }
