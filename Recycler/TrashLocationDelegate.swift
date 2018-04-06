@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TrashLocationDelegate {
+protocol TrashLocationDelegate: class {
     
     func setLocation(location: TrashLocation)
 }
