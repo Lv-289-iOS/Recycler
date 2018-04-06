@@ -14,7 +14,7 @@ import CoreLocation
 
 class RCLAddTrashLocationVC: UIViewController {
     
-    var trashLocationDelegate: TrashLocationDelegate?
+   weak var trashLocationDelegate: TrashLocationDelegate?
     
     private var locationManager = CLLocationManager()
     private var userLocation = CLLocation()
@@ -27,13 +27,16 @@ class RCLAddTrashLocationVC: UIViewController {
     @IBOutlet weak var addLocationBtn: UIButton!
     
     @IBAction func addLocationBtn(_ sender: UIButton) {
-        geocoder.reverseGeocodeCoordinate(marker.position) { (response, error) in
+        geocoder.reverseGeocodeCoordinate(marker.position) {[weak self ] (response, error) in
             guard error == nil else { return }
             if let result = response?.firstResult()?.lines?.first {
-                self.trashLocation.name = result
-                self.trashLocation.latitude = self.marker.position.latitude
-                self.trashLocation.longitude = self.marker.position.longitude
-                self.completeAddingLocation()
+                if let weakSelf = self {
+                    weakSelf.trashLocation.name = result
+                    weakSelf.trashLocation.latitude = weakSelf.marker.position.latitude
+                    weakSelf.trashLocation.longitude = weakSelf.marker.position.longitude
+                    weakSelf.completeAddingLocation()
+                }
+                
             }
         }
         _ = navigationController?.popViewController(animated: true)
